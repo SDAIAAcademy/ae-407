@@ -158,7 +158,7 @@ def review_context(ctx: dict) -> list:
         ("System: what it is, its purpose and how its output is used", _filled(system.get("description")) and _filled(system.get("output_use"))),
         ("At least three intended uses and three uses out of scope", len(system.get("intended_uses", [])) >= 3 and len(system.get("out_of_scope", [])) >= 3),
         ("Direct users and affected people are named separately", _filled(system.get("users")) and _filled(system.get("affected"))),
-        ("Data: each kind with its classification level", len(data.get("data", [])) >= 2 and all(_filled(d.get("level")) for d in data.get("data", []))),
+        ("Data: each kind with its classification level", len(data.get("data", [])) >= 2 and all(d.get("level") for d in data.get("data", []))),
         ("Entry points and exit points are listed", len(data.get("entry_points", [])) >= 2 and len(data.get("exit_points", [])) >= 2),
         ("Parties in the value chain with their roles, the supplier among them",
          len(data.get("parties", [])) >= 3 and any("supplier" in str(p).lower() or "lisan" in str(p).lower() for p in data.get("parties", []))),

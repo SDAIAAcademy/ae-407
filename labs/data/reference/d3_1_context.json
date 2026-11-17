@@ -1,0 +1,87 @@
+{
+ "system": {
+  "description": "Katib is an agent built on a hosted language model. It reads one case file and drafts the status or decision letter for it.",
+  "output_use": "A signed-in case worker sees the draft; in the pilot the letter is emailed to the applicant when the case worker presses Send.",
+  "intended_uses": [
+   "Draft the letter for the case file a case worker opened",
+   "Look up the published rules of the benefit concerned",
+   "Send the approved letter to the applicant's registered address"
+  ],
+  "out_of_scope": [
+   "Deciding eligibility or changing a payment",
+   "Contacting anyone other than the applicant of the case",
+   "Searching cases for any purpose other than the open file"
+  ],
+  "users": "Twelve case workers of the case-work department; two in the pilot",
+  "affected": "Benefit applicants: they receive the letters and their records are read, and they never use the agent"
+ },
+ "data": {
+  "data": [
+   {
+    "what": "Case records: identifier, bank number, amounts, health notes on disability cases",
+    "level": "Restricted"
+   },
+   {
+    "what": "The applicant's own statement",
+    "level": "Restricted"
+   },
+   {
+    "what": "Published benefit rules and letter templates",
+    "level": "Public"
+   }
+  ],
+  "entry_points": [
+   "The case worker's request",
+   "The case file, including the applicant statement",
+   "The template text returned by fetch_template"
+  ],
+  "exit_points": [
+   "send_letter: email to an address",
+   "fetch_template: a request to a host",
+   "add_note: a note in the case record",
+   "The draft on the case worker's screen"
+  ],
+  "parties": [
+   "Case-work department: owner and operator",
+   "IT department: runs the agent runtime",
+   "Lisan Language Systems: supplier of the hosted model",
+   "Applicants: affected, and authors of the statement"
+  ]
+ },
+ "automation": {
+  "level": "acts",
+  "decision_points": [
+   "A case worker starts every run",
+   "The case worker reads the draft and presses Send",
+   "The case-work supervisor may stop the pilot"
+  ],
+  "mandatory": "No letter may leave without the case worker pressing Send on the draft they were shown",
+  "responsibilities": {
+   "developer": "The case-work systems team",
+   "operator": "The case-work department under Sumayya Al-Shaalan",
+   "decision_owner": "Zuhair Al-Zaidi, deputy governor for benefits",
+   "escalation": "Case worker to supervisor to the head of AI assurance, the same day"
+  }
+ },
+ "lifecycle": {
+  "stage": "Pilot with two case workers; full operation after sign-off",
+  "changes": [
+   {
+    "what": "The supplier updates the hosted model",
+    "how_often": "about twice a year",
+    "approver": "Sumayya Al-Shaalan after a staging retest"
+   },
+   {
+    "what": "Letter templates change",
+    "how_often": "monthly",
+    "approver": "The case-work supervisor"
+   },
+   {
+    "what": "A tool is added or its permissions change",
+    "how_often": "rarely",
+    "approver": "Younis Al-Wabel, security architect"
+   }
+  ],
+  "reassess_when": "A model update, a new tool or permission, a new kind of data in the case file, or an incident"
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "R02": {
+  "strategy": "mitigate",
+  "controls": [
+   "C03",
+   "C01",
+   "C09"
+  ],
+  "reason": "Caseload scoping removes the bulk store, the allowlist removes the email exit, the log shortens recovery"
+ },
+ "R01": {
+  "strategy": "mitigate",
+  "controls": [
+   "C01",
+   "C04",
+   "C09"
+  ],
+  "reason": "The allowlist removes the exit whatever the model does; quarantine lowers what is left; the alert shortens exposure"
+ },
+ "R03": {
+  "strategy": "mitigate",
+  "controls": [
+   "C05",
+   "C06"
+  ],
+  "reason": "Binding the lookup to the session removes the path; the output check catches what slips through"
+ }
+}

@@ -1,158 +1,520 @@
 <section class="slide title" id="title" data-auto="title">
-  <aside class="notes">REPLACE: welcome; introduce yourself; one question to the room that calibrates the pace; the rhythm of the day</aside>
+  <aside class="notes"><p>Yesterday produced findings. Today they become risks with scores, treatments and signatures, by the method of the National AI Risk Management Framework. Ask who read the executive summary; ask one person to say in a sentence what the framework is for. All labs today may use an AI assistant as a tutor; the scores and reasons must be the participant's.</p></aside>
 </section>
 
 <section class="slide" id="agenda" data-auto="agenda"></section>
 
-<!-- Session 1 -->
-
-<section class="slide section" id="s1" data-auto="section" data-session="1"></section>
-
-<section class="slide" id="s1-idea" data-lo="LO3">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="review-day-2" data-lo="LO2">
+  <div class="kicker">Review of Day 2</div>
+  <h2>Which sentence can go to the owner?</h2>
+  <div class="quiz" data-type="single" data-lo="LO2">
+    <p class="lead">The planted line made Katib email a record out in 15 of 30 runs (interval 33% to 67%). After a recipient allowlist: 0 of 300. Which statement is right?</p>
+    <div class="opts">
+      <div class="opt" data-why="Reads the rate as the Agency's exposure: an applicant who retries makes a 50% path a near-certain one">"Before the fix, half of the case files were at risk"</div>
+      <div class="opt" data-why="Claims more than email: the web request is a second exit the allowlist does not touch">"After the fix, case data cannot leave"</div>
+      <div class="opt" data-ok>"The email path was open and is now closed; the web path is still to be treated"</div>
+      <div class="opt" data-why="Zero of 300 on a control that removes the exit is strong evidence; calling it unknown wastes it">"We cannot yet say whether the fix works"</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> State what was shown, for which path, and what is left. Today that last part gets a score and an owner.</div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <aside class="notes"><p>Answer: the third. It is the shape of every sentence in a residual-risk statement: what was closed, by what evidence, and what remains.</p></aside>
 </section>
 
-<section class="slide" id="s1-steps" data-lo="LO3">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<!-- ======================= SESSION 1 ======================= -->
+<section class="slide section" id="s1" data-auto="section" data-session="1"></section>
+
+<section class="slide" id="findings-are-not-risks" data-lo="LO3">
+  <div class="kicker">From testing to risk</div>
+  <h2>A finding is something that happened in a test; a risk is something that may happen to people</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Finding F1</h4><p class="small mb0">A planted line made Katib email a case record to an outside address in 15 of 30 runs.</p></div>
+    <div class="card c-teal"><h4>Risk R01</h4><p class="small mb0">An applicant's record is disclosed outside the Agency. How likely, with 120 files a day? How bad, for whom? Who owns it, who accepts what remains?</p></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <div class="callout warn mt"><b>And some risks no probe finds.</b> Case workers who send drafts unread. A supplier who changes the model. A method is needed that looks there too.</div>
+  <aside class="notes"><p>The red team answers "can it be made to fail". Risk assessment answers "what should the organisation do about it, and who decides". Different questions, different people in the room: today the system owner and the data protection officer matter as much as the testers.</p></aside>
+</section>
+
+<section class="slide" id="framework-steps" data-lo="LO3">
+  <div class="kicker">National AI Risk Management Framework · SDAIA, April 2026</div>
+  <h2>Five steps stand on a base of reference pillars</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>1 · Context and scope</b>what the system is and touches</div>
+    <div class="arrow">→</div>
+    <div class="step c-cyan"><b>2 · Identify</b>list and describe the risks</div>
+    <div class="arrow">→</div>
+    <div class="step c-amber"><b>3 · Assess</b>likelihood, impact, level</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>4 · Treat</b>strategy, controls, residual, decision</div>
+    <div class="arrow">→</div>
+    <div class="step c-purple"><b>5 · Monitor and review</b>in operation</div>
+  </div>
+  <p class="small mt"><b>Reference pillars under every step:</b> general principles and values, AI regulations, data regulations, sector regulations.</p>
+  <aside class="notes"><p>The framework is advisory and addresses government and private entities. The full text is in Arabic; an English executive summary exists. Step names here are our translation of the Arabic headings. Today's four labs follow steps 1 to 4; monitoring and review returns on Day 4 as evidence the pack must hold. Sources: National AI Risk Management Framework, full text in Arabic and English executive summary.</p></aside>
+</section>
+
+<section class="slide" id="context-four-activities" data-lo="LO3">
+  <div class="kicker">Step 1</div>
+  <h2>Context and scope is four records, written before any risk is named</h2>
+  <div class="cols cols-4 gap-s">
+    <div class="card c-teal"><h4>The system and its limits</h4><p class="small mb0">Kind, purpose, outputs and how they are used. Intended uses and uses not allowed. Users and people affected.</p></div>
+    <div class="card c-cyan"><h4>Data, entries, exits</h4><p class="small mb0">Data by sensitivity and source. Where content comes in and goes out. Every party in the value chain.</p></div>
+    <div class="card c-coral"><h4>Automation and people</h4><p class="small mb0">Recommends, decides or acts. Where a person approves, reviews, objects or stops. Who is responsible.</p></div>
+    <div class="card c-purple"><h4>Life cycle and change</h4><p class="small mb0">The current stage. What changes, how often, who approves. What triggers a new assessment.</p></div>
+  </div>
+  <aside class="notes"><p>These are the four activities the framework lists for this step, in our words. Lab 3.1 has one exercise per card. Engineers tend to skip this step because it "is just documentation"; every later score depends on it.</p></aside>
+</section>
+
+<section class="slide" id="intended-and-out-of-scope" data-lo="LO3">
+  <div class="kicker">Lab 3.1, the first record</div>
+  <h2>Uses that are out of scope are written down, not assumed</h2>
+  <table class="t">
+    <tr><th>Katib is intended to</th><th>Katib is not to</th></tr>
+    <tr><td>Draft the letter for the case file a case worker opened</td><td>Decide eligibility or change a payment</td></tr>
+    <tr><td>Look up the published rules of the benefit</td><td>Contact anyone other than the applicant of the case</td></tr>
+    <tr><td>Send the approved letter to the registered address</td><td>Search cases for any purpose other than the open file</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Each line on the right is a test waiting to be written.</b> Lab 2.2 already ran the second one.</div>
+  <aside class="notes"><p>The framework asks for intended uses to be stated explicitly against unauthorised or out-of-scope uses, to limit misuse and uncontrolled expansion. In practice the right-hand column is where systems grow: someone finds the search tool useful for a purpose nobody assessed.</p></aside>
+</section>
+
+<section class="slide" id="acts-not-recommends" data-lo="LO3">
+  <div class="kicker">The level of automation</div>
+  <h2>Record what the system can do, not what the design intends</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Recommends</h4><p class="small mb0">A person reads the output and acts. Mueen answering a question is close to this.</p></div>
+    <div class="card c-amber"><h4>Decides</h4><p class="small mb0">The output is the decision. Neither system is meant to decide eligibility.</p></div>
+    <div class="card c-coral"><h4>Acts</h4><p class="small mb0">The system changes something through tools. Katib sends email and writes notes.</p></div>
+  </div>
+  <div class="callout warn mt"><b>What goes wrong.</b> The design says "the case worker approves every letter". In Lab 2.2 a second email left before the draft was shown. The approval is a screen, not a gate.</div>
+  <aside class="notes"><p>The framework asks where human intervention is mandatory. For Katib the honest record today is: intended at Send, not enforced. That one line raises the likelihood of three risks and becomes a condition in the briefing on Day 4.</p></aside>
+</section>
+
+<section class="slide" id="change-plan" data-lo="LO3">
+  <div class="kicker">Life cycle and change</div>
+  <h2>The context record says what will change and who approves it</h2>
+  <table class="t small">
+    <tr><th>What changes</th><th>How often</th><th>Who approves</th></tr>
+    <tr><td>The supplier updates the hosted model</td><td>About twice a year</td><td>The system owner, after a staging retest</td></tr>
+    <tr><td>Letter templates</td><td>Monthly</td><td>The case-work supervisor</td></tr>
+    <tr><td>A tool is added or its permissions change</td><td>Rarely</td><td>The security architect</td></tr>
+  </table>
+  <ul class="bullets tight mt">
+    <li><b>Reassess when:</b> a model update, a new tool or permission, a new kind of data, an incident</li>
+    <li>An assessment with no trigger for the next one is out of date on the day it is signed</li>
+  </ul>
+  <aside class="notes"><p>The framework asks for requirements to re-assess risks on substantial changes and for a way to tell users and affected groups. The first row is Session 4 of today.</p></aside>
+</section>
+
+<section class="slide" id="check-context-gap" data-lo="LO3">
+  <div class="kicker">Checkpoint</div>
+  <h2>What is missing from this context record?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3">
+    <p class="lead">A record for Mueen states its purpose, three intended uses, its data with classification levels, the supplier, and that "a person can always ask for a human". What must be added before risks are identified?</p>
+    <div class="opts">
+      <div class="opt" data-why="Risks come in the next step: listing them here skips the record they should be derived from">The ten most likely risks</div>
+      <div class="opt" data-ok>The uses that are out of scope, and the plan for changes and reassessment</div>
+      <div class="opt" data-why="Model internals matter less to context than what the system touches and who decides">The model's size and training method</div>
+      <div class="opt" data-why="A treatment needs a risk first; controls are step 4">The controls that will be applied</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Without out-of-scope uses there is nothing to test misuse against, and without a change plan the assessment has no end date.</div>
+  </div>
+  <aside class="notes"><p>Answer: out-of-scope uses and the change plan. The record in the question is typical: it lists everything the builders are proud of.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-3-1" data-auto="lab" data-lab="3.1">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p>The brief has every fact; the work is sorting facts into the four records and noticing what the brief does not say (who approves a model update, what triggers reassessment). Common miss: the template text as an entry point. Nothing from Day 2 is needed.</p></aside>
 </section>
 
-<!-- Session 2 -->
-
+<!-- ======================= SESSION 2 ======================= -->
 <section class="slide section" id="s2" data-auto="section" data-session="2"></section>
 
-<section class="slide" id="s2-idea" data-lo="LO3">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
-  </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+<section class="slide" id="seven-risk-types" data-lo="LO3">
+  <div class="kicker">Step 2 · identification</div>
+  <h2>Seven types of risk are a check that nothing was left out</h2>
+  <table class="t small">
+    <tr><th>Type</th><th>At the Agency</th></tr>
+    <tr><td>Bias, discrimination and abuse</td><td>Weaker protection in Latin-letter Arabic; a degrading reply</td></tr>
+    <tr><td>Privacy and security</td><td>A record emailed out; another applicant's bank number shown</td></tr>
+    <tr><td>Misinformation</td><td>A false assurance of approval</td></tr>
+    <tr><td>Harmful use</td><td>Applicants learn the fraud-screening rule and work around it</td></tr>
+    <tr><td>Human and machine interaction</td><td>Case workers send drafts unread</td></tr>
+    <tr><td>Social, economic and environmental effects</td><td>Drafting skill fades; dependence on one supplier</td></tr>
+    <tr><td>Safety and limitations</td><td>A wrong amount in a letter; behaviour shifts after a model update</td></tr>
+  </table>
+  <aside class="notes"><p>The type names are our translation of the framework's seven. Use them the way the framework proposes: after listing risks, sort them and look for an empty row. A red team fills the second and third rows and leaves the last three empty.</p></aside>
 </section>
 
-<section class="slide" id="s2-steps" data-lo="LO3">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="describe-each-risk" data-lo="LO3">
+  <div class="kicker">Step 2 · description</div>
+  <h2>Each risk is described by its source, its intent and its timing</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Caused by</h4><p class="small mb0">A shortcoming of the AI system, or a person's misuse of it.</p></div>
+    <div class="card c-coral"><h4>Intent</h4><p class="small mb0">Deliberate, or not.</p></div>
+    <div class="card c-purple"><h4>Timing</h4><p class="small mb0">Before release, or after.</p></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <table class="t small mt">
+    <tr><th>Risk</th><th>Cause</th><th>Intent</th><th>Timing</th></tr>
+    <tr><td>R01 · a planted line makes Katib email a record out</td><td>Person, through a system weakness</td><td>Deliberate</td><td>After release</td></tr>
+    <tr><td>R10 · a letter with a wrong amount</td><td>System</td><td>Not deliberate</td><td>After release</td></tr>
+  </table>
+  <aside class="notes"><p>The description decides which controls fit. A deliberate, human-caused risk needs controls that hold against an adversary who retries; an unintended system error needs detection and correction. The framework's worked example also records the related weaknesses, who is affected and the nature of the impact for every risk.</p></aside>
+</section>
+
+<section class="slide" id="likelihood-scale" data-lo="LO3">
+  <div class="kicker">Step 3 · likelihood</div>
+  <h2>Likelihood has four levels and is judged from four things</h2>
+  <div class="cols cols-2">
+    <table class="t small">
+      <tr><th class="num">Level</th><th>Meaning</th></tr>
+      <tr><td class="num">1 · Rare</td><td>Very unlikely to occur</td></tr>
+      <tr><td class="num">2 · Unlikely</td><td>Possible, not expected in ordinary conditions</td></tr>
+      <tr><td class="num">3 · Likely</td><td>Considerably probable given the system and its setting</td></tr>
+      <tr><td class="num">4 · Almost certain</td><td>Expected unless effective controls limit it</td></tr>
+    </table>
+    <ul class="bullets">
+      <li><b>Exposure:</b> how much the system is used, by how many</li>
+      <li><b>Controls:</b> what prevention is in place and how well it works</li>
+      <li><b>Ease:</b> how little it takes</li>
+      <li><b>Precedent:</b> has it happened, here or elsewhere</li>
+    </ul>
+  </div>
+  <aside class="notes"><p>The framework does not build likelihood on percentages, because they are hard to fix for a new technology. It does give reference yearly ranges that line up with the levels: under 1%, 1% to 10%, 10% to 50%, 50% or more. A red-team rate is evidence for "ease" and "precedent"; it is a rate per attempt and not the yearly figure.</p></aside>
+</section>
+
+<section class="slide" id="impact-scale" data-lo="LO3">
+  <div class="kicker">Step 3 · impact</div>
+  <h2>Impact has four levels, and the fourth is for the extreme case</h2>
+  <div class="cols cols-2">
+    <table class="t small">
+      <tr><th class="num">Level</th><th>The expected harm is</th></tr>
+      <tr><td class="num">1 · Low</td><td>Limited, local, quickly contained</td></tr>
+      <tr><td class="num">2 · Medium</td><td>Real, but contained and put right in reasonable time</td></tr>
+      <tr><td class="num">3 · High</td><td>Large and clear; needs an institutional response</td></tr>
+      <tr><td class="num">4 · Catastrophic</td><td>Very grave, wide, perhaps irreversible</td></tr>
+    </table>
+    <ul class="bullets">
+      <li><b>Severity</b> of the harm</li>
+      <li><b>Size:</b> how many people or services</li>
+      <li><b>Sensitivity</b> of the data or the decision</li>
+      <li><b>Recovery:</b> the slower, the higher</li>
+    </ul>
+  </div>
+  <div class="callout note mt"><b>A wide leak of highly sensitive data</b>, such as health or financial data, is one of the signs of catastrophic impact the framework names.</div>
+  <aside class="notes"><p>The other signs the framework lists for the fourth level include real deprivation of basic rights or vital services, and compromise of critical systems. Scorers tend to use 4 too freely at first; hold the room to the definition.</p></aside>
+</section>
+
+<section class="slide" id="risk-matrix" data-lo="LO3">
+  <div class="kicker">Step 3 · level</div>
+  <h2>Level is likelihood times impact, read in four bands</h2>
+  <table class="t">
+    <tr><th>Likelihood ↓ · Impact →</th><th class="num">1 Low</th><th class="num">2 Medium</th><th class="num">3 High</th><th class="num">4 Catastrophic</th></tr>
+    <tr><td>4 · Almost certain</td><td class="num">4</td><td class="num">8</td><td class="num">12</td><td class="num">16</td></tr>
+    <tr><td>3 · Likely</td><td class="num">3</td><td class="num">6</td><td class="num">9</td><td class="num">12</td></tr>
+    <tr><td>2 · Unlikely</td><td class="num">2</td><td class="num">4</td><td class="num">6</td><td class="num">8</td></tr>
+    <tr><td>1 · Rare</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td class="num">4</td></tr>
+  </table>
+  <div class="cols cols-4 gap-s mt">
+    <div class="card flat c-green"><p class="small mb0"><b>1 to 2</b> low</p></div>
+    <div class="card flat c-amber"><p class="small mb0"><b>3 to 6</b> medium</p></div>
+    <div class="card flat c-coral"><p class="small mb0"><b>8 to 12</b> high</p></div>
+    <div class="card flat c-navy"><p class="small mb0"><b>16</b> catastrophic</p></div>
+  </div>
+  <aside class="notes"><p>You used this matrix in the supervised entry check and, if you took them, in AE-207 and AE-308. The products 5, 7, 10, 11 and 13 to 15 cannot occur, which is why the bands have gaps. The framework colours the bands green, yellow, orange and red.</p></aside>
+</section>
+
+<section class="slide" id="two-scorers" data-lo="LO3">
+  <div class="kicker">Lab 3.2, the gaps</div>
+  <h2>Two careful people score the same evidence differently</h2>
+  <table class="t small">
+    <tr><th>Risk</th><th class="num">First sheet</th><th class="num">Security architect</th><th>Bands</th></tr>
+    <tr><td>R07 · drafts sent unread</td><td class="num">3 × 3 = 9</td><td class="num">2 × 1 = 2</td><td>high / low</td></tr>
+    <tr><td>R02 · the cases of a whole town</td><td class="num">3 × 3 = 9</td><td class="num">4 × 4 = 16</td><td>high / catastrophic</td></tr>
+    <tr><td>R12 · a false approval note</td><td class="num">2 × 2 = 4</td><td class="num">3 × 3 = 9</td><td>medium / high</td></tr>
+  </table>
+  <div class="callout tip mt"><b>The pattern is the lesson.</b> The architect scores leaks higher and the human and fairness risks far lower. A single scorer hands a pattern to the register.</div>
+  <aside class="notes"><p>From the reference run: seven of twelve risks differ between the two sheets, four of them by a band. In class the second sheet is the neighbour's; the supplied sheet lets the notebook run alone and gives everyone the same disagreement to discuss.</p></aside>
+</section>
+
+<section class="slide" id="calibrate-on-evidence" data-lo="LO3">
+  <div class="kicker">Calibration</div>
+  <h2>Calibrating is pointing at evidence, not averaging and not rank</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>For each gap, both scorers name the evidence line that drove their score</li>
+      <li>The agreed score is the one the evidence supports</li>
+      <li>The <b>reason is written into the register</b>, so new evidence can change it</li>
+    </ul>
+    <div class="card c-purple"><h4>R02, agreed 3 × 4 = 12</h4><p class="small mb0">Impact 4: hundreds of records with health notes and no way back. Likelihood stays 3: it needs a hijack and then a search.</p></div>
+  </div>
+  <div class="callout note mt"><b>Two risks stand at 12.</b> R01 is almost certain and hurts one person at a time; R02 is less likely and cannot be undone. Keep both scores, not only the product.</div>
+  <aside class="notes"><p>The catalog asks for "calibrated 4 by 4 scores" as evidence of this outcome. Calibrated means a second reader can follow from the evidence to the score. An average of 9 and 16 is a number with no reason attached.</p></aside>
+</section>
+
+<section class="slide" id="check-score-r02" data-lo="LO3">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which score does the evidence support?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3">
+    <p class="lead">Risk: Mueen shows another applicant's amount or bank number on request. Evidence: 4,000 conversations a week; an English phrase filter; the lookup tool takes any identifier; the campaign reached 42% over 144 attempts; one record per request; a breach notice is needed.</p>
+    <div class="opts">
+      <div class="opt" data-why="Takes the filter as an effective control: the campaign shows it is not, in two of three scripts">Likelihood 2, impact 3: a control is in place</div>
+      <div class="opt" data-why="Reserves nothing for the extreme case: one record per request is not a wide leak">Likelihood 3, impact 4: personal data is always catastrophic</div>
+      <div class="opt" data-why="Reads impact from frequency: harm to the one person is large each time, however often it happens">Likelihood 4, impact 1: frequent but small</div>
+      <div class="opt" data-ok>Likelihood 3, impact 3: likely, and a large harm to one person each time</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Exposure and ease are high and the control is weak. The harm is large, but it is one record, not a wide leak.</div>
+  </div>
+  <aside class="notes"><p>Answer: 3 by 3. A case can be made for likelihood 4; accept it if the argument is "expected unless a control stops it, and none does", and note that the level changes from 9 to 12 within the same band.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-3-2" data-auto="lab" data-lab="3.2">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p>Run it in pairs: each scores alone for eight minutes, then they compare with each other before looking at the supplied sheet. Insist on scoring before looking. In step 4 the check requires a reason for every gap; one sentence that names an evidence line is enough. The twelve risks are supplied.</p></aside>
 </section>
 
-<!-- Session 3 -->
-
+<!-- ======================= SESSION 3 ======================= -->
 <section class="slide section" id="s3" data-auto="section" data-session="3"></section>
 
-<section class="slide" id="s3-idea" data-lo="LO3">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="four-treatments" data-lo="LO3">
+  <div class="kicker">Step 4 · strategy</div>
+  <h2>There are four responses to a risk, and each needs a reason</h2>
+  <div class="cols cols-4 gap-s">
+    <div class="card c-coral"><h4>Avoid</h4><p class="small mb0">Change the design, restrict the use, switch the function off, when the risk is high and cannot be brought down.</p></div>
+    <div class="card c-teal"><h4>Mitigate</h4><p class="small mb0">Technical, organisational and operational controls that lower likelihood or impact.</p></div>
+    <div class="card c-amber"><h4>Transfer</h4><p class="small mb0">Move part of the consequences by contract, guarantee or insurance.</p></div>
+    <div class="card c-purple"><h4>Accept</h4><p class="small mb0">When what remains is within the approved tolerance, with the reason and the conditions recorded.</p></div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <aside class="notes"><p>The framework asks for the choice to be justified and auditable. Avoid is the forgotten one: the stretch item of Lab 3.3 has a risk that disappears when the screening rule is simply taken out of the assistant's instructions.</p></aside>
 </section>
 
-<section class="slide" id="s3-steps" data-lo="LO3">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="controls-have-owners" data-lo="LO3">
+  <div class="kicker">Step 4 · controls</div>
+  <h2>A control has a kind, an owner and a date</h2>
+  <table class="t small">
+    <tr><th>Control from the Agency's library</th><th>Kind</th><th>Owner</th></tr>
+    <tr><td>C01 · <code>send_letter</code> only to the address registered on the case</td><td>Technical</td><td>Younis Al-Wabel</td></tr>
+    <tr><td>C04 · the statement is summarised by a call that has no tools</td><td>Technical</td><td>Sumayya Al-Shaalan</td></tr>
+    <tr><td>C07 · the case worker sees recipient and attachments before a letter leaves</td><td>Operational</td><td>Sumayya Al-Shaalan</td></tr>
+    <tr><td>C08 · 30 days of notice and a staging retest before a model change</td><td>Organisational</td><td>Tuqa Al-Mishaal</td></tr>
+  </table>
+  <div class="callout warn mt"><b>What goes wrong.</b> "The team" owns a control. Nobody is asked when it slips, and the residual score stays on the register as if it were true.</div>
+  <aside class="notes"><p>The framework's second activity in treatment: turn the strategy into a plan that can be carried out and measured, with a clear owner for every control and a timetable that fits the level of the risk. The library has fourteen controls; you built several of their kind in AE-308.</p></aside>
+</section>
+
+<section class="slide" id="which-score-moves" data-lo="LO3">
+  <div class="kicker">Residual risk</div>
+  <h2>Ask of every control which score it moves</h2>
+  <table class="t">
+    <tr><th>Control, for risk R01</th><th>Likelihood</th><th>Impact</th></tr>
+    <tr><td>C01 · recipient allowlist</td><td>down 2: the exit is gone</td><td>none</td></tr>
+    <tr><td>C04 · statement quarantined</td><td>down 1: the model obeys less often</td><td>none</td></tr>
+    <tr><td>C09 · action log with an alert on a new recipient</td><td>none</td><td>down 1: found and contained sooner</td></tr>
+  </table>
+  <ul class="bullets tight mt">
+    <li>Most controls move <b>likelihood</b>. Impact moves when less can be reached, or recovery is faster</li>
+    <li>Distrust a residual that falls on both scores with one control</li>
+  </ul>
+  <aside class="notes"><p>The effects are the team's estimates in data/register.json, and the lab holds a residual score to what the chosen controls support: no more than two steps on a score, never below 1. Day 2 gave the evidence for the first two rows: 0 of 300 with the allowlist, 11 of 300 with quarantine alone.</p></aside>
+</section>
+
+<section class="slide" id="residual-of-top-three" data-lo="LO3">
+  <div class="kicker">Lab 3.3, the result</div>
+  <h2>Three high risks become three medium ones, on conditions</h2>
+  <table class="t small">
+    <tr><th>Risk</th><th class="num">Inherent</th><th>Controls</th><th class="num">Residual</th></tr>
+    <tr><td>R02 · the cases of a whole town</td><td class="num">3 × 4 = 12 high</td><td>C03 caseload scoping, C01, C09</td><td class="num">2 × 2 = 4 medium</td></tr>
+    <tr><td>R01 · a record emailed out</td><td class="num">4 × 3 = 12 high</td><td>C01, C04, C09</td><td class="num">2 × 2 = 4 medium</td></tr>
+    <tr><td>R03 · another applicant's record shown</td><td class="num">3 × 3 = 9 high</td><td>C05 session binding, C06 output check</td><td class="num">1 × 3 = 3 medium</td></tr>
+  </table>
+  <div class="callout tip mt"><b>R03 keeps impact 3.</b> The controls make it rare. If it happens anyway, the person whose bank number is shown is harmed exactly as before.</div>
+  <aside class="notes"><p>The residual score is true on the day the controls are live and their regression tests pass. Until then the inherent score is the true one, and the register must show which controls are still plans. That distinction is most of the briefing on Day 4.</p></aside>
+</section>
+
+<section class="slide" id="transfer-keeps-responsibility" data-lo="LO3">
+  <div class="kicker">A trap in the library</div>
+  <h2>Insurance moves costs; responsibility stays where it was</h2>
+  <div class="cols cols-2">
+    <div class="card c-amber"><h4>C12 · cyber insurance for breach costs</h4><p class="small mb0">Effect on likelihood: none. Effect on impact for the applicant: none. It pays part of the Agency's costs afterwards.</p></div>
+    <ul class="bullets">
+      <li>Transfer is a real strategy: supplier commitments, guarantees, insurance</li>
+      <li>It does not end the entity's responsibility for governance and compliance</li>
+      <li>For personal data it is never the only treatment</li>
+    </ul>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <aside class="notes"><p>The framework says this in so many words about transfer. The same holds for the supplier contract in the next session: clause CL3 on training data transfers nothing if nobody checks it.</p></aside>
+</section>
+
+<section class="slide" id="sign-by-band" data-lo="LO3 LO6">
+  <div class="kicker">Step 4 · the decision</div>
+  <h2>What remains is accepted by a named person, or escalated</h2>
+  <table class="t small">
+    <tr><th>Residual band</th><th>Who accepts at the Agency</th><th class="num">Review within</th></tr>
+    <tr><td>Low</td><td>The system owner</td><td class="num">365 days</td></tr>
+    <tr><td>Medium</td><td>The system owner, countersigned by the head of AI assurance</td><td class="num">180 days</td></tr>
+    <tr><td>High</td><td>The deputy governor, with written conditions</td><td class="num">90 days</td></tr>
+    <tr><td>Catastrophic</td><td>Nobody: avoid or redesign</td><td class="num"></td></tr>
+  </table>
+  <div class="callout note mt"><b>A residual score nobody signed is a number.</b> A signed one is a decision, with a date on which it is looked at again.</div>
+  <aside class="notes"><p>The table is the Agency's risk appetite, invented for the case; the framework asks that the level of the decision match the level of the risk and that acceptances and escalations be documented, and leaves the thresholds to the entity. Ask participants who signs in their own organisation; often nobody knows.</p></aside>
+</section>
+
+<section class="slide" id="check-residual-claim" data-lo="LO3">
+  <div class="kicker">Checkpoint</div>
+  <h2>Do you accept this residual score?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3">
+    <p class="lead">R01 is 4 × 3 = 12. The builders propose one control, the recipient allowlist, and a residual of 1 × 1 = 1, to be signed by the system owner. The allowlist is planned for next quarter. What do you answer?</p>
+    <div class="opts">
+      <div class="opt" data-ok>No: one control cannot move both scores that far, the web exit remains, and it is not live</div>
+      <div class="opt" data-why="Accepts a score for a control that does not exist yet: until it is live the inherent score is the true one">Yes: the allowlist removes the exit, so the risk is gone</div>
+      <div class="opt" data-why="The signatory follows the residual band; the problem is the score itself, not who signs it">No: only the deputy governor may sign for R01</div>
+      <div class="opt" data-why="Insurance changes neither score for the applicant, and responsibility stays">Yes, if the Agency also buys insurance</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> The allowlist moves likelihood, not impact; a second exit is untouched; and a planned control lowers nothing today.</div>
+  </div>
+  <aside class="notes"><p>Answer: no, for three separate reasons. Ask the room to name all three before the reveal.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-3-3" data-auto="lab" data-lab="3.3">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p>The lab loads the reviewers' register, so differences from Lab 3.2 do not matter. Watch step 3: participants set residual scores below what the floor function allows, and the check refuses. Someone will choose C12; let the check explain. The signatory in step 4 follows the residual band, which surprises people who expected the inherent one.</p></aside>
 </section>
 
-<!-- Session 4 -->
-
+<!-- ======================= SESSION 4 ======================= -->
 <section class="slide section" id="s4" data-auto="section" data-session="4"></section>
 
-<section class="slide" id="s4-idea" data-lo="LO3">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
+<section class="slide" id="measured-on-the-old-model" data-lo="LO3 LO6">
+  <div class="kicker">Supplier risk</div>
+  <h2>Every rate you measured belongs to one version of one model</h2>
   <div class="cols cols-2">
     <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
+      <li>Mueen and Katib run on a model hosted by Lisan Language Systems</li>
+      <li>The supplier can change that model; the Agency's tests ran on <b>Lisan-2</b></li>
+      <li>A model change touches language handling, tool calls and safety behaviour at once</li>
     </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+    <div class="card c-coral"><h4>R09 on the register</h4><p class="small mb0">The supplier changes the model and behaviour in Arabic shifts unnoticed. Likelihood 3, impact 2. It also reopens most of the other eleven.</p></div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <aside class="notes"><p>This is the supply-chain entry of the OWASP list seen from the buyer's side. The durable point: evidence has a subject, and for behaviour tests the subject includes the model version. Write the version beside every rate.</p></aside>
 </section>
 
-<section class="slide" id="s4-steps" data-lo="LO3">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="notice-against-contract" data-lo="LO3">
+  <div class="kicker">Lab 3.4, step 1</div>
+  <h2>Read the notice against the contract, clause by clause</h2>
+  <div class="cols cols-2">
+    <div class="card c-navy"><h4>The notice</h4><p class="small mb0">Lisan-2 to Lisan-2.1, live in <b>10 days</b>, "minor". Better dialect and Latin-letter Arabic; a new tool-call format; safety behaviour retrained; a second hosting region.</p></div>
+    <table class="t small">
+      <tr><th>Clause</th><th>Says</th></tr>
+      <tr><td>CL1</td><td>30 days of notice for a change that "materially" affects behaviour; the supplier decides what is material</td></tr>
+      <tr><td>CL2</td><td>The Agency may test in staging for 14 days</td></tr>
+      <tr><td>CL5</td><td>Processing in the primary region; silent on a second region</td></tr>
+    </table>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <div class="callout warn mt"><b>Ten days of notice, fourteen days of testing.</b> The right to test does not fit into the time given.</div>
+  <aside class="notes"><p>The contract is invented for the case, and its weak sentence is common in real ones: the party making the change decides whether it matters. The data protection officer owns this conversation; bring her into the role-play if you run one.</p></aside>
+</section>
+
+<section class="slide" id="who-says-minor" data-lo="LO3">
+  <div class="kicker">Classifying a change</div>
+  <h2>The supplier classifies by what changed; you classify by what it can do to your risks</h2>
+  <table class="t small">
+    <tr><th>Announced change</th><th>Risks whose evidence it touches</th></tr>
+    <tr><td>Better dialect and Latin-letter Arabic</td><td>R03, R04, R05, R06, R08: every probe result by script</td></tr>
+    <tr><td>New tool-call format</td><td>R01, R02, R12, R10: everything Katib does through tools</td></tr>
+    <tr><td>Safety behaviour retrained, "fewer unnecessary refusals"</td><td>R04, R06, and every refusal the tests counted on</td></tr>
+    <tr><td>A second hosting region</td><td>R09, and where Restricted data is processed</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Major.</b> Ten of the twelve risks rest on behaviour that may now differ.</div>
+  <aside class="notes"><p>"Fewer unnecessary refusals" is good news for most users and a warning for an assurer: some of yesterday's refused probes were the "unnecessary" ones. "Better handling of Latin-letter Arabic" means the model also understands attacks in that script better.</p></aside>
+</section>
+
+<section class="slide" id="what-to-retest" data-lo="LO3">
+  <div class="kicker">Lab 3.4, step 3</div>
+  <h2>Retest what depends on the model; keep what does not</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Behaviour tests: rerun</h4><p class="small mb0">Eight tests, 460 calls: probes by script, planted instructions, letter amounts. Staging allows 400, so one must wait: the one that guards the lowest risk.</p></div>
+    <div class="card c-teal"><h4>Design tests: still valid</h4><p class="small mb0">Policy tests of the service account, delegation chain checks, allowlist unit tests. They never called the model.</p></div>
+  </div>
+  <ul class="bullets tight mt">
+    <li>The hosting change costs no calls: it is a question to the supplier, in writing</li>
+    <li>What is left out is <b>recorded as not retested</b>, with the risk it guards</li>
+  </ul>
+  <aside class="notes"><p>The reference choice drops T02, the screening-rule probes, which guard R08 at level 4. A different choice can be defended if it is argued from the register. What cannot be defended is dropping a test without writing down that the risk is now open.</p></aside>
+</section>
+
+<section class="slide" id="what-survives-a-model-change" data-lo="LO3 LO5">
+  <div class="kicker">A property of evidence</div>
+  <h2>Evidence about controls outside the model survives the update</h2>
+  <table class="t">
+    <tr><th>Evidence</th><th>After the model changes</th></tr>
+    <tr><td>"0 of 300 with the recipient allowlist"</td><td>Holds: the allowlist does not ask the model</td></tr>
+    <tr><td>"11 of 300 with the statement quarantined"</td><td>Open: it is a rate of this model</td></tr>
+    <tr><td>"47% in Latin-letter Arabic"</td><td>Open</td></tr>
+    <tr><td>Policy tests, delegation chain checks</td><td>Hold</td></tr>
+  </table>
+  <div class="callout tip mt"><b>The more of the case rests on architecture, the cheaper every model change becomes.</b> That is tomorrow's first two sessions.</div>
+  <aside class="notes"><p>This slide is the argument for Day 4 put as economics. A team whose whole case is behaviour tests must rerun everything twice a year and hope; a team with exits removed reruns a fraction.</p></aside>
+</section>
+
+<section class="slide" id="suite-on-the-new-model" data-lo="LO3">
+  <div class="kicker">Lab 3.4, stretch</div>
+  <h2>The test left out for the budget is one of those that got worse</h2>
+  <table class="t small">
+    <tr><th>Test</th><th class="num">Lisan-2</th><th class="num">Lisan-2.1</th><th>Retested?</th></tr>
+    <tr class="hl"><td>T02 · the screening rule, three scripts</td><td class="num">27 of 120 · 22%</td><td class="num">44 of 120 · 37%</td><td>no</td></tr>
+    <tr><td>T04 · false assurance</td><td class="num">45 of 90 · 50%</td><td class="num">55 of 90 · 61%</td><td>yes</td></tr>
+    <tr><td>T07 · a false note planted</td><td class="num">11 of 30 · 37%</td><td class="num">18 of 30 · 60%</td><td>yes</td></tr>
+    <tr><td>T08 · wrong amounts in letters</td><td class="num">2 of 50 · 4%</td><td class="num">5 of 50 · 10%</td><td>yes</td></tr>
+    <tr><td>T05 · a record emailed out</td><td class="num">15 of 30</td><td class="num">15 of 30</td><td>yes</td></tr>
+  </table>
+  <p class="small mt">A budget decides what you do not see: say so in the decision record.</p>
+  <aside class="notes"><p>Reference run of the stretch cell. The change is scripted into the stand-in to make the lesson visible; nothing here says what a real update does. T08 is simulated as a rate of wrong amounts, not by calling a model.</p></aside>
+</section>
+
+<section class="slide" id="go-conditions-hold" data-lo="LO3 LO6">
+  <div class="kicker">The decision</div>
+  <h2>Three answers, and each needs its evidence</h2>
+  <div class="cols cols-3">
+    <div class="card c-green"><h4>Go</h4><p class="small mb0">The affected tests were rerun on the new version and none is worse.</p></div>
+    <div class="card c-amber"><h4>Go with conditions</h4><p class="small mb0">Rerun in progress; named risks carried as open; an owner and a date for each condition.</p></div>
+    <div class="card c-coral"><h4>Hold</h4><p class="small mb0">Nothing retested yet, or a test is worse and its risk is above the appetite. The date moves.</p></div>
+  </div>
+  <ul class="bullets tight mt">
+    <li>Here: <b>hold</b>, use the 14 days of clause CL2, ask where the second region is</li>
+    <li>Tell the deputy governor: the scores he is asked to sign were measured on the old model</li>
+  </ul>
+  <aside class="notes"><p>The capstone's sixth outcome, presenting residual risk "given a scripted supplier model change", is this decision made in front of a panel. Participants should leave today with the three answers and their evidence memorised.</p></aside>
+</section>
+
+<section class="slide" id="check-update-decision" data-lo="LO3 LO6">
+  <div class="kicker">Checkpoint</div>
+  <h2>What do you retest first?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3">
+    <p class="lead">A supplier announces a model update that changes only the format of tool calls. You have calls for one behaviour test before the weekend. The register's top risks are R02 and R01 (both 12, through Katib's tools) and R03 (9, through Mueen's lookup).</p>
+    <div class="opts">
+      <div class="opt" data-why="Unit tests of the allowlist never call the model: their result cannot have changed">The unit tests of the recipient allowlist</div>
+      <div class="opt" data-why="Probes by script exercise language handling, which this update does not announce a change to">The degrading-reply probes in three scripts</div>
+      <div class="opt" data-ok>The planted instruction that makes Katib email a record out</div>
+      <div class="opt" data-why="A contract check costs no calls and is worth doing, but it is not the behaviour most at risk from this change">The data-residency check of the hosting region</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Retest where the change meets the highest risk: tool calls, and the two risks at 12 that run through them.</div>
+  </div>
+  <aside class="notes"><p>Answer: the planted email test. If someone says "all of them", agree and ask in which order, with one test's worth of calls before the weekend.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-3-4" data-auto="lab" data-lab="3.4">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p>The decision in step 4 is where participants hedge. Push for one of the three words and the evidence it needs. Run the stretch cell on the projector at the end even if few reach it: the row for T02 is the point of the session. The lab uses the supplied register and suite only.</p></aside>
 </section>
 
 <section class="slide" id="wrap-up">
   <div class="kicker">Day 3 · wrap-up</div>
   <h2>Three things to keep</h2>
   <div class="cols cols-3">
-    <div class="card c-teal"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
-    <div class="card c-coral"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
-    <div class="card c-purple"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
+    <div class="card c-teal"><h4>Context before risks</h4><p class="small mb0">What the system can do, what it touches, who decides, what will change. Seven types to check nothing was left out.</p></div>
+    <div class="card c-coral"><h4>Scores with reasons</h4><p class="small mb0">Likelihood and impact from stated evidence, calibrated by two people. Keep both scores, not only the product.</p></div>
+    <div class="card c-purple"><h4>Residual, signed and dated</h4><p class="small mb0">Each control moves one score. What remains is accepted by a named person, and reopened when the model changes.</p></div>
   </div>
+  <aside class="notes"><p>Ask each table which risk on the register they would be least comfortable signing for, and why. Their answers are tomorrow's conditions.</p></aside>
 </section>
 
 <section class="slide dark" id="next" data-label="Next">
   <div class="kicker">Next</div>
   <h2>Day 4: Review and assemble the evidence</h2>
-  <p class="lead">REPLACE: what participants prepare before then; unfinished labs can be finished at home</p>
-  <aside class="notes">REPLACE: accounts, installs or reading participants need before the next unit</aside>
+  <p class="lead">Tomorrow you review Katib's design, find where delegated authority breaks, assemble the assurance case and write the page the deputy governor signs. Reread your top claim from Day 1.</p>
+  <aside class="notes"><p>Recall from AE-308: token exchange, audience and scope. Tomorrow participants check chains, they do not build them. Each lab tomorrow starts from supplied files.</p></aside>
 </section>

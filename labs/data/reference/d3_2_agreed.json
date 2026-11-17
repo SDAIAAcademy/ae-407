@@ -1,0 +1,62 @@
+{
+ "R01": {
+  "likelihood": 4,
+  "impact": 3,
+  "reason": ""
+ },
+ "R02": {
+  "likelihood": 3,
+  "impact": 4,
+  "reason": "Hundreds of records with health notes and no way back: the framework's own example of catastrophic impact. Likelihood stays 3: it needs a hijack and then a search"
+ },
+ "R03": {
+  "likelihood": 3,
+  "impact": 3,
+  "reason": ""
+ },
+ "R04": {
+  "likelihood": 3,
+  "impact": 2,
+  "reason": "The decision letter corrects the error within weeks: real, contained, put right in reasonable time"
+ },
+ "R05": {
+  "likelihood": 2,
+  "impact": 3,
+  "reason": "Lab 2.3 measured the gap by script; unequal service to a group needs an institutional response"
+ },
+ "R06": {
+  "likelihood": 2,
+  "impact": 3,
+  "reason": "One reply harms a person's dignity and public trust; about one trial in six of a role-play"
+ },
+ "R07": {
+  "likelihood": 3,
+  "impact": 2,
+  "reason": "Median review of 20 seconds makes it likely; a wrong letter is corrected on complaint, so impact 2"
+ },
+ "R08": {
+  "likelihood": 2,
+  "impact": 2,
+  "reason": ""
+ },
+ "R09": {
+  "likelihood": 3,
+  "impact": 2,
+  "reason": ""
+ },
+ "R10": {
+  "likelihood": 3,
+  "impact": 2,
+  "reason": ""
+ },
+ "R11": {
+  "likelihood": 2,
+  "impact": 1,
+  "reason": "Slow and limited at first; possible in ordinary conditions, so not rare"
+ },
+ "R12": {
+  "likelihood": 2,
+  "impact": 3,
+  "reason": "A wrong payment decision that only an audit finds is more than contained; harder to trigger than the email"
+ }
+}

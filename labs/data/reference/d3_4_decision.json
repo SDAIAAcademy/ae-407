@@ -1,0 +1,12 @@
+{
+ "decision": "hold",
+ "conditions": [
+  "The chosen tests are rerun in staging against Lisan-2.1 and none is worse than its result on Lisan-2",
+  "The supplier confirms in writing where the second region is and that clause CL3 applies there",
+  "The one behaviour test left out is rerun in the first week, and its risk is carried as open until then"
+ ],
+ "tell": [
+  "Lisan Language Systems: the change is material; the Agency uses its 14 days of staging under CL2, so the date moves",
+  "Zuhair Al-Zaidi: the residual scores he is asked to sign were measured on the old model"
+ ]
+}

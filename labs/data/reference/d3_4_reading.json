@@ -1,0 +1,9 @@
+{
+ "notice_days_required": 30,
+ "notice_days_given": 10,
+ "breach": true,
+ "staging_days": 14,
+ "silent_on": [
+  "N4"
+ ]
+}

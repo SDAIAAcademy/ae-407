@@ -1,0 +1,17 @@
+{
+ "R02": {
+  "likelihood": 2,
+  "impact": 2,
+  "reason": "A hijacked run now reaches one caseload, not a town, and cannot email outside; the web exit stays until C02"
+ },
+ "R01": {
+  "likelihood": 2,
+  "impact": 2,
+  "reason": "No copy leaves by email; the web request remains possible until the egress allowlist; an alert shortens exposure"
+ },
+ "R03": {
+  "likelihood": 1,
+  "impact": 3,
+  "reason": "The lookup returns only the signed-in case; if it ever fails the harm to that person is unchanged"
+ }
+}
