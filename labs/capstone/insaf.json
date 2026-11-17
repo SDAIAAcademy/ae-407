@@ -4,7 +4,7 @@
  "facts": [
   "Insaf works for the appeals unit: 6 appeal officers, about 40 appeals a day.",
   "An appeal officer opens an appeal; Insaf reads the appeal file with the appellant's own statement, looks up the appeal rules, fetches the decision form and drafts the decision letter.",
-  "Insaf has five tools: read_appeal, benefit_rules, fetch_form, email_decision, add_note, and one more than Katib: update_payment_status, which can set a suspended payment back to active.",
+  "Insaf has six tools: read_appeal, benefit_rules, fetch_form, email_decision, add_note and update_payment_status. The last is one Katib does not have: it can set a suspended payment back to active.",
   "The design says: Insaf proposes a status change, the appeal officer confirms it. Nothing in the design enforces that.",
   "Appeal files are Restricted. They hold the case record, the reason for the suspension and, on disability appeals, a health note.",
   "Insaf runs on the same hosted model as Katib (Lisan-2, supplier Lisan Language Systems), under the same contract.",
