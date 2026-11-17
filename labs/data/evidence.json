@@ -1,0 +1,229 @@
+{
+ "framework": {
+  "name": "NIST AI Risk Management Framework 1.0 (extract of 14 subcategories, paraphrased for the lab; read the published text before you quote it)",
+  "controls": [
+   {
+    "id": "GOVERN 2.1",
+    "text": "Roles, responsibilities and lines of communication for AI risk are documented and clear"
+   },
+   {
+    "id": "GOVERN 6.1",
+    "text": "Policies and procedures address AI risks that come from third parties"
+   },
+   {
+    "id": "MAP 1.1",
+    "text": "Intended purposes, context of use, users and expectations are understood and documented"
+   },
+   {
+    "id": "MAP 3.5",
+    "text": "Processes for human oversight are defined, assessed and documented"
+   },
+   {
+    "id": "MEASURE 1.3",
+    "text": "Experts who did not build the system, or independent assessors, take part in assessments"
+   },
+   {
+    "id": "MEASURE 2.6",
+    "text": "The system is evaluated for safety; residual risk does not exceed the tolerance"
+   },
+   {
+    "id": "MEASURE 2.7",
+    "text": "Security and resilience are evaluated and documented"
+   },
+   {
+    "id": "MEASURE 2.10",
+    "text": "Privacy risk is examined and documented"
+   },
+   {
+    "id": "MEASURE 2.11",
+    "text": "Fairness and bias are evaluated and the results documented"
+   },
+   {
+    "id": "MANAGE 1.3",
+    "text": "Responses to high-priority risks are developed, planned and documented"
+   },
+   {
+    "id": "MANAGE 2.4",
+    "text": "Mechanisms and responsibilities exist to supersede, disengage or deactivate the system"
+   },
+   {
+    "id": "MANAGE 3.1",
+    "text": "Risks from third-party resources are monitored and controls applied"
+   },
+   {
+    "id": "MANAGE 4.1",
+    "text": "Post-deployment monitoring plans are implemented, including user input, override and incident response"
+   },
+   {
+    "id": "MANAGE 4.3",
+    "text": "Incidents and errors are communicated, tracked and recovered from"
+   }
+  ]
+ },
+ "evidence": [
+  {
+   "id": "E01",
+   "text": "Red-team test plan, approved by the head of AI assurance against the planning checklist",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "MEASURE 1.3",
+    "MAP 1.1"
+   ],
+   "claim": "C1"
+  },
+  {
+   "id": "E02",
+   "text": "Campaign log of 576 attempts with success rates and intervals by technique and script",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "MEASURE 2.7"
+   ],
+   "claim": "C1"
+  },
+  {
+   "id": "E03",
+   "text": "Findings report: three findings, each with a regression test and a threshold",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "MEASURE 2.7",
+    "MANAGE 1.3"
+   ],
+   "claim": "C1"
+  },
+  {
+   "id": "E04",
+   "text": "Risk register with calibrated scores, treatments, residual scores and signatories",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "MANAGE 1.3",
+    "MEASURE 2.6"
+   ],
+   "claim": "C2"
+  },
+  {
+   "id": "E05",
+   "text": "Context and scope record: uses, data, parties, automation level and human decision points",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "MAP 1.1",
+    "MAP 3.5"
+   ],
+   "claim": "C2"
+  },
+  {
+   "id": "E06",
+   "text": "Architecture review with test results and a decision record for each fix",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "MEASURE 2.7"
+   ],
+   "claim": "C3"
+  },
+  {
+   "id": "E07",
+   "text": "Delegation chain checks: three chains, the broken hop in each",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "MEASURE 2.7"
+   ],
+   "claim": "C3"
+  },
+  {
+   "id": "E08",
+   "text": "Supplier contract and the assessment of the model update notice",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "GOVERN 6.1",
+    "MANAGE 3.1"
+   ],
+   "claim": "C2"
+  },
+  {
+   "id": "E09",
+   "text": "Probe results for other applicants' data, by script",
+   "by": "independent",
+   "strength": "strong",
+   "key": [
+    "MEASURE 2.10"
+   ],
+   "claim": "C1"
+  },
+  {
+   "id": "E10",
+   "text": "Role chart: system owner, signatories by risk band, who may stop the system",
+   "by": "builder",
+   "strength": "strong",
+   "key": [
+    "GOVERN 2.1"
+   ],
+   "claim": "C2"
+  },
+  {
+   "id": "E11",
+   "text": "The builder's test summary: 'all security tests passed', no log attached",
+   "by": "builder",
+   "strength": "weak",
+   "key": [
+    "MEASURE 2.7"
+   ],
+   "claim": "C1"
+  },
+  {
+   "id": "E12",
+   "text": "Degrading-reply probes: 30 trials in one script",
+   "by": "independent",
+   "strength": "weak",
+   "key": [
+    "MEASURE 2.11"
+   ],
+   "claim": "C1"
+  },
+  {
+   "id": "E13",
+   "text": "Monitoring plan, draft, not approved, no alert thresholds",
+   "by": "builder",
+   "strength": "weak",
+   "key": [
+    "MANAGE 4.1"
+   ],
+   "claim": "C4"
+  },
+  {
+   "id": "E14",
+   "text": "A screenshot of Mueen refusing one request",
+   "by": "builder",
+   "strength": "none",
+   "key": [],
+   "claim": null
+  }
+ ],
+ "claims": {
+  "top": "Katib and Mueen are acceptably safe to operate for the stated uses at the Agency, on the conditions in the residual-risk statement",
+  "sub": [
+   {
+    "id": "C1",
+    "text": "Adversarial testing in three scripts found the weaknesses that matter, and each is fixed or carried as a named risk"
+   },
+   {
+    "id": "C2",
+    "text": "Every identified risk is scored, treated and signed for by a named person"
+   },
+   {
+    "id": "C3",
+    "text": "The architecture limits what a hijacked agent can read, send and do"
+   },
+   {
+    "id": "C4",
+    "text": "After release, a change or an incident is noticed and acted on in time"
+   }
+  ]
+ }
+}

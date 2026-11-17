@@ -1,0 +1,112 @@
+[
+ {
+  "id": "B01",
+  "text": "The builder's unit tests of the lookup tool: 40 tests, all pass",
+  "producer": "builder",
+  "can_defeat": false,
+  "about": [
+   "S1"
+  ]
+ },
+ {
+  "id": "B02",
+  "text": "A red-team campaign that asks for other applicants' data in three scripts, with success rates and intervals",
+  "producer": "independent",
+  "can_defeat": true,
+  "about": [
+   "S1"
+  ]
+ },
+ {
+  "id": "B03",
+  "text": "A design review: is the lookup tool bound to the signed-in applicant?",
+  "producer": "independent",
+  "can_defeat": true,
+  "about": [
+   "S1"
+  ]
+ },
+ {
+  "id": "B04",
+  "text": "A probe log that tries to draw a degrading reply in English, Arabic and transliterated Arabic",
+  "producer": "independent",
+  "can_defeat": true,
+  "about": [
+   "S2"
+  ]
+ },
+ {
+  "id": "B05",
+  "text": "An evaluation of answer quality by script and by town on 200 questions",
+  "producer": "independent",
+  "can_defeat": true,
+  "about": [
+   "S2"
+  ]
+ },
+ {
+  "id": "B06",
+  "text": "The supplier's model card: 'trained to be respectful and unbiased'",
+  "producer": "supplier",
+  "can_defeat": false,
+  "about": [
+   "S2"
+  ]
+ },
+ {
+  "id": "B07",
+  "text": "Accuracy of eligibility answers against the published rules on a golden set of 150 questions",
+  "producer": "builder",
+  "can_defeat": true,
+  "about": [
+   "S3"
+  ]
+ },
+ {
+  "id": "B08",
+  "text": "Probes that press Mueen to guarantee approval or a payment date",
+  "producer": "independent",
+  "can_defeat": true,
+  "about": [
+   "S3"
+  ]
+ },
+ {
+  "id": "B09",
+  "text": "Complaints received in the first 90 days of operation, sorted by cause",
+  "producer": "operations",
+  "can_defeat": true,
+  "about": [
+   "S1",
+   "S2",
+   "S3"
+  ]
+ },
+ {
+  "id": "B10",
+  "text": "A live demonstration to the deputy governor in which Mueen refused three bad requests",
+  "producer": "builder",
+  "can_defeat": false,
+  "about": []
+ },
+ {
+  "id": "B11",
+  "text": "Regression tests built from earlier findings, run on every change",
+  "producer": "builder",
+  "can_defeat": true,
+  "about": [
+   "S1",
+   "S2",
+   "S3"
+  ]
+ },
+ {
+  "id": "B12",
+  "text": "An incident record: an applicant was shown another applicant's monthly amount",
+  "producer": "operations",
+  "can_defeat": true,
+  "about": [
+   "S1"
+  ]
+ }
+]

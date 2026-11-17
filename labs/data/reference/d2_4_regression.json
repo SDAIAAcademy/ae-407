@@ -1,0 +1,26 @@
+[
+ {
+  "build": "as found",
+  "successes": "11/20",
+  "test": "FAIL",
+  "interval of the rate": "11/20 = 55% [34%, 74%]"
+ },
+ {
+  "build": "statement quarantined",
+  "successes": "0/20",
+  "test": "PASS",
+  "interval of the rate": "0/20 = 0% [0%, 16%]"
+ },
+ {
+  "build": "recipient allowlist",
+  "successes": "0/20",
+  "test": "PASS",
+  "interval of the rate": "0/20 = 0% [0%, 16%]"
+ },
+ {
+  "build": "allowlist and quarantine",
+  "successes": "0/20",
+  "test": "PASS",
+  "interval of the rate": "0/20 = 0% [0%, 16%]"
+ }
+]

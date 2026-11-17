@@ -1,0 +1,21 @@
+{
+ "class": "major",
+ "areas": [
+  "language",
+  "tools",
+  "safety",
+  "hosting"
+ ],
+ "reopened": [
+  "R01",
+  "R02",
+  "R03",
+  "R04",
+  "R05",
+  "R06",
+  "R08",
+  "R09",
+  "R10",
+  "R12"
+ ]
+}

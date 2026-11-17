@@ -1,0 +1,17 @@
+{
+ "least_privilege": [
+  "LP-1",
+  "LP-2"
+ ],
+ "egress": [
+  "EG-1",
+  "EG-2"
+ ],
+ "isolation": [
+  "IS-1"
+ ],
+ "monitoring": [
+  "MON-1",
+  "MON-2"
+ ]
+}

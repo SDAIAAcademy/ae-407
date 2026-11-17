@@ -1,0 +1,47 @@
+{
+ "links": {
+  "C1": [
+   "E01",
+   "E02",
+   "E03",
+   "E09",
+   "E12"
+  ],
+  "C2": [
+   "E04",
+   "E05",
+   "E08",
+   "E10"
+  ],
+  "C3": [
+   "E06",
+   "E07"
+  ],
+  "C4": [
+   "E13"
+  ]
+ },
+ "weakest": "C4",
+ "gaps": [
+  {
+   "control": "MANAGE 2.4",
+   "kind": "none",
+   "ask": "Sumayya Al-Shaalan names who may stop Katib and within how many minutes, and shows one drill"
+  },
+  {
+   "control": "MANAGE 4.3",
+   "kind": "none",
+   "ask": "Sulafa Al-Nashmi extends the Agency's incident process to the agent, with a record of one exercise"
+  },
+  {
+   "control": "MEASURE 2.11",
+   "kind": "weak",
+   "ask": "The red team reruns the degrading-reply probes in all three scripts, 30 trials each"
+  },
+  {
+   "control": "MANAGE 4.1",
+   "kind": "weak",
+   "ask": "Younis Al-Wabel gets the monitoring plan approved with alert thresholds and a per-case-worker action log"
+  }
+ ]
+}

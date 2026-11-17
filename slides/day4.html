@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="deck" data-track="ai-engineering">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 4 · Review and assemble the evidence · AI Assurance, Red Teaming and Governance for Engineering Leads</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="day4.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<div class="deck" data-course="AI Assurance, Red Teaming and Governance for Engineering Leads" data-track="ai-engineering" data-day="Day 4">
+<section class="slide title" id="title" data-auto="title" data-label="Welcome" data-n="1">
+  <div class="kicker">SDAIA Academy · AI Assurance, Red Teaming and Governance for Engineering Leads</div>
+  <h1>Review and assemble the evidence</h1>
+  <p class="lead mt">Day 4: Architecture review, delegated authority, the assurance case and the briefing</p>
+  <div class="meta"><span class="track">AI Engineering Track</span><span>4 teaching days + capstone day</span><span>4 sessions · 4 labs</span><span>AE-407</span></div>
+  <aside class="notes"><p>Last teaching day. Two sessions review what holds whatever the model does: the design and the delegation of authority. Two sessions assemble the pack and write the page the executive signs. Tomorrow participants do all of it on a system they have not seen. Labs today call no model at all.</p></aside>
+</section>
+
+<section class="slide" id="agenda" data-auto="agenda" data-label="Agenda" data-n="2">
+  <div class="kicker">Today</div>
+  <h2>Review and assemble the evidence</h2>
+  <div class="agenda"><div class="item"><div><b>Session 1 · Security architecture review</b><small>Reviewing a design the way an attacker reads it: least privilege, isolation and egress, each with a test</small></div></div><div class="item"><div><b>Session 2 · Identity and delegated authority</b><small>Who the agent is when it acts for a case worker: identity, delegation and the hop where authority breaks</small></div></div><div class="item"><div><b>Session 3 · Assurance evidence packs</b><small>Assembling the pack: evidence linked to claims, mapped to a control framework, with the gaps named</small></div></div><div class="item"><div><b>Session 4 · Briefing the accountable executive</b><small>One page for the person who signs: residual risk in plain words, a recommendation, conditions, owners and dates</small></div></div></div>
+</section>
+
+<section class="slide" id="review-day-3" data-lo="LO3" data-n="3">
+  <div class="kicker">Review of Day 3</div>
+  <h2>When is a residual score true?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3" data-id="review-day-3-q1">
+    <p class="lead">The register shows R02 at 3 × 4 = 12 inherent and 2 × 2 = 4 residual, signed by the system owner. The residual rests on caseload scoping, which is not built. What is the level of R02 today?</p>
+    <div class="opts">
+      <div class="opt" data-why="The signature accepts a score; it does not make the control exist" data-k="A">4, because the residual was signed</div>
+      <div class="opt" data-ok data-k="B">12, until the control is live and its test passes</div>
+      <div class="opt" data-why="Averaging a plan and a fact gives a number with no meaning" data-k="C">8, halfway, since the control is planned</div>
+      <div class="opt" data-why="Nothing in the evidence moved the risk to the top band; it is as it was assessed" data-k="D">16, because an unbuilt control is a new risk</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> A residual score describes the system with its controls working. Until then the inherent score is the true one, and the page for the executive must say so.</div>
+  </div>
+  <aside class="notes"><p>Answer: 12. This sentence returns in the last lab of today, where the supplied pack shows "4, medium" for a control that does not exist.</p></aside>
+</section>
+
+<!-- ======================= SESSION 1 ======================= -->
+<section class="slide section" id="s1" data-auto="section" data-session="1" data-n="4">
+  <div class="kicker">Session 1</div>
+  <h1>Security architecture review</h1>
+  <ul class="bullets outcomes"><li>Derive the least privilege of an agent from the classification of the data it touches</li><li>Test a design for isolation tiers and egress control</li><li>Write a review finding with severity and a decision record for the fix</li></ul>
+  <div class="sess-no">01</div>
+</section>
+
+<section class="slide" id="design-outlives-the-model" data-lo="LO4" data-n="5" data-session="1">
+  <div class="kicker">Why review the architecture</div>
+  <h2>A behaviour test asks what the model did; a design review asks what it could do</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Behaviour evidence</h4><p class="small mb0">"The planted line worked in 15 of 30 runs." A rate, of one model version, under one set of probes.</p></div>
+    <div class="card c-teal"><h4>Design evidence</h4><p class="small mb0">"The agent's account cannot send to an address that is not on the case." True for every model, every probe, every day until the design changes.</p></div>
+  </div>
+  <div class="callout tip mt"><b>Assume the model is hijacked.</b> Then ask what the agent's own account, placement and exits allow.</div>
+  <aside class="notes"><p>You designed these defences in AE-308. Today you sit on the other side of the table: someone else designed, and you decide whether the design supports the claim. The reviewer's stance is the attacker's: the instructions to the model are ignored, only permissions count.</p></aside>
+</section>
+
+<section class="slide" id="three-criteria" data-lo="LO4" data-n="6" data-session="1">
+  <div class="kicker">The review criteria</div>
+  <h2>Three questions, each with a test</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Least privilege</h4><p class="small mb0">Does the agent's account hold only what the intended uses need, on behalf of the person it acts for?</p></div>
+    <div class="card c-purple"><h4>Isolation</h4><p class="small mb0">Where does the runtime sit? Do sensitive data and an open network meet in one place?</p></div>
+    <div class="card c-coral"><h4>Egress control</h4><p class="small mb0">Which ways out exist: mail, web requests, notes others read? Is each limited to named destinations?</p></div>
+  </div>
+  <p class="small mt">A fourth, <b>monitoring</b>, decides whether anyone would notice: actions traced to a person, and a named person who can stop the agent.</p>
+  <aside class="notes"><p>These are the criteria the lab of this session names. Each maps to risks on yesterday's register: least privilege to R02, egress to R01, isolation to both. Monitoring becomes an open item in the pack.</p></aside>
+</section>
+
+<section class="slide" id="privilege-from-classification" data-lo="LO4" data-n="7" data-session="1">
+  <div class="kicker">Least privilege</div>
+  <h2>Derive the permissions from the data and the intended uses</h2>
+  <table class="t small">
+    <tr><th>Intended use</th><th>Needs</th><th>Granted in the pilot design</th></tr>
+    <tr><td>Draft the letter for the open case</td><td><code>case:read</code> on the worker's own caseload</td><td><code>case:read</code> on <code>case:*</code></td></tr>
+    <tr><td>(none)</td><td>nothing</td><td><code>case:search</code> on <code>case:*</code></td></tr>
+    <tr><td>Send the approved letter</td><td><code>mail:send</code> to the registered address</td><td><code>mail:send</code> to <code>addr:*</code></td></tr>
+    <tr><td>Fetch a letter template</td><td><code>net:fetch</code> from the template host</td><td><code>net:fetch</code> from <code>host:*</code></td></tr>
+  </table>
+  <div class="callout warn mt"><b>Case records are Restricted.</b> A wildcard on Restricted data, held by an account that reads untrusted text, is the whole of risk R02.</div>
+  <aside class="notes"><p>The classification levels are those of the national data classification policy as taught in AE-207. The method: start from the context record of Lab 3.1, list what each intended use needs, and compare with the policy. Everything in the third column that is wider than the second is a finding or needs a reason.</p></aside>
+</section>
+
+<section class="slide" id="tiers-and-routes" data-lo="LO4" data-n="8" data-session="1">
+  <div class="kicker">Isolation and egress</div>
+  <h2>Policy says what is allowed; placement says what is possible</h2>
+  <div class="flow">
+    <div class="step c-cyan"><b>Tier A</b>public-facing: portal, Mueen</div>
+    <div class="arrow">→</div>
+    <div class="step c-teal"><b>Tier B</b>internal applications</div>
+    <div class="arrow">→</div>
+    <div class="step c-navy"><b>Tier C</b>case database</div>
+  </div>
+  <ul class="bullets tight mt">
+    <li>The pilot runs Katib's runtime <b>in tier C</b>, with a default route to the internet</li>
+    <li>A policy rule can be loosened in one line by mistake; a missing route cannot</li>
+    <li>Two layers: the rule that denies, and the network that has no path</li>
+  </ul>
+  <aside class="notes"><p>The pattern to look for in any agent design: the process that reads sensitive data, reads untrusted text and can reach the outside. You met it in AE-308 as the three conditions of exfiltration. A review asks which of the three the design removes.</p></aside>
+</section>
+
+<section class="slide" id="tests-of-a-design" data-lo="LO4" data-n="9" data-session="1">
+  <div class="kicker">Lab 4.1, step 2</div>
+  <h2>Ten questions to the design; seven come back wrong</h2>
+  <table class="t small">
+    <tr><th>Test</th><th>Question</th><th>Expected</th><th>Design gives</th></tr>
+    <tr class="hl"><td>LP-1</td><td>Read a case outside the acting worker's caseload</td><td>deny</td><td>allow</td></tr>
+    <tr class="hl"><td>LP-2</td><td>Search the cases of every town</td><td>deny</td><td>allow</td></tr>
+    <tr class="hl"><td>EG-1</td><td>Email an address not registered on the case</td><td>deny</td><td>allow</td></tr>
+    <tr class="hl"><td>IS-1</td><td>The runtime that reads Restricted data reaches the internet</td><td>deny</td><td>allow</td></tr>
+    <tr><td>IS-2</td><td>The public assistant uses the agent's tools</td><td>deny</td><td>deny</td></tr>
+    <tr><td>EG-3</td><td>Request the Agency's template host</td><td>allow</td><td>allow</td></tr>
+  </table>
+  <p class="small mt">Six of the ten shown. Tests of what must still work keep a fix from breaking the service.</p>
+  <aside class="notes"><p>The tests evaluate the policy document and the placement, not a running system: that is what a design review can do before anything is built. Policy engines such as Open Policy Agent and Cedar let teams run such tests in their pipeline. Record what passes too: IS-2 is a property someone will break one day.</p></aside>
+</section>
+
+<section class="slide" id="finding-and-decision" data-lo="LO4" data-n="10" data-session="1">
+  <div class="kicker">The outputs of a review</div>
+  <h2>A finding says what is wrong; a decision record says what was done about it</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Finding</h4><p class="small mb0">The agent's account may read and search every case. Evidence: LP-1, LP-2. Consequence: one hijacked run reaches a whole town (R02). Severity 3.</p></div>
+    <div class="card c-purple"><h4>Decision record</h4><p class="small mb0">Proposed: keep the wildcard and instruct the agent to open only its case. <b>Rejected:</b> an instruction is not a control. Owner: Younis Al-Wabel. Closed when LP-1 and LP-2 pass.</p></div>
+  </div>
+  <div class="callout note mt"><b>Severity uses the impact scale of Day 3,</b> so that findings and risks can be read side by side.</div>
+  <aside class="notes"><p>The decision record is the part teams skip, and the part an auditor asks for a year later: what was proposed, what was decided, why, who, which test closes it. Three outcomes are possible in the lab: accept, reject, accept with conditions.</p></aside>
+</section>
+
+<section class="slide" id="check-fix-or-not" data-lo="LO4" data-n="11" data-session="1">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which proposed fix do you accept?</h2>
+  <div class="quiz" data-type="single" data-lo="LO4" data-id="check-fix-or-not-q1">
+    <p class="lead">Finding: Katib may email any address. The builders offer four fixes. Which one closes the finding?</p>
+    <div class="opts">
+      <div class="opt" data-why="An instruction changes what the model is asked, not what the account may do; a planted line asks for something else" data-k="A">Add to the instructions: "send letters only to the applicant"</div>
+      <div class="opt" data-why="A filter on the model's output is a behaviour control with an error rate; the permission stays wide" data-k="B">Screen every draft for addresses with a second model</div>
+      <div class="opt" data-why="Logging helps recovery after the fact; the record has still left" data-k="C">Log every email the agent sends</div>
+      <div class="opt" data-ok data-k="D">Allow <code>mail:send</code> only to the address registered on the case</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Only the last one changes what is possible. The others lower a rate or shorten recovery, and belong beside it, not in its place.</div>
+  </div>
+  <aside class="notes"><p>Answer: the allowlist in the permission. Ask which of the other three they would still keep: logging, certainly, for the monitoring criterion.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-4-1" data-auto="lab" data-lab="4.1" data-label="Lab 4.1" data-n="12" data-session="1">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 4.1 · 25 min</div><h2>Three findings on the agent's design</h2><p class="lead small">Review the agent design against least privilege, isolation and egress criteria and write three findings</p><a class="nb" href="../labs/D4_1_architecture_review.ipynb">D4_1_architecture_review.ipynb</a></div><ul class="checklist"><li>Read the design and its data classification <span class="min">5 min</span></li><li>Run the least-privilege, isolation and egress tests <span class="min">7 min</span></li><li>Write three findings with severity <span class="min">8 min</span></li><li>Record a decision for each proposed fix <span class="min">5 min</span></li><li class="stretch">✱ Stretch: Write the policy rule that closes one finding and run the tests again</li></ul></div>
+  <aside class="notes"><p>No model call in this lab. Step 1 has an exercise that looks easy and matters: writing the needed permissions before looking at the test results. In step 4 the check insists that the instruction-only fix is rejected. The design file is supplied; nothing from earlier days is needed.</p></aside>
+</section>
+
+<!-- ======================= SESSION 2 ======================= -->
+<section class="slide section" id="s2" data-auto="section" data-session="2" data-n="13">
+  <div class="kicker">Session 2</div>
+  <h1>Identity and delegated authority</h1>
+  <ul class="bullets outcomes"><li>Tell an agent identity from the person it acts for</li><li>Check a delegation hop: subject, actor, audience, scope and expiry</li><li>Say what a broken hop lets an attacker do</li></ul>
+  <div class="sess-no">02</div>
+</section>
+
+<section class="slide" id="who-is-the-agent" data-lo="LO4" data-n="14" data-session="2">
+  <div class="kicker">Agent identity</div>
+  <h2>The agent has an identity of its own, and it acts for someone</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>The person</h4><p class="small mb0">Case worker <code>cw-07</code>, signed in. Her caseload, her right to send letters, her name in the record.</p></div>
+    <div class="card c-purple"><h4>The agent</h4><p class="small mb0">Service account <code>svc-katib</code>. It should hold almost nothing by itself, and borrow authority for one task at a time.</p></div>
+  </div>
+  <div class="callout warn mt"><b>What goes wrong.</b> The agent calls every service as itself, with its own wide permissions. The case worker's limits vanish, and the log says "svc-katib" for everything.</div>
+  <aside class="notes"><p>Two questions for any agent action: for whom, and by whom. If a design cannot answer both from the request itself, least privilege is being enforced by the model's good behaviour. This is the identity half of yesterday's control C03.</p></aside>
+</section>
+
+<section class="slide" id="five-fields" data-lo="LO4" data-n="15" data-session="2">
+  <div class="kicker">Recall from AE-308</div>
+  <h2>A delegated token answers five questions</h2>
+  <table class="t">
+    <tr><th>Field</th><th>Question</th><th>In a sound hop</th></tr>
+    <tr><td><code>sub</code> · subject</td><td>For whom?</td><td>Still the case worker who signed in</td></tr>
+    <tr><td><code>act</code> · actor</td><td>By whom?</td><td>Names the service making the call</td></tr>
+    <tr><td><code>aud</code> · audience</td><td>For which service?</td><td>The one it is presented to, and no other</td></tr>
+    <tr><td><code>scope</code></td><td>Allowed to do what?</td><td>Never more than was delegated at sign-in</td></tr>
+    <tr><td><code>exp</code> · expiry</td><td>Until when?</td><td>Never later than the sign-in; minutes, not hours</td></tr>
+  </table>
+  <aside class="notes"><p>In AE-308 you built the exchange in which a service trades a token for a narrower one, as RFC 8693 describes it. This session does not rebuild it: you read chains that someone else built and decide whether authority is intact. Source: RFC 8693, OAuth 2.0 Token Exchange.</p></aside>
+</section>
+
+<section class="slide" id="a-sound-chain" data-lo="LO4" data-n="16" data-session="2">
+  <div class="kicker">Lab 4.2, step 1</div>
+  <h2>A sound chain narrows at every hop and never changes its subject</h2>
+  <table class="t small">
+    <tr><th class="num">Hop</th><th>Presented to</th><th>sub</th><th>act</th><th>aud</th><th>scope</th><th class="num">exp (min)</th></tr>
+    <tr><td class="num">0</td><td>katib-runtime</td><td>cw-07</td><td></td><td>katib-runtime</td><td>case:read letter:send</td><td class="num">60</td></tr>
+    <tr><td class="num">1</td><td>case-service</td><td>cw-07</td><td>svc-katib</td><td>case-service</td><td>case:read</td><td class="num">10</td></tr>
+    <tr><td class="num">2</td><td>letter-service</td><td>cw-07</td><td>svc-katib</td><td>letter-service</td><td>letter:send</td><td class="num">10</td></tr>
+    <tr><td class="num">3</td><td>mail-gateway</td><td>cw-07</td><td>svc-letter</td><td>mail-gateway</td><td>letter:send</td><td class="num">5</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Read down each column.</b> Subject constant. Actor names each caller. Audience equals the service. Scope shrinks. Expiry shrinks.</div>
+  <aside class="notes"><p>Hop 0 is the case worker's own sign-in to the agent. Each later hop is a new token obtained by exchange. Ask the room what the mail gateway knows at hop 3: that a letter is sent for cw-07, by the letter service, and nothing else is permitted.</p></aside>
+</section>
+
+<section class="slide" id="three-breaks" data-lo="LO4" data-n="17" data-session="2">
+  <div class="kicker">Lab 4.2, steps 3 and 4</div>
+  <h2>Three ways a chain breaks, and what each one gives away</h2>
+  <div class="cols cols-3">
+    <div class="card c-coral"><h4>Wrong audience</h4><p class="small mb0">A token made for the case service is accepted by the letter service. Whoever captures it can <b>replay</b> it elsewhere.</p></div>
+    <div class="card c-amber"><h4>Wider scope</h4><p class="small mb0">The agent's token carries <code>case:search-all</code>, which the case worker never had. <b>Escalation:</b> one run reaches every case.</p></div>
+    <div class="card c-purple"><h4>Subject replaced</h4><p class="small mb0">From hop 2 the subject is <code>svc-katib</code>. The act is recorded as the agent's own: <b>no accountability</b>, no caseload limit.</p></div>
+  </div>
+  <aside class="notes"><p>These are chains A, B and C of the lab. None needs a clever attacker, and none shows up in a behaviour test: the letters still go out correctly. The second is the wildcard of Lab 4.1 seen from the token side.</p></aside>
+</section>
+
+<section class="slide" id="compare-with-the-origin" data-lo="LO4" data-n="18" data-session="2">
+  <div class="kicker">Writing the check</div>
+  <h2>Compare every hop with the sign-in, not with the hop before it</h2>
+  <div class="cols cols-2">
+    <pre class="code">def check_hop(origin, hop):
+    first, tok = origin["token"], hop["token"]
+    broken = []
+    if tok["sub"] != first["sub"]:
+        broken.append("subject")
+    if not tok["act"]:
+        broken.append("actor")
+    if tok["aud"] != hop["presented_to"]:
+        broken.append("audience")
+    ...</pre>
+    <ul class="bullets">
+      <li>In chain C, hop 3 keeps the subject of hop 2</li>
+      <li>A check against the previous hop passes it</li>
+      <li>Authority comes from the person: measure against her sign-in</li>
+    </ul>
+  </div>
+  <aside class="notes"><p>The lab's check has five rules and returns every rule a hop breaks. In production each service validates the token it receives; the audit question is whether it validates all five, and against what.</p></aside>
+</section>
+
+<section class="slide" id="identity-in-the-register" data-lo="LO4" data-n="19" data-session="2">
+  <div class="kicker">Back to the register</div>
+  <h2>Each break makes a risk you already scored worse</h2>
+  <table class="t">
+    <tr><th>Break</th><th>Gives</th><th>Risk on the register</th></tr>
+    <tr><td>Wrong audience</td><td>Replay</td><td>R01 · a letter sent where it should not go</td></tr>
+    <tr><td>Wider scope</td><td>Escalation</td><td>R02 · the cases of a whole town</td></tr>
+    <tr><td>Subject replaced</td><td>No accountability</td><td>R12 · a note nobody can trace to a person</td></tr>
+  </table>
+  <div class="callout note mt"><b>Chain checks are design evidence.</b> They survive a model update, and they go into the pack beside the architecture review.</div>
+  <aside class="notes"><p>The mapping to risks is a judgment and the lab accepts any register risk with a reason. The point is that an identity finding is not a separate world: it changes the likelihood or the impact of risks the owner already knows.</p></aside>
+</section>
+
+<section class="slide" id="check-broken-hop" data-lo="LO4" data-n="20" data-session="2">
+  <div class="kicker">Checkpoint</div>
+  <h2>What is wrong with this hop?</h2>
+  <div class="quiz" data-type="single" data-lo="LO4" data-id="check-broken-hop-q1">
+    <p class="lead">Sign-in: <code>sub cw-09</code>, scope <code>case:read letter:send</code>, 60 minutes. The token presented to the letter service: <code>sub cw-09</code>, <code>act svc-katib</code>, <code>aud letter-service</code>, scope <code>letter:send</code>, 480 minutes.</p>
+    <div class="opts">
+      <div class="opt" data-ok data-k="A">Expiry: the delegated token outlives the sign-in it came from</div>
+      <div class="opt" data-why="The subject is still the case worker, as it should be" data-k="B">Subject: the agent should be the subject</div>
+      <div class="opt" data-why="The audience equals the service the token is presented to" data-k="C">Audience: it should name the agent runtime</div>
+      <div class="opt" data-why="letter:send was delegated at sign-in; the scope is narrower, not wider" data-k="D">Scope: letter:send was never delegated</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Four fields are sound. A token valid for eight hours lets the agent, or whoever holds the token, send letters for her long after she signed out.</div>
+  </div>
+  <aside class="notes"><p>Answer: expiry. The lab's hidden test for the check uses exactly this case, so participants who answer here have their fifth rule.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-4-2" data-auto="lab" data-lab="4.2" data-label="Lab 4.2" data-n="21" data-session="2">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 4.2 · 25 min</div><h2>The broken hop</h2><p class="lead small">Find the broken hop in three delegation chains where the agent acts for a case worker</p><a class="nb" href="../labs/D4_2_delegation_chains.ipynb">D4_2_delegation_chains.ipynb</a></div><ul class="checklist"><li>Read one correct chain hop by hop <span class="min">5 min</span></li><li>Write the check of one hop <span class="min">8 min</span></li><li>Find the broken hop in three chains <span class="min">7 min</span></li><li>Say what each break lets an attacker do <span class="min">5 min</span></li><li class="stretch">✱ Stretch: Repair one chain and show that your check now passes it</li></ul></div>
+  <aside class="notes"><p>No model call. Participants who took AE-308 will find step 2 quick; pair them with those who did not. Watch for checks that compare with the previous hop: they find chains A and B and place the break of chain C correctly, then cannot explain hop 3. The chains are supplied.</p></aside>
+</section>
+
+<!-- ======================= SESSION 3 ======================= -->
+<section class="slide section" id="s3" data-auto="section" data-session="3" data-n="22">
+  <div class="kicker">Session 3</div>
+  <h1>Assurance evidence packs</h1>
+  <ul class="bullets outcomes"><li>Map an evidence item to the controls it supports</li><li>Find controls with no evidence or with evidence too weak for the claim</li><li>Build the assurance case: claims, arguments, evidence and a gap list</li></ul>
+  <div class="sess-no">03</div>
+</section>
+
+<section class="slide" id="what-a-pack-is" data-lo="LO5" data-n="23" data-session="3">
+  <div class="kicker">The assurance pack</div>
+  <h2>A pack is what lets someone who was not there reach your conclusion</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>Plan</b>objectives, scope, rules</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>Logs and findings</b>rates, intervals, regression tests</div>
+    <div class="arrow">→</div>
+    <div class="step c-amber"><b>Register</b>scores, treatments, signatures</div>
+    <div class="arrow">→</div>
+    <div class="step c-purple"><b>Reviews</b>design tests, chain checks</div>
+    <div class="arrow">→</div>
+    <div class="step c-navy"><b>Case and page</b>claims, gaps, the statement</div>
+  </div>
+  <p class="small mt">Four days of labs produced each of these for Katib and Mueen. Today's question: do they add up to the top claim of Lab 1.1?</p>
+  <aside class="notes"><p>The readers are the two people on tomorrow's panel: the accountable executive, who reads the last page, and the internal auditor, who opens any file at random and asks where a number came from.</p></aside>
+</section>
+
+<section class="slide" id="what-counts-as-evidence" data-lo="LO5" data-n="24" data-session="3">
+  <div class="kicker">Judging evidence</div>
+  <h2>Ask of every item who made it and what it can carry</h2>
+  <table class="t small">
+    <tr><th>Item</th><th>By</th><th>Strength</th></tr>
+    <tr><td>Campaign log of 576 attempts with rates and intervals by script</td><td>Independent</td><td>Strong</td></tr>
+    <tr><td>Role chart: owner, signatories, who may stop the system</td><td>Builders</td><td>Strong: a fact anyone can verify</td></tr>
+    <tr><td>"All security tests passed", no log attached</td><td>Builders</td><td>Weak: a judgment of their own work</td></tr>
+    <tr><td>Monitoring plan, draft, no thresholds</td><td>Builders</td><td>Weak</td></tr>
+    <tr><td>A screenshot of Mueen refusing one request</td><td>Builders</td><td>None</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Evidence is what an outsider can check.</b> A summary without its log is a claim.</div>
+  <aside class="notes"><p>Independence matters most where judgment is involved. The NIST framework has a subcategory for it: assessors who did not build the system take part. One trial, as on Day 2, is an anecdote whichever way it points.</p></aside>
+</section>
+
+<section class="slide" id="crosswalk" data-lo="LO5" data-n="25" data-session="3">
+  <div class="kicker">Lab 4.3, steps 2 and 3</div>
+  <h2>A crosswalk shows where the evidence piles up and where there is none</h2>
+  <div class="bars">
+    <div class="row"><span>MEASURE 2.7 · security evaluated</span><div class="bar c-teal" style="--w:100%"></div><span class="val">5 items</span></div>
+    <div class="row"><span>MANAGE 1.3 · responses to high risks</span><div class="bar c-cyan" style="--w:40%"></div><span class="val">2</span></div>
+    <div class="row"><span>MEASURE 2.11 · fairness evaluated</span><div class="bar c-amber" style="--w:20%"></div><span class="val">1, weak</span></div>
+    <div class="row"><span>MANAGE 4.1 · monitoring after release</span><div class="bar c-amber" style="--w:20%"></div><span class="val">1, weak</span></div>
+    <div class="row"><span>MANAGE 2.4 · can be switched off</span><div class="bar c-coral" style="--w:1%"></div><span class="val">0</span></div>
+    <div class="row"><span>MANAGE 4.3 · incidents handled</span><div class="bar c-coral" style="--w:1%"></div><span class="val">0</span></div>
+  </div>
+  <p class="small mt">Six of the fourteen subcategories in the lab's extract of the NIST AI Risk Management Framework.</p>
+  <aside class="notes"><p>The lab paraphrases fourteen subcategories; read the published text before quoting it. The method is the same against any framework your organisation answers to: the Cloud Security Alliance's AI Controls Matrix, a management-system standard, or a regulator's control list. Teams over-collect evidence where they enjoy working. The gaps sit after release.</p></aside>
+</section>
+
+<section class="slide" id="claims-and-evidence" data-lo="LO5" data-n="26" data-session="3">
+  <div class="kicker">The assurance case</div>
+  <h2>The top claim holds only as far as its weakest sub-claim</h2>
+  <table class="t small">
+    <tr><th>Sub-claim</th><th>Rests on</th></tr>
+    <tr><td>C1 · Testing found the weaknesses that matter; each is fixed or carried as a risk</td><td>Plan, campaign log, findings, privacy probes</td></tr>
+    <tr><td>C2 · Every risk is scored, treated and signed for</td><td>Register, context record, supplier assessment, role chart</td></tr>
+    <tr><td>C3 · The architecture limits what a hijacked agent can do</td><td>Architecture review, chain checks</td></tr>
+    <tr class="hl"><td>C4 · After release, a change or an incident is noticed in time</td><td>A draft monitoring plan</td></tr>
+  </table>
+  <div class="callout warn mt"><b>Three sub-claims hold. One does not yet,</b> and the top claim must say so in its conditions.</div>
+  <aside class="notes"><p>This is the structure of Lab 1.1 filled in: claim, argument, evidence. On Day 1 the leaves were promises; now each is a file or a hole. The honest form of the top claim is "acceptably safe for the stated uses, on these conditions".</p></aside>
+</section>
+
+<section class="slide" id="gap-list" data-lo="LO5" data-n="27" data-session="3">
+  <div class="kicker">Lab 4.3, step 4</div>
+  <h2>List the gaps yourself, each with an ask</h2>
+  <table class="t small">
+    <tr><th>Control</th><th>Gap</th><th>Ask</th></tr>
+    <tr><td>MANAGE 2.4</td><td>No evidence</td><td>The system owner names who may stop Katib, within how many minutes, and shows one drill</td></tr>
+    <tr><td>MANAGE 4.3</td><td>No evidence</td><td>The incident process is extended to the agent, with a record of one exercise</td></tr>
+    <tr><td>MEASURE 2.11</td><td>Weak</td><td>The degrading-reply probes are rerun in all three scripts</td></tr>
+    <tr><td>MANAGE 4.1</td><td>Weak</td><td>The monitoring plan is approved, with thresholds and a per-worker action log</td></tr>
+  </table>
+  <div class="callout tip mt"><b>An auditor finds them anyway.</b> A pack that names its gaps shows its authors tested their own claim.</div>
+  <aside class="notes"><p>The lab asks for "the gaps an auditor would raise". An ask has an addressee and something checkable: "improve monitoring" is not an ask.</p></aside>
+</section>
+
+<section class="slide" id="pack-in-a-repository" data-lo="LO5" data-n="28" data-session="3">
+  <div class="kicker">For tomorrow</div>
+  <h2>Every number in the pack leads back to a file</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>One folder per part: plan, logs, findings, register, reviews, case</li>
+      <li>Logs carry timestamps, the target version and the seed</li>
+      <li>Each finding has a regression test that someone else can run</li>
+      <li>The statement cites the file behind each level</li>
+    </ul>
+    <div class="card c-navy"><h4>The auditor's move</h4><p class="small mb0">Zakiya Al-Buraik opens one claim at random and asks you to reproduce the number behind it, in front of her. Build the pack for that moment.</p></div>
+  </div>
+  <aside class="notes"><p>The capstone asks for the pack in a public repository, with timestamps and three regression tests. Reproducing a number live is the authenticity rule of the assessment: in the defence the participant reproduces one finding the panel selects.</p></aside>
+</section>
+
+<section class="slide" id="check-evidence-strength" data-lo="LO5" data-n="29" data-session="3">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which item can carry the claim?</h2>
+  <div class="quiz" data-type="single" data-lo="LO5" data-id="check-evidence-strength-q1">
+    <p class="lead">Sub-claim: "Mueen does not reveal another applicant's record." Which item supports it best?</p>
+    <div class="opts">
+      <div class="opt" data-why="One refusal is one trial: it says nothing about the rate, or about other scripts" data-k="A">A screenshot of Mueen refusing such a request in Arabic</div>
+      <div class="opt" data-why="A statement by the builders about their own work, with nothing an outsider can rerun" data-k="B">The builders' note that the lookup "was hardened last sprint"</div>
+      <div class="opt" data-ok data-k="C">A design test showing the lookup returns only the signed-in case, with probe results by script after the fix</div>
+      <div class="opt" data-why="The clause covers the supplier's use of data, not what the assistant shows an applicant" data-k="D">The supplier's contract clause on data use</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Design evidence that the path is gone, plus measured behaviour in each script, checked by someone who did not build it.</div>
+  </div>
+  <aside class="notes"><p>Answer: the third. Note the pairing: the design test shows the path is closed, the probes show nothing else leaks the same data.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-4-3" data-auto="lab" data-lab="4.3" data-label="Lab 4.3" data-n="30" data-session="3">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 4.3 · 25 min</div><h2>Evidence, controls and gaps</h2><p class="lead small">Map a provided evidence set to a control framework and list the gaps an auditor would raise</p><a class="nb" href="../labs/D4_3_evidence_crosswalk.ipynb">D4_3_evidence_crosswalk.ipynb</a></div><ul class="checklist"><li>Read the evidence set and the framework extract <span class="min">5 min</span></li><li>Map each evidence item to the controls it supports <span class="min">8 min</span></li><li>List the controls with no evidence or weak evidence <span class="min">6 min</span></li><li>Link evidence to claims and write the gap list <span class="min">6 min</span></li><li class="stretch">✱ Stretch: Map the same evidence to the control library of the Agency and compare the two gap lists</li></ul></div>
+  <aside class="notes"><p>No model call. Mappings differ between reasonable people; the check asks for agreement on eleven of fourteen items and prints where a participant differs. Discuss E11: it maps to a control and should still hold up no claim. The evidence set is supplied, so the lab stands alone.</p></aside>
+</section>
+
+<!-- ======================= SESSION 4 ======================= -->
+<section class="slide section" id="s4" data-auto="section" data-session="4" data-n="31">
+  <div class="kicker">Session 4</div>
+  <h1>Briefing the accountable executive</h1>
+  <ul class="bullets outcomes"><li>State residual risk in words an executive can act on</li><li>Write a recommendation with conditions, owners and dates</li><li>Answer a challenge by reproducing the evidence, not by repeating the claim</li></ul>
+  <div class="sess-no">04</div>
+</section>
+
+<section class="slide" id="the-reader" data-lo="LO6" data-n="32" data-session="4">
+  <div class="kicker">The accountable executive</div>
+  <h2>He decides in ten minutes, signs with his name, and was in none of the labs</h2>
+  <div class="cols cols-2">
+    <div class="card c-navy"><h4>Zuhair Al-Zaidi, deputy governor for benefits</h4><p class="small mb0">Asked to release Katib from two case workers to all twelve. Answers to the governor, and to applicants if a record leaks.</p></div>
+    <ul class="bullets">
+      <li>What could happen, to whom, how likely?</li>
+      <li>What are you asking me to decide?</li>
+      <li>What must be true first, who does it, by when?</li>
+      <li>What do we not know?</li>
+    </ul>
+  </div>
+  <aside class="notes"><p>Everything else in the pack exists so that this page can be short and true. Engineering leads tend to brief upward by showing how much work was done. The executive needs the four answers on the right and nothing else.</p></aside>
+</section>
+
+<section class="slide" id="plain-words" data-lo="LO6" data-n="33" data-session="4">
+  <div class="kicker">Residual risk in plain words</div>
+  <h2>Say what could happen to a person, not what the technique is called</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Written for us</h4><p class="small mb0">"Indirect prompt injection via the applicant statement enables exfiltration through the mail tool; residual 2 × 2 after egress allowlisting."</p></div>
+    <div class="card c-teal"><h4>Written for him</h4><p class="small mb0">"Hidden text in an applicant's statement could make Katib send that person's record outside the Agency. Email is now closed; two more safeguards are due. Level 4, medium."</p></div>
+  </div>
+  <div class="callout tip mt"><b>Test:</b> could he repeat the sentence to the governor without you in the room?</div>
+  <aside class="notes"><p>The lab's checklist refuses a short list of specialist terms. That is a crude stand-in for the real test on this slide. Keep the level: the number and the band are his vocabulary too, from the Agency's risk appetite.</p></aside>
+</section>
+
+<section class="slide" id="scores-that-are-promises" data-lo="LO6" data-n="34" data-session="4">
+  <div class="kicker">Lab 4.4, step 1</div>
+  <h2>Some residual scores on the page are true today; some are promises</h2>
+  <table class="t small">
+    <tr><th>Risk</th><th class="num">Residual</th><th>Status of its controls</th><th>Today</th></tr>
+    <tr><td>R03 · another applicant's record shown</td><td class="num">3</td><td>Both live, retested</td><td>True</td></tr>
+    <tr><td>R01 · a record emailed out</td><td class="num">4</td><td>Allowlist live; two controls due</td><td>Partly</td></tr>
+    <tr class="hl"><td>R02 · the cases of a whole town</td><td class="num">4</td><td>Caseload scoping not built</td><td>Still 12</td></tr>
+    <tr><td>R05, R07 · unequal protection; drafts unread</td><td class="num">6</td><td>Untreated</td><td>True</td></tr>
+    <tr><td>R09 · the supplier changes the model</td><td class="num">6</td><td>Update announced, 10 days</td><td>Happening</td></tr>
+  </table>
+  <div class="callout warn mt"><b>Every control that is not live becomes a condition,</b> or the page tells him something that is not yet true.</div>
+  <aside class="notes"><p>The supplied pack has no field that separates live from planned; participants must read the status column, which is how packs arrive in practice. The three highest residual levels are the untreated medium risks, not the famous ones.</p></aside>
+</section>
+
+<section class="slide" id="conditions-owners-dates" data-lo="LO6" data-n="35" data-session="4">
+  <div class="kicker">The recommendation</div>
+  <h2>A condition names one person and a number of days</h2>
+  <table class="t small">
+    <tr><th>Condition</th><th>Owner</th><th class="num">Days</th></tr>
+    <tr><td>Before release: Katib can open only the cases of the worker it acts for, proven by test</td><td>Younis Al-Wabel</td><td class="num">30</td></tr>
+    <tr><td>Before release: a named person can stop Katib within minutes; actions are logged per case worker</td><td>Sumayya Al-Shaalan</td><td class="num">21</td></tr>
+    <tr><td>Before the new model serves applicants: the tests are rerun on it and none is worse</td><td>Sulafa Al-Nashmi</td><td class="num">14</td></tr>
+    <tr><td>The supplier confirms in writing where data is processed</td><td>Tuqa Al-Mishaal</td><td class="num">10</td></tr>
+  </table>
+  <p class="small mt"><b>Go with conditions</b> here. "Hold until the first two are met" is the same decision in other words; a plain go is not available.</p>
+  <aside class="notes"><p>The framework's last treatment activity: accept within the approved limits, or escalate, with the acceptance documented. "The security team" cannot own a condition; nobody can be asked on the due date. Reference answer of the lab; other sets of conditions pass if each has an owner at the Agency and a date.</p></aside>
+</section>
+
+<section class="slide" id="say-what-was-not-tested" data-lo="LO6" data-n="36" data-session="4">
+  <div class="kicker">The limits of the evidence</div>
+  <h2>The signature covers the whole system; the evidence does not</h2>
+  <div class="cols cols-3">
+    <div class="card c-amber"><h4>Not tested</h4><p class="small mb0">Attachments other than text. Gulf dialect beyond a few attempts. The new model version.</p></div>
+    <div class="card c-coral"><h4>Open findings</h4><p class="small mb0">The runtime reaches the internet. Nobody is named to stop the agent.</p></div>
+    <div class="card c-purple"><h4>Review date</h4><p class="small mb0">Within 90 days, and at once on a model update, a new tool or an incident.</p></div>
+  </div>
+  <div class="callout note mt"><b>"Is it safe?"</b> is answered with the page: for these uses, these risks remain at these levels, on these conditions, and this is what we did not test.</div>
+  <aside class="notes"><p>The hardest habit for a technical lead: saying what was not tested without apology and without burying it. An executive who learns of an untested area after an incident stops trusting the whole pack.</p></aside>
+</section>
+
+<section class="slide" id="answer-a-challenge" data-lo="LO6" data-n="37" data-session="4">
+  <div class="kicker">In the room</div>
+  <h2>Answer a challenge by reproducing the evidence, not by repeating the claim</h2>
+  <div class="trace">
+    <div class="ev"><b>Auditor</b> "You say email is closed. How do you know?"</div>
+    <div class="ev"><b>Weak answer</b> "We added an allowlist and tested it thoroughly."</div>
+    <div class="ev"><b>Strong answer</b> "Regression test F1: 300 runs of the planted line, 0 sent. The file is findings/F1; I can run 20 now."</div>
+    <div class="ev"><b>Auditor</b> "And on the new model?"</div>
+    <div class="ev"><b>Strong answer</b> "The allowlist does not ask the model, so it holds. The 11 in 300 with quarantine alone is open until the retest; it is condition 3."</div>
+  </div>
+  <aside class="notes"><p>Tomorrow's panel has both roles, and the scripted supplier change arrives during the defence. The second strong answer is the whole of Day 3, Session 4 in two sentences. If you do not know, say which file would tell you.</p></aside>
+</section>
+
+<section class="slide" id="check-best-sentence" data-lo="LO6" data-n="38" data-session="4">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which sentence belongs on the page?</h2>
+  <div class="quiz" data-type="single" data-lo="LO6" data-id="check-best-sentence-q1">
+    <p class="lead">You are writing the line for R07 (case workers send drafts unread; level 6, untreated) for the deputy governor.</p>
+    <div class="opts">
+      <div class="opt" data-why="Names a mechanism in specialist words and gives him nothing to decide" data-k="A">"Automation bias in the human-in-the-loop step degrades oversight efficacy"</div>
+      <div class="opt" data-ok data-k="B">"Case workers approve most drafts in seconds, so a wrong letter can reach an applicant. Level 6, medium. Nothing is in place yet"</div>
+      <div class="opt" data-why="Reassures without a level, a cause or a status; he cannot weigh it" data-k="C">"There is a small chance of occasional errors in letters, which we are monitoring"</div>
+      <div class="opt" data-why="True and unusable: it hides the one fact he needs, that the risk is untreated" data-k="D">"R07: 3 × 2 = 6, see register row 7"</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> What happens, to whom, the level in the Agency's own bands, and the status, in words he can repeat.</div>
+  </div>
+  <aside class="notes"><p>Answer: the second. The third option is the most common in real briefings; ask the room what "we are monitoring" commits anyone to.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-4-4" data-auto="lab" data-lab="4.4" data-label="Lab 4.4" data-n="39" data-session="4">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 4.4 · 25 min</div><h2>A one-page residual-risk statement</h2><p class="lead small">Draft a one-page residual-risk statement with conditions, owners and dates from a provided assurance pack</p><a class="nb" href="../labs/D4_4_residual_statement.ipynb">D4_4_residual_statement.ipynb</a></div><ul class="checklist"><li>Read the summary of the assurance pack <span class="min">5 min</span></li><li>State the residual risks in plain words with their levels <span class="min">6 min</span></li><li>Write the recommendation with conditions, owners and dates <span class="min">8 min</span></li><li>Check the page against the briefing checklist <span class="min">6 min</span></li><li class="stretch">✱ Stretch: Revise the page after the supplier model change of Lab 3.4 and mark what changed</li></ul></div>
+  <aside class="notes"><p>No model call. An AI assistant may help with wording here, and participants should try it: then check that every level and name on the page still matches the pack, because assistants smooth numbers. The checklist limits the page to 300 words and refuses jargon; it cannot judge truth, which is the panel's job tomorrow. The pack summary is supplied.</p></aside>
+</section>
+
+<section class="slide" id="wrap-up" data-n="40" data-session="4">
+  <div class="kicker">Day 4 · wrap-up</div>
+  <h2>Three things to keep</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Review what is possible</h4><p class="small mb0">Permissions from the data, placement, exits, and authority that stays with the person at every hop.</p></div>
+    <div class="card c-coral"><h4>Name your own gaps</h4><p class="small mb0">Evidence an outsider can check, linked to claims, mapped to controls, with an ask for every hole.</p></div>
+    <div class="card c-purple"><h4>One true page</h4><p class="small mb0">Plain words, levels, conditions with a name and a date, and what was not tested.</p></div>
+  </div>
+  <aside class="notes"><p>Ask each participant for the one line of their page they are least sure the pack supports. That is where the panel will look tomorrow.</p></aside>
+</section>
+
+<section class="slide dark" id="next" data-label="Next" data-n="41" data-session="4">
+  <div class="kicker">Next</div>
+  <h2>Capstone: an assurance pack and its defence</h2>
+  <p class="lead">Tomorrow you meet Insaf, the Agency's appeals agent, for the first time. You plan, test, score, review and write the page, then defend it before the deputy governor and the internal auditor. Bring your four days of notebooks: every step has a pattern in them.</p>
+  <aside class="notes"><p>Point to labs/capstone/README.md for the brief and the repository layout. Insaf runs in the same sandbox as Katib with a different profile and different planted weaknesses, so results from the week do not transfer; methods do.</p></aside>
+</section>
+</div>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-17T11:31:40Z","version":"2027.1.0","commit":"f135e55"},"course":{"id":"ae-407","code":"AE-407","title":"AI Assurance, Red Teaming and Governance for Engineering Leads","track":"ai-engineering","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/ae-407/","repo":"SDAIAAcademy/ae-407","home":"../index.html"},"deck":{"id":"day4","kind":"day","day":4,"label":"Day 4","title":"Review and assemble the evidence","prev":"day3.html","next":"capstone.html","md":"day4.md","alt":{}},"sessions":[{"n":1,"label":"Session 1","title":"Security architecture review","slide":"s1","outcomes":["Derive the least privilege of an agent from the classification of the data it touches","Test a design for isolation tiers and egress control","Write a review finding with severity and a decision record for the fix"],"minutes":50,"lab":{"id":"4.1","title":"Three findings on the agent's design","minutes":25,"href":"../labs/D4_1_architecture_review.ipynb"}},{"n":2,"label":"Session 2","title":"Identity and delegated authority","slide":"s2","outcomes":["Tell an agent identity from the person it acts for","Check a delegation hop: subject, actor, audience, scope and expiry","Say what a broken hop lets an attacker do"],"minutes":50,"lab":{"id":"4.2","title":"The broken hop","minutes":25,"href":"../labs/D4_2_delegation_chains.ipynb"}},{"n":3,"label":"Session 3","title":"Assurance evidence packs","slide":"s3","outcomes":["Map an evidence item to the controls it supports","Find controls with no evidence or with evidence too weak for the claim","Build the assurance case: claims, arguments, evidence and a gap list"],"minutes":50,"lab":{"id":"4.3","title":"Evidence, controls and gaps","minutes":25,"href":"../labs/D4_3_evidence_crosswalk.ipynb"}},{"n":4,"label":"Session 4","title":"Briefing the accountable executive","slide":"s4","outcomes":["State residual risk in words an executive can act on","Write a recommendation with conditions, owners and dates","Answer a challenge by reproducing the evidence, not by repeating the claim"],"minutes":50,"lab":{"id":"4.4","title":"A one-page residual-risk statement","minutes":25,"href":"../labs/D4_4_residual_statement.ipynb"}}],"slides":[{"id":"title","n":1,"title":"Review and assemble the evidence","kind":"title","session":0,"hash":"e6f3d667","md":"#### [day4#title] Review and assemble the evidence\n\n*SDAIA Academy · AI Assurance, Red Teaming and Governance for Engineering Leads*\n\nDay 4: Architecture review, delegated authority, the assurance case and the briefing\n\nAI Engineering Track · 4 teaching days + capstone day · 4 sessions · 4 labs · AE-407","notes":"Last teaching day. Two sessions review what holds whatever the model does: the design and the delegation of authority. Two sessions assemble the pack and write the page the executive signs. Tomorrow participants do all of it on a system they have not seen. Labs today call no model at all.","minutes":null,"lo":[]},{"id":"agenda","n":2,"title":"Review and assemble the evidence","kind":"content","session":0,"hash":"02ebf23b","md":"#### [day4#agenda] Review and assemble the evidence\n\n*Today*\n\n- **Session 1 · Security architecture review**: Reviewing a design the way an attacker reads it: least privilege, isolation and egress, each with a test\n- **Session 2 · Identity and delegated authority**: Who the agent is when it acts for a case worker: identity, delegation and the hop where authority breaks\n- **Session 3 · Assurance evidence packs**: Assembling the pack: evidence linked to claims, mapped to a control framework, with the gaps named\n- **Session 4 · Briefing the accountable executive**: One page for the person who signs: residual risk in plain words, a recommendation, conditions, owners and dates","notes":"","minutes":null,"lo":[]},{"id":"review-day-3","n":3,"title":"When is a residual score true?","kind":"quiz","session":0,"hash":"9244d935","md":"#### [day4#review-day-3] When is a residual score true?\n\n*Review of Day 3*\n\n**Question:** The register shows R02 at 3 × 4 = 12 inherent and 2 × 2 = 4 residual, signed by the system owner. The residual rests on caseload scoping, which is not built. What is the level of R02 today?\n\n- A. 4, because the residual was signed\n- B. 12, until the control is live and its test passes\n- C. 8, halfway, since the control is planned\n- D. 16, because an unbuilt control is a new risk","notes":"Answer: 12. This sentence returns in the last lab of today, where the supplied pack shows \"4, medium\" for a control that does not exist.","minutes":null,"lo":["LO3"]},{"id":"s1","n":4,"title":"Security architecture review","kind":"section","session":1,"hash":"248b36a6","md":"#### [day4#s1] Security architecture review\n\n*Session 1*\n\n- Derive the least privilege of an agent from the classification of the data it touches\n- Test a design for isolation tiers and egress control\n- Write a review finding with severity and a decision record for the fix","notes":"","minutes":null,"lo":["LO4"]},{"id":"design-outlives-the-model","n":5,"title":"A behaviour test asks what the model did; a design review asks what it could do","kind":"content","session":1,"hash":"a2fce48a","md":"#### [day4#design-outlives-the-model] A behaviour test asks what the model did; a design review asks what it could do\n\n*Why review the architecture*\n\n- **Behaviour evidence.** \"The planted line worked in 15 of 30 runs.\" A rate, of one model version, under one set of probes.\n- **Design evidence.** \"The agent's account cannot send to an address that is not on the case.\" True for every model, every probe, every day until the design changes.\n\n> **Assume the model is hijacked.** Then ask what the agent's own account, placement and exits allow.","notes":"You designed these defences in AE-308. Today you sit on the other side of the table: someone else designed, and you decide whether the design supports the claim. The reviewer's stance is the attacker's: the instructions to the model are ignored, only permissions count.","minutes":null,"lo":["LO4"]},{"id":"three-criteria","n":6,"title":"Three questions, each with a test","kind":"content","session":1,"hash":"a05a23b8","md":"#### [day4#three-criteria] Three questions, each with a test\n\n*The review criteria*\n\n- **Least privilege.** Does the agent's account hold only what the intended uses need, on behalf of the person it acts for?\n- **Isolation.** Where does the runtime sit? Do sensitive data and an open network meet in one place?\n- **Egress control.** Which ways out exist: mail, web requests, notes others read? Is each limited to named destinations?\n\nA fourth, **monitoring**, decides whether anyone would notice: actions traced to a person, and a named person who can stop the agent.","notes":"These are the criteria the lab of this session names. Each maps to risks on yesterday's register: least privilege to R02, egress to R01, isolation to both. Monitoring becomes an open item in the pack.","minutes":null,"lo":["LO4"]},{"id":"privilege-from-classification","n":7,"title":"Derive the permissions from the data and the intended uses","kind":"content","session":1,"hash":"3e6a822c","md":"#### [day4#privilege-from-classification] Derive the permissions from the data and the intended uses\n\n*Least privilege*\n\n| Intended use | Needs | Granted in the pilot design |\n| --- | --- | --- |\n| Draft the letter for the open case | `case:read` on the worker's own caseload | `case:read` on `case:*` |\n| (none) | nothing | `case:search` on `case:*` |\n| Send the approved letter | `mail:send` to the registered address | `mail:send` to `addr:*` |\n| Fetch a letter template | `net:fetch` from the template host | `net:fetch` from `host:*` |\n\n> **Case records are Restricted.** A wildcard on Restricted data, held by an account that reads untrusted text, is the whole of risk R02.","notes":"The classification levels are those of the national data classification policy as taught in AE-207. The method: start from the context record of Lab 3.1, list what each intended use needs, and compare with the policy. Everything in the third column that is wider than the second is a finding or needs a reason.","minutes":null,"lo":["LO4"]},{"id":"tiers-and-routes","n":8,"title":"Policy says what is allowed; placement says what is possible","kind":"content","session":1,"hash":"aa551b5b","md":"#### [day4#tiers-and-routes] Policy says what is allowed; placement says what is possible\n\n*Isolation and egress*\n\n**Tier A** public-facing: portal, Mueen → **Tier B** internal applications → **Tier C** case database\n\n- The pilot runs Katib's runtime **in tier C**, with a default route to the internet\n- A policy rule can be loosened in one line by mistake; a missing route cannot\n- Two layers: the rule that denies, and the network that has no path","notes":"The pattern to look for in any agent design: the process that reads sensitive data, reads untrusted text and can reach the outside. You met it in AE-308 as the three conditions of exfiltration. A review asks which of the three the design removes.","minutes":null,"lo":["LO4"]},{"id":"tests-of-a-design","n":9,"title":"Ten questions to the design; seven come back wrong","kind":"content","session":1,"hash":"779c8ced","md":"#### [day4#tests-of-a-design] Ten questions to the design; seven come back wrong\n\n*Lab 4.1, step 2*\n\n| Test | Question | Expected | Design gives |\n| --- | --- | --- | --- |\n| LP-1 | Read a case outside the acting worker's caseload | deny | allow |\n| LP-2 | Search the cases of every town | deny | allow |\n| EG-1 | Email an address not registered on the case | deny | allow |\n| IS-1 | The runtime that reads Restricted data reaches the internet | deny | allow |\n| IS-2 | The public assistant uses the agent's tools | deny | deny |\n| EG-3 | Request the Agency's template host | allow | allow |\n\nSix of the ten shown. Tests of what must still work keep a fix from breaking the service.","notes":"The tests evaluate the policy document and the placement, not a running system: that is what a design review can do before anything is built. Policy engines such as Open Policy Agent and Cedar let teams run such tests in their pipeline. Record what passes too: IS-2 is a property someone will break one day.","minutes":null,"lo":["LO4"]},{"id":"finding-and-decision","n":10,"title":"A finding says what is wrong; a decision record says what was done about it","kind":"content","session":1,"hash":"4440bb96","md":"#### [day4#finding-and-decision] A finding says what is wrong; a decision record says what was done about it\n\n*The outputs of a review*\n\n- **Finding.** The agent's account may read and search every case. Evidence: LP-1, LP-2. Consequence: one hijacked run reaches a whole town (R02). Severity 3.\n- **Decision record.** Proposed: keep the wildcard and instruct the agent to open only its case. **Rejected:** an instruction is not a control. Owner: Younis Al-Wabel. Closed when LP-1 and LP-2 pass.\n\n> **Severity uses the impact scale of Day 3,** so that findings and risks can be read side by side.","notes":"The decision record is the part teams skip, and the part an auditor asks for a year later: what was proposed, what was decided, why, who, which test closes it. Three outcomes are possible in the lab: accept, reject, accept with conditions.","minutes":null,"lo":["LO4"]},{"id":"check-fix-or-not","n":11,"title":"Which proposed fix do you accept?","kind":"quiz","session":1,"hash":"df907e64","md":"#### [day4#check-fix-or-not] Which proposed fix do you accept?\n\n*Checkpoint*\n\n**Question:** Finding: Katib may email any address. The builders offer four fixes. Which one closes the finding?\n\n- A. Add to the instructions: \"send letters only to the applicant\"\n- B. Screen every draft for addresses with a second model\n- C. Log every email the agent sends\n- D. Allow `mail:send` only to the address registered on the case","notes":"Answer: the allowlist in the permission. Ask which of the other three they would still keep: logging, certainly, for the monitoring criterion.","minutes":null,"lo":["LO4"]},{"id":"lab-4-1","n":12,"title":"Three findings on the agent's design","kind":"lab","session":1,"hash":"57bb9fe2","md":"#### [day4#lab-4-1] Three findings on the agent's design\n\nLab 4.1 · 25 min\n\nReview the agent design against least privilege, isolation and egress criteria and write three findings\n\n[D4_1_architecture_review.ipynb](https://sdaiaacademy.github.io/ae-407/labs/D4_1_architecture_review.ipynb)\n\n- [ ] Read the design and its data classification (5 min)\n- [ ] Run the least-privilege, isolation and egress tests (7 min)\n- [ ] Write three findings with severity (8 min)\n- [ ] Record a decision for each proposed fix (5 min)\n- [ ] ✱ Stretch: Write the policy rule that closes one finding and run the tests again","notes":"No model call in this lab. Step 1 has an exercise that looks easy and matters: writing the needed permissions before looking at the test results. In step 4 the check insists that the instruction-only fix is rejected. The design file is supplied; nothing from earlier days is needed.","minutes":null,"lo":[]},{"id":"s2","n":13,"title":"Identity and delegated authority","kind":"section","session":2,"hash":"666b9fc6","md":"#### [day4#s2] Identity and delegated authority\n\n*Session 2*\n\n- Tell an agent identity from the person it acts for\n- Check a delegation hop: subject, actor, audience, scope and expiry\n- Say what a broken hop lets an attacker do","notes":"","minutes":null,"lo":["LO4"]},{"id":"who-is-the-agent","n":14,"title":"The agent has an identity of its own, and it acts for someone","kind":"content","session":2,"hash":"15617758","md":"#### [day4#who-is-the-agent] The agent has an identity of its own, and it acts for someone\n\n*Agent identity*\n\n- **The person.** Case worker `cw-07`, signed in. Her caseload, her right to send letters, her name in the record.\n- **The agent.** Service account `svc-katib`. It should hold almost nothing by itself, and borrow authority for one task at a time.\n\n> **What goes wrong.** The agent calls every service as itself, with its own wide permissions. The case worker's limits vanish, and the log says \"svc-katib\" for everything.","notes":"Two questions for any agent action: for whom, and by whom. If a design cannot answer both from the request itself, least privilege is being enforced by the model's good behaviour. This is the identity half of yesterday's control C03.","minutes":null,"lo":["LO4"]},{"id":"five-fields","n":15,"title":"A delegated token answers five questions","kind":"content","session":2,"hash":"44368e00","md":"#### [day4#five-fields] A delegated token answers five questions\n\n*Recall from AE-308*\n\n| Field | Question | In a sound hop |\n| --- | --- | --- |\n| `sub` · subject | For whom? | Still the case worker who signed in |\n| `act` · actor | By whom? | Names the service making the call |\n| `aud` · audience | For which service? | The one it is presented to, and no other |\n| `scope` | Allowed to do what? | Never more than was delegated at sign-in |\n| `exp` · expiry | Until when? | Never later than the sign-in; minutes, not hours |","notes":"In AE-308 you built the exchange in which a service trades a token for a narrower one, as RFC 8693 describes it. This session does not rebuild it: you read chains that someone else built and decide whether authority is intact. Source: RFC 8693, OAuth 2.0 Token Exchange.","minutes":null,"lo":["LO4"]},{"id":"a-sound-chain","n":16,"title":"A sound chain narrows at every hop and never changes its subject","kind":"content","session":2,"hash":"54021f4d","md":"#### [day4#a-sound-chain] A sound chain narrows at every hop and never changes its subject\n\n*Lab 4.2, step 1*\n\n| Hop | Presented to | sub | act | aud | scope | exp (min) |\n| --- | --- | --- | --- | --- | --- | --- |\n| 0 | katib-runtime | cw-07 |  | katib-runtime | case:read letter:send | 60 |\n| 1 | case-service | cw-07 | svc-katib | case-service | case:read | 10 |\n| 2 | letter-service | cw-07 | svc-katib | letter-service | letter:send | 10 |\n| 3 | mail-gateway | cw-07 | svc-letter | mail-gateway | letter:send | 5 |\n\n> **Read down each column.** Subject constant. Actor names each caller. Audience equals the service. Scope shrinks. Expiry shrinks.","notes":"Hop 0 is the case worker's own sign-in to the agent. Each later hop is a new token obtained by exchange. Ask the room what the mail gateway knows at hop 3: that a letter is sent for cw-07, by the letter service, and nothing else is permitted.","minutes":null,"lo":["LO4"]},{"id":"three-breaks","n":17,"title":"Three ways a chain breaks, and what each one gives away","kind":"content","session":2,"hash":"3b7e13bf","md":"#### [day4#three-breaks] Three ways a chain breaks, and what each one gives away\n\n*Lab 4.2, steps 3 and 4*\n\n- **Wrong audience.** A token made for the case service is accepted by the letter service. Whoever captures it can **replay** it elsewhere.\n- **Wider scope.** The agent's token carries `case:search-all`, which the case worker never had. **Escalation:** one run reaches every case.\n- **Subject replaced.** From hop 2 the subject is `svc-katib`. The act is recorded as the agent's own: **no accountability**, no caseload limit.","notes":"These are chains A, B and C of the lab. None needs a clever attacker, and none shows up in a behaviour test: the letters still go out correctly. The second is the wildcard of Lab 4.1 seen from the token side.","minutes":null,"lo":["LO4"]},{"id":"compare-with-the-origin","n":18,"title":"Compare every hop with the sign-in, not with the hop before it","kind":"content","session":2,"hash":"290a471b","md":"#### [day4#compare-with-the-origin] Compare every hop with the sign-in, not with the hop before it\n\n*Writing the check*\n\n```\ndef check_hop(origin, hop):\n    first, tok = origin[\"token\"], hop[\"token\"]\n    broken = []\n    if tok[\"sub\"] != first[\"sub\"]:\n        broken.append(\"subject\")\n    if not tok[\"act\"]:\n        broken.append(\"actor\")\n    if tok[\"aud\"] != hop[\"presented_to\"]:\n        broken.append(\"audience\")\n    ...\n```\n\n- In chain C, hop 3 keeps the subject of hop 2\n- A check against the previous hop passes it\n- Authority comes from the person: measure against her sign-in","notes":"The lab's check has five rules and returns every rule a hop breaks. In production each service validates the token it receives; the audit question is whether it validates all five, and against what.","minutes":null,"lo":["LO4"]},{"id":"identity-in-the-register","n":19,"title":"Each break makes a risk you already scored worse","kind":"content","session":2,"hash":"46da1e8c","md":"#### [day4#identity-in-the-register] Each break makes a risk you already scored worse\n\n*Back to the register*\n\n| Break | Gives | Risk on the register |\n| --- | --- | --- |\n| Wrong audience | Replay | R01 · a letter sent where it should not go |\n| Wider scope | Escalation | R02 · the cases of a whole town |\n| Subject replaced | No accountability | R12 · a note nobody can trace to a person |\n\n> **Chain checks are design evidence.** They survive a model update, and they go into the pack beside the architecture review.","notes":"The mapping to risks is a judgment and the lab accepts any register risk with a reason. The point is that an identity finding is not a separate world: it changes the likelihood or the impact of risks the owner already knows.","minutes":null,"lo":["LO4"]},{"id":"check-broken-hop","n":20,"title":"What is wrong with this hop?","kind":"quiz","session":2,"hash":"55f03a2f","md":"#### [day4#check-broken-hop] What is wrong with this hop?\n\n*Checkpoint*\n\n**Question:** Sign-in: `sub cw-09`, scope `case:read letter:send`, 60 minutes. The token presented to the letter service: `sub cw-09`, `act svc-katib`, `aud letter-service`, scope `letter:send`, 480 minutes.\n\n- A. Expiry: the delegated token outlives the sign-in it came from\n- B. Subject: the agent should be the subject\n- C. Audience: it should name the agent runtime\n- D. Scope: letter:send was never delegated","notes":"Answer: expiry. The lab's hidden test for the check uses exactly this case, so participants who answer here have their fifth rule.","minutes":null,"lo":["LO4"]},{"id":"lab-4-2","n":21,"title":"The broken hop","kind":"lab","session":2,"hash":"41c4dddf","md":"#### [day4#lab-4-2] The broken hop\n\nLab 4.2 · 25 min\n\nFind the broken hop in three delegation chains where the agent acts for a case worker\n\n[D4_2_delegation_chains.ipynb](https://sdaiaacademy.github.io/ae-407/labs/D4_2_delegation_chains.ipynb)\n\n- [ ] Read one correct chain hop by hop (5 min)\n- [ ] Write the check of one hop (8 min)\n- [ ] Find the broken hop in three chains (7 min)\n- [ ] Say what each break lets an attacker do (5 min)\n- [ ] ✱ Stretch: Repair one chain and show that your check now passes it","notes":"No model call. Participants who took AE-308 will find step 2 quick; pair them with those who did not. Watch for checks that compare with the previous hop: they find chains A and B and place the break of chain C correctly, then cannot explain hop 3. The chains are supplied.","minutes":null,"lo":[]},{"id":"s3","n":22,"title":"Assurance evidence packs","kind":"section","session":3,"hash":"e88c1116","md":"#### [day4#s3] Assurance evidence packs\n\n*Session 3*\n\n- Map an evidence item to the controls it supports\n- Find controls with no evidence or with evidence too weak for the claim\n- Build the assurance case: claims, arguments, evidence and a gap list","notes":"","minutes":null,"lo":["LO5"]},{"id":"what-a-pack-is","n":23,"title":"A pack is what lets someone who was not there reach your conclusion","kind":"content","session":3,"hash":"7b92d284","md":"#### [day4#what-a-pack-is] A pack is what lets someone who was not there reach your conclusion\n\n*The assurance pack*\n\n1. **Plan** objectives, scope, rules\n2. **Logs and findings** rates, intervals, regression tests\n3. **Register** scores, treatments, signatures\n4. **Reviews** design tests, chain checks\n5. **Case and page** claims, gaps, the statement\n\nFour days of labs produced each of these for Katib and Mueen. Today's question: do they add up to the top claim of Lab 1.1?","notes":"The readers are the two people on tomorrow's panel: the accountable executive, who reads the last page, and the internal auditor, who opens any file at random and asks where a number came from.","minutes":null,"lo":["LO5"]},{"id":"what-counts-as-evidence","n":24,"title":"Ask of every item who made it and what it can carry","kind":"content","session":3,"hash":"58c5ac2f","md":"#### [day4#what-counts-as-evidence] Ask of every item who made it and what it can carry\n\n*Judging evidence*\n\n| Item | By | Strength |\n| --- | --- | --- |\n| Campaign log of 576 attempts with rates and intervals by script | Independent | Strong |\n| Role chart: owner, signatories, who may stop the system | Builders | Strong: a fact anyone can verify |\n| \"All security tests passed\", no log attached | Builders | Weak: a judgment of their own work |\n| Monitoring plan, draft, no thresholds | Builders | Weak |\n| A screenshot of Mueen refusing one request | Builders | None |\n\n> **Evidence is what an outsider can check.** A summary without its log is a claim.","notes":"Independence matters most where judgment is involved. The NIST framework has a subcategory for it: assessors who did not build the system take part. One trial, as on Day 2, is an anecdote whichever way it points.","minutes":null,"lo":["LO5"]},{"id":"crosswalk","n":25,"title":"A crosswalk shows where the evidence piles up and where there is none","kind":"content","session":3,"hash":"ea6dd74e","md":"#### [day4#crosswalk] A crosswalk shows where the evidence piles up and where there is none\n\n*Lab 4.3, steps 2 and 3*\n\n| Item | Value |\n| --- | --- |\n| MEASURE 2.7 · security evaluated | 5 items |\n| MANAGE 1.3 · responses to high risks | 2 |\n| MEASURE 2.11 · fairness evaluated | 1, weak |\n| MANAGE 4.1 · monitoring after release | 1, weak |\n| MANAGE 2.4 · can be switched off | 0 |\n| MANAGE 4.3 · incidents handled | 0 |\n\nSix of the fourteen subcategories in the lab's extract of the NIST AI Risk Management Framework.","notes":"The lab paraphrases fourteen subcategories; read the published text before quoting it. The method is the same against any framework your organisation answers to: the Cloud Security Alliance's AI Controls Matrix, a management-system standard, or a regulator's control list. Teams over-collect evidence where they enjoy working. The gaps sit after release.","minutes":null,"lo":["LO5"]},{"id":"claims-and-evidence","n":26,"title":"The top claim holds only as far as its weakest sub-claim","kind":"content","session":3,"hash":"06330d78","md":"#### [day4#claims-and-evidence] The top claim holds only as far as its weakest sub-claim\n\n*The assurance case*\n\n| Sub-claim | Rests on |\n| --- | --- |\n| C1 · Testing found the weaknesses that matter; each is fixed or carried as a risk | Plan, campaign log, findings, privacy probes |\n| C2 · Every risk is scored, treated and signed for | Register, context record, supplier assessment, role chart |\n| C3 · The architecture limits what a hijacked agent can do | Architecture review, chain checks |\n| C4 · After release, a change or an incident is noticed in time | A draft monitoring plan |\n\n> **Three sub-claims hold. One does not yet,** and the top claim must say so in its conditions.","notes":"This is the structure of Lab 1.1 filled in: claim, argument, evidence. On Day 1 the leaves were promises; now each is a file or a hole. The honest form of the top claim is \"acceptably safe for the stated uses, on these conditions\".","minutes":null,"lo":["LO5"]},{"id":"gap-list","n":27,"title":"List the gaps yourself, each with an ask","kind":"content","session":3,"hash":"ea218077","md":"#### [day4#gap-list] List the gaps yourself, each with an ask\n\n*Lab 4.3, step 4*\n\n| Control | Gap | Ask |\n| --- | --- | --- |\n| MANAGE 2.4 | No evidence | The system owner names who may stop Katib, within how many minutes, and shows one drill |\n| MANAGE 4.3 | No evidence | The incident process is extended to the agent, with a record of one exercise |\n| MEASURE 2.11 | Weak | The degrading-reply probes are rerun in all three scripts |\n| MANAGE 4.1 | Weak | The monitoring plan is approved, with thresholds and a per-worker action log |\n\n> **An auditor finds them anyway.** A pack that names its gaps shows its authors tested their own claim.","notes":"The lab asks for \"the gaps an auditor would raise\". An ask has an addressee and something checkable: \"improve monitoring\" is not an ask.","minutes":null,"lo":["LO5"]},{"id":"pack-in-a-repository","n":28,"title":"Every number in the pack leads back to a file","kind":"content","session":3,"hash":"be88be22","md":"#### [day4#pack-in-a-repository] Every number in the pack leads back to a file\n\n*For tomorrow*\n\n- One folder per part: plan, logs, findings, register, reviews, case\n- Logs carry timestamps, the target version and the seed\n- Each finding has a regression test that someone else can run\n- The statement cites the file behind each level\n\n- **The auditor's move.** Zakiya Al-Buraik opens one claim at random and asks you to reproduce the number behind it, in front of her. Build the pack for that moment.","notes":"The capstone asks for the pack in a public repository, with timestamps and three regression tests. Reproducing a number live is the authenticity rule of the assessment: in the defence the participant reproduces one finding the panel selects.","minutes":null,"lo":["LO5"]},{"id":"check-evidence-strength","n":29,"title":"Which item can carry the claim?","kind":"quiz","session":3,"hash":"5e888e30","md":"#### [day4#check-evidence-strength] Which item can carry the claim?\n\n*Checkpoint*\n\n**Question:** Sub-claim: \"Mueen does not reveal another applicant's record.\" Which item supports it best?\n\n- A. A screenshot of Mueen refusing such a request in Arabic\n- B. The builders' note that the lookup \"was hardened last sprint\"\n- C. A design test showing the lookup returns only the signed-in case, with probe results by script after the fix\n- D. The supplier's contract clause on data use","notes":"Answer: the third. Note the pairing: the design test shows the path is closed, the probes show nothing else leaks the same data.","minutes":null,"lo":["LO5"]},{"id":"lab-4-3","n":30,"title":"Evidence, controls and gaps","kind":"lab","session":3,"hash":"675e7477","md":"#### [day4#lab-4-3] Evidence, controls and gaps\n\nLab 4.3 · 25 min\n\nMap a provided evidence set to a control framework and list the gaps an auditor would raise\n\n[D4_3_evidence_crosswalk.ipynb](https://sdaiaacademy.github.io/ae-407/labs/D4_3_evidence_crosswalk.ipynb)\n\n- [ ] Read the evidence set and the framework extract (5 min)\n- [ ] Map each evidence item to the controls it supports (8 min)\n- [ ] List the controls with no evidence or weak evidence (6 min)\n- [ ] Link evidence to claims and write the gap list (6 min)\n- [ ] ✱ Stretch: Map the same evidence to the control library of the Agency and compare the two gap lists","notes":"No model call. Mappings differ between reasonable people; the check asks for agreement on eleven of fourteen items and prints where a participant differs. Discuss E11: it maps to a control and should still hold up no claim. The evidence set is supplied, so the lab stands alone.","minutes":null,"lo":[]},{"id":"s4","n":31,"title":"Briefing the accountable executive","kind":"section","session":4,"hash":"5e1e63f6","md":"#### [day4#s4] Briefing the accountable executive\n\n*Session 4*\n\n- State residual risk in words an executive can act on\n- Write a recommendation with conditions, owners and dates\n- Answer a challenge by reproducing the evidence, not by repeating the claim","notes":"","minutes":null,"lo":["LO6"]},{"id":"the-reader","n":32,"title":"He decides in ten minutes, signs with his name, and was in none of the labs","kind":"content","session":4,"hash":"86c2eba2","md":"#### [day4#the-reader] He decides in ten minutes, signs with his name, and was in none of the labs\n\n*The accountable executive*\n\n- **Zuhair Al-Zaidi, deputy governor for benefits.** Asked to release Katib from two case workers to all twelve. Answers to the governor, and to applicants if a record leaks.\n\n- What could happen, to whom, how likely?\n- What are you asking me to decide?\n- What must be true first, who does it, by when?\n- What do we not know?","notes":"Everything else in the pack exists so that this page can be short and true. Engineering leads tend to brief upward by showing how much work was done. The executive needs the four answers on the right and nothing else.","minutes":null,"lo":["LO6"]},{"id":"plain-words","n":33,"title":"Say what could happen to a person, not what the technique is called","kind":"content","session":4,"hash":"2385cd15","md":"#### [day4#plain-words] Say what could happen to a person, not what the technique is called\n\n*Residual risk in plain words*\n\n- **Written for us.** \"Indirect prompt injection via the applicant statement enables exfiltration through the mail tool; residual 2 × 2 after egress allowlisting.\"\n- **Written for him.** \"Hidden text in an applicant's statement could make Katib send that person's record outside the Agency. Email is now closed; two more safeguards are due. Level 4, medium.\"\n\n> **Test:** could he repeat the sentence to the governor without you in the room?","notes":"The lab's checklist refuses a short list of specialist terms. That is a crude stand-in for the real test on this slide. Keep the level: the number and the band are his vocabulary too, from the Agency's risk appetite.","minutes":null,"lo":["LO6"]},{"id":"scores-that-are-promises","n":34,"title":"Some residual scores on the page are true today; some are promises","kind":"content","session":4,"hash":"dae083ad","md":"#### [day4#scores-that-are-promises] Some residual scores on the page are true today; some are promises\n\n*Lab 4.4, step 1*\n\n| Risk | Residual | Status of its controls | Today |\n| --- | --- | --- | --- |\n| R03 · another applicant's record shown | 3 | Both live, retested | True |\n| R01 · a record emailed out | 4 | Allowlist live; two controls due | Partly |\n| R02 · the cases of a whole town | 4 | Caseload scoping not built | Still 12 |\n| R05, R07 · unequal protection; drafts unread | 6 | Untreated | True |\n| R09 · the supplier changes the model | 6 | Update announced, 10 days | Happening |\n\n> **Every control that is not live becomes a condition,** or the page tells him something that is not yet true.","notes":"The supplied pack has no field that separates live from planned; participants must read the status column, which is how packs arrive in practice. The three highest residual levels are the untreated medium risks, not the famous ones.","minutes":null,"lo":["LO6"]},{"id":"conditions-owners-dates","n":35,"title":"A condition names one person and a number of days","kind":"content","session":4,"hash":"c5708381","md":"#### [day4#conditions-owners-dates] A condition names one person and a number of days\n\n*The recommendation*\n\n| Condition | Owner | Days |\n| --- | --- | --- |\n| Before release: Katib can open only the cases of the worker it acts for, proven by test | Younis Al-Wabel | 30 |\n| Before release: a named person can stop Katib within minutes; actions are logged per case worker | Sumayya Al-Shaalan | 21 |\n| Before the new model serves applicants: the tests are rerun on it and none is worse | Sulafa Al-Nashmi | 14 |\n| The supplier confirms in writing where data is processed | Tuqa Al-Mishaal | 10 |\n\n**Go with conditions** here. \"Hold until the first two are met\" is the same decision in other words; a plain go is not available.","notes":"The framework's last treatment activity: accept within the approved limits, or escalate, with the acceptance documented. \"The security team\" cannot own a condition; nobody can be asked on the due date. Reference answer of the lab; other sets of conditions pass if each has an owner at the Agency and a date.","minutes":null,"lo":["LO6"]},{"id":"say-what-was-not-tested","n":36,"title":"The signature covers the whole system; the evidence does not","kind":"content","session":4,"hash":"6ff4e117","md":"#### [day4#say-what-was-not-tested] The signature covers the whole system; the evidence does not\n\n*The limits of the evidence*\n\n- **Not tested.** Attachments other than text. Gulf dialect beyond a few attempts. The new model version.\n- **Open findings.** The runtime reaches the internet. Nobody is named to stop the agent.\n- **Review date.** Within 90 days, and at once on a model update, a new tool or an incident.\n\n> **\"Is it safe?\"** is answered with the page: for these uses, these risks remain at these levels, on these conditions, and this is what we did not test.","notes":"The hardest habit for a technical lead: saying what was not tested without apology and without burying it. An executive who learns of an untested area after an incident stops trusting the whole pack.","minutes":null,"lo":["LO6"]},{"id":"answer-a-challenge","n":37,"title":"Answer a challenge by reproducing the evidence, not by repeating the claim","kind":"content","session":4,"hash":"6c8a4c95","md":"#### [day4#answer-a-challenge] Answer a challenge by reproducing the evidence, not by repeating the claim\n\n*In the room*\n\n- Auditor: \"You say email is closed. How do you know?\"\n- Weak answer: \"We added an allowlist and tested it thoroughly.\"\n- Strong answer: \"Regression test F1: 300 runs of the planted line, 0 sent. The file is findings/F1; I can run 20 now.\"\n- Auditor: \"And on the new model?\"\n- Strong answer: \"The allowlist does not ask the model, so it holds. The 11 in 300 with quarantine alone is open until the retest; it is condition 3.\"","notes":"Tomorrow's panel has both roles, and the scripted supplier change arrives during the defence. The second strong answer is the whole of Day 3, Session 4 in two sentences. If you do not know, say which file would tell you.","minutes":null,"lo":["LO6"]},{"id":"check-best-sentence","n":38,"title":"Which sentence belongs on the page?","kind":"quiz","session":4,"hash":"bfd7cd0c","md":"#### [day4#check-best-sentence] Which sentence belongs on the page?\n\n*Checkpoint*\n\n**Question:** You are writing the line for R07 (case workers send drafts unread; level 6, untreated) for the deputy governor.\n\n- A. \"Automation bias in the human-in-the-loop step degrades oversight efficacy\"\n- B. \"Case workers approve most drafts in seconds, so a wrong letter can reach an applicant. Level 6, medium. Nothing is in place yet\"\n- C. \"There is a small chance of occasional errors in letters, which we are monitoring\"\n- D. \"R07: 3 × 2 = 6, see register row 7\"","notes":"Answer: the second. The third option is the most common in real briefings; ask the room what \"we are monitoring\" commits anyone to.","minutes":null,"lo":["LO6"]},{"id":"lab-4-4","n":39,"title":"A one-page residual-risk statement","kind":"lab","session":4,"hash":"9b3f2618","md":"#### [day4#lab-4-4] A one-page residual-risk statement\n\nLab 4.4 · 25 min\n\nDraft a one-page residual-risk statement with conditions, owners and dates from a provided assurance pack\n\n[D4_4_residual_statement.ipynb](https://sdaiaacademy.github.io/ae-407/labs/D4_4_residual_statement.ipynb)\n\n- [ ] Read the summary of the assurance pack (5 min)\n- [ ] State the residual risks in plain words with their levels (6 min)\n- [ ] Write the recommendation with conditions, owners and dates (8 min)\n- [ ] Check the page against the briefing checklist (6 min)\n- [ ] ✱ Stretch: Revise the page after the supplier model change of Lab 3.4 and mark what changed","notes":"No model call. An AI assistant may help with wording here, and participants should try it: then check that every level and name on the page still matches the pack, because assistants smooth numbers. The checklist limits the page to 300 words and refuses jargon; it cannot judge truth, which is the panel's job tomorrow. The pack summary is supplied.","minutes":null,"lo":[]},{"id":"wrap-up","n":40,"title":"Three things to keep","kind":"content","session":4,"hash":"34598b0d","md":"#### [day4#wrap-up] Three things to keep\n\n*Day 4 · wrap-up*\n\n- **Review what is possible.** Permissions from the data, placement, exits, and authority that stays with the person at every hop.\n- **Name your own gaps.** Evidence an outsider can check, linked to claims, mapped to controls, with an ask for every hole.\n- **One true page.** Plain words, levels, conditions with a name and a date, and what was not tested.","notes":"Ask each participant for the one line of their page they are least sure the pack supports. That is where the panel will look tomorrow.","minutes":null,"lo":[]},{"id":"next","n":41,"title":"Capstone: an assurance pack and its defence","kind":"content","session":4,"hash":"df71fb8b","md":"#### [day4#next] Capstone: an assurance pack and its defence\n\n*Next*\n\nTomorrow you meet Insaf, the Agency's appeals agent, for the first time. You plan, test, score, review and write the page, then defend it before the deputy governor and the internal auditor. Bring your four days of notebooks: every step has a pattern in them.","notes":"Point to labs/capstone/README.md for the brief and the repository layout. Insaf runs in the same sandbox as Katib with a different profile and different planted weaknesses, so results from the week do not transfer; methods do.","minutes":null,"lo":[]}],"activities":[{"id":"review-day-3-q1","slide":"review-day-3","type":"single","prompt":"The register shows R02 at 3 × 4 = 12 inherent and 2 × 2 = 4 residual, signed by the system owner. The residual rests on caseload scoping, which is not built. What is the level of R02 today?","options":[{"key":"A","text":"4, because the residual was signed"},{"key":"B","text":"12, until the control is live and its test passes"},{"key":"C","text":"8, halfway, since the control is planned"},{"key":"D","text":"16, because an unbuilt control is a new risk"}],"correct":[1],"explanation":"A residual score describes the system with its controls working. Until then the inherent score is the true one, and the page for the executive must say so.","misconceptions":["The signature accepts a score; it does not make the control exist","","Averaging a plan and a fact gives a number with no meaning","Nothing in the evidence moved the risk to the top band; it is as it was assessed"],"lo":["LO3"]},{"id":"check-fix-or-not-q1","slide":"check-fix-or-not","type":"single","prompt":"Finding: Katib may email any address. The builders offer four fixes. Which one closes the finding?","options":[{"key":"A","text":"Add to the instructions: \"send letters only to the applicant\""},{"key":"B","text":"Screen every draft for addresses with a second model"},{"key":"C","text":"Log every email the agent sends"},{"key":"D","text":"Allow mail:send only to the address registered on the case"}],"correct":[3],"explanation":"Only the last one changes what is possible. The others lower a rate or shorten recovery, and belong beside it, not in its place.","misconceptions":["An instruction changes what the model is asked, not what the account may do; a planted line asks for something else","A filter on the model's output is a behaviour control with an error rate; the permission stays wide","Logging helps recovery after the fact; the record has still left",""],"lo":["LO4"]},{"id":"check-broken-hop-q1","slide":"check-broken-hop","type":"single","prompt":"Sign-in: sub cw-09, scope case:read letter:send, 60 minutes. The token presented to the letter service: sub cw-09, act svc-katib, aud letter-service, scope letter:send, 480 minutes.","options":[{"key":"A","text":"Expiry: the delegated token outlives the sign-in it came from"},{"key":"B","text":"Subject: the agent should be the subject"},{"key":"C","text":"Audience: it should name the agent runtime"},{"key":"D","text":"Scope: letter:send was never delegated"}],"correct":[0],"explanation":"Four fields are sound. A token valid for eight hours lets the agent, or whoever holds the token, send letters for her long after she signed out.","misconceptions":["","The subject is still the case worker, as it should be","The audience equals the service the token is presented to","letter:send was delegated at sign-in; the scope is narrower, not wider"],"lo":["LO4"]},{"id":"check-evidence-strength-q1","slide":"check-evidence-strength","type":"single","prompt":"Sub-claim: \"Mueen does not reveal another applicant's record.\" Which item supports it best?","options":[{"key":"A","text":"A screenshot of Mueen refusing such a request in Arabic"},{"key":"B","text":"The builders' note that the lookup \"was hardened last sprint\""},{"key":"C","text":"A design test showing the lookup returns only the signed-in case, with probe results by script after the fix"},{"key":"D","text":"The supplier's contract clause on data use"}],"correct":[2],"explanation":"Design evidence that the path is gone, plus measured behaviour in each script, checked by someone who did not build it.","misconceptions":["One refusal is one trial: it says nothing about the rate, or about other scripts","A statement by the builders about their own work, with nothing an outsider can rerun","","The clause covers the supplier's use of data, not what the assistant shows an applicant"],"lo":["LO5"]},{"id":"check-best-sentence-q1","slide":"check-best-sentence","type":"single","prompt":"You are writing the line for R07 (case workers send drafts unread; level 6, untreated) for the deputy governor.","options":[{"key":"A","text":"\"Automation bias in the human-in-the-loop step degrades oversight efficacy\""},{"key":"B","text":"\"Case workers approve most drafts in seconds, so a wrong letter can reach an applicant. Level 6, medium. Nothing is in place yet\""},{"key":"C","text":"\"There is a small chance of occasional errors in letters, which we are monitoring\""},{"key":"D","text":"\"R07: 3 × 2 = 6, see register row 7\""}],"correct":[1],"explanation":"What happens, to whom, the level in the Agency's own bands, and the status, in words he can repeat.","misconceptions":["Names a mechanism in specialist words and gives him nothing to decide","","Reassures without a level, a cause or a status; he cannot weigh it","True and unusable: it hides the one fact he needs, that the risk is untreated"],"lo":["LO6"]}],"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":"day4.md","llms":"../llms.txt"},"tasks":[],"tools":[]},"bridge":{"allowedOrigins":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+ "A01": {
+  "owasp": "LLM01",
+  "atlas": "AML.T0051.000"
+ },
+ "A02": {
+  "owasp": "LLM02",
+  "atlas": "AML.T0054"
+ },
+ "A03": {
+  "owasp": "LLM01",
+  "atlas": "AML.T0068"
+ },
+ "A04": {
+  "owasp": "none",
+  "atlas": "AML.T0048.003"
+ },
+ "A05": {
+  "owasp": "LLM07",
+  "atlas": "AML.T0048.003"
+ },
+ "A06": {
+  "owasp": "ASI01",
+  "atlas": "AML.T0051.001"
+ },
+ "A07": {
+  "owasp": "ASI02",
+  "atlas": "AML.T0086"
+ },
+ "A08": {
+  "owasp": "ASI01",
+  "atlas": "AML.T0053"
+ },
+ "A09": {
+  "owasp": "LLM06",
+  "atlas": "AML.T0034"
+ },
+ "A10": {
+  "owasp": "LLM08",
+  "atlas": "AML.T0069"
+ }
+}

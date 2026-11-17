@@ -1,0 +1,131 @@
+{
+ "design": {
+  "system": "Katib",
+  "version": "pilot design 0.9",
+  "identities": [
+   {
+    "id": "svc-katib",
+    "kind": "service account of the agent runtime"
+   },
+   {
+    "id": "cw-*",
+    "kind": "case workers, signed in at the Agency identity provider"
+   },
+   {
+    "id": "svc-mueen",
+    "kind": "service account of the benefits assistant"
+   }
+  ],
+  "classification": {
+   "case record": "Restricted",
+   "applicant statement": "Restricted",
+   "benefit rules": "Public",
+   "letter templates": "Public",
+   "agent logs": "Restricted"
+  },
+  "tiers": {
+   "A": "public-facing (portal, Mueen)",
+   "B": "internal applications",
+   "C": "case database"
+  },
+  "placement": {
+   "katib-runtime": "C",
+   "mueen-runtime": "A",
+   "case-db": "C",
+   "letter-service": "B"
+  },
+  "routes": [
+   {
+    "from": "katib-runtime",
+    "to": "internet",
+    "via": "default gateway"
+   },
+   {
+    "from": "katib-runtime",
+    "to": "case-db",
+    "via": "direct"
+   },
+   {
+    "from": "mueen-runtime",
+    "to": "case-db",
+    "via": "lookup service"
+   }
+  ],
+  "policy": [
+   {
+    "principal": "svc-katib",
+    "action": "case:read",
+    "resource": "case:*"
+   },
+   {
+    "principal": "svc-katib",
+    "action": "case:search",
+    "resource": "case:*"
+   },
+   {
+    "principal": "svc-katib",
+    "action": "case:note",
+    "resource": "case:*"
+   },
+   {
+    "principal": "svc-katib",
+    "action": "mail:send",
+    "resource": "addr:*"
+   },
+   {
+    "principal": "svc-katib",
+    "action": "net:fetch",
+    "resource": "host:*"
+   },
+   {
+    "principal": "svc-katib",
+    "action": "rules:read",
+    "resource": "rules:*"
+   },
+   {
+    "principal": "svc-mueen",
+    "action": "case:lookup",
+    "resource": "case:*"
+   }
+  ],
+  "monitoring": {
+   "logged": [
+    "model input",
+    "model output"
+   ],
+   "tool_actions_logged": false,
+   "acting_user_in_log": false,
+   "kill_switch_owner": null,
+   "kill_switch_minutes": null
+  }
+ },
+ "key": {
+  "least_privilege": {
+   "tests": [
+    "LP-1",
+    "LP-2"
+   ],
+   "severity": 3
+  },
+  "egress": {
+   "tests": [
+    "EG-1",
+    "EG-2"
+   ],
+   "severity": 3
+  },
+  "isolation": {
+   "tests": [
+    "IS-1"
+   ],
+   "severity": 3
+  },
+  "monitoring": {
+   "tests": [
+    "MON-1",
+    "MON-2"
+   ],
+   "severity": 2
+  }
+ }
+}

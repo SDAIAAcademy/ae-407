@@ -1,0 +1,42 @@
+[
+ {
+  "untrusted": "statement",
+  "private": "all_cases",
+  "exit": "fetch_template"
+ },
+ {
+  "untrusted": "statement",
+  "private": "all_cases",
+  "exit": "send_letter"
+ },
+ {
+  "untrusted": "statement",
+  "private": "case_record",
+  "exit": "fetch_template"
+ },
+ {
+  "untrusted": "statement",
+  "private": "case_record",
+  "exit": "send_letter"
+ },
+ {
+  "untrusted": "template",
+  "private": "all_cases",
+  "exit": "fetch_template"
+ },
+ {
+  "untrusted": "template",
+  "private": "all_cases",
+  "exit": "send_letter"
+ },
+ {
+  "untrusted": "template",
+  "private": "case_record",
+  "exit": "fetch_template"
+ },
+ {
+  "untrusted": "template",
+  "private": "case_record",
+  "exit": "send_letter"
+ }
+]

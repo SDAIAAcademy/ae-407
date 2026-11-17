@@ -1,0 +1,50 @@
+{
+ "R01": {
+  "likelihood": 4,
+  "impact": 3
+ },
+ "R02": {
+  "likelihood": 3,
+  "impact": 3
+ },
+ "R03": {
+  "likelihood": 3,
+  "impact": 3
+ },
+ "R04": {
+  "likelihood": 3,
+  "impact": 2
+ },
+ "R05": {
+  "likelihood": 2,
+  "impact": 3
+ },
+ "R06": {
+  "likelihood": 2,
+  "impact": 3
+ },
+ "R07": {
+  "likelihood": 3,
+  "impact": 3
+ },
+ "R08": {
+  "likelihood": 2,
+  "impact": 2
+ },
+ "R09": {
+  "likelihood": 3,
+  "impact": 2
+ },
+ "R10": {
+  "likelihood": 3,
+  "impact": 2
+ },
+ "R11": {
+  "likelihood": 2,
+  "impact": 1
+ },
+ "R12": {
+  "likelihood": 2,
+  "impact": 2
+ }
+}

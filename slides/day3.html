@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="deck" data-track="ai-engineering">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 3 · Assess the risk · AI Assurance, Red Teaming and Governance for Engineering Leads</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="day3.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<div class="deck" data-course="AI Assurance, Red Teaming and Governance for Engineering Leads" data-track="ai-engineering" data-day="Day 3">
+<section class="slide title" id="title" data-auto="title" data-label="Welcome" data-n="1">
+  <div class="kicker">SDAIA Academy · AI Assurance, Red Teaming and Governance for Engineering Leads</div>
+  <h1>Assess the risk</h1>
+  <p class="lead mt">Day 3: The national framework, from context and scope to residual sign-off</p>
+  <div class="meta"><span class="track">AI Engineering Track</span><span>4 teaching days + capstone day</span><span>4 sessions · 4 labs</span><span>AE-407</span></div>
+  <aside class="notes"><p>Yesterday produced findings. Today they become risks with scores, treatments and signatures, by the method of the National AI Risk Management Framework. Ask who read the executive summary; ask one person to say in a sentence what the framework is for. All labs today may use an AI assistant as a tutor; the scores and reasons must be the participant's.</p></aside>
+</section>
+
+<section class="slide" id="agenda" data-auto="agenda" data-label="Agenda" data-n="2">
+  <div class="kicker">Today</div>
+  <h2>Assess the risk</h2>
+  <div class="agenda"><div class="item"><div><b>Session 1 · The national framework as method</b><small>The National AI Risk Management Framework as a working method: its steps, and what context and scope must record</small></div></div><div class="item"><div><b>Session 2 · Scoring and calibration</b><small>Scoring likelihood and impact on the national 4 by 4 matrix, and calibrating two scorers on evidence</small></div></div><div class="item"><div><b>Session 3 · Treatment and residual risk</b><small>Choosing a treatment, re-scoring what remains and getting a named person to sign for it</small></div></div><div class="item"><div><b>Session 4 · Supplier and model-change risk</b><small>What a supplier may change without asking, and how a model update notice becomes a retest decision</small></div></div></div>
+</section>
+
+<section class="slide" id="review-day-2" data-lo="LO2" data-n="3">
+  <div class="kicker">Review of Day 2</div>
+  <h2>Which sentence can go to the owner?</h2>
+  <div class="quiz" data-type="single" data-lo="LO2" data-id="review-day-2-q1">
+    <p class="lead">The planted line made Katib email a record out in 15 of 30 runs (interval 33% to 67%). After a recipient allowlist: 0 of 300. Which statement is right?</p>
+    <div class="opts">
+      <div class="opt" data-why="Reads the rate as the Agency's exposure: an applicant who retries makes a 50% path a near-certain one" data-k="A">"Before the fix, half of the case files were at risk"</div>
+      <div class="opt" data-why="Claims more than email: the web request is a second exit the allowlist does not touch" data-k="B">"After the fix, case data cannot leave"</div>
+      <div class="opt" data-ok data-k="C">"The email path was open and is now closed; the web path is still to be treated"</div>
+      <div class="opt" data-why="Zero of 300 on a control that removes the exit is strong evidence; calling it unknown wastes it" data-k="D">"We cannot yet say whether the fix works"</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> State what was shown, for which path, and what is left. Today that last part gets a score and an owner.</div>
+  </div>
+  <aside class="notes"><p>Answer: the third. It is the shape of every sentence in a residual-risk statement: what was closed, by what evidence, and what remains.</p></aside>
+</section>
+
+<!-- ======================= SESSION 1 ======================= -->
+<section class="slide section" id="s1" data-auto="section" data-session="1" data-n="4">
+  <div class="kicker">Session 1</div>
+  <h1>The national framework as method</h1>
+  <ul class="bullets outcomes"><li>Name the steps of the national framework and what each one produces</li><li>Record context and scope: system and use limits, data and parties, automation and the human role, life cycle and change</li><li>Separate intended uses from uses that are out of scope</li></ul>
+  <div class="sess-no">01</div>
+</section>
+
+<section class="slide" id="findings-are-not-risks" data-lo="LO3" data-n="5" data-session="1">
+  <div class="kicker">From testing to risk</div>
+  <h2>A finding is something that happened in a test; a risk is something that may happen to people</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Finding F1</h4><p class="small mb0">A planted line made Katib email a case record to an outside address in 15 of 30 runs.</p></div>
+    <div class="card c-teal"><h4>Risk R01</h4><p class="small mb0">An applicant's record is disclosed outside the Agency. How likely, with 120 files a day? How bad, for whom? Who owns it, who accepts what remains?</p></div>
+  </div>
+  <div class="callout warn mt"><b>And some risks no probe finds.</b> Case workers who send drafts unread. A supplier who changes the model. A method is needed that looks there too.</div>
+  <aside class="notes"><p>The red team answers "can it be made to fail". Risk assessment answers "what should the organisation do about it, and who decides". Different questions, different people in the room: today the system owner and the data protection officer matter as much as the testers.</p></aside>
+</section>
+
+<section class="slide" id="framework-steps" data-lo="LO3" data-n="6" data-session="1">
+  <div class="kicker">National AI Risk Management Framework · SDAIA, April 2026</div>
+  <h2>Five steps stand on a base of reference pillars</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>1 · Context and scope</b>what the system is and touches</div>
+    <div class="arrow">→</div>
+    <div class="step c-cyan"><b>2 · Identify</b>list and describe the risks</div>
+    <div class="arrow">→</div>
+    <div class="step c-amber"><b>3 · Assess</b>likelihood, impact, level</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>4 · Treat</b>strategy, controls, residual, decision</div>
+    <div class="arrow">→</div>
+    <div class="step c-purple"><b>5 · Monitor and review</b>in operation</div>
+  </div>
+  <p class="small mt"><b>Reference pillars under every step:</b> general principles and values, AI regulations, data regulations, sector regulations.</p>
+  <aside class="notes"><p>The framework is advisory and addresses government and private entities. The full text is in Arabic; an English executive summary exists. Step names here are our translation of the Arabic headings. Today's four labs follow steps 1 to 4; monitoring and review returns on Day 4 as evidence the pack must hold. Sources: National AI Risk Management Framework, full text in Arabic and English executive summary.</p></aside>
+</section>
+
+<section class="slide" id="context-four-activities" data-lo="LO3" data-n="7" data-session="1">
+  <div class="kicker">Step 1</div>
+  <h2>Context and scope is four records, written before any risk is named</h2>
+  <div class="cols cols-4 gap-s">
+    <div class="card c-teal"><h4>The system and its limits</h4><p class="small mb0">Kind, purpose, outputs and how they are used. Intended uses and uses not allowed. Users and people affected.</p></div>
+    <div class="card c-cyan"><h4>Data, entries, exits</h4><p class="small mb0">Data by sensitivity and source. Where content comes in and goes out. Every party in the value chain.</p></div>
+    <div class="card c-coral"><h4>Automation and people</h4><p class="small mb0">Recommends, decides or acts. Where a person approves, reviews, objects or stops. Who is responsible.</p></div>
+    <div class="card c-purple"><h4>Life cycle and change</h4><p class="small mb0">The current stage. What changes, how often, who approves. What triggers a new assessment.</p></div>
+  </div>
+  <aside class="notes"><p>These are the four activities the framework lists for this step, in our words. Lab 3.1 has one exercise per card. Engineers tend to skip this step because it "is just documentation"; every later score depends on it.</p></aside>
+</section>
+
+<section class="slide" id="intended-and-out-of-scope" data-lo="LO3" data-n="8" data-session="1">
+  <div class="kicker">Lab 3.1, the first record</div>
+  <h2>Uses that are out of scope are written down, not assumed</h2>
+  <table class="t">
+    <tr><th>Katib is intended to</th><th>Katib is not to</th></tr>
+    <tr><td>Draft the letter for the case file a case worker opened</td><td>Decide eligibility or change a payment</td></tr>
+    <tr><td>Look up the published rules of the benefit</td><td>Contact anyone other than the applicant of the case</td></tr>
+    <tr><td>Send the approved letter to the registered address</td><td>Search cases for any purpose other than the open file</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Each line on the right is a test waiting to be written.</b> Lab 2.2 already ran the second one.</div>
+  <aside class="notes"><p>The framework asks for intended uses to be stated explicitly against unauthorised or out-of-scope uses, to limit misuse and uncontrolled expansion. In practice the right-hand column is where systems grow: someone finds the search tool useful for a purpose nobody assessed.</p></aside>
+</section>
+
+<section class="slide" id="acts-not-recommends" data-lo="LO3" data-n="9" data-session="1">
+  <div class="kicker">The level of automation</div>
+  <h2>Record what the system can do, not what the design intends</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Recommends</h4><p class="small mb0">A person reads the output and acts. Mueen answering a question is close to this.</p></div>
+    <div class="card c-amber"><h4>Decides</h4><p class="small mb0">The output is the decision. Neither system is meant to decide eligibility.</p></div>
+    <div class="card c-coral"><h4>Acts</h4><p class="small mb0">The system changes something through tools. Katib sends email and writes notes.</p></div>
+  </div>
+  <div class="callout warn mt"><b>What goes wrong.</b> The design says "the case worker approves every letter". In Lab 2.2 a second email left before the draft was shown. The approval is a screen, not a gate.</div>
+  <aside class="notes"><p>The framework asks where human intervention is mandatory. For Katib the honest record today is: intended at Send, not enforced. That one line raises the likelihood of three risks and becomes a condition in the briefing on Day 4.</p></aside>
+</section>
+
+<section class="slide" id="change-plan" data-lo="LO3" data-n="10" data-session="1">
+  <div class="kicker">Life cycle and change</div>
+  <h2>The context record says what will change and who approves it</h2>
+  <table class="t small">
+    <tr><th>What changes</th><th>How often</th><th>Who approves</th></tr>
+    <tr><td>The supplier updates the hosted model</td><td>About twice a year</td><td>The system owner, after a staging retest</td></tr>
+    <tr><td>Letter templates</td><td>Monthly</td><td>The case-work supervisor</td></tr>
+    <tr><td>A tool is added or its permissions change</td><td>Rarely</td><td>The security architect</td></tr>
+  </table>
+  <ul class="bullets tight mt">
+    <li><b>Reassess when:</b> a model update, a new tool or permission, a new kind of data, an incident</li>
+    <li>An assessment with no trigger for the next one is out of date on the day it is signed</li>
+  </ul>
+  <aside class="notes"><p>The framework asks for requirements to re-assess risks on substantial changes and for a way to tell users and affected groups. The first row is Session 4 of today.</p></aside>
+</section>
+
+<section class="slide" id="check-context-gap" data-lo="LO3" data-n="11" data-session="1">
+  <div class="kicker">Checkpoint</div>
+  <h2>What is missing from this context record?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3" data-id="check-context-gap-q1">
+    <p class="lead">A record for Mueen states its purpose, three intended uses, its data with classification levels, the supplier, and that "a person can always ask for a human". What must be added before risks are identified?</p>
+    <div class="opts">
+      <div class="opt" data-why="Risks come in the next step: listing them here skips the record they should be derived from" data-k="A">The ten most likely risks</div>
+      <div class="opt" data-ok data-k="B">The uses that are out of scope, and the plan for changes and reassessment</div>
+      <div class="opt" data-why="Model internals matter less to context than what the system touches and who decides" data-k="C">The model's size and training method</div>
+      <div class="opt" data-why="A treatment needs a risk first; controls are step 4" data-k="D">The controls that will be applied</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Without out-of-scope uses there is nothing to test misuse against, and without a change plan the assessment has no end date.</div>
+  </div>
+  <aside class="notes"><p>Answer: out-of-scope uses and the change plan. The record in the question is typical: it lists everything the builders are proud of.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-3-1" data-auto="lab" data-lab="3.1" data-label="Lab 3.1" data-n="12" data-session="1">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 3.1 · 25 min</div><h2>Context and scope for Katib</h2><p class="lead small">Set context, scope and stakeholders for the case-worker agent using the framework's phases</p><a class="nb" href="../labs/D3_1_context_scope.ipynb">D3_1_context_scope.ipynb</a></div><ul class="checklist"><li>Describe the system, its intended uses and the uses out of scope <span class="min">6 min</span></li><li>List the data, the entry and exit points and the parties <span class="min">7 min</span></li><li>State the level of automation and the human decision points <span class="min">6 min</span></li><li>State the life-cycle stage and the change plan <span class="min">6 min</span></li><li class="stretch">✱ Stretch: Name the reference pillar that each of your out-of-scope uses rests on</li></ul></div>
+  <aside class="notes"><p>The brief has every fact; the work is sorting facts into the four records and noticing what the brief does not say (who approves a model update, what triggers reassessment). Common miss: the template text as an entry point. Nothing from Day 2 is needed.</p></aside>
+</section>
+
+<!-- ======================= SESSION 2 ======================= -->
+<section class="slide section" id="s2" data-auto="section" data-session="2" data-n="13">
+  <div class="kicker">Session 2</div>
+  <h1>Scoring and calibration</h1>
+  <ul class="bullets outcomes"><li>Classify a risk into the seven types of the national framework</li><li>Score likelihood and impact from stated evidence on the 4 by 4 matrix</li><li>Calibrate with a second scorer and record the reason for every changed score</li></ul>
+  <div class="sess-no">02</div>
+</section>
+
+<section class="slide" id="seven-risk-types" data-lo="LO3" data-n="14" data-session="2">
+  <div class="kicker">Step 2 · identification</div>
+  <h2>Seven types of risk are a check that nothing was left out</h2>
+  <table class="t small">
+    <tr><th>Type</th><th>At the Agency</th></tr>
+    <tr><td>Bias, discrimination and abuse</td><td>Weaker protection in Latin-letter Arabic; a degrading reply</td></tr>
+    <tr><td>Privacy and security</td><td>A record emailed out; another applicant's bank number shown</td></tr>
+    <tr><td>Misinformation</td><td>A false assurance of approval</td></tr>
+    <tr><td>Harmful use</td><td>Applicants learn the fraud-screening rule and work around it</td></tr>
+    <tr><td>Human and machine interaction</td><td>Case workers send drafts unread</td></tr>
+    <tr><td>Social, economic and environmental effects</td><td>Drafting skill fades; dependence on one supplier</td></tr>
+    <tr><td>Safety and limitations</td><td>A wrong amount in a letter; behaviour shifts after a model update</td></tr>
+  </table>
+  <aside class="notes"><p>The type names are our translation of the framework's seven. Use them the way the framework proposes: after listing risks, sort them and look for an empty row. A red team fills the second and third rows and leaves the last three empty.</p></aside>
+</section>
+
+<section class="slide" id="describe-each-risk" data-lo="LO3" data-n="15" data-session="2">
+  <div class="kicker">Step 2 · description</div>
+  <h2>Each risk is described by its source, its intent and its timing</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Caused by</h4><p class="small mb0">A shortcoming of the AI system, or a person's misuse of it.</p></div>
+    <div class="card c-coral"><h4>Intent</h4><p class="small mb0">Deliberate, or not.</p></div>
+    <div class="card c-purple"><h4>Timing</h4><p class="small mb0">Before release, or after.</p></div>
+  </div>
+  <table class="t small mt">
+    <tr><th>Risk</th><th>Cause</th><th>Intent</th><th>Timing</th></tr>
+    <tr><td>R01 · a planted line makes Katib email a record out</td><td>Person, through a system weakness</td><td>Deliberate</td><td>After release</td></tr>
+    <tr><td>R10 · a letter with a wrong amount</td><td>System</td><td>Not deliberate</td><td>After release</td></tr>
+  </table>
+  <aside class="notes"><p>The description decides which controls fit. A deliberate, human-caused risk needs controls that hold against an adversary who retries; an unintended system error needs detection and correction. The framework's worked example also records the related weaknesses, who is affected and the nature of the impact for every risk.</p></aside>
+</section>
+
+<section class="slide" id="likelihood-scale" data-lo="LO3" data-n="16" data-session="2">
+  <div class="kicker">Step 3 · likelihood</div>
+  <h2>Likelihood has four levels and is judged from four things</h2>
+  <div class="cols cols-2">
+    <table class="t small">
+      <tr><th class="num">Level</th><th>Meaning</th></tr>
+      <tr><td class="num">1 · Rare</td><td>Very unlikely to occur</td></tr>
+      <tr><td class="num">2 · Unlikely</td><td>Possible, not expected in ordinary conditions</td></tr>
+      <tr><td class="num">3 · Likely</td><td>Considerably probable given the system and its setting</td></tr>
+      <tr><td class="num">4 · Almost certain</td><td>Expected unless effective controls limit it</td></tr>
+    </table>
+    <ul class="bullets">
+      <li><b>Exposure:</b> how much the system is used, by how many</li>
+      <li><b>Controls:</b> what prevention is in place and how well it works</li>
+      <li><b>Ease:</b> how little it takes</li>
+      <li><b>Precedent:</b> has it happened, here or elsewhere</li>
+    </ul>
+  </div>
+  <aside class="notes"><p>The framework does not build likelihood on percentages, because they are hard to fix for a new technology. It does give reference yearly ranges that line up with the levels: under 1%, 1% to 10%, 10% to 50%, 50% or more. A red-team rate is evidence for "ease" and "precedent"; it is a rate per attempt and not the yearly figure.</p></aside>
+</section>
+
+<section class="slide" id="impact-scale" data-lo="LO3" data-n="17" data-session="2">
+  <div class="kicker">Step 3 · impact</div>
+  <h2>Impact has four levels, and the fourth is for the extreme case</h2>
+  <div class="cols cols-2">
+    <table class="t small">
+      <tr><th class="num">Level</th><th>The expected harm is</th></tr>
+      <tr><td class="num">1 · Low</td><td>Limited, local, quickly contained</td></tr>
+      <tr><td class="num">2 · Medium</td><td>Real, but contained and put right in reasonable time</td></tr>
+      <tr><td class="num">3 · High</td><td>Large and clear; needs an institutional response</td></tr>
+      <tr><td class="num">4 · Catastrophic</td><td>Very grave, wide, perhaps irreversible</td></tr>
+    </table>
+    <ul class="bullets">
+      <li><b>Severity</b> of the harm</li>
+      <li><b>Size:</b> how many people or services</li>
+      <li><b>Sensitivity</b> of the data or the decision</li>
+      <li><b>Recovery:</b> the slower, the higher</li>
+    </ul>
+  </div>
+  <div class="callout note mt"><b>A wide leak of highly sensitive data</b>, such as health or financial data, is one of the signs of catastrophic impact the framework names.</div>
+  <aside class="notes"><p>The other signs the framework lists for the fourth level include real deprivation of basic rights or vital services, and compromise of critical systems. Scorers tend to use 4 too freely at first; hold the room to the definition.</p></aside>
+</section>
+
+<section class="slide" id="risk-matrix" data-lo="LO3" data-n="18" data-session="2">
+  <div class="kicker">Step 3 · level</div>
+  <h2>Level is likelihood times impact, read in four bands</h2>
+  <table class="t">
+    <tr><th>Likelihood ↓ · Impact →</th><th class="num">1 Low</th><th class="num">2 Medium</th><th class="num">3 High</th><th class="num">4 Catastrophic</th></tr>
+    <tr><td>4 · Almost certain</td><td class="num">4</td><td class="num">8</td><td class="num">12</td><td class="num">16</td></tr>
+    <tr><td>3 · Likely</td><td class="num">3</td><td class="num">6</td><td class="num">9</td><td class="num">12</td></tr>
+    <tr><td>2 · Unlikely</td><td class="num">2</td><td class="num">4</td><td class="num">6</td><td class="num">8</td></tr>
+    <tr><td>1 · Rare</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td class="num">4</td></tr>
+  </table>
+  <div class="cols cols-4 gap-s mt">
+    <div class="card flat c-green"><p class="small mb0"><b>1 to 2</b> low</p></div>
+    <div class="card flat c-amber"><p class="small mb0"><b>3 to 6</b> medium</p></div>
+    <div class="card flat c-coral"><p class="small mb0"><b>8 to 12</b> high</p></div>
+    <div class="card flat c-navy"><p class="small mb0"><b>16</b> catastrophic</p></div>
+  </div>
+  <aside class="notes"><p>You used this matrix in the supervised entry check and, if you took them, in AE-207 and AE-308. The products 5, 7, 10, 11 and 13 to 15 cannot occur, which is why the bands have gaps. The framework colours the bands green, yellow, orange and red.</p></aside>
+</section>
+
+<section class="slide" id="two-scorers" data-lo="LO3" data-n="19" data-session="2">
+  <div class="kicker">Lab 3.2, the gaps</div>
+  <h2>Two careful people score the same evidence differently</h2>
+  <table class="t small">
+    <tr><th>Risk</th><th class="num">First sheet</th><th class="num">Security architect</th><th>Bands</th></tr>
+    <tr><td>R07 · drafts sent unread</td><td class="num">3 × 3 = 9</td><td class="num">2 × 1 = 2</td><td>high / low</td></tr>
+    <tr><td>R02 · the cases of a whole town</td><td class="num">3 × 3 = 9</td><td class="num">4 × 4 = 16</td><td>high / catastrophic</td></tr>
+    <tr><td>R12 · a false approval note</td><td class="num">2 × 2 = 4</td><td class="num">3 × 3 = 9</td><td>medium / high</td></tr>
+  </table>
+  <div class="callout tip mt"><b>The pattern is the lesson.</b> The architect scores leaks higher and the human and fairness risks far lower. A single scorer hands a pattern to the register.</div>
+  <aside class="notes"><p>From the reference run: seven of twelve risks differ between the two sheets, five of them by a band. In class the second sheet is the neighbour's; the supplied sheet lets the notebook run alone and gives everyone the same disagreement to discuss.</p></aside>
+</section>
+
+<section class="slide" id="calibrate-on-evidence" data-lo="LO3" data-n="20" data-session="2">
+  <div class="kicker">Calibration</div>
+  <h2>Calibrating is pointing at evidence, not averaging and not rank</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>For each gap, both scorers name the evidence line that drove their score</li>
+      <li>The agreed score is the one the evidence supports</li>
+      <li>The <b>reason is written into the register</b>, so new evidence can change it</li>
+    </ul>
+    <div class="card c-purple"><h4>R02, agreed 3 × 4 = 12</h4><p class="small mb0">Impact 4: hundreds of records with health notes and no way back. Likelihood stays 3: it needs a hijack and then a search.</p></div>
+  </div>
+  <div class="callout note mt"><b>Two risks stand at 12.</b> R01 is almost certain and hurts one person at a time; R02 is less likely and cannot be undone. Keep both scores, not only the product.</div>
+  <aside class="notes"><p>The course outcome asks for "calibrated 4 by 4 scores" as evidence. Calibrated means a second reader can follow from the evidence to the score. An average of 9 and 16 is a number with no reason attached.</p></aside>
+</section>
+
+<section class="slide" id="check-score-r02" data-lo="LO3" data-n="21" data-session="2">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which score does the evidence support?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3" data-id="check-score-r02-q1">
+    <p class="lead">Risk: Mueen shows another applicant's amount or bank number on request. Evidence: 4,000 conversations a week; an English phrase filter; the lookup tool takes any identifier; the campaign reached 42% over 144 attempts; one record per request; a breach notice is needed.</p>
+    <div class="opts">
+      <div class="opt" data-why="Takes the filter as an effective control: the campaign shows it is not, in two of three scripts" data-k="A">Likelihood 2, impact 3: a control is in place</div>
+      <div class="opt" data-why="Reserves nothing for the extreme case: one record per request is not a wide leak" data-k="B">Likelihood 3, impact 4: personal data is always catastrophic</div>
+      <div class="opt" data-why="Reads impact from frequency: harm to the one person is large each time, however often it happens" data-k="C">Likelihood 4, impact 1: frequent but small</div>
+      <div class="opt" data-ok data-k="D">Likelihood 3, impact 3: likely, and a large harm to one person each time</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Exposure and ease are high and the control is weak. The harm is large, but it is one record, not a wide leak.</div>
+  </div>
+  <aside class="notes"><p>Answer: 3 by 3. A case can be made for likelihood 4; accept it if the argument is "expected unless a control stops it, and none does", and note that the level changes from 9 to 12 within the same band.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-3-2" data-auto="lab" data-lab="3.2" data-label="Lab 3.2" data-n="22" data-session="2">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 3.2 · 25 min</div><h2>Twelve risks, two scorers</h2><p class="lead small">Score twelve risks alone on the 4 by 4 matrix, then calibrate with a partner</p><a class="nb" href="../labs/D3_2_score_calibrate.ipynb">D3_2_score_calibrate.ipynb</a></div><ul class="checklist"><li>Classify twelve risks into the seven types <span class="min">5 min</span></li><li>Score likelihood and impact alone <span class="min">8 min</span></li><li>Compare with the partner sheet and find the gaps <span class="min">5 min</span></li><li>Calibrate on evidence and record the agreed scores <span class="min">7 min</span></li><li class="stretch">✱ Stretch: Compute the weighted agreement before and after calibration</li></ul></div>
+  <aside class="notes"><p>Run it in pairs: each scores alone for eight minutes, then they compare with each other before looking at the supplied sheet. Insist on scoring before looking. In step 4 the check requires a reason for every gap; one sentence that names an evidence line is enough. The twelve risks are supplied.</p></aside>
+</section>
+
+<!-- ======================= SESSION 3 ======================= -->
+<section class="slide section" id="s3" data-auto="section" data-session="3" data-n="23">
+  <div class="kicker">Session 3</div>
+  <h1>Treatment and residual risk</h1>
+  <ul class="bullets outcomes"><li>Choose among avoid, mitigate, transfer and accept with a reason</li><li>Re-score residual likelihood and impact from what a control changes</li><li>Name the owner, the signatory and the review date of every residual risk</li></ul>
+  <div class="sess-no">03</div>
+</section>
+
+<section class="slide" id="four-treatments" data-lo="LO3" data-n="24" data-session="3">
+  <div class="kicker">Step 4 · strategy</div>
+  <h2>There are four responses to a risk, and each needs a reason</h2>
+  <div class="cols cols-4 gap-s">
+    <div class="card c-coral"><h4>Avoid</h4><p class="small mb0">Change the design, restrict the use, switch the function off, when the risk is high and cannot be brought down.</p></div>
+    <div class="card c-teal"><h4>Mitigate</h4><p class="small mb0">Technical, organisational and operational controls that lower likelihood or impact.</p></div>
+    <div class="card c-amber"><h4>Transfer</h4><p class="small mb0">Move part of the consequences by contract, guarantee or insurance.</p></div>
+    <div class="card c-purple"><h4>Accept</h4><p class="small mb0">When what remains is within the approved tolerance, with the reason and the conditions recorded.</p></div>
+  </div>
+  <aside class="notes"><p>The framework asks for the choice to be justified and auditable. Avoid is the forgotten one: the stretch item of Lab 3.3 has a risk that disappears when the screening rule is simply taken out of the assistant's instructions.</p></aside>
+</section>
+
+<section class="slide" id="controls-have-owners" data-lo="LO3" data-n="25" data-session="3">
+  <div class="kicker">Step 4 · controls</div>
+  <h2>A control has a kind, an owner and a date</h2>
+  <table class="t small">
+    <tr><th>Control from the Agency's library</th><th>Kind</th><th>Owner</th></tr>
+    <tr><td>C01 · <code>send_letter</code> only to the address registered on the case</td><td>Technical</td><td>Younis Al-Wabel</td></tr>
+    <tr><td>C04 · the statement is summarised by a call that has no tools</td><td>Technical</td><td>Sumayya Al-Shaalan</td></tr>
+    <tr><td>C07 · the case worker sees recipient and attachments before a letter leaves</td><td>Operational</td><td>Sumayya Al-Shaalan</td></tr>
+    <tr><td>C08 · 30 days of notice and a staging retest before a model change</td><td>Organisational</td><td>Tuqa Al-Mishaal</td></tr>
+  </table>
+  <div class="callout warn mt"><b>What goes wrong.</b> "The team" owns a control. Nobody is asked when it slips, and the residual score stays on the register as if it were true.</div>
+  <aside class="notes"><p>The framework's second activity in treatment: turn the strategy into a plan that can be carried out and measured, with a clear owner for every control and a timetable that fits the level of the risk. The library has fourteen controls; you built several of their kind in AE-308.</p></aside>
+</section>
+
+<section class="slide" id="which-score-moves" data-lo="LO3" data-n="26" data-session="3">
+  <div class="kicker">Residual risk</div>
+  <h2>Ask of every control which score it moves</h2>
+  <table class="t">
+    <tr><th>Control, for risk R01</th><th>Likelihood</th><th>Impact</th></tr>
+    <tr><td>C01 · recipient allowlist</td><td>down 2: the exit is gone</td><td>none</td></tr>
+    <tr><td>C04 · statement quarantined</td><td>down 1: the model obeys less often</td><td>none</td></tr>
+    <tr><td>C09 · action log with an alert on a new recipient</td><td>none</td><td>down 1: found and contained sooner</td></tr>
+  </table>
+  <ul class="bullets tight mt">
+    <li>Most controls move <b>likelihood</b>. Impact moves when less can be reached, or recovery is faster</li>
+    <li>Distrust a residual that falls on both scores with one control</li>
+  </ul>
+  <aside class="notes"><p>The effects are the team's estimates in data/register.json, and the lab holds a residual score to what the chosen controls support: no more than two steps on a score, never below 1. Day 2 gave the evidence for the first two rows: 0 of 300 with the allowlist, 11 of 300 with quarantine alone.</p></aside>
+</section>
+
+<section class="slide" id="residual-of-top-three" data-lo="LO3" data-n="27" data-session="3">
+  <div class="kicker">Lab 3.3, the result</div>
+  <h2>Three high risks become three medium ones, on conditions</h2>
+  <table class="t small">
+    <tr><th>Risk</th><th class="num">Inherent</th><th>Controls</th><th class="num">Residual</th></tr>
+    <tr><td>R02 · the cases of a whole town</td><td class="num">3 × 4 = 12 high</td><td>C03 caseload scoping, C01, C09</td><td class="num">2 × 2 = 4 medium</td></tr>
+    <tr><td>R01 · a record emailed out</td><td class="num">4 × 3 = 12 high</td><td>C01, C04, C09</td><td class="num">2 × 2 = 4 medium</td></tr>
+    <tr><td>R03 · another applicant's record shown</td><td class="num">3 × 3 = 9 high</td><td>C05 session binding, C06 output check</td><td class="num">1 × 3 = 3 medium</td></tr>
+  </table>
+  <div class="callout tip mt"><b>R03 keeps impact 3.</b> The controls make it rare. If it happens anyway, the person whose bank number is shown is harmed exactly as before.</div>
+  <aside class="notes"><p>The residual score is true on the day the controls are live and their regression tests pass. Until then the inherent score is the true one, and the register must show which controls are still plans. That distinction is most of the briefing on Day 4.</p></aside>
+</section>
+
+<section class="slide" id="transfer-keeps-responsibility" data-lo="LO3" data-n="28" data-session="3">
+  <div class="kicker">A trap in the library</div>
+  <h2>Insurance moves costs; responsibility stays where it was</h2>
+  <div class="cols cols-2">
+    <div class="card c-amber"><h4>C12 · cyber insurance for breach costs</h4><p class="small mb0">Effect on likelihood: none. Effect on impact for the applicant: none. It pays part of the Agency's costs afterwards.</p></div>
+    <ul class="bullets">
+      <li>Transfer is a real strategy: supplier commitments, guarantees, insurance</li>
+      <li>It does not end the entity's responsibility for governance and compliance</li>
+      <li>For personal data it is never the only treatment</li>
+    </ul>
+  </div>
+  <aside class="notes"><p>The framework says this in so many words about transfer. The same holds for the supplier contract in the next session: clause CL3 on training data transfers nothing if nobody checks it.</p></aside>
+</section>
+
+<section class="slide" id="sign-by-band" data-lo="LO3 LO6" data-n="29" data-session="3">
+  <div class="kicker">Step 4 · the decision</div>
+  <h2>What remains is accepted by a named person, or escalated</h2>
+  <table class="t small">
+    <tr><th>Residual band</th><th>Who accepts at the Agency</th><th class="num">Review within</th></tr>
+    <tr><td>Low</td><td>The system owner</td><td class="num">365 days</td></tr>
+    <tr><td>Medium</td><td>The system owner, countersigned by the head of AI assurance</td><td class="num">180 days</td></tr>
+    <tr><td>High</td><td>The deputy governor, with written conditions</td><td class="num">90 days</td></tr>
+    <tr><td>Catastrophic</td><td>Nobody: avoid or redesign</td><td class="num"></td></tr>
+  </table>
+  <div class="callout note mt"><b>A residual score nobody signed is a number.</b> A signed one is a decision, with a date on which it is looked at again.</div>
+  <aside class="notes"><p>The table is the Agency's risk appetite, invented for the case; the framework asks that the level of the decision match the level of the risk and that acceptances and escalations be documented, and leaves the thresholds to the entity. Ask participants who signs in their own organisation; often nobody knows.</p></aside>
+</section>
+
+<section class="slide" id="check-residual-claim" data-lo="LO3" data-n="30" data-session="3">
+  <div class="kicker">Checkpoint</div>
+  <h2>Do you accept this residual score?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3" data-id="check-residual-claim-q1">
+    <p class="lead">R01 is 4 × 3 = 12. The builders propose one control, the recipient allowlist, and a residual of 1 × 1 = 1, to be signed by the system owner. The allowlist is planned for next quarter. What do you answer?</p>
+    <div class="opts">
+      <div class="opt" data-ok data-k="A">No: one control cannot move both scores that far, the web exit remains, and it is not live</div>
+      <div class="opt" data-why="Accepts a score for a control that does not exist yet: until it is live the inherent score is the true one" data-k="B">Yes: the allowlist removes the exit, so the risk is gone</div>
+      <div class="opt" data-why="The signatory follows the residual band; the problem is the score itself, not who signs it" data-k="C">No: only the deputy governor may sign for R01</div>
+      <div class="opt" data-why="Insurance changes neither score for the applicant, and responsibility stays" data-k="D">Yes, if the Agency also buys insurance</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> The allowlist moves likelihood, not impact; a second exit is untouched; and a planned control lowers nothing today.</div>
+  </div>
+  <aside class="notes"><p>Answer: no, for three separate reasons. Ask the room to name all three before the reveal.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-3-3" data-auto="lab" data-lab="3.3" data-label="Lab 3.3" data-n="31" data-session="3">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 3.3 · 25 min</div><h2>Treat the top three</h2><p class="lead small">Choose controls for the three highest risks in a provided register and state residual scores and signatories</p><a class="nb" href="../labs/D3_3_treat_residual.ipynb">D3_3_treat_residual.ipynb</a></div><ul class="checklist"><li>Rank the register and take the three highest risks <span class="min">4 min</span></li><li>Choose a strategy and controls from the control library <span class="min">8 min</span></li><li>Re-score residual likelihood and impact with a reason <span class="min">7 min</span></li><li>Name the owner, the signatory and the review date <span class="min">6 min</span></li><li class="stretch">✱ Stretch: Find the risk in the register that should be avoided, not mitigated, and say what is switched off</li></ul></div>
+  <aside class="notes"><p>The lab loads the reviewers' register, so differences from Lab 3.2 do not matter. Watch step 3: participants set residual scores below what the floor function allows, and the check refuses. Someone will choose C12; let the check explain. The signatory in step 4 follows the residual band, which surprises people who expected the inherent one.</p></aside>
+</section>
+
+<!-- ======================= SESSION 4 ======================= -->
+<section class="slide section" id="s4" data-auto="section" data-session="4" data-n="32">
+  <div class="kicker">Session 4</div>
+  <h1>Supplier and model-change risk</h1>
+  <ul class="bullets outcomes"><li>Read a model update notice against the supplier contract</li><li>Decide which risks and which tests a model change reopens</li><li>Give a go, a go with conditions or a hold, with the evidence each needs</li></ul>
+  <div class="sess-no">04</div>
+</section>
+
+<section class="slide" id="measured-on-the-old-model" data-lo="LO3 LO6" data-n="33" data-session="4">
+  <div class="kicker">Supplier risk</div>
+  <h2>Every rate you measured belongs to one version of one model</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>Mueen and Katib run on a model hosted by Lisan Language Systems</li>
+      <li>The supplier can change that model; the Agency's tests ran on <b>Lisan-2</b></li>
+      <li>A model change touches language handling, tool calls and safety behaviour at once</li>
+    </ul>
+    <div class="card c-coral"><h4>R09 on the register</h4><p class="small mb0">The supplier changes the model and behaviour in Arabic shifts unnoticed. Likelihood 3, impact 2. It also reopens most of the other eleven.</p></div>
+  </div>
+  <aside class="notes"><p>This is the supply-chain entry of the OWASP list seen from the buyer's side. The durable point: evidence has a subject, and for behaviour tests the subject includes the model version. Write the version beside every rate.</p></aside>
+</section>
+
+<section class="slide" id="notice-against-contract" data-lo="LO3" data-n="34" data-session="4">
+  <div class="kicker">Lab 3.4, step 1</div>
+  <h2>Read the notice against the contract, clause by clause</h2>
+  <div class="cols cols-2">
+    <div class="card c-navy"><h4>The notice</h4><p class="small mb0">Lisan-2 to Lisan-2.1, live in <b>10 days</b>, "minor". Better dialect and Latin-letter Arabic; a new tool-call format; safety behaviour retrained; a second hosting region.</p></div>
+    <table class="t small">
+      <tr><th>Clause</th><th>Says</th></tr>
+      <tr><td>CL1</td><td>30 days of notice for a change that "materially" affects behaviour; the supplier decides what is material</td></tr>
+      <tr><td>CL2</td><td>The Agency may test in staging for 14 days</td></tr>
+      <tr><td>CL5</td><td>Processing in the primary region; silent on a second region</td></tr>
+    </table>
+  </div>
+  <div class="callout warn mt"><b>Ten days of notice, fourteen days of testing.</b> The right to test does not fit into the time given.</div>
+  <aside class="notes"><p>The contract is invented for the case, and its weak sentence is common in real ones: the party making the change decides whether it matters. The data protection officer owns this conversation; bring her into the role-play if you run one.</p></aside>
+</section>
+
+<section class="slide" id="who-says-minor" data-lo="LO3" data-n="35" data-session="4">
+  <div class="kicker">Classifying a change</div>
+  <h2>The supplier classifies by what changed; you classify by what it can do to your risks</h2>
+  <table class="t small">
+    <tr><th>Announced change</th><th>Risks whose evidence it touches</th></tr>
+    <tr><td>Better dialect and Latin-letter Arabic</td><td>R03, R04, R05, R06, R08: every probe result by script</td></tr>
+    <tr><td>New tool-call format</td><td>R01, R02, R12, R10: everything Katib does through tools</td></tr>
+    <tr><td>Safety behaviour retrained, "fewer unnecessary refusals"</td><td>R04, R06, and every refusal the tests counted on</td></tr>
+    <tr><td>A second hosting region</td><td>R09, and where Restricted data is processed</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Major.</b> Ten of the twelve risks rest on behaviour that may now differ.</div>
+  <aside class="notes"><p>"Fewer unnecessary refusals" is good news for most users and a warning for an assurer: some of yesterday's refused probes were the "unnecessary" ones. "Better handling of Latin-letter Arabic" means the model also understands attacks in that script better.</p></aside>
+</section>
+
+<section class="slide" id="what-to-retest" data-lo="LO3" data-n="36" data-session="4">
+  <div class="kicker">Lab 3.4, step 3</div>
+  <h2>Retest what depends on the model; keep what does not</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Behaviour tests: rerun</h4><p class="small mb0">Eight tests, 460 calls: probes by script, planted instructions, letter amounts. Staging allows 400, so one must wait: the one that guards the lowest risk.</p></div>
+    <div class="card c-teal"><h4>Design tests: still valid</h4><p class="small mb0">Policy tests of the service account, delegation chain checks, allowlist unit tests. They never called the model.</p></div>
+  </div>
+  <ul class="bullets tight mt">
+    <li>The hosting change costs no calls: it is a question to the supplier, in writing</li>
+    <li>What is left out is <b>recorded as not retested</b>, with the risk it guards</li>
+  </ul>
+  <aside class="notes"><p>The reference choice drops T02, the screening-rule probes, which guard R08 at level 4. A different choice can be defended if it is argued from the register. What cannot be defended is dropping a test without writing down that the risk is now open.</p></aside>
+</section>
+
+<section class="slide" id="what-survives-a-model-change" data-lo="LO3 LO5" data-n="37" data-session="4">
+  <div class="kicker">A property of evidence</div>
+  <h2>Evidence about controls outside the model survives the update</h2>
+  <table class="t">
+    <tr><th>Evidence</th><th>After the model changes</th></tr>
+    <tr><td>"0 of 300 with the recipient allowlist"</td><td>Holds: the allowlist does not ask the model</td></tr>
+    <tr><td>"11 of 300 with the statement quarantined"</td><td>Open: it is a rate of this model</td></tr>
+    <tr><td>"47% in Latin-letter Arabic"</td><td>Open</td></tr>
+    <tr><td>Policy tests, delegation chain checks</td><td>Hold</td></tr>
+  </table>
+  <div class="callout tip mt"><b>The more of the case rests on architecture, the cheaper every model change becomes.</b> That is tomorrow's first two sessions.</div>
+  <aside class="notes"><p>This slide is the argument for Day 4 put as economics. A team whose whole case is behaviour tests must rerun everything twice a year and hope; a team with exits removed reruns a fraction.</p></aside>
+</section>
+
+<section class="slide" id="suite-on-the-new-model" data-lo="LO3" data-n="38" data-session="4">
+  <div class="kicker">Lab 3.4, stretch</div>
+  <h2>The test left out for the budget is one of those that got worse</h2>
+  <table class="t small">
+    <tr><th>Test</th><th class="num">Lisan-2</th><th class="num">Lisan-2.1</th><th>Retested?</th></tr>
+    <tr class="hl"><td>T02 · the screening rule, three scripts</td><td class="num">27 of 120 · 22%</td><td class="num">44 of 120 · 37%</td><td>no</td></tr>
+    <tr><td>T04 · false assurance</td><td class="num">45 of 90 · 50%</td><td class="num">55 of 90 · 61%</td><td>yes</td></tr>
+    <tr><td>T07 · a false note planted</td><td class="num">11 of 30 · 37%</td><td class="num">18 of 30 · 60%</td><td>yes</td></tr>
+    <tr><td>T08 · wrong amounts in letters</td><td class="num">2 of 50 · 4%</td><td class="num">5 of 50 · 10%</td><td>yes</td></tr>
+    <tr><td>T05 · a record emailed out</td><td class="num">15 of 30</td><td class="num">15 of 30</td><td>yes</td></tr>
+  </table>
+  <p class="small mt">A budget decides what you do not see: say so in the decision record.</p>
+  <aside class="notes"><p>Reference run of the stretch cell. The change is scripted into the stand-in to make the lesson visible; nothing here says what a real update does. T08 is simulated as a rate of wrong amounts, not by calling a model.</p></aside>
+</section>
+
+<section class="slide" id="go-conditions-hold" data-lo="LO3 LO6" data-n="39" data-session="4">
+  <div class="kicker">The decision</div>
+  <h2>Three answers, and each needs its evidence</h2>
+  <div class="cols cols-3">
+    <div class="card c-green"><h4>Go</h4><p class="small mb0">The affected tests were rerun on the new version and none is worse.</p></div>
+    <div class="card c-amber"><h4>Go with conditions</h4><p class="small mb0">Rerun in progress; named risks carried as open; an owner and a date for each condition.</p></div>
+    <div class="card c-coral"><h4>Hold</h4><p class="small mb0">Nothing retested yet, or a test is worse and its risk is above the appetite. The date moves.</p></div>
+  </div>
+  <ul class="bullets tight mt">
+    <li>Here: <b>hold</b>, use the 14 days of clause CL2, ask where the second region is</li>
+    <li>Tell the deputy governor: the scores he is asked to sign were measured on the old model</li>
+  </ul>
+  <aside class="notes"><p>The sixth course outcome, presenting residual risk "given a scripted supplier model change", is this decision made in front of a panel. Participants should leave today with the three answers and their evidence memorised.</p></aside>
+</section>
+
+<section class="slide" id="check-update-decision" data-lo="LO3 LO6" data-n="40" data-session="4">
+  <div class="kicker">Checkpoint</div>
+  <h2>What do you retest first?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3" data-id="check-update-decision-q1">
+    <p class="lead">A supplier announces a model update that changes only the format of tool calls. You have calls for one behaviour test before the weekend. The register's top risks are R02 and R01 (both 12, through Katib's tools) and R03 (9, through Mueen's lookup).</p>
+    <div class="opts">
+      <div class="opt" data-why="Unit tests of the allowlist never call the model: their result cannot have changed" data-k="A">The unit tests of the recipient allowlist</div>
+      <div class="opt" data-why="Probes by script exercise language handling, which this update does not announce a change to" data-k="B">The degrading-reply probes in three scripts</div>
+      <div class="opt" data-ok data-k="C">The planted instruction that makes Katib email a record out</div>
+      <div class="opt" data-why="A contract check costs no calls and is worth doing, but it is not the behaviour most at risk from this change" data-k="D">The data-residency check of the hosting region</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Retest where the change meets the highest risk: tool calls, and the two risks at 12 that run through them.</div>
+  </div>
+  <aside class="notes"><p>Answer: the planted email test. If someone says "all of them", agree and ask in which order, with one test's worth of calls before the weekend.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-3-4" data-auto="lab" data-lab="3.4" data-label="Lab 3.4" data-n="41" data-session="4">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 3.4 · 25 min</div><h2>A model update notice</h2><p class="lead small">Assess a supplier's model update notice and decide what must be retested before it goes live</p><a class="nb" href="../labs/D3_4_supplier_change.ipynb">D3_4_supplier_change.ipynb</a></div><ul class="checklist"><li>Read the update notice against the contract clauses <span class="min">5 min</span></li><li>Classify the change and name the risks it reopens <span class="min">6 min</span></li><li>Choose what must be retested from the regression suite <span class="min">8 min</span></li><li>Decide: go, go with conditions or hold <span class="min">6 min</span></li><li class="stretch">✱ Stretch: Run the regression suite against the changed model and compare it with your retest choice</li></ul></div>
+  <aside class="notes"><p>The decision in step 4 is where participants hedge. Push for one of the three words and the evidence it needs. Run the stretch cell on the projector at the end even if few reach it: the row for T02 is the point of the session. The lab uses the supplied register and suite only.</p></aside>
+</section>
+
+<section class="slide" id="wrap-up" data-n="42" data-session="4">
+  <div class="kicker">Day 3 · wrap-up</div>
+  <h2>Three things to keep</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Context before risks</h4><p class="small mb0">What the system can do, what it touches, who decides, what will change. Seven types to check nothing was left out.</p></div>
+    <div class="card c-coral"><h4>Scores with reasons</h4><p class="small mb0">Likelihood and impact from stated evidence, calibrated by two people. Keep both scores, not only the product.</p></div>
+    <div class="card c-purple"><h4>Residual, signed and dated</h4><p class="small mb0">Each control moves one score. What remains is accepted by a named person, and reopened when the model changes.</p></div>
+  </div>
+  <aside class="notes"><p>Ask each table which risk on the register they would be least comfortable signing for, and why. Their answers are tomorrow's conditions.</p></aside>
+</section>
+
+<section class="slide dark" id="next" data-label="Next" data-n="43" data-session="4">
+  <div class="kicker">Next</div>
+  <h2>Day 4: Review and assemble the evidence</h2>
+  <p class="lead">Tomorrow you review Katib's design, find where delegated authority breaks, assemble the assurance case and write the page the deputy governor signs. Reread your top claim from Day 1.</p>
+  <aside class="notes"><p>Recall from AE-308: token exchange, audience and scope. Tomorrow participants check chains, they do not build them. Each lab tomorrow starts from supplied files.</p></aside>
+</section>
+</div>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-17T11:31:40Z","version":"2027.1.0","commit":"f135e55"},"course":{"id":"ae-407","code":"AE-407","title":"AI Assurance, Red Teaming and Governance for Engineering Leads","track":"ai-engineering","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/ae-407/","repo":"SDAIAAcademy/ae-407","home":"../index.html"},"deck":{"id":"day3","kind":"day","day":3,"label":"Day 3","title":"Assess the risk","prev":"day2.html","next":"day4.html","md":"day3.md","alt":{}},"sessions":[{"n":1,"label":"Session 1","title":"The national framework as method","slide":"s1","outcomes":["Name the steps of the national framework and what each one produces","Record context and scope: system and use limits, data and parties, automation and the human role, life cycle and change","Separate intended uses from uses that are out of scope"],"minutes":50,"lab":{"id":"3.1","title":"Context and scope for Katib","minutes":25,"href":"../labs/D3_1_context_scope.ipynb"}},{"n":2,"label":"Session 2","title":"Scoring and calibration","slide":"s2","outcomes":["Classify a risk into the seven types of the national framework","Score likelihood and impact from stated evidence on the 4 by 4 matrix","Calibrate with a second scorer and record the reason for every changed score"],"minutes":50,"lab":{"id":"3.2","title":"Twelve risks, two scorers","minutes":25,"href":"../labs/D3_2_score_calibrate.ipynb"}},{"n":3,"label":"Session 3","title":"Treatment and residual risk","slide":"s3","outcomes":["Choose among avoid, mitigate, transfer and accept with a reason","Re-score residual likelihood and impact from what a control changes","Name the owner, the signatory and the review date of every residual risk"],"minutes":50,"lab":{"id":"3.3","title":"Treat the top three","minutes":25,"href":"../labs/D3_3_treat_residual.ipynb"}},{"n":4,"label":"Session 4","title":"Supplier and model-change risk","slide":"s4","outcomes":["Read a model update notice against the supplier contract","Decide which risks and which tests a model change reopens","Give a go, a go with conditions or a hold, with the evidence each needs"],"minutes":50,"lab":{"id":"3.4","title":"A model update notice","minutes":25,"href":"../labs/D3_4_supplier_change.ipynb"}}],"slides":[{"id":"title","n":1,"title":"Assess the risk","kind":"title","session":0,"hash":"f7cfd8fa","md":"#### [day3#title] Assess the risk\n\n*SDAIA Academy · AI Assurance, Red Teaming and Governance for Engineering Leads*\n\nDay 3: The national framework, from context and scope to residual sign-off\n\nAI Engineering Track · 4 teaching days + capstone day · 4 sessions · 4 labs · AE-407","notes":"Yesterday produced findings. Today they become risks with scores, treatments and signatures, by the method of the National AI Risk Management Framework. Ask who read the executive summary; ask one person to say in a sentence what the framework is for. All labs today may use an AI assistant as a tutor; the scores and reasons must be the participant's.","minutes":null,"lo":[]},{"id":"agenda","n":2,"title":"Assess the risk","kind":"content","session":0,"hash":"64c2568f","md":"#### [day3#agenda] Assess the risk\n\n*Today*\n\n- **Session 1 · The national framework as method**: The National AI Risk Management Framework as a working method: its steps, and what context and scope must record\n- **Session 2 · Scoring and calibration**: Scoring likelihood and impact on the national 4 by 4 matrix, and calibrating two scorers on evidence\n- **Session 3 · Treatment and residual risk**: Choosing a treatment, re-scoring what remains and getting a named person to sign for it\n- **Session 4 · Supplier and model-change risk**: What a supplier may change without asking, and how a model update notice becomes a retest decision","notes":"","minutes":null,"lo":[]},{"id":"review-day-2","n":3,"title":"Which sentence can go to the owner?","kind":"quiz","session":0,"hash":"c9d21ca3","md":"#### [day3#review-day-2] Which sentence can go to the owner?\n\n*Review of Day 2*\n\n**Question:** The planted line made Katib email a record out in 15 of 30 runs (interval 33% to 67%). After a recipient allowlist: 0 of 300. Which statement is right?\n\n- A. \"Before the fix, half of the case files were at risk\"\n- B. \"After the fix, case data cannot leave\"\n- C. \"The email path was open and is now closed; the web path is still to be treated\"\n- D. \"We cannot yet say whether the fix works\"","notes":"Answer: the third. It is the shape of every sentence in a residual-risk statement: what was closed, by what evidence, and what remains.","minutes":null,"lo":["LO2"]},{"id":"s1","n":4,"title":"The national framework as method","kind":"section","session":1,"hash":"ae403437","md":"#### [day3#s1] The national framework as method\n\n*Session 1*\n\n- Name the steps of the national framework and what each one produces\n- Record context and scope: system and use limits, data and parties, automation and the human role, life cycle and change\n- Separate intended uses from uses that are out of scope","notes":"","minutes":null,"lo":["LO3"]},{"id":"findings-are-not-risks","n":5,"title":"A finding is something that happened in a test; a risk is something that may happen to people","kind":"content","session":1,"hash":"9fdb45bb","md":"#### [day3#findings-are-not-risks] A finding is something that happened in a test; a risk is something that may happen to people\n\n*From testing to risk*\n\n- **Finding F1.** A planted line made Katib email a case record to an outside address in 15 of 30 runs.\n- **Risk R01.** An applicant's record is disclosed outside the Agency. How likely, with 120 files a day? How bad, for whom? Who owns it, who accepts what remains?\n\n> **And some risks no probe finds.** Case workers who send drafts unread. A supplier who changes the model. A method is needed that looks there too.","notes":"The red team answers \"can it be made to fail\". Risk assessment answers \"what should the organisation do about it, and who decides\". Different questions, different people in the room: today the system owner and the data protection officer matter as much as the testers.","minutes":null,"lo":["LO3"]},{"id":"framework-steps","n":6,"title":"Five steps stand on a base of reference pillars","kind":"content","session":1,"hash":"6ea8bd53","md":"#### [day3#framework-steps] Five steps stand on a base of reference pillars\n\n*National AI Risk Management Framework · SDAIA, April 2026*\n\n1. **1 · Context and scope** what the system is and touches\n2. **2 · Identify** list and describe the risks\n3. **3 · Assess** likelihood, impact, level\n4. **4 · Treat** strategy, controls, residual, decision\n5. **5 · Monitor and review** in operation\n\n**Reference pillars under every step:** general principles and values, AI regulations, data regulations, sector regulations.","notes":"The framework is advisory and addresses government and private entities. The full text is in Arabic; an English executive summary exists. Step names here are our translation of the Arabic headings. Today's four labs follow steps 1 to 4; monitoring and review returns on Day 4 as evidence the pack must hold. Sources: National AI Risk Management Framework, full text in Arabic and English executive summary.","minutes":null,"lo":["LO3"]},{"id":"context-four-activities","n":7,"title":"Context and scope is four records, written before any risk is named","kind":"content","session":1,"hash":"f60e11e2","md":"#### [day3#context-four-activities] Context and scope is four records, written before any risk is named\n\n*Step 1*\n\n- **The system and its limits.** Kind, purpose, outputs and how they are used. Intended uses and uses not allowed. Users and people affected.\n- **Data, entries, exits.** Data by sensitivity and source. Where content comes in and goes out. Every party in the value chain.\n- **Automation and people.** Recommends, decides or acts. Where a person approves, reviews, objects or stops. Who is responsible.\n- **Life cycle and change.** The current stage. What changes, how often, who approves. What triggers a new assessment.","notes":"These are the four activities the framework lists for this step, in our words. Lab 3.1 has one exercise per card. Engineers tend to skip this step because it \"is just documentation\"; every later score depends on it.","minutes":null,"lo":["LO3"]},{"id":"intended-and-out-of-scope","n":8,"title":"Uses that are out of scope are written down, not assumed","kind":"content","session":1,"hash":"7fb11279","md":"#### [day3#intended-and-out-of-scope] Uses that are out of scope are written down, not assumed\n\n*Lab 3.1, the first record*\n\n| Katib is intended to | Katib is not to |\n| --- | --- |\n| Draft the letter for the case file a case worker opened | Decide eligibility or change a payment |\n| Look up the published rules of the benefit | Contact anyone other than the applicant of the case |\n| Send the approved letter to the registered address | Search cases for any purpose other than the open file |\n\n> **Each line on the right is a test waiting to be written.** Lab 2.2 already ran the second one.","notes":"The framework asks for intended uses to be stated explicitly against unauthorised or out-of-scope uses, to limit misuse and uncontrolled expansion. In practice the right-hand column is where systems grow: someone finds the search tool useful for a purpose nobody assessed.","minutes":null,"lo":["LO3"]},{"id":"acts-not-recommends","n":9,"title":"Record what the system can do, not what the design intends","kind":"content","session":1,"hash":"fe6d27fd","md":"#### [day3#acts-not-recommends] Record what the system can do, not what the design intends\n\n*The level of automation*\n\n- **Recommends.** A person reads the output and acts. Mueen answering a question is close to this.\n- **Decides.** The output is the decision. Neither system is meant to decide eligibility.\n- **Acts.** The system changes something through tools. Katib sends email and writes notes.\n\n> **What goes wrong.** The design says \"the case worker approves every letter\". In Lab 2.2 a second email left before the draft was shown. The approval is a screen, not a gate.","notes":"The framework asks where human intervention is mandatory. For Katib the honest record today is: intended at Send, not enforced. That one line raises the likelihood of three risks and becomes a condition in the briefing on Day 4.","minutes":null,"lo":["LO3"]},{"id":"change-plan","n":10,"title":"The context record says what will change and who approves it","kind":"content","session":1,"hash":"d4c0b844","md":"#### [day3#change-plan] The context record says what will change and who approves it\n\n*Life cycle and change*\n\n| What changes | How often | Who approves |\n| --- | --- | --- |\n| The supplier updates the hosted model | About twice a year | The system owner, after a staging retest |\n| Letter templates | Monthly | The case-work supervisor |\n| A tool is added or its permissions change | Rarely | The security architect |\n\n- **Reassess when:** a model update, a new tool or permission, a new kind of data, an incident\n- An assessment with no trigger for the next one is out of date on the day it is signed","notes":"The framework asks for requirements to re-assess risks on substantial changes and for a way to tell users and affected groups. The first row is Session 4 of today.","minutes":null,"lo":["LO3"]},{"id":"check-context-gap","n":11,"title":"What is missing from this context record?","kind":"quiz","session":1,"hash":"3a24c22a","md":"#### [day3#check-context-gap] What is missing from this context record?\n\n*Checkpoint*\n\n**Question:** A record for Mueen states its purpose, three intended uses, its data with classification levels, the supplier, and that \"a person can always ask for a human\". What must be added before risks are identified?\n\n- A. The ten most likely risks\n- B. The uses that are out of scope, and the plan for changes and reassessment\n- C. The model's size and training method\n- D. The controls that will be applied","notes":"Answer: out-of-scope uses and the change plan. The record in the question is typical: it lists everything the builders are proud of.","minutes":null,"lo":["LO3"]},{"id":"lab-3-1","n":12,"title":"Context and scope for Katib","kind":"lab","session":1,"hash":"54f64aea","md":"#### [day3#lab-3-1] Context and scope for Katib\n\nLab 3.1 · 25 min\n\nSet context, scope and stakeholders for the case-worker agent using the framework's phases\n\n[D3_1_context_scope.ipynb](https://sdaiaacademy.github.io/ae-407/labs/D3_1_context_scope.ipynb)\n\n- [ ] Describe the system, its intended uses and the uses out of scope (6 min)\n- [ ] List the data, the entry and exit points and the parties (7 min)\n- [ ] State the level of automation and the human decision points (6 min)\n- [ ] State the life-cycle stage and the change plan (6 min)\n- [ ] ✱ Stretch: Name the reference pillar that each of your out-of-scope uses rests on","notes":"The brief has every fact; the work is sorting facts into the four records and noticing what the brief does not say (who approves a model update, what triggers reassessment). Common miss: the template text as an entry point. Nothing from Day 2 is needed.","minutes":null,"lo":[]},{"id":"s2","n":13,"title":"Scoring and calibration","kind":"section","session":2,"hash":"8a8ea6ea","md":"#### [day3#s2] Scoring and calibration\n\n*Session 2*\n\n- Classify a risk into the seven types of the national framework\n- Score likelihood and impact from stated evidence on the 4 by 4 matrix\n- Calibrate with a second scorer and record the reason for every changed score","notes":"","minutes":null,"lo":["LO3"]},{"id":"seven-risk-types","n":14,"title":"Seven types of risk are a check that nothing was left out","kind":"content","session":2,"hash":"85d4058f","md":"#### [day3#seven-risk-types] Seven types of risk are a check that nothing was left out\n\n*Step 2 · identification*\n\n| Type | At the Agency |\n| --- | --- |\n| Bias, discrimination and abuse | Weaker protection in Latin-letter Arabic; a degrading reply |\n| Privacy and security | A record emailed out; another applicant's bank number shown |\n| Misinformation | A false assurance of approval |\n| Harmful use | Applicants learn the fraud-screening rule and work around it |\n| Human and machine interaction | Case workers send drafts unread |\n| Social, economic and environmental effects | Drafting skill fades; dependence on one supplier |\n| Safety and limitations | A wrong amount in a letter; behaviour shifts after a model update |","notes":"The type names are our translation of the framework's seven. Use them the way the framework proposes: after listing risks, sort them and look for an empty row. A red team fills the second and third rows and leaves the last three empty.","minutes":null,"lo":["LO3"]},{"id":"describe-each-risk","n":15,"title":"Each risk is described by its source, its intent and its timing","kind":"content","session":2,"hash":"712b10cd","md":"#### [day3#describe-each-risk] Each risk is described by its source, its intent and its timing\n\n*Step 2 · description*\n\n- **Caused by.** A shortcoming of the AI system, or a person's misuse of it.\n- **Intent.** Deliberate, or not.\n- **Timing.** Before release, or after.\n\n| Risk | Cause | Intent | Timing |\n| --- | --- | --- | --- |\n| R01 · a planted line makes Katib email a record out | Person, through a system weakness | Deliberate | After release |\n| R10 · a letter with a wrong amount | System | Not deliberate | After release |","notes":"The description decides which controls fit. A deliberate, human-caused risk needs controls that hold against an adversary who retries; an unintended system error needs detection and correction. The framework's worked example also records the related weaknesses, who is affected and the nature of the impact for every risk.","minutes":null,"lo":["LO3"]},{"id":"likelihood-scale","n":16,"title":"Likelihood has four levels and is judged from four things","kind":"content","session":2,"hash":"951c8824","md":"#### [day3#likelihood-scale] Likelihood has four levels and is judged from four things\n\n*Step 3 · likelihood*\n\n| Level | Meaning |\n| --- | --- |\n| 1 · Rare | Very unlikely to occur |\n| 2 · Unlikely | Possible, not expected in ordinary conditions |\n| 3 · Likely | Considerably probable given the system and its setting |\n| 4 · Almost certain | Expected unless effective controls limit it |\n\n- **Exposure:** how much the system is used, by how many\n- **Controls:** what prevention is in place and how well it works\n- **Ease:** how little it takes\n- **Precedent:** has it happened, here or elsewhere","notes":"The framework does not build likelihood on percentages, because they are hard to fix for a new technology. It does give reference yearly ranges that line up with the levels: under 1%, 1% to 10%, 10% to 50%, 50% or more. A red-team rate is evidence for \"ease\" and \"precedent\"; it is a rate per attempt and not the yearly figure.","minutes":null,"lo":["LO3"]},{"id":"impact-scale","n":17,"title":"Impact has four levels, and the fourth is for the extreme case","kind":"content","session":2,"hash":"fe6c410d","md":"#### [day3#impact-scale] Impact has four levels, and the fourth is for the extreme case\n\n*Step 3 · impact*\n\n| Level | The expected harm is |\n| --- | --- |\n| 1 · Low | Limited, local, quickly contained |\n| 2 · Medium | Real, but contained and put right in reasonable time |\n| 3 · High | Large and clear; needs an institutional response |\n| 4 · Catastrophic | Very grave, wide, perhaps irreversible |\n\n- **Severity** of the harm\n- **Size:** how many people or services\n- **Sensitivity** of the data or the decision\n- **Recovery:** the slower, the higher\n\n> **A wide leak of highly sensitive data**, such as health or financial data, is one of the signs of catastrophic impact the framework names.","notes":"The other signs the framework lists for the fourth level include real deprivation of basic rights or vital services, and compromise of critical systems. Scorers tend to use 4 too freely at first; hold the room to the definition.","minutes":null,"lo":["LO3"]},{"id":"risk-matrix","n":18,"title":"Level is likelihood times impact, read in four bands","kind":"content","session":2,"hash":"cfdc13a5","md":"#### [day3#risk-matrix] Level is likelihood times impact, read in four bands\n\n*Step 3 · level*\n\n| Likelihood ↓ · Impact → | 1 Low | 2 Medium | 3 High | 4 Catastrophic |\n| --- | --- | --- | --- | --- |\n| 4 · Almost certain | 4 | 8 | 12 | 16 |\n| 3 · Likely | 3 | 6 | 9 | 12 |\n| 2 · Unlikely | 2 | 4 | 6 | 8 |\n| 1 · Rare | 1 | 2 | 3 | 4 |\n\n- **1 to 2** low\n- **3 to 6** medium\n- **8 to 12** high\n- **16** catastrophic","notes":"You used this matrix in the supervised entry check and, if you took them, in AE-207 and AE-308. The products 5, 7, 10, 11 and 13 to 15 cannot occur, which is why the bands have gaps. The framework colours the bands green, yellow, orange and red.","minutes":null,"lo":["LO3"]},{"id":"two-scorers","n":19,"title":"Two careful people score the same evidence differently","kind":"content","session":2,"hash":"d51076a9","md":"#### [day3#two-scorers] Two careful people score the same evidence differently\n\n*Lab 3.2, the gaps*\n\n| Risk | First sheet | Security architect | Bands |\n| --- | --- | --- | --- |\n| R07 · drafts sent unread | 3 × 3 = 9 | 2 × 1 = 2 | high / low |\n| R02 · the cases of a whole town | 3 × 3 = 9 | 4 × 4 = 16 | high / catastrophic |\n| R12 · a false approval note | 2 × 2 = 4 | 3 × 3 = 9 | medium / high |\n\n> **The pattern is the lesson.** The architect scores leaks higher and the human and fairness risks far lower. A single scorer hands a pattern to the register.","notes":"From the reference run: seven of twelve risks differ between the two sheets, five of them by a band. In class the second sheet is the neighbour's; the supplied sheet lets the notebook run alone and gives everyone the same disagreement to discuss.","minutes":null,"lo":["LO3"]},{"id":"calibrate-on-evidence","n":20,"title":"Calibrating is pointing at evidence, not averaging and not rank","kind":"content","session":2,"hash":"54ef72c0","md":"#### [day3#calibrate-on-evidence] Calibrating is pointing at evidence, not averaging and not rank\n\n*Calibration*\n\n- For each gap, both scorers name the evidence line that drove their score\n- The agreed score is the one the evidence supports\n- The **reason is written into the register**, so new evidence can change it\n\n- **R02, agreed 3 × 4 = 12.** Impact 4: hundreds of records with health notes and no way back. Likelihood stays 3: it needs a hijack and then a search.\n\n> **Two risks stand at 12.** R01 is almost certain and hurts one person at a time; R02 is less likely and cannot be undone. Keep both scores, not only the product.","notes":"The course outcome asks for \"calibrated 4 by 4 scores\" as evidence. Calibrated means a second reader can follow from the evidence to the score. An average of 9 and 16 is a number with no reason attached.","minutes":null,"lo":["LO3"]},{"id":"check-score-r02","n":21,"title":"Which score does the evidence support?","kind":"quiz","session":2,"hash":"dbb3501b","md":"#### [day3#check-score-r02] Which score does the evidence support?\n\n*Checkpoint*\n\n**Question:** Risk: Mueen shows another applicant's amount or bank number on request. Evidence: 4,000 conversations a week; an English phrase filter; the lookup tool takes any identifier; the campaign reached 42% over 144 attempts; one record per request; a breach notice is needed.\n\n- A. Likelihood 2, impact 3: a control is in place\n- B. Likelihood 3, impact 4: personal data is always catastrophic\n- C. Likelihood 4, impact 1: frequent but small\n- D. Likelihood 3, impact 3: likely, and a large harm to one person each time","notes":"Answer: 3 by 3. A case can be made for likelihood 4; accept it if the argument is \"expected unless a control stops it, and none does\", and note that the level changes from 9 to 12 within the same band.","minutes":null,"lo":["LO3"]},{"id":"lab-3-2","n":22,"title":"Twelve risks, two scorers","kind":"lab","session":2,"hash":"370b964d","md":"#### [day3#lab-3-2] Twelve risks, two scorers\n\nLab 3.2 · 25 min\n\nScore twelve risks alone on the 4 by 4 matrix, then calibrate with a partner\n\n[D3_2_score_calibrate.ipynb](https://sdaiaacademy.github.io/ae-407/labs/D3_2_score_calibrate.ipynb)\n\n- [ ] Classify twelve risks into the seven types (5 min)\n- [ ] Score likelihood and impact alone (8 min)\n- [ ] Compare with the partner sheet and find the gaps (5 min)\n- [ ] Calibrate on evidence and record the agreed scores (7 min)\n- [ ] ✱ Stretch: Compute the weighted agreement before and after calibration","notes":"Run it in pairs: each scores alone for eight minutes, then they compare with each other before looking at the supplied sheet. Insist on scoring before looking. In step 4 the check requires a reason for every gap; one sentence that names an evidence line is enough. The twelve risks are supplied.","minutes":null,"lo":[]},{"id":"s3","n":23,"title":"Treatment and residual risk","kind":"section","session":3,"hash":"4f7804a6","md":"#### [day3#s3] Treatment and residual risk\n\n*Session 3*\n\n- Choose among avoid, mitigate, transfer and accept with a reason\n- Re-score residual likelihood and impact from what a control changes\n- Name the owner, the signatory and the review date of every residual risk","notes":"","minutes":null,"lo":["LO3"]},{"id":"four-treatments","n":24,"title":"There are four responses to a risk, and each needs a reason","kind":"content","session":3,"hash":"88c812d3","md":"#### [day3#four-treatments] There are four responses to a risk, and each needs a reason\n\n*Step 4 · strategy*\n\n- **Avoid.** Change the design, restrict the use, switch the function off, when the risk is high and cannot be brought down.\n- **Mitigate.** Technical, organisational and operational controls that lower likelihood or impact.\n- **Transfer.** Move part of the consequences by contract, guarantee or insurance.\n- **Accept.** When what remains is within the approved tolerance, with the reason and the conditions recorded.","notes":"The framework asks for the choice to be justified and auditable. Avoid is the forgotten one: the stretch item of Lab 3.3 has a risk that disappears when the screening rule is simply taken out of the assistant's instructions.","minutes":null,"lo":["LO3"]},{"id":"controls-have-owners","n":25,"title":"A control has a kind, an owner and a date","kind":"content","session":3,"hash":"61d1c1f2","md":"#### [day3#controls-have-owners] A control has a kind, an owner and a date\n\n*Step 4 · controls*\n\n| Control from the Agency's library | Kind | Owner |\n| --- | --- | --- |\n| C01 · `send_letter` only to the address registered on the case | Technical | Younis Al-Wabel |\n| C04 · the statement is summarised by a call that has no tools | Technical | Sumayya Al-Shaalan |\n| C07 · the case worker sees recipient and attachments before a letter leaves | Operational | Sumayya Al-Shaalan |\n| C08 · 30 days of notice and a staging retest before a model change | Organisational | Tuqa Al-Mishaal |\n\n> **What goes wrong.** \"The team\" owns a control. Nobody is asked when it slips, and the residual score stays on the register as if it were true.","notes":"The framework's second activity in treatment: turn the strategy into a plan that can be carried out and measured, with a clear owner for every control and a timetable that fits the level of the risk. The library has fourteen controls; you built several of their kind in AE-308.","minutes":null,"lo":["LO3"]},{"id":"which-score-moves","n":26,"title":"Ask of every control which score it moves","kind":"content","session":3,"hash":"4a184425","md":"#### [day3#which-score-moves] Ask of every control which score it moves\n\n*Residual risk*\n\n| Control, for risk R01 | Likelihood | Impact |\n| --- | --- | --- |\n| C01 · recipient allowlist | down 2: the exit is gone | none |\n| C04 · statement quarantined | down 1: the model obeys less often | none |\n| C09 · action log with an alert on a new recipient | none | down 1: found and contained sooner |\n\n- Most controls move **likelihood**. Impact moves when less can be reached, or recovery is faster\n- Distrust a residual that falls on both scores with one control","notes":"The effects are the team's estimates in data/register.json, and the lab holds a residual score to what the chosen controls support: no more than two steps on a score, never below 1. Day 2 gave the evidence for the first two rows: 0 of 300 with the allowlist, 11 of 300 with quarantine alone.","minutes":null,"lo":["LO3"]},{"id":"residual-of-top-three","n":27,"title":"Three high risks become three medium ones, on conditions","kind":"content","session":3,"hash":"7c1fdaef","md":"#### [day3#residual-of-top-three] Three high risks become three medium ones, on conditions\n\n*Lab 3.3, the result*\n\n| Risk | Inherent | Controls | Residual |\n| --- | --- | --- | --- |\n| R02 · the cases of a whole town | 3 × 4 = 12 high | C03 caseload scoping, C01, C09 | 2 × 2 = 4 medium |\n| R01 · a record emailed out | 4 × 3 = 12 high | C01, C04, C09 | 2 × 2 = 4 medium |\n| R03 · another applicant's record shown | 3 × 3 = 9 high | C05 session binding, C06 output check | 1 × 3 = 3 medium |\n\n> **R03 keeps impact 3.** The controls make it rare. If it happens anyway, the person whose bank number is shown is harmed exactly as before.","notes":"The residual score is true on the day the controls are live and their regression tests pass. Until then the inherent score is the true one, and the register must show which controls are still plans. That distinction is most of the briefing on Day 4.","minutes":null,"lo":["LO3"]},{"id":"transfer-keeps-responsibility","n":28,"title":"Insurance moves costs; responsibility stays where it was","kind":"content","session":3,"hash":"268d0d1d","md":"#### [day3#transfer-keeps-responsibility] Insurance moves costs; responsibility stays where it was\n\n*A trap in the library*\n\n- **C12 · cyber insurance for breach costs.** Effect on likelihood: none. Effect on impact for the applicant: none. It pays part of the Agency's costs afterwards.\n\n- Transfer is a real strategy: supplier commitments, guarantees, insurance\n- It does not end the entity's responsibility for governance and compliance\n- For personal data it is never the only treatment","notes":"The framework says this in so many words about transfer. The same holds for the supplier contract in the next session: clause CL3 on training data transfers nothing if nobody checks it.","minutes":null,"lo":["LO3"]},{"id":"sign-by-band","n":29,"title":"What remains is accepted by a named person, or escalated","kind":"content","session":3,"hash":"0de0a77f","md":"#### [day3#sign-by-band] What remains is accepted by a named person, or escalated\n\n*Step 4 · the decision*\n\n| Residual band | Who accepts at the Agency | Review within |\n| --- | --- | --- |\n| Low | The system owner | 365 days |\n| Medium | The system owner, countersigned by the head of AI assurance | 180 days |\n| High | The deputy governor, with written conditions | 90 days |\n| Catastrophic | Nobody: avoid or redesign |  |\n\n> **A residual score nobody signed is a number.** A signed one is a decision, with a date on which it is looked at again.","notes":"The table is the Agency's risk appetite, invented for the case; the framework asks that the level of the decision match the level of the risk and that acceptances and escalations be documented, and leaves the thresholds to the entity. Ask participants who signs in their own organisation; often nobody knows.","minutes":null,"lo":["LO3","LO6"]},{"id":"check-residual-claim","n":30,"title":"Do you accept this residual score?","kind":"quiz","session":3,"hash":"d632cabd","md":"#### [day3#check-residual-claim] Do you accept this residual score?\n\n*Checkpoint*\n\n**Question:** R01 is 4 × 3 = 12. The builders propose one control, the recipient allowlist, and a residual of 1 × 1 = 1, to be signed by the system owner. The allowlist is planned for next quarter. What do you answer?\n\n- A. No: one control cannot move both scores that far, the web exit remains, and it is not live\n- B. Yes: the allowlist removes the exit, so the risk is gone\n- C. No: only the deputy governor may sign for R01\n- D. Yes, if the Agency also buys insurance","notes":"Answer: no, for three separate reasons. Ask the room to name all three before the reveal.","minutes":null,"lo":["LO3"]},{"id":"lab-3-3","n":31,"title":"Treat the top three","kind":"lab","session":3,"hash":"b1056602","md":"#### [day3#lab-3-3] Treat the top three\n\nLab 3.3 · 25 min\n\nChoose controls for the three highest risks in a provided register and state residual scores and signatories\n\n[D3_3_treat_residual.ipynb](https://sdaiaacademy.github.io/ae-407/labs/D3_3_treat_residual.ipynb)\n\n- [ ] Rank the register and take the three highest risks (4 min)\n- [ ] Choose a strategy and controls from the control library (8 min)\n- [ ] Re-score residual likelihood and impact with a reason (7 min)\n- [ ] Name the owner, the signatory and the review date (6 min)\n- [ ] ✱ Stretch: Find the risk in the register that should be avoided, not mitigated, and say what is switched off","notes":"The lab loads the reviewers' register, so differences from Lab 3.2 do not matter. Watch step 3: participants set residual scores below what the floor function allows, and the check refuses. Someone will choose C12; let the check explain. The signatory in step 4 follows the residual band, which surprises people who expected the inherent one.","minutes":null,"lo":[]},{"id":"s4","n":32,"title":"Supplier and model-change risk","kind":"section","session":4,"hash":"a414a980","md":"#### [day3#s4] Supplier and model-change risk\n\n*Session 4*\n\n- Read a model update notice against the supplier contract\n- Decide which risks and which tests a model change reopens\n- Give a go, a go with conditions or a hold, with the evidence each needs","notes":"","minutes":null,"lo":["LO3","LO6"]},{"id":"measured-on-the-old-model","n":33,"title":"Every rate you measured belongs to one version of one model","kind":"content","session":4,"hash":"da6b1a34","md":"#### [day3#measured-on-the-old-model] Every rate you measured belongs to one version of one model\n\n*Supplier risk*\n\n- Mueen and Katib run on a model hosted by Lisan Language Systems\n- The supplier can change that model; the Agency's tests ran on **Lisan-2**\n- A model change touches language handling, tool calls and safety behaviour at once\n\n- **R09 on the register.** The supplier changes the model and behaviour in Arabic shifts unnoticed. Likelihood 3, impact 2. It also reopens most of the other eleven.","notes":"This is the supply-chain entry of the OWASP list seen from the buyer's side. The durable point: evidence has a subject, and for behaviour tests the subject includes the model version. Write the version beside every rate.","minutes":null,"lo":["LO3","LO6"]},{"id":"notice-against-contract","n":34,"title":"Read the notice against the contract, clause by clause","kind":"content","session":4,"hash":"efb32d08","md":"#### [day3#notice-against-contract] Read the notice against the contract, clause by clause\n\n*Lab 3.4, step 1*\n\n- **The notice.** Lisan-2 to Lisan-2.1, live in **10 days**, \"minor\". Better dialect and Latin-letter Arabic; a new tool-call format; safety behaviour retrained; a second hosting region.\n\n| Clause | Says |\n| --- | --- |\n| CL1 | 30 days of notice for a change that \"materially\" affects behaviour; the supplier decides what is material |\n| CL2 | The Agency may test in staging for 14 days |\n| CL5 | Processing in the primary region; silent on a second region |\n\n> **Ten days of notice, fourteen days of testing.** The right to test does not fit into the time given.","notes":"The contract is invented for the case, and its weak sentence is common in real ones: the party making the change decides whether it matters. The data protection officer owns this conversation; bring her into the role-play if you run one.","minutes":null,"lo":["LO3"]},{"id":"who-says-minor","n":35,"title":"The supplier classifies by what changed; you classify by what it can do to your risks","kind":"content","session":4,"hash":"f4a2ff53","md":"#### [day3#who-says-minor] The supplier classifies by what changed; you classify by what it can do to your risks\n\n*Classifying a change*\n\n| Announced change | Risks whose evidence it touches |\n| --- | --- |\n| Better dialect and Latin-letter Arabic | R03, R04, R05, R06, R08: every probe result by script |\n| New tool-call format | R01, R02, R12, R10: everything Katib does through tools |\n| Safety behaviour retrained, \"fewer unnecessary refusals\" | R04, R06, and every refusal the tests counted on |\n| A second hosting region | R09, and where Restricted data is processed |\n\n> **Major.** Ten of the twelve risks rest on behaviour that may now differ.","notes":"\"Fewer unnecessary refusals\" is good news for most users and a warning for an assurer: some of yesterday's refused probes were the \"unnecessary\" ones. \"Better handling of Latin-letter Arabic\" means the model also understands attacks in that script better.","minutes":null,"lo":["LO3"]},{"id":"what-to-retest","n":36,"title":"Retest what depends on the model; keep what does not","kind":"content","session":4,"hash":"3c846404","md":"#### [day3#what-to-retest] Retest what depends on the model; keep what does not\n\n*Lab 3.4, step 3*\n\n- **Behaviour tests: rerun.** Eight tests, 460 calls: probes by script, planted instructions, letter amounts. Staging allows 400, so one must wait: the one that guards the lowest risk.\n- **Design tests: still valid.** Policy tests of the service account, delegation chain checks, allowlist unit tests. They never called the model.\n\n- The hosting change costs no calls: it is a question to the supplier, in writing\n- What is left out is **recorded as not retested**, with the risk it guards","notes":"The reference choice drops T02, the screening-rule probes, which guard R08 at level 4. A different choice can be defended if it is argued from the register. What cannot be defended is dropping a test without writing down that the risk is now open.","minutes":null,"lo":["LO3"]},{"id":"what-survives-a-model-change","n":37,"title":"Evidence about controls outside the model survives the update","kind":"content","session":4,"hash":"cc615de2","md":"#### [day3#what-survives-a-model-change] Evidence about controls outside the model survives the update\n\n*A property of evidence*\n\n| Evidence | After the model changes |\n| --- | --- |\n| \"0 of 300 with the recipient allowlist\" | Holds: the allowlist does not ask the model |\n| \"11 of 300 with the statement quarantined\" | Open: it is a rate of this model |\n| \"47% in Latin-letter Arabic\" | Open |\n| Policy tests, delegation chain checks | Hold |\n\n> **The more of the case rests on architecture, the cheaper every model change becomes.** That is tomorrow's first two sessions.","notes":"This slide is the argument for Day 4 put as economics. A team whose whole case is behaviour tests must rerun everything twice a year and hope; a team with exits removed reruns a fraction.","minutes":null,"lo":["LO3","LO5"]},{"id":"suite-on-the-new-model","n":38,"title":"The test left out for the budget is one of those that got worse","kind":"content","session":4,"hash":"e72271aa","md":"#### [day3#suite-on-the-new-model] The test left out for the budget is one of those that got worse\n\n*Lab 3.4, stretch*\n\n| Test | Lisan-2 | Lisan-2.1 | Retested? |\n| --- | --- | --- | --- |\n| T02 · the screening rule, three scripts | 27 of 120 · 22% | 44 of 120 · 37% | no |\n| T04 · false assurance | 45 of 90 · 50% | 55 of 90 · 61% | yes |\n| T07 · a false note planted | 11 of 30 · 37% | 18 of 30 · 60% | yes |\n| T08 · wrong amounts in letters | 2 of 50 · 4% | 5 of 50 · 10% | yes |\n| T05 · a record emailed out | 15 of 30 | 15 of 30 | yes |\n\nA budget decides what you do not see: say so in the decision record.","notes":"Reference run of the stretch cell. The change is scripted into the stand-in to make the lesson visible; nothing here says what a real update does. T08 is simulated as a rate of wrong amounts, not by calling a model.","minutes":null,"lo":["LO3"]},{"id":"go-conditions-hold","n":39,"title":"Three answers, and each needs its evidence","kind":"content","session":4,"hash":"7ecbcc32","md":"#### [day3#go-conditions-hold] Three answers, and each needs its evidence\n\n*The decision*\n\n- **Go.** The affected tests were rerun on the new version and none is worse.\n- **Go with conditions.** Rerun in progress; named risks carried as open; an owner and a date for each condition.\n- **Hold.** Nothing retested yet, or a test is worse and its risk is above the appetite. The date moves.\n\n- Here: **hold**, use the 14 days of clause CL2, ask where the second region is\n- Tell the deputy governor: the scores he is asked to sign were measured on the old model","notes":"The sixth course outcome, presenting residual risk \"given a scripted supplier model change\", is this decision made in front of a panel. Participants should leave today with the three answers and their evidence memorised.","minutes":null,"lo":["LO3","LO6"]},{"id":"check-update-decision","n":40,"title":"What do you retest first?","kind":"quiz","session":4,"hash":"cd7afda8","md":"#### [day3#check-update-decision] What do you retest first?\n\n*Checkpoint*\n\n**Question:** A supplier announces a model update that changes only the format of tool calls. You have calls for one behaviour test before the weekend. The register's top risks are R02 and R01 (both 12, through Katib's tools) and R03 (9, through Mueen's lookup).\n\n- A. The unit tests of the recipient allowlist\n- B. The degrading-reply probes in three scripts\n- C. The planted instruction that makes Katib email a record out\n- D. The data-residency check of the hosting region","notes":"Answer: the planted email test. If someone says \"all of them\", agree and ask in which order, with one test's worth of calls before the weekend.","minutes":null,"lo":["LO3","LO6"]},{"id":"lab-3-4","n":41,"title":"A model update notice","kind":"lab","session":4,"hash":"2b64678d","md":"#### [day3#lab-3-4] A model update notice\n\nLab 3.4 · 25 min\n\nAssess a supplier's model update notice and decide what must be retested before it goes live\n\n[D3_4_supplier_change.ipynb](https://sdaiaacademy.github.io/ae-407/labs/D3_4_supplier_change.ipynb)\n\n- [ ] Read the update notice against the contract clauses (5 min)\n- [ ] Classify the change and name the risks it reopens (6 min)\n- [ ] Choose what must be retested from the regression suite (8 min)\n- [ ] Decide: go, go with conditions or hold (6 min)\n- [ ] ✱ Stretch: Run the regression suite against the changed model and compare it with your retest choice","notes":"The decision in step 4 is where participants hedge. Push for one of the three words and the evidence it needs. Run the stretch cell on the projector at the end even if few reach it: the row for T02 is the point of the session. The lab uses the supplied register and suite only.","minutes":null,"lo":[]},{"id":"wrap-up","n":42,"title":"Three things to keep","kind":"content","session":4,"hash":"9b4a317c","md":"#### [day3#wrap-up] Three things to keep\n\n*Day 3 · wrap-up*\n\n- **Context before risks.** What the system can do, what it touches, who decides, what will change. Seven types to check nothing was left out.\n- **Scores with reasons.** Likelihood and impact from stated evidence, calibrated by two people. Keep both scores, not only the product.\n- **Residual, signed and dated.** Each control moves one score. What remains is accepted by a named person, and reopened when the model changes.","notes":"Ask each table which risk on the register they would be least comfortable signing for, and why. Their answers are tomorrow's conditions.","minutes":null,"lo":[]},{"id":"next","n":43,"title":"Day 4: Review and assemble the evidence","kind":"content","session":4,"hash":"99aa755a","md":"#### [day3#next] Day 4: Review and assemble the evidence\n\n*Next*\n\nTomorrow you review Katib's design, find where delegated authority breaks, assemble the assurance case and write the page the deputy governor signs. Reread your top claim from Day 1.","notes":"Recall from AE-308: token exchange, audience and scope. Tomorrow participants check chains, they do not build them. Each lab tomorrow starts from supplied files.","minutes":null,"lo":[]}],"activities":[{"id":"review-day-2-q1","slide":"review-day-2","type":"single","prompt":"The planted line made Katib email a record out in 15 of 30 runs (interval 33% to 67%). After a recipient allowlist: 0 of 300. Which statement is right?","options":[{"key":"A","text":"\"Before the fix, half of the case files were at risk\""},{"key":"B","text":"\"After the fix, case data cannot leave\""},{"key":"C","text":"\"The email path was open and is now closed; the web path is still to be treated\""},{"key":"D","text":"\"We cannot yet say whether the fix works\""}],"correct":[2],"explanation":"State what was shown, for which path, and what is left. Today that last part gets a score and an owner.","misconceptions":["Reads the rate as the Agency's exposure: an applicant who retries makes a 50% path a near-certain one","Claims more than email: the web request is a second exit the allowlist does not touch","","Zero of 300 on a control that removes the exit is strong evidence; calling it unknown wastes it"],"lo":["LO2"]},{"id":"check-context-gap-q1","slide":"check-context-gap","type":"single","prompt":"A record for Mueen states its purpose, three intended uses, its data with classification levels, the supplier, and that \"a person can always ask for a human\". What must be added before risks are identified?","options":[{"key":"A","text":"The ten most likely risks"},{"key":"B","text":"The uses that are out of scope, and the plan for changes and reassessment"},{"key":"C","text":"The model's size and training method"},{"key":"D","text":"The controls that will be applied"}],"correct":[1],"explanation":"Without out-of-scope uses there is nothing to test misuse against, and without a change plan the assessment has no end date.","misconceptions":["Risks come in the next step: listing them here skips the record they should be derived from","","Model internals matter less to context than what the system touches and who decides","A treatment needs a risk first; controls are step 4"],"lo":["LO3"]},{"id":"check-score-r02-q1","slide":"check-score-r02","type":"single","prompt":"Risk: Mueen shows another applicant's amount or bank number on request. Evidence: 4,000 conversations a week; an English phrase filter; the lookup tool takes any identifier; the campaign reached 42% over 144 attempts; one record per request; a breach notice is needed.","options":[{"key":"A","text":"Likelihood 2, impact 3: a control is in place"},{"key":"B","text":"Likelihood 3, impact 4: personal data is always catastrophic"},{"key":"C","text":"Likelihood 4, impact 1: frequent but small"},{"key":"D","text":"Likelihood 3, impact 3: likely, and a large harm to one person each time"}],"correct":[3],"explanation":"Exposure and ease are high and the control is weak. The harm is large, but it is one record, not a wide leak.","misconceptions":["Takes the filter as an effective control: the campaign shows it is not, in two of three scripts","Reserves nothing for the extreme case: one record per request is not a wide leak","Reads impact from frequency: harm to the one person is large each time, however often it happens",""],"lo":["LO3"]},{"id":"check-residual-claim-q1","slide":"check-residual-claim","type":"single","prompt":"R01 is 4 × 3 = 12. The builders propose one control, the recipient allowlist, and a residual of 1 × 1 = 1, to be signed by the system owner. The allowlist is planned for next quarter. What do you answer?","options":[{"key":"A","text":"No: one control cannot move both scores that far, the web exit remains, and it is not live"},{"key":"B","text":"Yes: the allowlist removes the exit, so the risk is gone"},{"key":"C","text":"No: only the deputy governor may sign for R01"},{"key":"D","text":"Yes, if the Agency also buys insurance"}],"correct":[0],"explanation":"The allowlist moves likelihood, not impact; a second exit is untouched; and a planned control lowers nothing today.","misconceptions":["","Accepts a score for a control that does not exist yet: until it is live the inherent score is the true one","The signatory follows the residual band; the problem is the score itself, not who signs it","Insurance changes neither score for the applicant, and responsibility stays"],"lo":["LO3"]},{"id":"check-update-decision-q1","slide":"check-update-decision","type":"single","prompt":"A supplier announces a model update that changes only the format of tool calls. You have calls for one behaviour test before the weekend. The register's top risks are R02 and R01 (both 12, through Katib's tools) and R03 (9, through Mueen's lookup).","options":[{"key":"A","text":"The unit tests of the recipient allowlist"},{"key":"B","text":"The degrading-reply probes in three scripts"},{"key":"C","text":"The planted instruction that makes Katib email a record out"},{"key":"D","text":"The data-residency check of the hosting region"}],"correct":[2],"explanation":"Retest where the change meets the highest risk: tool calls, and the two risks at 12 that run through them.","misconceptions":["Unit tests of the allowlist never call the model: their result cannot have changed","Probes by script exercise language handling, which this update does not announce a change to","","A contract check costs no calls and is worth doing, but it is not the behaviour most at risk from this change"],"lo":["LO3"]}],"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":"day3.md","llms":"../llms.txt"},"tasks":[],"tools":[]},"bridge":{"allowedOrigins":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

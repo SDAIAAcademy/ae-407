@@ -1,0 +1,47 @@
+{
+ "E01": [
+  "MEASURE 1.3",
+  "MAP 1.1"
+ ],
+ "E02": [
+  "MEASURE 2.7"
+ ],
+ "E03": [
+  "MEASURE 2.7",
+  "MANAGE 1.3"
+ ],
+ "E04": [
+  "MANAGE 1.3",
+  "MEASURE 2.6"
+ ],
+ "E05": [
+  "MAP 1.1",
+  "MAP 3.5"
+ ],
+ "E06": [
+  "MEASURE 2.7"
+ ],
+ "E07": [
+  "MEASURE 2.7"
+ ],
+ "E08": [
+  "GOVERN 6.1",
+  "MANAGE 3.1"
+ ],
+ "E09": [
+  "MEASURE 2.10"
+ ],
+ "E10": [
+  "GOVERN 2.1"
+ ],
+ "E11": [
+  "MEASURE 2.7"
+ ],
+ "E12": [
+  "MEASURE 2.11"
+ ],
+ "E13": [
+  "MANAGE 4.1"
+ ],
+ "E14": []
+}

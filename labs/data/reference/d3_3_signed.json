@@ -1,0 +1,17 @@
+{
+ "R02": {
+  "owner": "Younis Al-Wabel",
+  "signatory": "Sumayya Al-Shaalan",
+  "review_days": 90
+ },
+ "R01": {
+  "owner": "Younis Al-Wabel",
+  "signatory": "Sumayya Al-Shaalan",
+  "review_days": 90
+ },
+ "R03": {
+  "owner": "Younis Al-Wabel",
+  "signatory": "Sumayya Al-Shaalan",
+  "review_days": 180
+ }
+}

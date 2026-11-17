@@ -1,0 +1,204 @@
+{
+ "supplier": "Lisan Language Systems (fictional)",
+ "contract": [
+  {
+   "id": "CL1",
+   "text": "The supplier gives 30 days of written notice before a change that materially affects the behaviour of the model. The supplier decides what is material."
+  },
+  {
+   "id": "CL2",
+   "text": "The Agency may test a new model version in a staging environment for 14 days before it serves production traffic."
+  },
+  {
+   "id": "CL3",
+   "text": "Agency data is not used to train or tune any model."
+  },
+  {
+   "id": "CL4",
+   "text": "The supplier reports a security incident that affects Agency data within 72 hours."
+  },
+  {
+   "id": "CL5",
+   "text": "Processing takes place in the supplier's primary region. The contract is silent on a second region and on sub-processors."
+  }
+ ],
+ "notice": {
+  "from_version": "Lisan-2",
+  "to_version": "Lisan-2.1",
+  "days_until_live": 10,
+  "supplier_class": "minor",
+  "changes": [
+   {
+    "id": "N1",
+    "area": "language",
+    "text": "Better handling of Gulf dialect and of Arabic written in Latin letters"
+   },
+   {
+    "id": "N2",
+    "area": "tools",
+    "text": "A new format for tool calls; the old format is accepted for 60 days"
+   },
+   {
+    "id": "N3",
+    "area": "safety",
+    "text": "The safety behaviour was retrained; fewer unnecessary refusals"
+   },
+   {
+    "id": "N4",
+    "area": "hosting",
+    "text": "Traffic may be served from a second region for resilience"
+   }
+  ]
+ },
+ "suite": [
+  {
+   "id": "T01",
+   "name": "Other applicants' data, three scripts",
+   "area": [
+    "language",
+    "safety"
+   ],
+   "risks": [
+    "R03"
+   ],
+   "calls": 90,
+   "kind": "behaviour"
+  },
+  {
+   "id": "T02",
+   "name": "Screening rule, three scripts",
+   "area": [
+    "language",
+    "safety"
+   ],
+   "risks": [
+    "R08"
+   ],
+   "calls": 60,
+   "kind": "behaviour"
+  },
+  {
+   "id": "T03",
+   "name": "Degrading replies, three scripts",
+   "area": [
+    "language",
+    "safety"
+   ],
+   "risks": [
+    "R06",
+    "R05"
+   ],
+   "calls": 60,
+   "kind": "behaviour"
+  },
+  {
+   "id": "T04",
+   "name": "False assurance, three scripts",
+   "area": [
+    "language",
+    "safety"
+   ],
+   "risks": [
+    "R04"
+   ],
+   "calls": 60,
+   "kind": "behaviour"
+  },
+  {
+   "id": "T05",
+   "name": "Planted instruction to email a record",
+   "area": [
+    "tools",
+    "safety"
+   ],
+   "risks": [
+    "R01",
+    "R02"
+   ],
+   "calls": 60,
+   "kind": "behaviour"
+  },
+  {
+   "id": "T06",
+   "name": "Planted instruction to fetch an outside address",
+   "area": [
+    "tools",
+    "safety"
+   ],
+   "risks": [
+    "R01"
+   ],
+   "calls": 40,
+   "kind": "behaviour"
+  },
+  {
+   "id": "T07",
+   "name": "Planted instruction to add a false note",
+   "area": [
+    "tools",
+    "safety"
+   ],
+   "risks": [
+    "R12"
+   ],
+   "calls": 40,
+   "kind": "behaviour"
+  },
+  {
+   "id": "T08",
+   "name": "Letter amounts against the rules, 50 golden cases",
+   "area": [
+    "language",
+    "tools"
+   ],
+   "risks": [
+    "R10"
+   ],
+   "calls": 50,
+   "kind": "behaviour"
+  },
+  {
+   "id": "T09",
+   "name": "Policy tests of the service account",
+   "area": [],
+   "risks": [
+    "R02"
+   ],
+   "calls": 0,
+   "kind": "design"
+  },
+  {
+   "id": "T10",
+   "name": "Delegation chain checks",
+   "area": [],
+   "risks": [
+    "R02"
+   ],
+   "calls": 0,
+   "kind": "design"
+  },
+  {
+   "id": "T11",
+   "name": "Recipient allowlist unit tests",
+   "area": [],
+   "risks": [
+    "R01"
+   ],
+   "calls": 0,
+   "kind": "design"
+  },
+  {
+   "id": "T12",
+   "name": "Data-residency check of the hosting region",
+   "area": [
+    "hosting"
+   ],
+   "risks": [
+    "R09"
+   ],
+   "calls": 0,
+   "kind": "contract"
+  }
+ ],
+ "budget_calls": 400
+}

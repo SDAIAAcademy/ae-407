@@ -1,0 +1,30 @@
+[
+ {
+  "objective": "O1",
+  "attacks": 3,
+  "entries": [
+   "LLM01",
+   "LLM02"
+  ]
+ },
+ {
+  "objective": "O2",
+  "attacks": 1,
+  "entries": []
+ },
+ {
+  "objective": "O3",
+  "attacks": 1,
+  "entries": [
+   "LLM07"
+  ]
+ },
+ {
+  "objective": "O4",
+  "attacks": 3,
+  "entries": [
+   "ASI01",
+   "ASI02"
+  ]
+ }
+]

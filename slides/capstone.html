@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="deck" data-track="ai-engineering">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capstone · Capstone: an assurance pack and its defence · AI Assurance, Red Teaming and Governance for Engineering Leads</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="capstone.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<div class="deck" data-course="AI Assurance, Red Teaming and Governance for Engineering Leads" data-track="ai-engineering" data-day="Capstone">
+<section class="slide title" id="title" data-auto="title" data-label="Welcome" data-n="1">
+  <div class="kicker">SDAIA Academy · AI Assurance, Red Teaming and Governance for Engineering Leads</div>
+  <h1>Capstone: an assurance pack and its defence</h1>
+  <p class="lead mt">Capstone: An unseen system, a public repository and a panel acting as accountable executive and auditor</p>
+  <div class="meta"><span class="track">AI Engineering Track</span><span>4 teaching days + capstone day</span><span>10 min talk and demo · 10 min Q&amp;A</span><span>AE-407</span></div>
+  <aside class="notes"><p>Today is theirs: keep your own talking to the brief and the closing. Before the room fills, confirm the panels (one person as accountable executive, one as auditor for each), the running order and screen sharing. Have labs/solutions/capstone_trainer_notes.md open.</p></aside>
+</section>
+
+<section class="slide" id="agenda" data-label="Agenda" data-n="2">
+  <div class="kicker">Capstone</div>
+  <h2>How the day runs</h2>
+  <div class="agenda">
+    <div class="item now"><div><b>Brief</b><small>the system, the rubric, the rules</small></div></div>
+    <div class="item"><div><b>Build the pack</b><small>plan, test, assess, review, assemble</small></div></div>
+    <div class="item"><div><b>Final preparation</b><small>push the repository, rehearse, rerun one finding</small></div></div>
+    <div class="item"><div><b>Defences</b><small>ten minutes of briefing, ten of questions, each</small></div></div>
+    <div class="item"><div><b>Review and closing</b><small>what the packs showed, the follow-up task</small></div></div>
+  </div>
+  <aside class="notes"><p>The capstone has six hours: 20 minutes of brief, 170 of building, 20 of final preparation, 140 of defences, which is seven defences per panel, and 10 of review and closing. With more participants, run panels side by side; do not shorten the 20 minutes.</p></aside>
+</section>
+
+<section class="slide" id="the-system" data-label="The system" data-n="3">
+  <div class="kicker">The unseen system</div>
+  <h2>Insaf, the appeals agent</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>Reads an appeal file with the appellant's statement, drafts the decision letter</li>
+      <li>A tool Katib does not have: <code>update_payment_status</code></li>
+      <li>Same sandbox, same synthetic cases, same supplier</li>
+      <li>The builders applied the lessons of Katib's review and consider the design finished</li>
+    </ul>
+    <div class="card c-navy"><h4>The decision requested</h4><p class="small mb0">Zuhair Al-Zaidi is asked to start a pilot with two appeal officers. Your pack and your page are what he decides on.</p></div>
+  </div>
+  <pre class="code">uv run python capstone/insaf.py brief</pre>
+  <aside class="notes"><p>Do not say more about Insaf than the brief does. Results from the week do not transfer; methods do. The brief is in labs/capstone/README.md, and the design and chains in capstone/insaf.json.</p></aside>
+</section>
+
+<section class="slide" id="rubric" data-label="The rubric" data-n="4">
+  <div class="kicker">How the repository is scored</div>
+  <h2>The rubric</h2>
+  <div class="bars">
+    <div class="row"><span>Test plan</span><div class="bar c-teal" style="--w:50%"></div><span class="val">15%</span></div>
+    <div class="row"><span>Testing and findings</span><div class="bar c-cyan" style="--w:100%"></div><span class="val">30%</span></div>
+    <div class="row"><span>Risk register</span><div class="bar c-coral" style="--w:67%"></div><span class="val">20%</span></div>
+    <div class="row"><span>Architecture review</span><div class="bar c-purple" style="--w:67%"></div><span class="val">20%</span></div>
+    <div class="row"><span>Assurance case</span><div class="bar c-amber" style="--w:50%"></div><span class="val">15%</span></div>
+  </div>
+  <div class="callout tip mt"><b>The panel reads logs, not summaries.</b> A rate needs its rows, with timestamps and the target version.</div>
+  <aside class="notes"><p>The repository is 60% of the course mark and the live defence 20%; the supervised check made up the other 20%. Passing needs 70% overall and at least 60% on this rubric. Full marks on testing and findings: three findings, each from ten or more trials in a stated script, each with a regression test that fails on the build as found and passes with the fix.</p></aside>
+</section>
+
+<section class="slide" id="pack" data-label="The pack" data-n="5">
+  <div class="kicker">What you submit</div>
+  <h2>One public repository, six folders</h2>
+  <table class="t small">
+    <tr><th>Folder</th><th>Holds</th><th>Pattern</th></tr>
+    <tr><td><code>plan/</code></td><td>Top claim, objectives, scope, rules, stop conditions, budget of 400 runs</td><td>Day 1</td></tr>
+    <tr><td><code>logs/</code>, <code>findings/</code></td><td>One row per trial; three findings; three regression tests</td><td>Day 2</td></tr>
+    <tr><td><code>risk/</code></td><td>Context and scope; a register of eight risks or more, treated and signed</td><td>Day 3</td></tr>
+    <tr><td><code>review/</code></td><td>Design findings with decision records; the broken hops</td><td>Day 4</td></tr>
+    <tr><td><code>case/</code></td><td>Claims, evidence, crosswalk, gap list</td><td>Lab 4.3</td></tr>
+    <tr><td><code>statement.md</code></td><td>The one page for the executive</td><td>Lab 4.4</td></tr>
+  </table>
+  <aside class="notes"><p>Templates for every file are in labs/capstone/templates. AI assistants are allowed in full today, attacker models included, provided the participant reproduces and defends every finding. Case data stays within its classification: nothing from the data folder goes into an outside assistant.</p></aside>
+</section>
+
+<section class="slide" id="format" data-label="Format" data-n="6">
+  <div class="kicker">Format</div>
+  <h2>Ten minutes of briefing, ten minutes of questions</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>1 · The page</h4><p class="small mb0">Brief the executive from your statement: what remains, your recommendation, the conditions with owners and dates.</p></div>
+    <div class="card c-cyan"><h4>2 · One finding, live</h4><p class="small mb0">The auditor picks a claim. You reproduce the number behind it from the repository.</p></div>
+    <div class="card c-coral"><h4>3 · The supplier's notice</h4><p class="small mb0">The model changes. You rerun your regression tests on the new version and say whether the statement still holds.</p></div>
+  </div>
+  <div class="callout note mt"><b>Peer feedback.</b> After each defence, everyone writes the one condition they would add.</div>
+  <aside class="notes"><p>Questions the panel asks everyone: which of your residual scores are true today and which are promises? Which of your zeros come from a control outside the model? What did you not test? Who owns the condition due first? The notice is handed over about three minutes into the questions; the command is in the capstone README.</p></aside>
+</section>
+
+<section class="slide order" id="running-order" data-label="Running order" data-n="7">
+  <div class="kicker">Running order</div>
+  <h2>Who defends when</h2>
+  <table class="t small">
+    <tr><th>#</th><th>Participant</th><th>Recommendation</th></tr>
+    <tr><td>1</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>2</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>3</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>4</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>5</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>6</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>7</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+  </table>
+  <aside class="notes"><p>Type the names in at the start; the fields can be edited live and are not saved, so keep the list in your notes too. Fill the recommendation after each defence: the spread across the room is material for the review.</p></aside>
+</section>
+
+<section class="slide dark" id="build" data-label="Build the pack" data-n="8">
+  <div class="kicker">Build the pack</div>
+  <h1>170 minutes</h1>
+  <div class="timer" data-minutes="170"></div>
+  <p class="lead">Plan 30 · test 50 · assess 40 · review 30 · assemble 20. Commit after each part.</p>
+  <aside class="notes"><p>Press T to start the timer. Call out the change of part at each mark; participants who are still testing at minute 90 will have no register. Breaks are not slides: press B when the room needs one.</p></aside>
+</section>
+
+<section class="slide dark" id="final-prep" data-label="Before the first defence" data-n="9">
+  <div class="kicker">Before the first defence</div>
+  <h1>Final preparation · 20 minutes</h1>
+  <div class="timer" data-minutes="20"></div>
+  <p class="lead">Push the repository. Rerun one finding from a clean clone. Read your page aloud once.</p>
+  <aside class="notes"><p>Press T to start the timer. Collect the repository links now, before the first defence, so that the commit history shows what existed at this point.</p></aside>
+</section>
+
+<section class="slide dark presenting" id="now-presenting" data-label="Now defending" data-n="10">
+  <div class="kicker center">Now defending</div>
+  <div class="center"><input placeholder="Participant"></div>
+  <div class="timer" data-minutes="10"></div>
+  <aside class="notes"><p>Type the name and press T to start the ten minutes of briefing. When they end, the ten minutes of questions start: the auditor's reproduction first, then the supplier's notice. Reuse this slide for every participant.</p></aside>
+</section>
+
+<section class="slide" id="review" data-label="Trainer review" data-n="11">
+  <div class="kicker">Trainer review</div>
+  <h2>What the packs showed</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Strongest patterns</h4><p class="small mb0">What several packs got right.</p></div>
+    <div class="card c-coral"><h4>Common gaps</h4><p class="small mb0">What most packs would fix next.</p></div>
+    <div class="card c-purple"><h4>One surprise</h4><p class="small mb0">Something nobody expected.</p></div>
+  </div>
+  <aside class="notes"><p>Fill these in from your scoring notes during the last break. Name participants for strengths; keep gaps anonymous. Usual gaps: residual scores for controls that are not live, the payment status change left out of the plan, and the difference between Insaf's policy and what the running agent does.</p></aside>
+</section>
+
+<section class="slide" id="what-next" data-label="After the course" data-n="12">
+  <div class="kicker">After the course</div>
+  <h2>Keep going</h2>
+  <ul class="bullets">
+    <li><b>In two weeks, the follow-up task:</b> a model you depend on changes, or take the scripted change of today</li>
+    <li><b>Send one page:</b> what you reran and why, which results moved, which risks you reopened, your recommendation with conditions, owners and dates</li>
+    <li><b>Your repository stays yours:</b> it is a template for the next system you are asked to assure</li>
+    <li><b>At work:</b> find out who signs for residual risk in your organisation, and for which band</li>
+  </ul>
+  <aside class="notes"><p>The follow-up task is tracked: say how and by when it is sent. This course helps prepare for the Expert level of the AI Engineering track.</p></aside>
+</section>
+
+<section class="slide dark" id="thanks" data-label="Thank you" data-n="13">
+  <div class="kicker">SDAIA Academy</div>
+  <h1>Thank you</h1>
+  <p class="lead">AI Assurance, Red Teaming and Governance for Engineering Leads</p>
+  <aside class="notes"><p>Thank the panels by name. Remind participants that the repository link they submitted is the one that is scored.</p></aside>
+</section>
+</div>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-17T11:31:40Z","version":"2027.1.0","commit":"f135e55"},"course":{"id":"ae-407","code":"AE-407","title":"AI Assurance, Red Teaming and Governance for Engineering Leads","track":"ai-engineering","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/ae-407/","repo":"SDAIAAcademy/ae-407","home":"../index.html"},"deck":{"id":"capstone","kind":"capstone","day":5,"label":"Capstone","title":"Capstone: an assurance pack and its defence","prev":"day4.html","next":null,"md":"capstone.md","alt":{}},"sessions":[],"slides":[{"id":"title","n":1,"title":"Capstone: an assurance pack and its defence","kind":"title","session":0,"hash":"e83cb13c","md":"#### [capstone#title] Capstone: an assurance pack and its defence\n\n*SDAIA Academy · AI Assurance, Red Teaming and Governance for Engineering Leads*\n\nCapstone: An unseen system, a public repository and a panel acting as accountable executive and auditor\n\nAI Engineering Track · 4 teaching days + capstone day · 10 min talk and demo · 10 min Q&A · AE-407","notes":"Today is theirs: keep your own talking to the brief and the closing. Before the room fills, confirm the panels (one person as accountable executive, one as auditor for each), the running order and screen sharing. Have labs/solutions/capstone_trainer_notes.md open.","minutes":null,"lo":[]},{"id":"agenda","n":2,"title":"How the day runs","kind":"content","session":0,"hash":"bfa827a6","md":"#### [capstone#agenda] How the day runs\n\n*Capstone*\n\n- **Brief**: the system, the rubric, the rules\n- **Build the pack**: plan, test, assess, review, assemble\n- **Final preparation**: push the repository, rehearse, rerun one finding\n- **Defences**: ten minutes of briefing, ten of questions, each\n- **Review and closing**: what the packs showed, the follow-up task","notes":"The capstone has six hours: 20 minutes of brief, 170 of building, 20 of final preparation, 140 of defences, which is seven defences per panel, and 10 of review and closing. With more participants, run panels side by side; do not shorten the 20 minutes.","minutes":null,"lo":[]},{"id":"the-system","n":3,"title":"Insaf, the appeals agent","kind":"content","session":0,"hash":"0e33b667","md":"#### [capstone#the-system] Insaf, the appeals agent\n\n*The unseen system*\n\n- Reads an appeal file with the appellant's statement, drafts the decision letter\n- A tool Katib does not have: `update_payment_status`\n- Same sandbox, same synthetic cases, same supplier\n- The builders applied the lessons of Katib's review and consider the design finished\n\n- **The decision requested.** Zuhair Al-Zaidi is asked to start a pilot with two appeal officers. Your pack and your page are what he decides on.\n\n```\nuv run python capstone/insaf.py brief\n```","notes":"Do not say more about Insaf than the brief does. Results from the week do not transfer; methods do. The brief is in labs/capstone/README.md, and the design and chains in capstone/insaf.json.","minutes":null,"lo":[]},{"id":"rubric","n":4,"title":"The rubric","kind":"content","session":0,"hash":"15682f29","md":"#### [capstone#rubric] The rubric\n\n*How the repository is scored*\n\n| Item | Value |\n| --- | --- |\n| Test plan | 15% |\n| Testing and findings | 30% |\n| Risk register | 20% |\n| Architecture review | 20% |\n| Assurance case | 15% |\n\n> **The panel reads logs, not summaries.** A rate needs its rows, with timestamps and the target version.","notes":"The repository is 60% of the course mark and the live defence 20%; the supervised check made up the other 20%. Passing needs 70% overall and at least 60% on this rubric. Full marks on testing and findings: three findings, each from ten or more trials in a stated script, each with a regression test that fails on the build as found and passes with the fix.","minutes":null,"lo":[]},{"id":"pack","n":5,"title":"One public repository, six folders","kind":"content","session":0,"hash":"883c6bd2","md":"#### [capstone#pack] One public repository, six folders\n\n*What you submit*\n\n| Folder | Holds | Pattern |\n| --- | --- | --- |\n| `plan/` | Top claim, objectives, scope, rules, stop conditions, budget of 400 runs | Day 1 |\n| `logs/`, `findings/` | One row per trial; three findings; three regression tests | Day 2 |\n| `risk/` | Context and scope; a register of eight risks or more, treated and signed | Day 3 |\n| `review/` | Design findings with decision records; the broken hops | Day 4 |\n| `case/` | Claims, evidence, crosswalk, gap list | Lab 4.3 |\n| `statement.md` | The one page for the executive | Lab 4.4 |","notes":"Templates for every file are in labs/capstone/templates. AI assistants are allowed in full today, attacker models included, provided the participant reproduces and defends every finding. Case data stays within its classification: nothing from the data folder goes into an outside assistant.","minutes":null,"lo":[]},{"id":"format","n":6,"title":"Ten minutes of briefing, ten minutes of questions","kind":"content","session":0,"hash":"04fa63be","md":"#### [capstone#format] Ten minutes of briefing, ten minutes of questions\n\n*Format*\n\n- **1 · The page.** Brief the executive from your statement: what remains, your recommendation, the conditions with owners and dates.\n- **2 · One finding, live.** The auditor picks a claim. You reproduce the number behind it from the repository.\n- **3 · The supplier's notice.** The model changes. You rerun your regression tests on the new version and say whether the statement still holds.\n\n> **Peer feedback.** After each defence, everyone writes the one condition they would add.","notes":"Questions the panel asks everyone: which of your residual scores are true today and which are promises? Which of your zeros come from a control outside the model? What did you not test? Who owns the condition due first? The notice is handed over about three minutes into the questions; the command is in the capstone README.","minutes":null,"lo":[]},{"id":"running-order","n":7,"title":"Who defends when","kind":"order","session":0,"hash":"5c6bf15a","md":"#### [capstone#running-order] Who defends when\n\n*Running order*\n\n| # | Participant | Recommendation |\n| --- | --- | --- |\n| 1 |  |  |\n| 2 |  |  |\n| 3 |  |  |\n| 4 |  |  |\n| 5 |  |  |\n| 6 |  |  |\n| 7 |  |  |","notes":"Type the names in at the start; the fields can be edited live and are not saved, so keep the list in your notes too. Fill the recommendation after each defence: the spread across the room is material for the review.","minutes":null,"lo":[]},{"id":"build","n":8,"title":"170 minutes","kind":"content","session":0,"hash":"01efc927","md":"#### [capstone#build] 170 minutes\n\n*Build the pack*\n\nPlan 30 · test 50 · assess 40 · review 30 · assemble 20. Commit after each part.","notes":"Press T to start the timer. Call out the change of part at each mark; participants who are still testing at minute 90 will have no register. Breaks are not slides: press B when the room needs one.","minutes":null,"lo":[]},{"id":"final-prep","n":9,"title":"Final preparation · 20 minutes","kind":"content","session":0,"hash":"39922385","md":"#### [capstone#final-prep] Final preparation · 20 minutes\n\n*Before the first defence*\n\nPush the repository. Rerun one finding from a clean clone. Read your page aloud once.","notes":"Press T to start the timer. Collect the repository links now, before the first defence, so that the commit history shows what existed at this point.","minutes":null,"lo":[]},{"id":"now-presenting","n":10,"title":"Now defending","kind":"presenting","session":0,"hash":"6a22234f","md":"#### [capstone#now-presenting] Now defending\n\n*Now defending*","notes":"Type the name and press T to start the ten minutes of briefing. When they end, the ten minutes of questions start: the auditor's reproduction first, then the supplier's notice. Reuse this slide for every participant.","minutes":null,"lo":[]},{"id":"review","n":11,"title":"What the packs showed","kind":"content","session":0,"hash":"3c40c379","md":"#### [capstone#review] What the packs showed\n\n*Trainer review*\n\n- **Strongest patterns.** What several packs got right.\n- **Common gaps.** What most packs would fix next.\n- **One surprise.** Something nobody expected.","notes":"Fill these in from your scoring notes during the last break. Name participants for strengths; keep gaps anonymous. Usual gaps: residual scores for controls that are not live, the payment status change left out of the plan, and the difference between Insaf's policy and what the running agent does.","minutes":null,"lo":[]},{"id":"what-next","n":12,"title":"Keep going","kind":"content","session":0,"hash":"cae152f8","md":"#### [capstone#what-next] Keep going\n\n*After the course*\n\n- **In two weeks, the follow-up task:** a model you depend on changes, or take the scripted change of today\n- **Send one page:** what you reran and why, which results moved, which risks you reopened, your recommendation with conditions, owners and dates\n- **Your repository stays yours:** it is a template for the next system you are asked to assure\n- **At work:** find out who signs for residual risk in your organisation, and for which band","notes":"The follow-up task is tracked: say how and by when it is sent. This course helps prepare for the Expert level of the AI Engineering track.","minutes":null,"lo":[]},{"id":"thanks","n":13,"title":"Thank you","kind":"content","session":0,"hash":"83979e11","md":"#### [capstone#thanks] Thank you\n\n*SDAIA Academy*\n\nAI Assurance, Red Teaming and Governance for Engineering Leads","notes":"Thank the panels by name. Remind participants that the repository link they submitted is the one that is scored.","minutes":null,"lo":[]}],"activities":[],"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":"capstone.md","llms":"../llms.txt"},"tasks":[],"tools":[]},"bridge":{"allowedOrigins":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

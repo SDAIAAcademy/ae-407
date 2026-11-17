@@ -1,0 +1,17 @@
+{
+ "A": {
+  "kind": "replay",
+  "risk": "R01",
+  "why": "A token made for the case service is accepted by the letter service: whoever captures it can send letters"
+ },
+ "B": {
+  "kind": "escalation",
+  "risk": "R02",
+  "why": "The agent holds a search over all cases that the case worker never had: one hijacked run reaches a whole town"
+ },
+ "C": {
+  "kind": "no_accountability",
+  "risk": "R12",
+  "why": "A letter or a note is recorded as the agent's own act: nobody can say for whom, and the caseload limit is gone"
+ }
+}

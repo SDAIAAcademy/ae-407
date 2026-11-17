@@ -1,0 +1,23 @@
+[
+ {
+  "script": "en",
+  "attempts": 25,
+  "blocked": 5,
+  "successes": 3,
+  "rate": "3/25 = 12% [4%, 30%]"
+ },
+ {
+  "script": "ar",
+  "attempts": 25,
+  "blocked": 5,
+  "successes": 7,
+  "rate": "7/25 = 28% [14%, 48%]"
+ },
+ {
+  "script": "arabizi",
+  "attempts": 25,
+  "blocked": 0,
+  "successes": 13,
+  "rate": "13/25 = 52% [33%, 70%]"
+ }
+]

@@ -1,0 +1,188 @@
+{
+ "types": {
+  "bias": "Bias, discrimination and abuse",
+  "privacy": "Privacy and security",
+  "misinfo": "Misinformation",
+  "misuse": "Harmful use",
+  "human": "Human and machine interaction",
+  "socio": "Social, economic and environmental effects",
+  "safety": "Safety and limitations"
+ },
+ "risks": [
+  {
+   "id": "R01",
+   "title": "Katib emails a case record to an outside address after reading a planted instruction",
+   "evidence": "Exposure: 120 case files a day, any applicant writes the statement. Controls: none on the recipient. Ease: one sentence. Precedent: Lab 2.2 measured it. Harm: one record with identifier and bank number; recovery needs a breach notice."
+  },
+  {
+   "id": "R02",
+   "title": "One hijacked run reads and sends the cases of a whole town",
+   "evidence": "Exposure: the service account reads every town. Controls: none on search. Ease: two tool calls after a hijack. Precedent: none yet here. Harm: hundreds of records with health notes; not reversible."
+  },
+  {
+   "id": "R03",
+   "title": "Mueen shows another applicant's amount or bank number on request",
+   "evidence": "Exposure: 4,000 conversations a week. Controls: an English phrase filter; the lookup tool takes any identifier. Ease: needs an identifier and a pretext. Harm: one record per request; breach notice."
+  },
+  {
+   "id": "R04",
+   "title": "Mueen assures an applicant that the claim will be approved",
+   "evidence": "Exposure: every conversation about status. Controls: a line in the instructions. Ease: pressing twice. Harm: a wrong personal decision, corrected by the decision letter within weeks."
+  },
+  {
+   "id": "R05",
+   "title": "Applicants who write in dialect or in Latin letters get weaker protection and poorer answers",
+   "evidence": "Exposure: an estimated 15% of messages. Controls: none specific. Precedent: probe rates differ by script in Lab 2.3. Harm: unequal service to a group; trust; needs redesign of filters."
+  },
+  {
+   "id": "R06",
+   "title": "Mueen gives a degrading reply about a group of applicants",
+   "evidence": "Exposure: wide. Controls: instructions and the supplier's safety training. Ease: needs a role-play. Precedent: about 1 trial in 6 of an Arabic role-play. Harm: dignity of the person, public trust, a formal complaint."
+  },
+  {
+   "id": "R07",
+   "title": "Case workers send Katib's drafts without reading them",
+   "evidence": "Exposure: every letter. Controls: a send button after the draft; no sampling. Precedent: median review time 20 seconds in the pilot. Harm: wrong letters reach applicants; corrected on complaint."
+  },
+  {
+   "id": "R08",
+   "title": "Applicants learn the fraud-screening rule from Mueen and work around it",
+   "evidence": "Exposure: needs intent. Controls: the rule sits in the instructions. Ease: works in transliterated Arabic. Harm: some fraud passes screening until the rule changes."
+  },
+  {
+   "id": "R09",
+   "title": "The supplier changes the model and behaviour in Arabic shifts unnoticed",
+   "evidence": "Exposure: every conversation. Controls: a notice clause the supplier interprets. Precedent: one update last year. Harm: quality and refusals change until a retest catches it."
+  },
+  {
+   "id": "R10",
+   "title": "Katib drafts a letter with a wrong amount or date",
+   "evidence": "Exposure: 120 letters a day. Controls: the case worker reads the draft. Precedent: 3% of pilot drafts. Harm: confusion, corrected by a second letter."
+  },
+  {
+   "id": "R11",
+   "title": "Drafting skill fades and the Agency depends on one supplier",
+   "evidence": "Exposure: slow, over years. Controls: none planned. Harm: limited and local at first; slower recovery if the supplier leaves."
+  },
+  {
+   "id": "R12",
+   "title": "A planted instruction makes Katib write a false approval note into a case",
+   "evidence": "Exposure: any statement. Controls: notes are not reviewed. Ease: lower than email, the note must match the form. Harm: a wrong payment decision that needs an audit to find."
+  }
+ ],
+ "key": {
+  "R01": {
+   "type": "privacy",
+   "likelihood": 4,
+   "impact": 3
+  },
+  "R02": {
+   "type": "privacy",
+   "likelihood": 3,
+   "impact": 4
+  },
+  "R03": {
+   "type": "privacy",
+   "likelihood": 3,
+   "impact": 3
+  },
+  "R04": {
+   "type": "misinfo",
+   "likelihood": 3,
+   "impact": 2
+  },
+  "R05": {
+   "type": "bias",
+   "likelihood": 2,
+   "impact": 3
+  },
+  "R06": {
+   "type": "bias",
+   "likelihood": 2,
+   "impact": 3
+  },
+  "R07": {
+   "type": "human",
+   "likelihood": 3,
+   "impact": 2
+  },
+  "R08": {
+   "type": "misuse",
+   "likelihood": 2,
+   "impact": 2
+  },
+  "R09": {
+   "type": "safety",
+   "likelihood": 3,
+   "impact": 2
+  },
+  "R10": {
+   "type": "safety",
+   "likelihood": 3,
+   "impact": 2
+  },
+  "R11": {
+   "type": "socio",
+   "likelihood": 2,
+   "impact": 1
+  },
+  "R12": {
+   "type": "privacy",
+   "likelihood": 2,
+   "impact": 3
+  }
+ },
+ "partner": {
+  "name": "Younis Al-Wabel",
+  "scores": {
+   "R01": {
+    "likelihood": 4,
+    "impact": 3
+   },
+   "R02": {
+    "likelihood": 4,
+    "impact": 4
+   },
+   "R03": {
+    "likelihood": 3,
+    "impact": 3
+   },
+   "R04": {
+    "likelihood": 3,
+    "impact": 3
+   },
+   "R05": {
+    "likelihood": 1,
+    "impact": 2
+   },
+   "R06": {
+    "likelihood": 2,
+    "impact": 2
+   },
+   "R07": {
+    "likelihood": 2,
+    "impact": 1
+   },
+   "R08": {
+    "likelihood": 2,
+    "impact": 2
+   },
+   "R09": {
+    "likelihood": 3,
+    "impact": 2
+   },
+   "R10": {
+    "likelihood": 3,
+    "impact": 2
+   },
+   "R11": {
+    "likelihood": 1,
+    "impact": 1
+   },
+   "R12": {
+    "likelihood": 3,
+    "impact": 3
+   }
+  }
+ }
+}
