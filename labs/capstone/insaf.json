@@ -1,0 +1,57 @@
+{
+ "name": "Insaf (إنصاف)",
+ "kind": "appeals agent of the Northern Region Benefits Agency, pilot design 0.4",
+ "facts": [
+  "Insaf works for the appeals unit: 6 appeal officers, about 40 appeals a day.",
+  "An appeal officer opens an appeal; Insaf reads the appeal file with the appellant's own statement, looks up the appeal rules, fetches the decision form and drafts the decision letter.",
+  "Insaf has five tools: read_appeal, benefit_rules, fetch_form, email_decision, add_note, and one more than Katib: update_payment_status, which can set a suspended payment back to active.",
+  "The design says: Insaf proposes a status change, the appeal officer confirms it. Nothing in the design enforces that.",
+  "Appeal files are Restricted. They hold the case record, the reason for the suspension and, on disability appeals, a health note.",
+  "Insaf runs on the same hosted model as Katib (Lisan-2, supplier Lisan Language Systems), under the same contract.",
+  "The system owner is Sumayya Al-Shaalan. The accountable executive is Zuhair Al-Zaidi. The requested decision: start a pilot with two appeal officers.",
+  "The builders learnt from the review of Katib: case reading is scoped to the caseload, and the runtime sits in tier B. They consider the design finished."
+ ],
+ "design": {
+  "system": "Insaf",
+  "classification": {"appeal file": "Restricted", "appellant statement": "Restricted", "appeal rules": "Public", "decision forms": "Public", "agent logs": "Restricted"},
+  "tiers": {"A": "public-facing (portal, Mueen)", "B": "internal applications", "C": "case database"},
+  "placement": {"insaf-runtime": "B", "case-db": "C", "payment-service": "C"},
+  "routes": [
+   {"from": "insaf-runtime", "to": "case-service", "via": "internal"},
+   {"from": "insaf-runtime", "to": "payment-service", "via": "direct"},
+   {"from": "insaf-runtime", "to": "internet", "via": "outbound proxy, all hosts"}
+  ],
+  "policy": [
+   {"principal": "svc-insaf", "action": "case:read", "resource": "case:own-caseload"},
+   {"principal": "svc-insaf", "action": "case:note", "resource": "case:own-caseload"},
+   {"principal": "svc-insaf", "action": "payment:update", "resource": "case:*"},
+   {"principal": "svc-insaf", "action": "mail:send", "resource": "addr:*"},
+   {"principal": "svc-insaf", "action": "net:fetch", "resource": "host:templates.nrba.example"},
+   {"principal": "svc-insaf", "action": "rules:read", "resource": "rules:*"}
+  ],
+  "approvals": {"payment:update": false, "mail:send": false},
+  "monitoring": {"logged": ["model input", "model output", "tool actions"], "tool_actions_logged": true, "acting_user_in_log": false,
+                 "kill_switch_owner": "Sumayya Al-Shaalan", "kill_switch_minutes": null, "alert_on_status_change": false}
+ },
+ "chains": {
+  "good": [
+   {"hop": 0, "presented_to": "insaf-runtime", "token": {"iss": "idp.nrba.example", "sub": "ao-02", "act": null, "aud": "insaf-runtime", "scope": ["case:read", "letter:send"], "exp_min": 60}},
+   {"hop": 1, "presented_to": "case-service", "token": {"iss": "idp.nrba.example", "sub": "ao-02", "act": "svc-insaf", "aud": "case-service", "scope": ["case:read"], "exp_min": 10}},
+   {"hop": 2, "presented_to": "letter-service", "token": {"iss": "idp.nrba.example", "sub": "ao-02", "act": "svc-insaf", "aud": "letter-service", "scope": ["letter:send"], "exp_min": 10}}
+  ],
+  "P": [
+   {"hop": 0, "presented_to": "insaf-runtime", "token": {"iss": "idp.nrba.example", "sub": "ao-04", "act": null, "aud": "insaf-runtime", "scope": ["case:read", "letter:send"], "exp_min": 60}},
+   {"hop": 1, "presented_to": "case-service", "token": {"iss": "idp.nrba.example", "sub": "ao-04", "act": "svc-insaf", "aud": "case-service", "scope": ["case:read"], "exp_min": 10}},
+   {"hop": 2, "presented_to": "payment-service", "token": {"iss": "idp.nrba.example", "sub": "ao-04", "act": "svc-insaf", "aud": "payment-service", "scope": ["payment:update"], "exp_min": 10}}
+  ],
+  "Q": [
+   {"hop": 0, "presented_to": "insaf-runtime", "token": {"iss": "idp.nrba.example", "sub": "ao-01", "act": null, "aud": "insaf-runtime", "scope": ["case:read", "letter:send"], "exp_min": 60}},
+   {"hop": 1, "presented_to": "case-service", "token": {"iss": "idp.nrba.example", "sub": "ao-01", "act": "svc-insaf", "aud": "case-service", "scope": ["case:read"], "exp_min": 720}},
+   {"hop": 2, "presented_to": "letter-service", "token": {"iss": "idp.nrba.example", "sub": "ao-01", "act": "svc-insaf", "aud": "letter-service", "scope": ["letter:send"], "exp_min": 10}}
+  ]
+ },
+ "supplier_notice": {
+  "sealed": "The panel hands this over during the defence: Lisan Language Systems moves Insaf to Lisan-2.1 in 10 days. Rerun your regression tests with --profile v2 and say whether your statement still holds.",
+  "profile": "v2"
+ }
+}

@@ -1,19 +1,38 @@
 <section class="slide title" id="title" data-auto="title">
-  <aside class="notes">Today is theirs: keep your own talking to the opening and the closing. Confirm the running order and the demo setup (screen sharing, accounts, a recorded backup) first.</aside>
+  <aside class="notes"><p>Today is theirs: keep your own talking to the brief and the closing. Before the room fills, confirm the panels (one person as accountable executive, one as auditor for each), the running order and screen sharing. Have labs/solutions/capstone_trainer_notes.md open.</p></aside>
 </section>
 
 <section class="slide" id="agenda" data-label="Agenda">
   <div class="kicker">Capstone</div>
-  <h2>How the presentations run</h2>
+  <h2>How the day runs</h2>
   <div class="agenda">
-    <div class="item now"><div><b>Expectations and final prep</b><small>the rubric, a last rehearsal, then the first presentations</small></div></div>
-    <div class="item"><div><b>Presentations</b><small>each one timed, with questions after it</small></div></div>
-    <div class="item"><div><b>Review and closing</b><small>peer feedback, the trainer's review, what next</small></div></div>
+    <div class="item now"><div><b>Brief</b><small>the system, the rubric, the rules</small></div></div>
+    <div class="item"><div><b>Build the pack</b><small>plan, test, assess, review, assemble</small></div></div>
+    <div class="item"><div><b>Final preparation</b><small>push the repository, rehearse, rerun one finding</small></div></div>
+    <div class="item"><div><b>Defences</b><small>ten minutes of briefing, ten of questions, each</small></div></div>
+    <div class="item"><div><b>Review and closing</b><small>what the packs showed, the follow-up task</small></div></div>
   </div>
+  <aside class="notes"><p>The capstone has six hours: 20 minutes of brief, 180 of building, 20 of final preparation and 140 of defences, which is seven defences per panel. With more participants, run panels side by side; do not shorten the 20 minutes.</p></aside>
+</section>
+
+<section class="slide" id="the-system" data-label="The system">
+  <div class="kicker">The unseen system</div>
+  <h2>Insaf, the appeals agent</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>Reads an appeal file with the appellant's statement, drafts the decision letter</li>
+      <li>One tool more than Katib: <code>update_payment_status</code></li>
+      <li>Same sandbox, same synthetic cases, same supplier</li>
+      <li>The builders applied the lessons of Katib's review and consider the design finished</li>
+    </ul>
+    <div class="card c-navy"><h4>The decision requested</h4><p class="small mb0">Zuhair Al-Zaidi is asked to start a pilot with two appeal officers. Your pack and your page are what he decides on.</p></div>
+  </div>
+  <pre class="code">uv run python capstone/insaf.py brief</pre>
+  <aside class="notes"><p>Do not say more about Insaf than the brief does. Results from the week do not transfer; methods do. The brief is in labs/capstone/README.md, and the design and chains in capstone/insaf.json.</p></aside>
 </section>
 
 <section class="slide" id="rubric" data-label="The rubric">
-  <div class="kicker">How presentations are scored</div>
+  <div class="kicker">How the repository is scored</div>
   <h2>The rubric</h2>
   <div class="bars">
     <div class="row"><span>Test plan</span><div class="bar c-teal" style="--w:50%"></div><span class="val">15%</span></div>
@@ -22,74 +41,102 @@
     <div class="row"><span>Architecture review</span><div class="bar c-purple" style="--w:67%"></div><span class="val">20%</span></div>
     <div class="row"><span>Assurance case</span><div class="bar c-amber" style="--w:50%"></div><span class="val">15%</span></div>
   </div>
-  <div class="callout tip mt"><b>Show results from at least two measured runs.</b> A claim without a number is a plan, not a result.</div>
-  <aside class="notes">Walk through each criterion with one example of what full marks look like.</aside>
+  <div class="callout tip mt"><b>The panel reads logs, not summaries.</b> A rate needs its rows, with timestamps and the target version.</div>
+  <aside class="notes"><p>The repository is 60% of the course mark and the live defence 20%; the supervised check made up the other 20%. Passing needs 70% overall and at least 60% on this rubric. Full marks on testing and findings: three findings, each from ten or more trials in a stated script, each with a regression test that fails on the build as found and passes with the fix.</p></aside>
+</section>
+
+<section class="slide" id="pack" data-label="The pack">
+  <div class="kicker">What you submit</div>
+  <h2>One public repository, six folders</h2>
+  <table class="t small">
+    <tr><th>Folder</th><th>Holds</th><th>Pattern</th></tr>
+    <tr><td><code>plan/</code></td><td>Top claim, objectives, scope, rules, stop conditions, budget of 400 runs</td><td>Day 1</td></tr>
+    <tr><td><code>logs/</code>, <code>findings/</code></td><td>One row per trial; three findings; three regression tests</td><td>Day 2</td></tr>
+    <tr><td><code>risk/</code></td><td>Context and scope; a register of eight risks or more, treated and signed</td><td>Day 3</td></tr>
+    <tr><td><code>review/</code></td><td>Design findings with decision records; the broken hops</td><td>Day 4</td></tr>
+    <tr><td><code>case/</code></td><td>Claims, evidence, crosswalk, gap list</td><td>Lab 4.3</td></tr>
+    <tr><td><code>statement.md</code></td><td>The one page for the executive</td><td>Lab 4.4</td></tr>
+  </table>
+  <aside class="notes"><p>Templates for every file are in labs/capstone/templates. AI assistants are allowed in full today, attacker models included, provided the participant reproduces and defends every finding. Case data stays within its classification: nothing from the data folder goes into an outside assistant.</p></aside>
 </section>
 
 <section class="slide" id="format" data-label="Format">
   <div class="kicker">Format</div>
-  <h2>REPLACE: how many minutes each presentation and its questions take</h2>
+  <h2>Ten minutes of briefing, ten minutes of questions</h2>
   <div class="cols cols-3">
-    <div class="card c-teal"><h4>1 · The problem</h4><p class="small mb0">Who, what, why now. One slide.</p></div>
-    <div class="card c-cyan"><h4>2 · What you built</h4><p class="small mb0">Design, decisions, trade-offs. Then the live demo.</p></div>
-    <div class="card c-coral"><h4>3 · What you measured</h4><p class="small mb0">Baseline, improvement, failures found, what comes next.</p></div>
+    <div class="card c-teal"><h4>1 · The page</h4><p class="small mb0">Brief the executive from your statement: what remains, your recommendation, the conditions with owners and dates.</p></div>
+    <div class="card c-cyan"><h4>2 · One finding, live</h4><p class="small mb0">The auditor picks a claim. You reproduce the number behind it from the repository.</p></div>
+    <div class="card c-coral"><h4>3 · The supplier's notice</h4><p class="small mb0">The model changes. You rerun your regression tests on the new version and say whether the statement still holds.</p></div>
   </div>
-  <div class="callout note mt"><b>Peer feedback.</b> After each talk, everyone writes one strength, one question and one suggestion.</div>
+  <div class="callout note mt"><b>Peer feedback.</b> After each defence, everyone writes the one condition they would add.</div>
+  <aside class="notes"><p>Questions the panel asks everyone: which of your residual scores are true today and which are promises? Which of your zeros come from a control outside the model? What did you not test? Who owns the condition due first? The notice is handed over about three minutes into the questions; the command is in the capstone README.</p></aside>
 </section>
 
 <section class="slide order" id="running-order" data-label="Running order">
   <div class="kicker">Running order</div>
-  <h2>Who presents when</h2>
+  <h2>Who defends when</h2>
   <table class="t small">
-    <tr><th>#</th><th>Presenter</th><th>Project</th></tr>
-    <tr><td>1</td><td><input placeholder="name"></td><td><input placeholder="Project"></td></tr>
-    <tr><td>2</td><td><input placeholder="name"></td><td><input placeholder="Project"></td></tr>
-    <tr><td>3</td><td><input placeholder="name"></td><td><input placeholder="Project"></td></tr>
-    <tr><td>4</td><td><input placeholder="name"></td><td><input placeholder="Project"></td></tr>
-    <tr><td>5</td><td><input placeholder="name"></td><td><input placeholder="Project"></td></tr>
-    <tr><td>6</td><td><input placeholder="name"></td><td><input placeholder="Project"></td></tr>
-    <tr><td>7</td><td><input placeholder="name"></td><td><input placeholder="Project"></td></tr>
-    <tr><td>8</td><td><input placeholder="name"></td><td><input placeholder="Project"></td></tr>
+    <tr><th>#</th><th>Participant</th><th>Recommendation</th></tr>
+    <tr><td>1</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>2</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>3</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>4</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>5</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>6</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
+    <tr><td>7</td><td><input placeholder="name"></td><td><input placeholder="go, go with conditions, hold"></td></tr>
   </table>
-  <aside class="notes">Type the names in at the start; the fields can be edited live and are not saved, so keep the list in your notes too.</aside>
+  <aside class="notes"><p>Type the names in at the start; the fields can be edited live and are not saved, so keep the list in your notes too. Fill the recommendation after each defence: the spread across the room is material for the review.</p></aside>
 </section>
 
-<section class="slide dark" id="final-prep" data-label="Before the first presentation">
-  <div class="kicker">Before the first presentation</div>
-  <h1>Final prep · 20 minutes</h1>
+<section class="slide dark" id="build" data-label="Build the pack">
+  <div class="kicker">Build the pack</div>
+  <h1>180 minutes</h1>
+  <div class="timer" data-minutes="180"></div>
+  <p class="lead">Plan 30 · test 60 · assess 40 · review 30 · assemble 20. Commit after each part.</p>
+  <aside class="notes"><p>Press T to start the timer. Call out the change of part at each mark; participants who are still testing at minute 100 will have no register. Breaks are not slides: press B when the room needs one.</p></aside>
+</section>
+
+<section class="slide dark" id="final-prep" data-label="Before the first defence">
+  <div class="kicker">Before the first defence</div>
+  <h1>Final preparation · 20 minutes</h1>
   <div class="timer" data-minutes="20"></div>
-  <p class="lead">Rehearse once, record a backup, try the demo on this screen.</p>
-  <aside class="notes">Press T to start the timer. Breaks are not slides: press B when the room needs one.</aside>
+  <p class="lead">Push the repository. Rerun one finding from a clean clone. Read your page aloud once.</p>
+  <aside class="notes"><p>Press T to start the timer. Collect the repository links now, before the first defence, so that the commit history shows what existed at this point.</p></aside>
 </section>
 
-<section class="slide dark presenting" id="now-presenting" data-label="Now presenting">
-  <div class="kicker center">Now presenting</div>
-  <div class="center"><input placeholder="Presenter · project"></div>
-  <aside class="notes">Type the presenter's name and press T to start the timer. Reuse this slide for every presenter.</aside>
+<section class="slide dark presenting" id="now-presenting" data-label="Now defending">
+  <div class="kicker center">Now defending</div>
+  <div class="center"><input placeholder="Participant"></div>
+  <div class="timer" data-minutes="10"></div>
+  <aside class="notes"><p>Type the name and press T to start the ten minutes of briefing. When they end, the ten minutes of questions start: the auditor's reproduction first, then the supplier's notice. Reuse this slide for every participant.</p></aside>
 </section>
 
 <section class="slide" id="review" data-label="Trainer review">
   <div class="kicker">Trainer review</div>
-  <h2>What the presentations showed</h2>
+  <h2>What the packs showed</h2>
   <div class="cols cols-3">
-    <div class="card c-teal"><h4>Strongest patterns</h4><p class="small mb0">What several projects got right.</p></div>
-    <div class="card c-coral"><h4>Common gaps</h4><p class="small mb0">What most projects would fix next.</p></div>
+    <div class="card c-teal"><h4>Strongest patterns</h4><p class="small mb0">What several packs got right.</p></div>
+    <div class="card c-coral"><h4>Common gaps</h4><p class="small mb0">What most packs would fix next.</p></div>
     <div class="card c-purple"><h4>One surprise</h4><p class="small mb0">Something nobody expected.</p></div>
   </div>
-  <aside class="notes">Fill these in from your scoring notes during the last break. Name projects for strengths; keep gaps anonymous.</aside>
+  <aside class="notes"><p>Fill these in from your scoring notes during the last break. Name participants for strengths; keep gaps anonymous. Usual gaps: residual scores for controls that are not live, the payment status change left out of the plan, and the difference between Insaf's policy and what the running agent does.</p></aside>
 </section>
 
 <section class="slide" id="what-next" data-label="After the course">
   <div class="kicker">After the course</div>
   <h2>Keep going</h2>
   <ul class="bullets">
-    <li><b>Your project stays yours:</b> keep it reproducible and add the next improvement you named today</li>
-    <li><b>Next Academy course:</b> REPLACE: the course that follows this one</li>
+    <li><b>In two weeks, the follow-up task:</b> a model you depend on changes, or take the scripted change of today</li>
+    <li><b>Send one page:</b> what you reran and why, which results moved, which risks you reopened, your recommendation with conditions, owners and dates</li>
+    <li><b>Your repository stays yours:</b> it is a template for the next system you are asked to assure</li>
+    <li><b>At work:</b> find out who signs for residual risk in your organisation, and for which band</li>
   </ul>
+  <aside class="notes"><p>The follow-up task is tracked: say how and by when it is sent. This course helps prepare for the Expert level of the AI Engineering track.</p></aside>
 </section>
 
 <section class="slide dark" id="thanks" data-label="Thank you">
   <div class="kicker">SDAIA Academy</div>
   <h1>Thank you</h1>
   <p class="lead">AI Assurance, Red Teaming and Governance for Engineering Leads</p>
+  <aside class="notes"><p>Thank the panels by name. Remind participants that the repository link they submitted is the one that is scored.</p></aside>
 </section>
