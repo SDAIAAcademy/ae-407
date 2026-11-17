@@ -9,7 +9,7 @@
     "en": "AI Assurance, Red Teaming and Governance for Engineering Leads",
     "ar": "ضمان أنظمة الذكاء الاصطناعي وتمارين الفرق الحمراء والحوكمة لقادة الفرق الهندسية"
   },
-  "tagline": "REPLACE: one line under the title: what participants can do after the course",
+  "tagline": "Plan and run a bilingual red-team exercise, assess the risk with the national framework, review the architecture and brief the accountable executive on what remains",
   "description": "Participants lead the assurance of AI systems that act on an organisation's data. For the fictional Northern Region Benefits Agency (a bilingual benefits assistant and a case-worker agent that reads case files and drafts letters) they plan and run a red-team exercise in Arabic and English, manually and with automated probes, assess the risks with the National AI Risk Management Framework, review the security architecture for agent identity, least privilege, isolation and egress, and assemble an assurance case that ends in a residual-risk briefing. Targets run in a sandbox on synthetic case data. Hardening a single application is AE-308.",
   "track": "ai-engineering",
   "level": 400,
@@ -67,8 +67,8 @@
     }
   ],
   "case_study": {
-    "name": "REPLACE: the name of the fictional organisation every lab works on",
-    "summary": "REPLACE: two sentences on the case study and its synthetic data"
+    "name": "Northern Region Benefits Agency",
+    "summary": "A fictional regional agency that pays family, disability and housing benefits. Its assurance team, led by Sulafa Al-Nashmi, examines two systems before the deputy governor signs for them: Mueen, the bilingual benefits assistant, and Katib, the case-worker agent that reads case files and drafts letters. Both run in a sandbox on 300 synthetic case files written with a fixed seed; no real person, case or address is described."
   },
   "format": "intensive",
   "format_note": "Intensive: 4 teaching days of four sessions and a capstone day, with guided pre-work and a tracked follow-up task",
@@ -90,68 +90,157 @@
         {
           "title": "Assurance is an argument with evidence",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "State a top claim that evidence could show to be false",
+            "Separate a claim, its argument and its evidence",
+            "Name the evidence that defeats a claim and who is independent enough to produce it"
           ],
           "lo": [
             "LO5"
           ],
           "lab": {
             "id": "1.1",
-            "title": "Write the top claim for the benefits assistant and list evidence that would support or defeat it",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "A top claim and its defeaters",
+            "summary": "Write the top claim for the benefits assistant and list evidence that would support or defeat it",
             "minutes": 25,
-            "href": "D1_1_write_top_claim.ipynb"
-          }
+            "href": "D1_1_top_claim.ipynb",
+            "steps": [
+              {
+                "text": "Read the intended use and the system card of Mueen",
+                "minutes": 4
+              },
+              {
+                "text": "Write the top claim and three sub-claims",
+                "minutes": 7
+              },
+              {
+                "text": "List supporting and defeating evidence for each sub-claim",
+                "minutes": 8
+              },
+              {
+                "text": "Mark who may produce each item: the builder or an independent tester",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Write the top claim for Katib and say which sub-claim has no counterpart in Mueen"
+          },
+          "summary": "Why a test result means nothing until it is tied to a claim, and which evidence would defeat that claim"
         },
         {
           "title": "Scoping from the threat model",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Read a threat model as a list of testable paths",
+            "Find the paths where private data, untrusted content and an exit path meet",
+            "Rank paths for testing by harm and by how little the attacker needs"
           ],
           "lo": [
             "LO1"
           ],
           "lab": {
             "id": "1.2",
-            "title": "Review the agent's provided threat model, add missing paths where private data, untrusted content and an exit path meet, and rank them for testing",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Missing paths in the threat model",
+            "summary": "Review the agent's provided threat model, add missing paths where private data, untrusted content and an exit path meet, and rank them for testing",
             "minutes": 25,
-            "href": "D1_2_review_agent_s.ipynb"
-          }
+            "href": "D1_2_threat_paths.ipynb",
+            "steps": [
+              {
+                "text": "Read the provided threat model and the tool list of Katib",
+                "minutes": 5
+              },
+              {
+                "text": "Tag every tool and store: private data, untrusted content, exit",
+                "minutes": 6
+              },
+              {
+                "text": "Find the paths where the three meet and add the missing ones",
+                "minutes": 8
+              },
+              {
+                "text": "Rank the paths for testing",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Find a path that needs two case files and say why a single-file test would miss it"
+          },
+          "summary": "How a threat model becomes the scope of a test: the paths where private data, untrusted content and an exit meet"
         },
         {
           "title": "Objectives, scope and rules of engagement",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Write objectives that name a harm and a way to decide success",
+            "Set scope, rules of engagement and a budget of model calls",
+            "Write stop conditions and a procedure for harmful outputs"
           ],
           "lo": [
             "LO1"
           ],
           "lab": {
             "id": "1.3",
-            "title": "Write a test plan with objectives tied to harms, stop conditions and handling of harmful outputs",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "A test plan a reviewer approves",
+            "summary": "Write a test plan with objectives tied to harms, stop conditions and handling of harmful outputs",
             "minutes": 25,
-            "href": "D1_3_write_test_plan.ipynb"
-          }
+            "href": "D1_3_test_plan.ipynb",
+            "steps": [
+              {
+                "text": "Write four objectives, each tied to a harm and a success check",
+                "minutes": 7
+              },
+              {
+                "text": "Set the scope, what is out of scope and the call budget",
+                "minutes": 5
+              },
+              {
+                "text": "Write the stop conditions and the harmful-output procedure",
+                "minutes": 7
+              },
+              {
+                "text": "Run the planning checklist and fix what it rejects",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Add the rules for an attacker model: what it may generate, where its outputs are kept and who reads them"
+          },
+          "summary": "What a test plan must say before the first probe is sent: objectives, scope, rules of engagement, stop conditions"
         },
         {
           "title": "Choosing techniques from catalogues",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Map a planned attack to an OWASP entry and a MITRE ATLAS technique",
+            "Tie every attack to a plan objective and drop those that serve none",
+            "Read coverage both ways: objectives without attacks and entries without tests"
           ],
           "lo": [
             "LO1"
           ],
           "lab": {
             "id": "1.4",
-            "title": "Map ten planned attacks to OWASP and ATLAS entries and drop two that serve no objective",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Ten attacks, mapped and pruned",
+            "summary": "Map ten planned attacks to OWASP and ATLAS entries and drop two that serve no objective",
             "minutes": 25,
-            "href": "D1_4_map_ten_planned.ipynb"
-          }
+            "href": "D1_4_technique_map.ipynb",
+            "steps": [
+              {
+                "text": "Read the ten planned attacks and the catalogue extract",
+                "minutes": 4
+              },
+              {
+                "text": "Map each attack to an OWASP entry and an ATLAS technique",
+                "minutes": 9
+              },
+              {
+                "text": "Tie each attack to an objective and drop the two that serve none",
+                "minutes": 7
+              },
+              {
+                "text": "Read the coverage table: which objective has too few attacks",
+                "minutes": 5
+              }
+            ],
+            "stretch": "Write one new attack for an agentic entry that no planned attack covers"
+          },
+          "summary": "How technique catalogues turn objectives into a list of attacks, and how to drop the attacks that serve none"
         }
-      ]
+      ],
+      "subtitle": "From the top claim to a test plan a reviewer approves"
     },
     {
       "id": "day2",
@@ -162,68 +251,157 @@
         {
           "title": "Manual probing in two languages",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Probe a target by hand and log every attempt, failed ones included",
+            "Carry one attack across English, Arabic and transliterated Arabic",
+            "Decide success from what happened, not from what the model said"
           ],
           "lo": [
             "LO2"
           ],
           "lab": {
             "id": "2.1",
-            "title": "Attack the assistant in English, Arabic and transliterated Arabic and log every attempt",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Three scripts, one log",
+            "summary": "Attack the assistant in English, Arabic and transliterated Arabic and log every attempt",
             "minutes": 25,
-            "href": "D2_1_attack_assistant_english.ipynb"
-          }
+            "href": "D2_1_manual_probing.ipynb",
+            "steps": [
+              {
+                "text": "Write five probes in English and send each once",
+                "minutes": 6
+              },
+              {
+                "text": "Rewrite them in Arabic and in transliterated Arabic",
+                "minutes": 7
+              },
+              {
+                "text": "Send every probe five times and log every attempt",
+                "minutes": 6
+              },
+              {
+                "text": "Compare success by script and write two observations",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Add a Gulf-dialect version of your best probe and compare it with the Modern Standard Arabic one"
+          },
+          "summary": "Probing by hand in English, Arabic and transliterated Arabic, with a log that someone else can replay"
         },
         {
           "title": "Indirect injection and goal hijack",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Plant an instruction in content the agent reads as part of its task",
+            "Tell a goal hijack from a data exfiltration by the evidence each leaves",
+            "Decide success from the exit log of the sandbox"
           ],
           "lo": [
             "LO2"
           ],
           "lab": {
             "id": "2.2",
-            "title": "Plant an instruction in a case file and try to make the agent send data out of the sandbox",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "A planted line in a case file",
+            "summary": "Plant an instruction in a case file and try to make the agent send data out of the sandbox",
             "minutes": 25,
-            "href": "D2_2_plant_instruction_case.ipynb"
-          }
+            "href": "D2_2_indirect_injection.ipynb",
+            "steps": [
+              {
+                "text": "Run Katib on a clean case file and read the trace",
+                "minutes": 5
+              },
+              {
+                "text": "Plant an instruction in the applicant statement",
+                "minutes": 6
+              },
+              {
+                "text": "Decide success from the exit log of the sandbox",
+                "minutes": 6
+              },
+              {
+                "text": "Ten trials each for two exits, with rates and intervals",
+                "minutes": 8
+              }
+            ],
+            "stretch": "Hijack the goal without any exit: make Katib write a false approval note in the case file"
+          },
+          "summary": "Instructions that arrive inside a case file: how an agent is hijacked through its own task, and how to prove data left"
         },
         {
           "title": "Automated campaigns over repeated trials",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Plan a campaign that fits a fixed budget of model calls",
+            "Report attack success as a rate with an interval over repeated trials",
+            "Say which differences between techniques and scripts the intervals support"
           ],
           "lo": [
             "LO2"
           ],
           "lab": {
             "id": "2.3",
-            "title": "Run an automated probing campaign and report attack success with intervals",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "A campaign within a budget",
+            "summary": "Run an automated probing campaign and report attack success with intervals",
             "minutes": 25,
-            "href": "D2_3_run_automated_probing.ipynb"
-          }
+            "href": "D2_3_automated_campaign.ipynb",
+            "steps": [
+              {
+                "text": "Load the probe set and plan the trials within 600 calls",
+                "minutes": 5
+              },
+              {
+                "text": "Run the campaign and keep the log",
+                "minutes": 6
+              },
+              {
+                "text": "Compute success rates with intervals by technique and by script",
+                "minutes": 8
+              },
+              {
+                "text": "Say which differences the intervals support",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Let the scripted attacker rewrite the three weakest probes and measure whether the rewrite helps"
+          },
+          "summary": "From single attempts to a campaign: trials, a call budget, success rates with intervals"
         },
         {
           "title": "Findings people can act on",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Rate a finding for severity, likelihood and reproducibility from its evidence",
+            "Write a finding with the steps, the rate and the affected claim",
+            "Turn a finding into a regression test with a threshold over trials"
           ],
           "lo": [
             "LO2"
           ],
           "lab": {
             "id": "2.4",
-            "title": "Rate three provided findings for severity, likelihood and reproducibility and turn one into a regression test",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Three findings, one regression test",
+            "summary": "Rate three provided findings for severity, likelihood and reproducibility and turn one into a regression test",
             "minutes": 25,
-            "href": "D2_4_rate_three_provided.ipynb"
-          }
+            "href": "D2_4_findings.ipynb",
+            "steps": [
+              {
+                "text": "Rate three findings for severity and likelihood",
+                "minutes": 7
+              },
+              {
+                "text": "Replay each finding from its log and rate reproducibility",
+                "minutes": 6
+              },
+              {
+                "text": "Write one finding in the report shape",
+                "minutes": 5
+              },
+              {
+                "text": "Turn it into a regression test with a threshold",
+                "minutes": 7
+              }
+            ],
+            "stretch": "Run your regression test against the scripted model change and explain the result"
+          },
+          "summary": "What turns an attack log into a finding an owner can fix, and a finding into a test that keeps it fixed"
         }
-      ]
+      ],
+      "subtitle": "Manual probes, planted instructions, a campaign with intervals and findings people can act on"
     },
     {
       "id": "day3",
@@ -234,68 +412,158 @@
         {
           "title": "The national framework as method",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Name the steps of the national framework and what each one produces",
+            "Record context and scope: system and use limits, data and parties, automation and the human role, life cycle and change",
+            "Separate intended uses from uses that are out of scope"
           ],
           "lo": [
             "LO3"
           ],
           "lab": {
             "id": "3.1",
-            "title": "Set context, scope and stakeholders for the case-worker agent using the framework's phases",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Context and scope for Katib",
+            "summary": "Set context, scope and stakeholders for the case-worker agent using the framework's phases",
             "minutes": 25,
-            "href": "D3_1_set_context_scope.ipynb"
-          }
+            "href": "D3_1_context_scope.ipynb",
+            "steps": [
+              {
+                "text": "Describe the system, its intended uses and the uses out of scope",
+                "minutes": 6
+              },
+              {
+                "text": "List the data, the entry and exit points and the parties",
+                "minutes": 7
+              },
+              {
+                "text": "State the level of automation and the human decision points",
+                "minutes": 6
+              },
+              {
+                "text": "State the life-cycle stage and the change plan",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Name the reference pillar that each of your out-of-scope uses rests on"
+          },
+          "summary": "The National AI Risk Management Framework as a working method: its steps, and what context and scope must record"
         },
         {
           "title": "Scoring and calibration",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Classify a risk into the seven types of the national framework",
+            "Score likelihood and impact from stated evidence on the 4 by 4 matrix",
+            "Calibrate with a second scorer and record the reason for every changed score"
           ],
           "lo": [
             "LO3"
           ],
           "lab": {
             "id": "3.2",
-            "title": "Score twelve risks alone on the 4 by 4 matrix, then calibrate with a partner",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Twelve risks, two scorers",
+            "summary": "Score twelve risks alone on the 4 by 4 matrix, then calibrate with a partner",
             "minutes": 25,
-            "href": "D3_2_score_twelve_risks.ipynb"
-          }
+            "href": "D3_2_score_calibrate.ipynb",
+            "steps": [
+              {
+                "text": "Classify twelve risks into the seven types",
+                "minutes": 5
+              },
+              {
+                "text": "Score likelihood and impact alone",
+                "minutes": 8
+              },
+              {
+                "text": "Compare with the partner sheet and find the gaps",
+                "minutes": 5
+              },
+              {
+                "text": "Calibrate on evidence and record the agreed scores",
+                "minutes": 7
+              }
+            ],
+            "stretch": "Compute the weighted agreement before and after calibration"
+          },
+          "summary": "Scoring likelihood and impact on the national 4 by 4 matrix, and calibrating two scorers on evidence"
         },
         {
           "title": "Treatment and residual risk",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Choose among avoid, mitigate, transfer and accept with a reason",
+            "Re-score residual likelihood and impact from what a control changes",
+            "Name the owner, the signatory and the review date of every residual risk"
           ],
           "lo": [
             "LO3"
           ],
           "lab": {
             "id": "3.3",
-            "title": "Choose controls for the three highest risks in a provided register and state residual scores and signatories",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Treat the top three",
+            "summary": "Choose controls for the three highest risks in a provided register and state residual scores and signatories",
             "minutes": 25,
-            "href": "D3_3_choose_controls_three.ipynb"
-          }
+            "href": "D3_3_treat_residual.ipynb",
+            "steps": [
+              {
+                "text": "Rank the register and take the three highest risks",
+                "minutes": 4
+              },
+              {
+                "text": "Choose a strategy and controls from the control library",
+                "minutes": 8
+              },
+              {
+                "text": "Re-score residual likelihood and impact with a reason",
+                "minutes": 7
+              },
+              {
+                "text": "Name the owner, the signatory and the review date",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Find the risk in the register that should be avoided, not mitigated, and say what is switched off"
+          },
+          "summary": "Choosing a treatment, re-scoring what remains and getting a named person to sign for it"
         },
         {
           "title": "Supplier and model-change risk",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Read a model update notice against the supplier contract",
+            "Decide which risks and which tests a model change reopens",
+            "Give a go, a go with conditions or a hold, with the evidence each needs"
           ],
           "lo": [
-            "LO3"
+            "LO3",
+            "LO6"
           ],
           "lab": {
             "id": "3.4",
-            "title": "Assess a supplier's model update notice and decide what must be retested before it goes live",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "A model update notice",
+            "summary": "Assess a supplier's model update notice and decide what must be retested before it goes live",
             "minutes": 25,
-            "href": "D3_4_assess_supplier_s.ipynb"
-          }
+            "href": "D3_4_supplier_change.ipynb",
+            "steps": [
+              {
+                "text": "Read the update notice against the contract clauses",
+                "minutes": 5
+              },
+              {
+                "text": "Classify the change and name the risks it reopens",
+                "minutes": 6
+              },
+              {
+                "text": "Choose what must be retested from the regression suite",
+                "minutes": 8
+              },
+              {
+                "text": "Decide: go, go with conditions or hold",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Run the regression suite against the changed model and compare it with your retest choice"
+          },
+          "summary": "What a supplier may change without asking, and how a model update notice becomes a retest decision"
         }
-      ]
+      ],
+      "subtitle": "The national framework, from context and scope to residual sign-off"
     },
     {
       "id": "day4",
@@ -306,80 +574,169 @@
         {
           "title": "Security architecture review",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Derive the least privilege of an agent from the classification of the data it touches",
+            "Test a design for isolation tiers and egress control",
+            "Write a review finding with severity and a decision record for the fix"
           ],
           "lo": [
             "LO4"
           ],
           "lab": {
             "id": "4.1",
-            "title": "Review the agent design against least privilege, isolation and egress criteria and write three findings",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Three findings on the agent's design",
+            "summary": "Review the agent design against least privilege, isolation and egress criteria and write three findings",
             "minutes": 25,
-            "href": "D4_1_review_agent_design.ipynb"
-          }
+            "href": "D4_1_architecture_review.ipynb",
+            "steps": [
+              {
+                "text": "Read the design and its data classification",
+                "minutes": 5
+              },
+              {
+                "text": "Run the least-privilege, isolation and egress tests",
+                "minutes": 7
+              },
+              {
+                "text": "Write three findings with severity",
+                "minutes": 8
+              },
+              {
+                "text": "Record a decision for each proposed fix",
+                "minutes": 5
+              }
+            ],
+            "stretch": "Write the policy rule that closes one finding and run the tests again"
+          },
+          "summary": "Reviewing a design the way an attacker reads it: least privilege, isolation and egress, each with a test"
         },
         {
           "title": "Identity and delegated authority",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Tell an agent identity from the person it acts for",
+            "Check a delegation hop: subject, actor, audience, scope and expiry",
+            "Say what a broken hop lets an attacker do"
           ],
           "lo": [
             "LO4"
           ],
           "lab": {
             "id": "4.2",
-            "title": "Find the broken hop in three delegation chains where the agent acts for a case worker",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "The broken hop",
+            "summary": "Find the broken hop in three delegation chains where the agent acts for a case worker",
             "minutes": 25,
-            "href": "D4_2_find_broken_hop.ipynb"
-          }
+            "href": "D4_2_delegation_chains.ipynb",
+            "steps": [
+              {
+                "text": "Read one correct chain hop by hop",
+                "minutes": 5
+              },
+              {
+                "text": "Write the check of one hop",
+                "minutes": 8
+              },
+              {
+                "text": "Find the broken hop in three chains",
+                "minutes": 7
+              },
+              {
+                "text": "Say what each break lets an attacker do",
+                "minutes": 5
+              }
+            ],
+            "stretch": "Repair one chain and show that your check now passes it"
+          },
+          "summary": "Who the agent is when it acts for a case worker: identity, delegation and the hop where authority breaks"
         },
         {
           "title": "Assurance evidence packs",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "Map an evidence item to the controls it supports",
+            "Find controls with no evidence or with evidence too weak for the claim",
+            "Build the assurance case: claims, arguments, evidence and a gap list"
           ],
           "lo": [
             "LO5"
           ],
           "lab": {
             "id": "4.3",
-            "title": "Map a provided evidence set to a control framework and list the gaps an auditor would raise",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "Evidence, controls and gaps",
+            "summary": "Map a provided evidence set to a control framework and list the gaps an auditor would raise",
             "minutes": 25,
-            "href": "D4_3_map_provided_evidence.ipynb"
-          }
+            "href": "D4_3_evidence_crosswalk.ipynb",
+            "steps": [
+              {
+                "text": "Read the evidence set and the framework extract",
+                "minutes": 5
+              },
+              {
+                "text": "Map each evidence item to the controls it supports",
+                "minutes": 8
+              },
+              {
+                "text": "List the controls with no evidence or weak evidence",
+                "minutes": 6
+              },
+              {
+                "text": "Link evidence to claims and write the gap list",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Map the same evidence to the control library of the Agency and compare the two gap lists"
+          },
+          "summary": "Assembling the pack: evidence linked to claims, mapped to a control framework, with the gaps named"
         },
         {
           "title": "Briefing the accountable executive",
           "outcomes": [
-            "REPLACE: what a participant can do after this session"
+            "State residual risk in words an executive can act on",
+            "Write a recommendation with conditions, owners and dates",
+            "Answer a challenge by reproducing the evidence, not by repeating the claim"
           ],
           "lo": [
             "LO6"
           ],
           "lab": {
             "id": "4.4",
-            "title": "Draft a one-page residual-risk statement with conditions, owners and dates from a provided assurance pack",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "title": "A one-page residual-risk statement",
+            "summary": "Draft a one-page residual-risk statement with conditions, owners and dates from a provided assurance pack",
             "minutes": 25,
-            "href": "D4_4_draft_one_page.ipynb"
-          }
+            "href": "D4_4_residual_statement.ipynb",
+            "steps": [
+              {
+                "text": "Read the summary of the assurance pack",
+                "minutes": 5
+              },
+              {
+                "text": "State the residual risks in plain words with their levels",
+                "minutes": 6
+              },
+              {
+                "text": "Write the recommendation with conditions, owners and dates",
+                "minutes": 8
+              },
+              {
+                "text": "Check the page against the briefing checklist",
+                "minutes": 6
+              }
+            ],
+            "stretch": "Revise the page after the supplier model change of Lab 3.4 and mark what changed"
+          },
+          "summary": "One page for the person who signs: residual risk in plain words, a recommendation, conditions, owners and dates"
         }
-      ]
+      ],
+      "subtitle": "Architecture review, delegated authority, the assurance case and the briefing"
     },
     {
       "id": "capstone",
       "kind": "capstone",
-      "title": "Capstone project presentations",
+      "title": "Capstone: an assurance pack and its defence",
       "deck": "slides/capstone.html",
-      "subtitle": "REPLACE: the catalog gives no length for the presentations; set capstone.talk_minutes and capstone.qa_minutes in course.json, write them on the format slide, add a timer for each to the now-presenting slide, and remove this line"
+      "subtitle": "An unseen system, a public repository and a panel acting as accountable executive and auditor"
     }
   ],
   "capstone": {
     "summary": "An assurance pack for an unseen synthetic system (test plan, attack logs, findings with regression tests, risk register, architecture review, assurance case) in a public repository, defended before a panel acting as accountable executive and auditor",
-    "submission": "REPLACE: what participants submit and how: a public repository link, or a shared folder for a course without code",
+    "submission": "A link to a public GitHub repository that holds the assurance pack for Insaf, the appeals agent: the test plan, the attack logs with timestamps, the findings with three regression tests, the risk register, the architecture review, the assurance case with its gap list and the one-page residual-risk statement",
     "rubric": [
       {
         "criterion": "Test plan",
@@ -401,7 +758,9 @@
         "criterion": "Assurance case",
         "weight": 15
       }
-    ]
+    ],
+    "talk_minutes": 10,
+    "qa_minutes": 10
   },
   "labs": {
     "kind": "notebooks",
@@ -453,6 +812,158 @@
       "examples": [
         "any spreadsheet",
         "an open diagram tool such as draw.io"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "group": "National references",
+      "items": [
+        {
+          "title": "National AI Risk Management Framework, full text in Arabic (SDAIA, April 2026)",
+          "url": "https://sdaia.gov.sa/ar/MediaCenter/KnowledgeCenter/ResearchLibrary/ExecutiveSummaryAr.pdf"
+        },
+        {
+          "title": "National AI Risk Management Framework, English executive summary (SDAIA, April 2026)",
+          "url": "https://sdaia.gov.sa/en/MediaCenter/KnowledgeCenter/ResearchLibrary/ExecutiveSummaryEn.pdf"
+        },
+        {
+          "title": "Principles of AI Ethics (SDAIA)",
+          "url": "https://sdaia.gov.sa/en/SDAIA/about/Documents/ai-principles.pdf"
+        },
+        {
+          "title": "Generative AI Guideline for Government (SDAIA)",
+          "url": "https://sdaia.gov.sa/en/SDAIA/about/Files/GenAIGuidelinesForGovernmentENCompressed.pdf"
+        },
+        {
+          "title": "Personal Data Protection Law (SDAIA)",
+          "url": "https://sdaia.gov.sa/en/SDAIA/about/Documents/PersonalDataProtectionLaw.pdf"
+        },
+        {
+          "title": "Implementing Regulation of the Personal Data Protection Law (SDAIA)",
+          "url": "https://sdaia.gov.sa/en/SDAIA/about/Documents/ImplementingRegulationPersonalDataProtectionLaw.pdf"
+        },
+        {
+          "title": "Data Classification Policy (National Data Management Office, SDAIA)",
+          "url": "https://sdaia.gov.sa/en/SDAIA/about/Documents/DataClassificationPolicy.pdf"
+        },
+        {
+          "title": "National Cybersecurity Authority: controls list (Essential Cybersecurity Controls; AI Cybersecurity Guidelines, consultation draft)",
+          "url": "https://nca.gov.sa/en/regulatory-documents/controls-list/"
+        },
+        {
+          "title": "Essential Cybersecurity Controls (National Cybersecurity Authority)",
+          "url": "https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/"
+        }
+      ]
+    },
+    {
+      "group": "Risk lists, technique catalogues and testing guides",
+      "items": [
+        {
+          "title": "OWASP Top 10 for LLM Applications 2026 (OWASP GenAI Security Project)",
+          "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+        },
+        {
+          "title": "OWASP Top 10 for Agentic Applications for 2026 (OWASP GenAI Security Project)",
+          "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+        },
+        {
+          "title": "OWASP GenAI Red Teaming Guide (OWASP GenAI Security Project)",
+          "url": "https://genai.owasp.org/resource/genai-red-teaming-guide/"
+        },
+        {
+          "title": "OWASP AI Testing Guide",
+          "url": "https://owasp.org/projects/ai-testing-guide"
+        },
+        {
+          "title": "MITRE ATLAS",
+          "url": "https://atlas.mitre.org/"
+        },
+        {
+          "title": "MITRE ATLAS data, version 2026.10",
+          "url": "https://github.com/mitre-atlas/atlas-data"
+        },
+        {
+          "title": "Simon Willison: The lethal trifecta for AI agents (June 2025)",
+          "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+        }
+      ]
+    },
+    {
+      "group": "Assurance cases",
+      "items": [
+        {
+          "title": "Bloomfield and Rushby: Assurance 2.0, a manifesto (2020)",
+          "url": "https://arxiv.org/abs/2004.10474"
+        },
+        {
+          "title": "Goal Structuring Notation community standard (Safety-Critical Systems Club)",
+          "url": "https://scsc.uk/gsn"
+        },
+        {
+          "title": "AI Security Institute: Safety cases at AISI",
+          "url": "https://www.aisi.gov.uk/blog/safety-cases-at-aisi"
+        }
+      ]
+    },
+    {
+      "group": "Control frameworks",
+      "items": [
+        {
+          "title": "NIST AI Risk Management Framework (AI RMF 1.0), NIST AI 100-1",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+        },
+        {
+          "title": "NIST AI RMF: Generative Artificial Intelligence Profile, NIST AI 600-1",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+        },
+        {
+          "title": "NIST AI Risk Management Framework: overview page",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+        },
+        {
+          "title": "CSA AI Controls Matrix (Cloud Security Alliance)",
+          "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"
+        }
+      ]
+    },
+    {
+      "group": "Identity and delegated authority",
+      "items": [
+        {
+          "title": "RFC 8693: OAuth 2.0 Token Exchange",
+          "url": "https://www.rfc-editor.org/rfc/rfc8693"
+        }
+      ]
+    },
+    {
+      "group": "Tools named as examples",
+      "items": [
+        {
+          "title": "garak, the LLM vulnerability scanner",
+          "url": "https://github.com/NVIDIA/garak"
+        },
+        {
+          "title": "PyRIT, the Python Risk Identification Tool for generative AI",
+          "url": "https://github.com/Azure/PyRIT"
+        },
+        {
+          "title": "promptfoo: red teaming guide",
+          "url": "https://www.promptfoo.dev/docs/red-team/"
+        },
+        {
+          "title": "Open Policy Agent: documentation",
+          "url": "https://www.openpolicyagent.org/docs"
+        },
+        {
+          "title": "Cedar policy language",
+          "url": "https://www.cedarpolicy.com/"
+        },
+        {
+          "title": "OpenRouter models list",
+          "url": "https://openrouter.ai/models"
+        }
       ]
     }
   ]
