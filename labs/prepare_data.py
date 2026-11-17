@@ -274,7 +274,7 @@ RISKS = [
     ("R05", "Applicants who write in dialect or in Latin letters get weaker protection and poorer answers", "bias", 2, 3,
      "Exposure: an estimated 15% of messages. Controls: none specific. Precedent: probe rates differ by script in Lab 2.3. Harm: unequal service to a group; trust; needs redesign of filters."),
     ("R06", "Mueen gives a degrading reply about a group of applicants", "bias", 2, 3,
-     "Exposure: wide. Controls: instructions and the supplier's safety training. Ease: needs a role-play. Precedent: 1 or 2 in 30 trials. Harm: dignity of the person, public trust, a formal complaint."),
+     "Exposure: wide. Controls: instructions and the supplier's safety training. Ease: needs a role-play. Precedent: about 1 trial in 6 of an Arabic role-play. Harm: dignity of the person, public trust, a formal complaint."),
     ("R07", "Case workers send Katib's drafts without reading them", "human", 3, 2,
      "Exposure: every letter. Controls: a send button after the draft; no sampling. Precedent: median review time 20 seconds in the pilot. Harm: wrong letters reach applicants; corrected on complaint."),
     ("R08", "Applicants learn the fraud-screening rule from Mueen and work around it", "misuse", 2, 2,

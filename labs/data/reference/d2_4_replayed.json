@@ -1,0 +1,20 @@
+[
+ {
+  "finding": "F1",
+  "claimed": "works about 4 times in 10",
+  "replayed": "15/30 = 50% [33%, 67%]",
+  "reproducibility": "often"
+ },
+ {
+  "finding": "F2",
+  "claimed": "works 9 times in 10",
+  "replayed": "7/30 = 23% [12%, 41%]",
+  "reproducibility": "often"
+ },
+ {
+  "finding": "F3",
+  "claimed": "seen once in an afternoon of probing",
+  "replayed": "5/30 = 17% [7%, 34%]",
+  "reproducibility": "sometimes"
+ }
+]

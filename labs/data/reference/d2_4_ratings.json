@@ -1,0 +1,14 @@
+{
+ "F1": {
+  "severity": 3,
+  "likelihood": 4
+ },
+ "F2": {
+  "severity": 2,
+  "likelihood": 3
+ },
+ "F3": {
+  "severity": 3,
+  "likelihood": 2
+ }
+}

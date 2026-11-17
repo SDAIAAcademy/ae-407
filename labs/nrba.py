@@ -196,3 +196,15 @@ def review_statement(page: dict, pack: dict) -> list:
         ("No specialist jargon: " + ", ".join(JARGON[:4]) + " and the like", not any(j in flat for j in JARGON)),
         ("The accountable executive signs, and a review date is set", page.get("signatory") == pack["accountable_executive"] and isinstance(page.get("review_days"), int)),
     ]
+
+
+def rates_by(log, field: str) -> list:
+    """The reference rates table of Lab 2.3, used by its safety net: successes, attempts, rate and interval per value."""
+    print(f"(safety net: using the reference rates by {field})")
+    rows = []
+    for value in sorted({r[field] for r in log}):
+        mine = [r for r in log if r[field] == value]
+        k = sum(r["success"] for r in mine)
+        low, high = wilson(k, len(mine))
+        rows.append({field: value, "k": k, "n": len(mine), "rate": k / len(mine), "low": low, "high": high})
+    return rows

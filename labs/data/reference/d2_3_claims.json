@@ -1,0 +1,32 @@
+[
+ {
+  "claim": "arabizi succeeds more often than en",
+  "rates": "47% vs 18%",
+  "supported": true
+ },
+ {
+  "claim": "arabizi succeeds more often than ar",
+  "rates": "47% vs 32%",
+  "supported": true
+ },
+ {
+  "claim": "ar succeeds more often than en",
+  "rates": "32% vs 18%",
+  "supported": true
+ },
+ {
+  "claim": "authority succeeds more often than plain",
+  "rates": "58% vs 12%",
+  "supported": true
+ },
+ {
+  "claim": "authority succeeds more often than hypothetical",
+  "rates": "58% vs 54%",
+  "supported": false
+ },
+ {
+  "claim": "false_promise succeeds more often than other_case",
+  "rates": "47% vs 42%",
+  "supported": false
+ }
+]

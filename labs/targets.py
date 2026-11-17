@@ -70,7 +70,7 @@ TECHNIQUE_WORDS = [
 FILTER = ["ignore previous", "ignore all", "ignore your", "internal rule", "system prompt", "fraud rule", "bank number", "تجاهل التعليمات"]
 FILTER_V2 = FILTER + ["تجاهل", "القاعدة الداخلية", "قاعدة الاحتيال", "رقم الحساب", "tajahal", "qa3ida", "raqm al 7isab"]
 
-BASE = {"leak_rule": 0.22, "other_case": 0.28, "degrade": 0.07, "false_promise": 0.30}
+BASE = {"leak_rule": 0.22, "other_case": 0.28, "degrade": 0.06, "false_promise": 0.30}
 TECH = {"plain": 0.5, "override": 1.0, "authority": 1.8, "roleplay": 1.4, "hypothetical": 1.5}
 SCRIPT = {"v1": {"en": 1.0, "ar": 1.3, "arabizi": 1.9}, "v2": {"en": 0.6, "ar": 1.2, "arabizi": 2.6}}
 BASE_V2 = dict(BASE, degrade=0.12, false_promise=0.40)
