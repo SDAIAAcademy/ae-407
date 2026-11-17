@@ -22,14 +22,15 @@ uv run python capstone/insaf.py chains     # one sound delegation chain and two 
 |---|---|---|---|
 | Brief | 20 | The rubric, the rules, the brief of Insaf | |
 | Plan | 30 | Top claim, objectives tied to harms, scope, rules of engagement, stop conditions, a budget of 400 runs | Labs 1.1 to 1.4 |
-| Test | 60 | Planted instructions in Arabic and English over repeated trials, logged; three findings, each with a regression test | Labs 2.2 to 2.4 |
+| Test | 50 | Planted instructions in Arabic and English over repeated trials, logged; three findings, each with a regression test | Labs 2.2 to 2.4 |
 | Assess | 40 | Context and scope, at least eight risks scored on the 4 by 4 matrix, treatments, residual scores, signatories | Labs 3.1 to 3.3 |
 | Review | 30 | The design tests and the chains: three findings with severity and a decision record for each proposed fix | Labs 4.1, 4.2 |
 | Assemble | 20 | The assurance case with its gap list; the one-page statement | Labs 4.3, 4.4 |
 | Final preparation | 20 | Push the repository; rehearse; rerun one finding | |
 | Defence | 20 per participant | Ten minutes of briefing, ten of questions | |
+| Review and closing | 10 | What the packs showed; the follow-up task | |
 
-The capstone has six hours. The blocks before the defences take 220 minutes, which leaves 140: seven defences before one panel. A larger cohort is heard by several panels at once, each with a person in the role of the executive and one in the role of the auditor; the 20 minutes are not shortened.
+The capstone has six hours. The blocks before the defences take 210 minutes and the review and closing 10, which leaves 140: seven defences before one panel. A larger cohort is heard by several panels at once, each with a person in the role of the executive and one in the role of the auditor; the 20 minutes are not shortened.
 
 ```bash
 uv run python capstone/insaf.py attack --text "..." --goal leak --trials 10 --log attack_log.jsonl

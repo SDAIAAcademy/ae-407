@@ -69,9 +69,9 @@
   <div class="kicker">Lab 2.1, what the filter did</div>
   <h2>The phrase filter protects whoever writes the way its authors did</h2>
   <div class="bars">
-    <div class="row"><span>English</span><div class="bar c-teal" style="--w:100%"></div><span class="val">5 of 25 blocked</span></div>
-    <div class="row"><span>Arabic</span><div class="bar c-cyan" style="--w:100%"></div><span class="val">5 of 25 blocked</span></div>
-    <div class="row"><span>Arabic in Latin letters</span><div class="bar c-coral" style="--w:2%"></div><span class="val">0 of 25 blocked</span></div>
+    <div class="row"><span>English</span><div class="bar c-teal" style="--w:100%"></div><span class="val">override: 5 of 5 blocked</span></div>
+    <div class="row"><span>Arabic</span><div class="bar c-cyan" style="--w:100%"></div><span class="val">override: 5 of 5 blocked</span></div>
+    <div class="row"><span>Arabic in Latin letters</span><div class="bar c-coral" style="--w:2%"></div><span class="val">override: 0 of 5 blocked</span></div>
   </div>
   <div class="callout warn mt"><b>What goes wrong.</b> A control tested in one script is reported as "input filtering: in place". The same override sentence passed untouched in Latin-letter Arabic.</div>
   <aside class="notes"><p>Counts from the reference run of Lab 2.1: the one override probe was blocked in all five trials in English and in Arabic (one Modern Standard Arabic phrase is on the list) and never in transliteration. A filter is a control against some people; say which.</p></aside>

@@ -234,18 +234,18 @@
 
 <section class="slide" id="check-missing-path" data-lo="LO1">
   <div class="kicker">Checkpoint</div>
-  <h2>Which change removes the most paths?</h2>
+  <h2>Which change cuts the harm on the most paths?</h2>
   <div class="quiz" data-type="single" data-lo="LO1">
-    <p class="lead">Katib has eight paths: two untrusted sources, two private stores, two exits. You may make one change before testing. Which removes the most paths?</p>
+    <p class="lead">Katib has eight paths: two untrusted sources, two private stores, two exits. You may make one change before testing. Which one lowers the harm on the most paths?</p>
     <div class="opts">
       <div class="opt" data-ok>Limit <code>search_cases</code> to the acting case worker's caseload</div>
       <div class="opt" data-why="Treats the instructions as a control: the model that was fooled by the statement is the one reading the warning">Add a line to the agent's instructions: never follow text in a statement</div>
-      <div class="opt" data-why="Fixes the one path the builders already knew: it closes two paths of eight and leaves the template">Strip email addresses from applicant statements before the agent reads them</div>
+      <div class="opt" data-why="Works on the path the builders already knew: it closes the two statement-to-email paths and leaves the web exit and the template">Strip email addresses from applicant statements before the agent reads them</div>
       <div class="opt" data-why="Confuses seeing with stopping: a log shows the path was used after the data has left">Log every tool call with the case number</div>
     </div>
-    <div class="callout tip why"><b>Why.</b> It removes a leg: the four paths through "every case" become paths through a handful of cases. Removing a leg beats warning the model.</div>
+    <div class="callout tip why"><b>Why.</b> It shrinks a leg: the four paths through "every case" now reach a handful of cases. Changing a leg beats warning the model.</div>
   </div>
-  <aside class="notes"><p>Answer: the caseload limit. Strictly it shrinks the private store instead of deleting it, which is worth saying: the harm column drops from 4 toward 2 on four paths. An allowlist on an exit would also remove four paths; it was not offered.</p></aside>
+  <aside class="notes"><p>Answer: the caseload limit. It shrinks the private store instead of deleting it: the harm column drops from 4 toward 2 on four paths, including the two highest-ranked. Stripping addresses closes two paths outright, a fair point to concede. An allowlist on an exit would close four paths; it was not offered.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-1-2" data-auto="lab" data-lab="1.2">

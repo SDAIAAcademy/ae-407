@@ -7,7 +7,7 @@
   "lang": "en",
   "title": {
     "en": "AI Assurance, Red Teaming and Governance for Engineering Leads",
-    "ar": "ضمان أنظمة الذكاء الاصطناعي وتمارين الفرق الحمراء والحوكمة لقادة الفرق الهندسية"
+    "ar": "ضمان أنظمة الذكاء الاصطناعي واختبارات الفريق الأحمر والحوكمة لقادة الفرق الهندسية"
   },
   "tagline": "Plan and run a bilingual red-team exercise, assess the risk with the national framework, review the architecture and brief the accountable executive on what remains",
   "description": "Participants lead the assurance of AI systems that act on an organisation's data. For the fictional Northern Region Benefits Agency (a bilingual benefits assistant and a case-worker agent that reads case files and drafts letters) they plan and run a red-team exercise in Arabic and English, manually and with automated probes, assess the risks with the National AI Risk Management Framework, review the security architecture for agent identity, least privilege, isolation and egress, and assemble an assurance case that ends in a residual-risk briefing. Targets run in a sandbox on synthetic case data. Hardening a single application is AE-308.",

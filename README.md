@@ -1,7 +1,7 @@
 <!-- academy:title -->
 # AI Assurance, Red Teaming and Governance for Engineering Leads
 
-ضمان أنظمة الذكاء الاصطناعي وتمارين الفرق الحمراء والحوكمة لقادة الفرق الهندسية
+ضمان أنظمة الذكاء الاصطناعي واختبارات الفريق الأحمر والحوكمة لقادة الفرق الهندسية
 
 AI Engineering Track · SDAIA Academy · AE-407 · Level 400
 
