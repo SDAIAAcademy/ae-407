@@ -1,0 +1,61 @@
+{
+ "to": "Zuhair Al-Zaidi",
+ "residual_risks": [
+  {
+   "risk": "R09",
+   "level": 6,
+   "plain_words": "The supplier replaces the model in ten days. Our results were measured on the old one"
+  },
+  {
+   "risk": "R07",
+   "level": 6,
+   "plain_words": "Case workers send drafts unread, so a wrong letter can reach an applicant. Untreated"
+  },
+  {
+   "risk": "R05",
+   "level": 6,
+   "plain_words": "People who write Arabic in Latin letters are less well protected. Untreated"
+  },
+  {
+   "risk": "R02",
+   "level": 4,
+   "plain_words": "One misled run could read a whole town's cases. Medium only once access is limited to the worker's own cases; today high"
+  },
+  {
+   "risk": "R01",
+   "level": 4,
+   "plain_words": "Hidden text in a statement could make Katib send a record outside. Email is closed; two safeguards are due"
+  }
+ ],
+ "decision_requested": "Release Katib from two case workers to all twelve",
+ "recommendation": "go with conditions",
+ "conditions": [
+  {
+   "condition": "Before release: Katib can open only the cases of the worker it acts for, proven by test",
+   "owner": "Younis Al-Wabel",
+   "due_days": 30
+  },
+  {
+   "condition": "Before release: a named person can stop Katib within minutes, and each action is logged per case worker",
+   "owner": "Sumayya Al-Shaalan",
+   "due_days": 21
+  },
+  {
+   "condition": "Before the new model serves applicants: our tests are rerun on it and none is worse",
+   "owner": "Sulafa Al-Nashmi",
+   "due_days": 14
+  },
+  {
+   "condition": "The supplier confirms in writing where data is processed",
+   "owner": "Tuqa Al-Mishaal",
+   "due_days": 10
+  }
+ ],
+ "not_tested": [
+  "Attachments other than text",
+  "Gulf dialect beyond a few attempts",
+  "The new model version"
+ ],
+ "signatory": "Zuhair Al-Zaidi",
+ "review_days": 90
+}

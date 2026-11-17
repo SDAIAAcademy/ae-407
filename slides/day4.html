@@ -1,158 +1,470 @@
 <section class="slide title" id="title" data-auto="title">
-  <aside class="notes">REPLACE: welcome; introduce yourself; one question to the room that calibrates the pace; the rhythm of the day</aside>
+  <aside class="notes"><p>Last teaching day. Two sessions review what holds whatever the model does: the design and the delegation of authority. Two sessions assemble the pack and write the page the executive signs. Tomorrow participants do all of it on a system they have not seen. Labs today call no model at all.</p></aside>
 </section>
 
 <section class="slide" id="agenda" data-auto="agenda"></section>
 
-<!-- Session 1 -->
-
-<section class="slide section" id="s1" data-auto="section" data-session="1"></section>
-
-<section class="slide" id="s1-idea" data-lo="LO4">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="review-day-3" data-lo="LO3">
+  <div class="kicker">Review of Day 3</div>
+  <h2>When is a residual score true?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3">
+    <p class="lead">The register shows R02 at 3 × 4 = 12 inherent and 2 × 2 = 4 residual, signed by the system owner. The residual rests on caseload scoping, which is not built. What is the level of R02 today?</p>
+    <div class="opts">
+      <div class="opt" data-why="The signature accepts a score; it does not make the control exist">4, because the residual was signed</div>
+      <div class="opt" data-ok>12, until the control is live and its test passes</div>
+      <div class="opt" data-why="Averaging a plan and a fact gives a number with no meaning">8, halfway, since the control is planned</div>
+      <div class="opt" data-why="Nothing in the evidence moved the risk to the top band; it is as it was assessed">16, because an unbuilt control is a new risk</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> A residual score describes the system with its controls working. Until then the inherent score is the true one, and the page for the executive must say so.</div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <aside class="notes"><p>Answer: 12. This sentence returns in the last lab of today, where the supplied pack shows "4, medium" for a control that does not exist.</p></aside>
 </section>
 
-<section class="slide" id="s1-steps" data-lo="LO4">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<!-- ======================= SESSION 1 ======================= -->
+<section class="slide section" id="s1" data-auto="section" data-session="1"></section>
+
+<section class="slide" id="design-outlives-the-model" data-lo="LO4">
+  <div class="kicker">Why review the architecture</div>
+  <h2>A behaviour test asks what the model did; a design review asks what it could do</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Behaviour evidence</h4><p class="small mb0">"The planted line worked in 15 of 30 runs." A rate, of one model version, under one set of probes.</p></div>
+    <div class="card c-teal"><h4>Design evidence</h4><p class="small mb0">"The agent's account cannot send to an address that is not on the case." True for every model, every probe, every day until the design changes.</p></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <div class="callout tip mt"><b>Assume the model is hijacked.</b> Then ask what the agent's own account, placement and exits allow.</div>
+  <aside class="notes"><p>You designed these defences in AE-308. Today you sit on the other side of the table: someone else designed, and you decide whether the design supports the claim. The reviewer's stance is the attacker's: the instructions to the model are ignored, only permissions count.</p></aside>
+</section>
+
+<section class="slide" id="three-criteria" data-lo="LO4">
+  <div class="kicker">The review criteria</div>
+  <h2>Three questions, each with a test</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Least privilege</h4><p class="small mb0">Does the agent's account hold only what the intended uses need, on behalf of the person it acts for?</p></div>
+    <div class="card c-purple"><h4>Isolation</h4><p class="small mb0">Where does the runtime sit? Do sensitive data and an open network meet in one place?</p></div>
+    <div class="card c-coral"><h4>Egress control</h4><p class="small mb0">Which ways out exist: mail, web requests, notes others read? Is each limited to named destinations?</p></div>
+  </div>
+  <p class="small mt">A fourth, <b>monitoring</b>, decides whether anyone would notice: actions traced to a person, and a named person who can stop the agent.</p>
+  <aside class="notes"><p>These are the criteria the catalog names for this session. Each maps to risks on yesterday's register: least privilege to R02, egress to R01, isolation to both. Monitoring becomes an open item in the pack.</p></aside>
+</section>
+
+<section class="slide" id="privilege-from-classification" data-lo="LO4">
+  <div class="kicker">Least privilege</div>
+  <h2>Derive the permissions from the data and the intended uses</h2>
+  <table class="t small">
+    <tr><th>Intended use</th><th>Needs</th><th>Granted in the pilot design</th></tr>
+    <tr><td>Draft the letter for the open case</td><td><code>case:read</code> on the worker's own caseload</td><td><code>case:read</code> on <code>case:*</code></td></tr>
+    <tr><td>(none)</td><td>nothing</td><td><code>case:search</code> on <code>case:*</code></td></tr>
+    <tr><td>Send the approved letter</td><td><code>mail:send</code> to the registered address</td><td><code>mail:send</code> to <code>addr:*</code></td></tr>
+    <tr><td>Fetch a letter template</td><td><code>net:fetch</code> from the template host</td><td><code>net:fetch</code> from <code>host:*</code></td></tr>
+  </table>
+  <div class="callout warn mt"><b>Case records are Restricted.</b> A wildcard on Restricted data, held by an account that reads untrusted text, is the whole of risk R02.</div>
+  <aside class="notes"><p>The classification levels are those of the national data classification policy as taught in AE-207. The method: start from the context record of Lab 3.1, list what each intended use needs, and compare with the policy. Everything in the third column that is wider than the second is a finding or needs a reason.</p></aside>
+</section>
+
+<section class="slide" id="tiers-and-routes" data-lo="LO4">
+  <div class="kicker">Isolation and egress</div>
+  <h2>Policy says what is allowed; placement says what is possible</h2>
+  <div class="flow">
+    <div class="step c-cyan"><b>Tier A</b>public-facing: portal, Mueen</div>
+    <div class="arrow">→</div>
+    <div class="step c-teal"><b>Tier B</b>internal applications</div>
+    <div class="arrow">→</div>
+    <div class="step c-navy"><b>Tier C</b>case database</div>
+  </div>
+  <ul class="bullets tight mt">
+    <li>The pilot runs Katib's runtime <b>in tier C</b>, with a default route to the internet</li>
+    <li>A policy rule can be loosened in one line by mistake; a missing route cannot</li>
+    <li>Two layers: the rule that denies, and the network that has no path</li>
+  </ul>
+  <aside class="notes"><p>The pattern to look for in any agent design: the process that reads sensitive data, reads untrusted text and can reach the outside. You met it in AE-308 as the three conditions of exfiltration. A review asks which of the three the design removes.</p></aside>
+</section>
+
+<section class="slide" id="tests-of-a-design" data-lo="LO4">
+  <div class="kicker">Lab 4.1, step 2</div>
+  <h2>Ten questions to the design; seven come back wrong</h2>
+  <table class="t small">
+    <tr><th>Test</th><th>Question</th><th>Expected</th><th>Design gives</th></tr>
+    <tr class="hl"><td>LP-1</td><td>Read a case outside the acting worker's caseload</td><td>deny</td><td>allow</td></tr>
+    <tr class="hl"><td>LP-2</td><td>Search the cases of every town</td><td>deny</td><td>allow</td></tr>
+    <tr class="hl"><td>EG-1</td><td>Email an address not registered on the case</td><td>deny</td><td>allow</td></tr>
+    <tr class="hl"><td>IS-1</td><td>The runtime that reads Restricted data reaches the internet</td><td>deny</td><td>allow</td></tr>
+    <tr><td>IS-2</td><td>The public assistant uses the agent's tools</td><td>deny</td><td>deny</td></tr>
+    <tr><td>EG-3</td><td>Request the Agency's template host</td><td>allow</td><td>allow</td></tr>
+  </table>
+  <p class="small mt">Six of the ten shown. Tests of what must still work keep a fix from breaking the service.</p>
+  <aside class="notes"><p>The tests evaluate the policy document and the placement, not a running system: that is what a design review can do before anything is built. Policy engines such as Open Policy Agent and Cedar let teams run such tests in their pipeline. Record what passes too: IS-2 is a property someone will break one day.</p></aside>
+</section>
+
+<section class="slide" id="finding-and-decision" data-lo="LO4">
+  <div class="kicker">The outputs of a review</div>
+  <h2>A finding says what is wrong; a decision record says what was done about it</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Finding</h4><p class="small mb0">The agent's account may read and search every case. Evidence: LP-1, LP-2. Consequence: one hijacked run reaches a whole town (R02). Severity 3.</p></div>
+    <div class="card c-purple"><h4>Decision record</h4><p class="small mb0">Proposed: keep the wildcard and instruct the agent to open only its case. <b>Rejected:</b> an instruction is not a control. Owner: Younis Al-Wabel. Closed when LP-1 and LP-2 pass.</p></div>
+  </div>
+  <div class="callout note mt"><b>Severity uses the impact scale of Day 3,</b> so that findings and risks can be read side by side.</div>
+  <aside class="notes"><p>The decision record is the part teams skip, and the part an auditor asks for a year later: what was proposed, what was decided, why, who, which test closes it. Three outcomes are possible in the lab: accept, reject, accept with conditions.</p></aside>
+</section>
+
+<section class="slide" id="check-fix-or-not" data-lo="LO4">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which proposed fix do you accept?</h2>
+  <div class="quiz" data-type="single" data-lo="LO4">
+    <p class="lead">Finding: Katib may email any address. The builders offer four fixes. Which one closes the finding?</p>
+    <div class="opts">
+      <div class="opt" data-why="An instruction changes what the model is asked, not what the account may do; a planted line asks for something else">Add to the instructions: "send letters only to the applicant"</div>
+      <div class="opt" data-why="A filter on the model's output is a behaviour control with an error rate; the permission stays wide">Screen every draft for addresses with a second model</div>
+      <div class="opt" data-why="Logging helps recovery after the fact; the record has still left">Log every email the agent sends</div>
+      <div class="opt" data-ok>Allow <code>mail:send</code> only to the address registered on the case</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Only the last one changes what is possible. The others lower a rate or shorten recovery, and belong beside it, not in its place.</div>
+  </div>
+  <aside class="notes"><p>Answer: the allowlist in the permission. Ask which of the other three they would still keep: logging, certainly, for the monitoring criterion.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-4-1" data-auto="lab" data-lab="4.1">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p>No model call in this lab. Step 1 has an exercise that looks easy and matters: writing the needed permissions before looking at the test results. In step 4 the check insists that the instruction-only fix is rejected. The design file is supplied; nothing from earlier days is needed.</p></aside>
 </section>
 
-<!-- Session 2 -->
-
+<!-- ======================= SESSION 2 ======================= -->
 <section class="slide section" id="s2" data-auto="section" data-session="2"></section>
 
-<section class="slide" id="s2-idea" data-lo="LO4">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
+<section class="slide" id="who-is-the-agent" data-lo="LO4">
+  <div class="kicker">Agent identity</div>
+  <h2>The agent has an identity of its own, and it acts for someone</h2>
   <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+    <div class="card c-teal"><h4>The person</h4><p class="small mb0">Case worker <code>cw-07</code>, signed in. Her caseload, her right to send letters, her name in the record.</p></div>
+    <div class="card c-purple"><h4>The agent</h4><p class="small mb0">Service account <code>svc-katib</code>. It should hold almost nothing by itself, and borrow authority for one task at a time.</p></div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <div class="callout warn mt"><b>What goes wrong.</b> The agent calls every service as itself, with its own wide permissions. The case worker's limits vanish, and the log says "svc-katib" for everything.</div>
+  <aside class="notes"><p>Two questions for any agent action: for whom, and by whom. If a design cannot answer both from the request itself, least privilege is being enforced by the model's good behaviour. This is the identity half of yesterday's control C03.</p></aside>
 </section>
 
-<section class="slide" id="s2-steps" data-lo="LO4">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="five-fields" data-lo="LO4">
+  <div class="kicker">Recall from AE-308</div>
+  <h2>A delegated token answers five questions</h2>
+  <table class="t">
+    <tr><th>Field</th><th>Question</th><th>In a sound hop</th></tr>
+    <tr><td><code>sub</code> · subject</td><td>For whom?</td><td>Still the case worker who signed in</td></tr>
+    <tr><td><code>act</code> · actor</td><td>By whom?</td><td>Names the service making the call</td></tr>
+    <tr><td><code>aud</code> · audience</td><td>For which service?</td><td>The one it is presented to, and no other</td></tr>
+    <tr><td><code>scope</code></td><td>Allowed to do what?</td><td>Never more than was delegated at sign-in</td></tr>
+    <tr><td><code>exp</code> · expiry</td><td>Until when?</td><td>Never later than the sign-in; minutes, not hours</td></tr>
+  </table>
+  <aside class="notes"><p>In AE-308 you built the exchange in which a service trades a token for a narrower one, as RFC 8693 describes it. This session does not rebuild it: you read chains that someone else built and decide whether authority is intact. Source: RFC 8693, OAuth 2.0 Token Exchange.</p></aside>
+</section>
+
+<section class="slide" id="a-sound-chain" data-lo="LO4">
+  <div class="kicker">Lab 4.2, step 1</div>
+  <h2>A sound chain narrows at every hop and never changes its subject</h2>
+  <table class="t small">
+    <tr><th class="num">Hop</th><th>Presented to</th><th>sub</th><th>act</th><th>aud</th><th>scope</th><th class="num">exp (min)</th></tr>
+    <tr><td class="num">0</td><td>katib-runtime</td><td>cw-07</td><td></td><td>katib-runtime</td><td>case:read letter:send</td><td class="num">60</td></tr>
+    <tr><td class="num">1</td><td>case-service</td><td>cw-07</td><td>svc-katib</td><td>case-service</td><td>case:read</td><td class="num">10</td></tr>
+    <tr><td class="num">2</td><td>letter-service</td><td>cw-07</td><td>svc-katib</td><td>letter-service</td><td>letter:send</td><td class="num">10</td></tr>
+    <tr><td class="num">3</td><td>mail-gateway</td><td>cw-07</td><td>svc-letter</td><td>mail-gateway</td><td>letter:send</td><td class="num">5</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Read down each column.</b> Subject constant. Actor names each caller. Audience equals the service. Scope shrinks. Expiry shrinks.</div>
+  <aside class="notes"><p>Hop 0 is the case worker's own sign-in to the agent. Each later hop is a new token obtained by exchange. Ask the room what the mail gateway knows at hop 3: that a letter is sent for cw-07, by the letter service, and nothing else is permitted.</p></aside>
+</section>
+
+<section class="slide" id="three-breaks" data-lo="LO4">
+  <div class="kicker">Lab 4.2, steps 3 and 4</div>
+  <h2>Three ways a chain breaks, and what each one gives away</h2>
+  <div class="cols cols-3">
+    <div class="card c-coral"><h4>Wrong audience</h4><p class="small mb0">A token made for the case service is accepted by the letter service. Whoever captures it can <b>replay</b> it elsewhere.</p></div>
+    <div class="card c-amber"><h4>Wider scope</h4><p class="small mb0">The agent's token carries <code>case:search-all</code>, which the case worker never had. <b>Escalation:</b> one run reaches every case.</p></div>
+    <div class="card c-purple"><h4>Subject replaced</h4><p class="small mb0">From hop 2 the subject is <code>svc-katib</code>. The act is recorded as the agent's own: <b>no accountability</b>, no caseload limit.</p></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <aside class="notes"><p>These are chains A, B and C of the lab. None needs a clever attacker, and none shows up in a behaviour test: the letters still go out correctly. The second is the wildcard of Lab 4.1 seen from the token side.</p></aside>
+</section>
+
+<section class="slide" id="compare-with-the-origin" data-lo="LO4">
+  <div class="kicker">Writing the check</div>
+  <h2>Compare every hop with the sign-in, not with the hop before it</h2>
+  <div class="cols cols-2">
+    <pre class="code">def check_hop(origin, hop):
+    first, tok = origin["token"], hop["token"]
+    broken = []
+    if tok["sub"] != first["sub"]:
+        broken.append("subject")
+    if not tok["act"]:
+        broken.append("actor")
+    if tok["aud"] != hop["presented_to"]:
+        broken.append("audience")
+    ...</pre>
+    <ul class="bullets">
+      <li>In chain C, hop 3 agrees with hop 2 in every field</li>
+      <li>A check against the previous hop passes it</li>
+      <li>Authority comes from the person: measure against her sign-in</li>
+    </ul>
+  </div>
+  <aside class="notes"><p>The lab's check has five rules and returns every rule a hop breaks. In production each service validates the token it receives; the audit question is whether it validates all five, and against what.</p></aside>
+</section>
+
+<section class="slide" id="identity-in-the-register" data-lo="LO4">
+  <div class="kicker">Back to the register</div>
+  <h2>Each break makes a risk you already scored worse</h2>
+  <table class="t">
+    <tr><th>Break</th><th>Gives</th><th>Risk on the register</th></tr>
+    <tr><td>Wrong audience</td><td>Replay</td><td>R01 · a letter sent where it should not go</td></tr>
+    <tr><td>Wider scope</td><td>Escalation</td><td>R02 · the cases of a whole town</td></tr>
+    <tr><td>Subject replaced</td><td>No accountability</td><td>R12 · a note nobody can trace to a person</td></tr>
+  </table>
+  <div class="callout note mt"><b>Chain checks are design evidence.</b> They survive a model update, and they go into the pack beside the architecture review.</div>
+  <aside class="notes"><p>The mapping to risks is a judgment and the lab accepts any register risk with a reason. The point is that an identity finding is not a separate world: it changes the likelihood or the impact of risks the owner already knows.</p></aside>
+</section>
+
+<section class="slide" id="check-broken-hop" data-lo="LO4">
+  <div class="kicker">Checkpoint</div>
+  <h2>What is wrong with this hop?</h2>
+  <div class="quiz" data-type="single" data-lo="LO4">
+    <p class="lead">Sign-in: <code>sub cw-09</code>, scope <code>case:read letter:send</code>, 60 minutes. The token presented to the letter service: <code>sub cw-09</code>, <code>act svc-katib</code>, <code>aud letter-service</code>, scope <code>letter:send</code>, 480 minutes.</p>
+    <div class="opts">
+      <div class="opt" data-ok>Expiry: the delegated token outlives the sign-in it came from</div>
+      <div class="opt" data-why="The subject is still the case worker, as it should be">Subject: the agent should be the subject</div>
+      <div class="opt" data-why="The audience equals the service the token is presented to">Audience: it should name the agent runtime</div>
+      <div class="opt" data-why="letter:send was delegated at sign-in; the scope is narrower, not wider">Scope: letter:send was never delegated</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Four fields are sound. A token valid for eight hours lets the agent, or whoever holds the token, send letters for her long after she signed out.</div>
+  </div>
+  <aside class="notes"><p>Answer: expiry. The lab's hidden test for the check uses exactly this case, so participants who answer here have their fifth rule.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-4-2" data-auto="lab" data-lab="4.2">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p>No model call. Participants who took AE-308 will find step 2 quick; pair them with those who did not. Watch for checks that compare with the previous hop: they find chains A and B and place the break of chain C correctly, then cannot explain hop 3. The chains are supplied.</p></aside>
 </section>
 
-<!-- Session 3 -->
-
+<!-- ======================= SESSION 3 ======================= -->
 <section class="slide section" id="s3" data-auto="section" data-session="3"></section>
 
-<section class="slide" id="s3-idea" data-lo="LO5">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="what-a-pack-is" data-lo="LO5">
+  <div class="kicker">The assurance pack</div>
+  <h2>A pack is what lets someone who was not there reach your conclusion</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>Plan</b>objectives, scope, rules</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>Logs and findings</b>rates, intervals, regression tests</div>
+    <div class="arrow">→</div>
+    <div class="step c-amber"><b>Register</b>scores, treatments, signatures</div>
+    <div class="arrow">→</div>
+    <div class="step c-purple"><b>Reviews</b>design tests, chain checks</div>
+    <div class="arrow">→</div>
+    <div class="step c-navy"><b>Case and page</b>claims, gaps, the statement</div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <p class="small mt">Four days of labs produced each of these for Katib and Mueen. Today's question: do they add up to the top claim of Lab 1.1?</p>
+  <aside class="notes"><p>The readers are the two people on tomorrow's panel: the accountable executive, who reads the last page, and the internal auditor, who opens any file at random and asks where a number came from.</p></aside>
 </section>
 
-<section class="slide" id="s3-steps" data-lo="LO5">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="what-counts-as-evidence" data-lo="LO5">
+  <div class="kicker">Judging evidence</div>
+  <h2>Ask of every item who made it and what it can carry</h2>
+  <table class="t small">
+    <tr><th>Item</th><th>By</th><th>Strength</th></tr>
+    <tr><td>Campaign log of 576 attempts with rates and intervals by script</td><td>Independent</td><td>Strong</td></tr>
+    <tr><td>Role chart: owner, signatories, who may stop the system</td><td>Builders</td><td>Strong: a fact anyone can verify</td></tr>
+    <tr><td>"All security tests passed", no log attached</td><td>Builders</td><td>Weak: a judgment of their own work</td></tr>
+    <tr><td>Monitoring plan, draft, no thresholds</td><td>Builders</td><td>Weak</td></tr>
+    <tr><td>A screenshot of Mueen refusing one request</td><td>Builders</td><td>None</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Evidence is what an outsider can check.</b> A summary without its log is a claim.</div>
+  <aside class="notes"><p>Independence matters most where judgment is involved. The NIST framework has a subcategory for it: assessors who did not build the system take part. One trial, as on Day 2, is an anecdote whichever way it points.</p></aside>
+</section>
+
+<section class="slide" id="crosswalk" data-lo="LO5">
+  <div class="kicker">Lab 4.3, steps 2 and 3</div>
+  <h2>A crosswalk shows where the evidence piles up and where there is none</h2>
+  <div class="bars">
+    <div class="row"><span>MEASURE 2.7 · security evaluated</span><div class="bar c-teal" style="--w:100%"></div><span class="val">5 items</span></div>
+    <div class="row"><span>MANAGE 1.3 · responses to high risks</span><div class="bar c-cyan" style="--w:40%"></div><span class="val">2</span></div>
+    <div class="row"><span>MEASURE 2.11 · fairness evaluated</span><div class="bar c-amber" style="--w:20%"></div><span class="val">1, weak</span></div>
+    <div class="row"><span>MANAGE 4.1 · monitoring after release</span><div class="bar c-amber" style="--w:20%"></div><span class="val">1, weak</span></div>
+    <div class="row"><span>MANAGE 2.4 · can be switched off</span><div class="bar c-coral" style="--w:1%"></div><span class="val">0</span></div>
+    <div class="row"><span>MANAGE 4.3 · incidents handled</span><div class="bar c-coral" style="--w:1%"></div><span class="val">0</span></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <p class="small mt">Six of the fourteen subcategories in the lab's extract of the NIST AI Risk Management Framework.</p>
+  <aside class="notes"><p>The lab paraphrases fourteen subcategories; read the published text before quoting it. The method is the same against any framework your organisation answers to: the Cloud Security Alliance's AI Controls Matrix, a management-system standard, or a regulator's control list. Teams over-collect evidence where they enjoy working. The gaps sit after release.</p></aside>
+</section>
+
+<section class="slide" id="claims-and-evidence" data-lo="LO5">
+  <div class="kicker">The assurance case</div>
+  <h2>The top claim holds only as far as its weakest sub-claim</h2>
+  <table class="t small">
+    <tr><th>Sub-claim</th><th>Rests on</th></tr>
+    <tr><td>C1 · Testing found the weaknesses that matter; each is fixed or carried as a risk</td><td>Plan, campaign log, findings, privacy probes</td></tr>
+    <tr><td>C2 · Every risk is scored, treated and signed for</td><td>Register, context record, supplier assessment, role chart</td></tr>
+    <tr><td>C3 · The architecture limits what a hijacked agent can do</td><td>Architecture review, chain checks</td></tr>
+    <tr class="hl"><td>C4 · After release, a change or an incident is noticed in time</td><td>A draft monitoring plan</td></tr>
+  </table>
+  <div class="callout warn mt"><b>Three sub-claims hold. One does not yet,</b> and the top claim must say so in its conditions.</div>
+  <aside class="notes"><p>This is the structure of Lab 1.1 filled in: claim, argument, evidence. On Day 1 the leaves were promises; now each is a file or a hole. The honest form of the top claim is "acceptably safe for the stated uses, on these conditions".</p></aside>
+</section>
+
+<section class="slide" id="gap-list" data-lo="LO5">
+  <div class="kicker">Lab 4.3, step 4</div>
+  <h2>List the gaps yourself, each with an ask</h2>
+  <table class="t small">
+    <tr><th>Control</th><th>Gap</th><th>Ask</th></tr>
+    <tr><td>MANAGE 2.4</td><td>No evidence</td><td>The system owner names who may stop Katib, within how many minutes, and shows one drill</td></tr>
+    <tr><td>MANAGE 4.3</td><td>No evidence</td><td>The incident process is extended to the agent, with a record of one exercise</td></tr>
+    <tr><td>MEASURE 2.11</td><td>Weak</td><td>The degrading-reply probes are rerun in all three scripts</td></tr>
+    <tr><td>MANAGE 4.1</td><td>Weak</td><td>The monitoring plan is approved, with thresholds and a per-worker action log</td></tr>
+  </table>
+  <div class="callout tip mt"><b>An auditor finds them anyway.</b> A pack that names its gaps shows its authors tested their own claim.</div>
+  <aside class="notes"><p>The catalog's wording for this lab is "list the gaps an auditor would raise". An ask has an addressee and something checkable: "improve monitoring" is not an ask.</p></aside>
+</section>
+
+<section class="slide" id="pack-in-a-repository" data-lo="LO5">
+  <div class="kicker">For tomorrow</div>
+  <h2>Every number in the pack leads back to a file</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>One folder per part: plan, logs, findings, register, reviews, case</li>
+      <li>Logs carry timestamps, the target version and the seed</li>
+      <li>Each finding has a regression test that someone else can run</li>
+      <li>The statement cites the file behind each level</li>
+    </ul>
+    <div class="card c-navy"><h4>The auditor's move</h4><p class="small mb0">Zakiya Al-Buraik opens one claim at random and asks you to reproduce the number behind it, in front of her. Build the pack for that moment.</p></div>
+  </div>
+  <aside class="notes"><p>The capstone asks for the pack in a public repository, with timestamps, three regression tests and the handover documents. Reproducing a number live is the sixth outcome's "answer a challenge by reproducing the evidence".</p></aside>
+</section>
+
+<section class="slide" id="check-evidence-strength" data-lo="LO5">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which item can carry the claim?</h2>
+  <div class="quiz" data-type="single" data-lo="LO5">
+    <p class="lead">Sub-claim: "Mueen does not reveal another applicant's record." Which item supports it best?</p>
+    <div class="opts">
+      <div class="opt" data-why="One refusal is one trial: it says nothing about the rate, or about other scripts">A screenshot of Mueen refusing such a request in Arabic</div>
+      <div class="opt" data-why="A statement by the builders about their own work, with nothing an outsider can rerun">The builders' note that the lookup "was hardened last sprint"</div>
+      <div class="opt" data-ok>A design test showing the lookup returns only the signed-in case, with probe results by script after the fix</div>
+      <div class="opt" data-why="The clause covers the supplier's use of data, not what the assistant shows an applicant">The supplier's contract clause on data use</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Design evidence that the path is gone, plus measured behaviour in each script, checked by someone who did not build it.</div>
+  </div>
+  <aside class="notes"><p>Answer: the third. Note the pairing: the design test shows the path is closed, the probes show nothing else leaks the same data.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-4-3" data-auto="lab" data-lab="4.3">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p>No model call. Mappings differ between reasonable people; the check asks for agreement on eleven of fourteen items and prints where a participant differs. Discuss E11: it maps to a control and should still hold up no claim. The evidence set is supplied, so the lab stands alone.</p></aside>
 </section>
 
-<!-- Session 4 -->
-
+<!-- ======================= SESSION 4 ======================= -->
 <section class="slide section" id="s4" data-auto="section" data-session="4"></section>
 
-<section class="slide" id="s4-idea" data-lo="LO6">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
+<section class="slide" id="the-reader" data-lo="LO6">
+  <div class="kicker">The accountable executive</div>
+  <h2>He decides in ten minutes, signs with his name, and was in none of the labs</h2>
   <div class="cols cols-2">
+    <div class="card c-navy"><h4>Zuhair Al-Zaidi, deputy governor for benefits</h4><p class="small mb0">Asked to release Katib from two case workers to all twelve. Answers to the governor, and to applicants if a record leaks.</p></div>
     <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
+      <li>What could happen, to whom, how likely?</li>
+      <li>What are you asking me to decide?</li>
+      <li>What must be true first, who does it, by when?</li>
+      <li>What do we not know?</li>
     </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <aside class="notes"><p>Everything else in the pack exists so that this page can be short and true. Engineering leads tend to brief upward by showing how much work was done. The executive needs the four answers on the right and nothing else.</p></aside>
 </section>
 
-<section class="slide" id="s4-steps" data-lo="LO6">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="plain-words" data-lo="LO6">
+  <div class="kicker">Residual risk in plain words</div>
+  <h2>Say what could happen to a person, not what the technique is called</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Written for us</h4><p class="small mb0">"Indirect prompt injection via the applicant statement enables exfiltration through the mail tool; residual 2 × 2 after egress allowlisting."</p></div>
+    <div class="card c-teal"><h4>Written for him</h4><p class="small mb0">"Hidden text in an applicant's statement could make Katib send that person's record outside the Agency. Email is now closed; two more safeguards are due. Level 4, medium."</p></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <div class="callout tip mt"><b>Test:</b> could he repeat the sentence to the governor without you in the room?</div>
+  <aside class="notes"><p>The lab's checklist refuses a short list of specialist terms. That is a crude stand-in for the real test on this slide. Keep the level: the number and the band are his vocabulary too, from the Agency's risk appetite.</p></aside>
+</section>
+
+<section class="slide" id="scores-that-are-promises" data-lo="LO6">
+  <div class="kicker">Lab 4.4, step 1</div>
+  <h2>Some residual scores on the page are true today; some are promises</h2>
+  <table class="t small">
+    <tr><th>Risk</th><th class="num">Residual</th><th>Status of its controls</th><th>Today</th></tr>
+    <tr><td>R03 · another applicant's record shown</td><td class="num">3</td><td>Both live, retested</td><td>True</td></tr>
+    <tr><td>R01 · a record emailed out</td><td class="num">4</td><td>Allowlist live; two controls due</td><td>Partly</td></tr>
+    <tr class="hl"><td>R02 · the cases of a whole town</td><td class="num">4</td><td>Caseload scoping not built</td><td>Still 12</td></tr>
+    <tr><td>R05, R07 · unequal protection; drafts unread</td><td class="num">6</td><td>Untreated</td><td>True</td></tr>
+    <tr><td>R09 · the supplier changes the model</td><td class="num">6</td><td>Update announced, 10 days</td><td>Happening</td></tr>
+  </table>
+  <div class="callout warn mt"><b>Every control that is not live becomes a condition,</b> or the page tells him something that is not yet true.</div>
+  <aside class="notes"><p>The supplied pack has no field that separates live from planned; participants must read the status column, which is how packs arrive in practice. The three highest residual levels are the untreated medium risks, not the famous ones.</p></aside>
+</section>
+
+<section class="slide" id="conditions-owners-dates" data-lo="LO6">
+  <div class="kicker">The recommendation</div>
+  <h2>A condition names one person and a number of days</h2>
+  <table class="t small">
+    <tr><th>Condition</th><th>Owner</th><th class="num">Days</th></tr>
+    <tr><td>Before release: Katib can open only the cases of the worker it acts for, proven by test</td><td>Younis Al-Wabel</td><td class="num">30</td></tr>
+    <tr><td>Before release: a named person can stop Katib within minutes; actions are logged per case worker</td><td>Sumayya Al-Shaalan</td><td class="num">21</td></tr>
+    <tr><td>Before the new model serves applicants: the tests are rerun on it and none is worse</td><td>Sulafa Al-Nashmi</td><td class="num">14</td></tr>
+    <tr><td>The supplier confirms in writing where data is processed</td><td>Tuqa Al-Mishaal</td><td class="num">10</td></tr>
+  </table>
+  <p class="small mt"><b>Go with conditions</b> here. "Hold until the first two are met" is the same decision in other words; a plain go is not available.</p>
+  <aside class="notes"><p>The framework's last treatment activity: accept within the approved limits, or escalate, with the acceptance documented. "The security team" cannot own a condition; nobody can be asked on the due date. Reference answer of the lab; other sets of conditions pass if each has an owner at the Agency and a date.</p></aside>
+</section>
+
+<section class="slide" id="say-what-was-not-tested" data-lo="LO6">
+  <div class="kicker">The limits of the evidence</div>
+  <h2>The signature covers the whole system; the evidence does not</h2>
+  <div class="cols cols-3">
+    <div class="card c-amber"><h4>Not tested</h4><p class="small mb0">Attachments other than text. Gulf dialect beyond a few attempts. The new model version.</p></div>
+    <div class="card c-coral"><h4>Open findings</h4><p class="small mb0">The runtime reaches the internet. Nobody is named to stop the agent.</p></div>
+    <div class="card c-purple"><h4>Review date</h4><p class="small mb0">Within 90 days, and at once on a model update, a new tool or an incident.</p></div>
+  </div>
+  <div class="callout note mt"><b>"Is it safe?"</b> is answered with the page: for these uses, these risks remain at these levels, on these conditions, and this is what we did not test.</div>
+  <aside class="notes"><p>The hardest habit for a technical lead: saying what was not tested without apology and without burying it. An executive who learns of an untested area after an incident stops trusting the whole pack.</p></aside>
+</section>
+
+<section class="slide" id="answer-a-challenge" data-lo="LO6">
+  <div class="kicker">In the room</div>
+  <h2>Answer a challenge by reproducing the evidence, not by repeating the claim</h2>
+  <div class="trace">
+    <div class="ev"><b>Auditor</b> "You say email is closed. How do you know?"</div>
+    <div class="ev"><b>Weak answer</b> "We added an allowlist and tested it thoroughly."</div>
+    <div class="ev"><b>Strong answer</b> "Regression test F1: 300 runs of the planted line, 0 sent. The file is findings/F1; I can run 20 now."</div>
+    <div class="ev"><b>Auditor</b> "And on the new model?"</div>
+    <div class="ev"><b>Strong answer</b> "The allowlist does not ask the model, so it holds. The 11 in 300 with quarantine alone is open until the retest; it is condition 3."</div>
+  </div>
+  <aside class="notes"><p>Tomorrow's panel has both roles, and the scripted supplier change arrives during the defence. The second strong answer is the whole of Day 3, Session 4 in two sentences. If you do not know, say which file would tell you.</p></aside>
+</section>
+
+<section class="slide" id="check-best-sentence" data-lo="LO6">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which sentence belongs on the page?</h2>
+  <div class="quiz" data-type="single" data-lo="LO6">
+    <p class="lead">You are writing the line for R07 (case workers send drafts unread; level 6, untreated) for the deputy governor.</p>
+    <div class="opts">
+      <div class="opt" data-why="Names a mechanism in specialist words and gives him nothing to decide">"Automation bias in the human-in-the-loop step degrades oversight efficacy"</div>
+      <div class="opt" data-ok>"Case workers approve most drafts in seconds, so a wrong letter can reach an applicant. Level 6, medium. Nothing is in place yet"</div>
+      <div class="opt" data-why="Reassures without a level, a cause or a status; he cannot weigh it">"There is a small chance of occasional errors in letters, which we are monitoring"</div>
+      <div class="opt" data-why="True and unusable: it hides the one fact he needs, that the risk is untreated">"R07: 2 × 3 = 6, see register row 7"</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> What happens, to whom, the level in the Agency's own bands, and the status, in words he can repeat.</div>
+  </div>
+  <aside class="notes"><p>Answer: the second. The third option is the most common in real briefings; ask the room what "we are monitoring" commits anyone to.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-4-4" data-auto="lab" data-lab="4.4">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p>No model call. An AI assistant may help with wording here, and participants should try it: then check that every level and name on the page still matches the pack, because assistants smooth numbers. The checklist limits the page to 300 words and refuses jargon; it cannot judge truth, which is the panel's job tomorrow. The pack summary is supplied.</p></aside>
 </section>
 
 <section class="slide" id="wrap-up">
   <div class="kicker">Day 4 · wrap-up</div>
   <h2>Three things to keep</h2>
   <div class="cols cols-3">
-    <div class="card c-teal"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
-    <div class="card c-coral"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
-    <div class="card c-purple"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
+    <div class="card c-teal"><h4>Review what is possible</h4><p class="small mb0">Permissions from the data, placement, exits, and authority that stays with the person at every hop.</p></div>
+    <div class="card c-coral"><h4>Name your own gaps</h4><p class="small mb0">Evidence an outsider can check, linked to claims, mapped to controls, with an ask for every hole.</p></div>
+    <div class="card c-purple"><h4>One true page</h4><p class="small mb0">Plain words, levels, conditions with a name and a date, and what was not tested.</p></div>
   </div>
+  <aside class="notes"><p>Ask each participant for the one line of their page they are least sure the pack supports. That is where the panel will look tomorrow.</p></aside>
 </section>
 
 <section class="slide dark" id="next" data-label="Next">
   <div class="kicker">Next</div>
-  <h2>Capstone: Capstone project presentations</h2>
-  <p class="lead">REPLACE: what participants prepare before then; unfinished labs can be finished at home</p>
-  <aside class="notes">REPLACE: accounts, installs or reading participants need before the next unit</aside>
+  <h2>Capstone: an assurance pack and its defence</h2>
+  <p class="lead">Tomorrow you meet Insaf, the Agency's appeals agent, for the first time. You plan, test, score, review and write the page, then defend it before the deputy governor and the internal auditor. Bring your four days of notebooks: every step has a pattern in them.</p>
+  <aside class="notes"><p>Point to labs/capstone/README.md for the brief and the repository layout. Insaf runs in the same sandbox as Katib with a different profile and different planted weaknesses, so results from the week do not transfer; methods do.</p></aside>
 </section>

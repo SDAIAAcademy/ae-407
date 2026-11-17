@@ -1,0 +1,30 @@
+{
+ "least_privilege": {
+  "decision": "reject",
+  "reason": "An instruction is not a control: Day 2 showed the agent follows planted text. The permission itself must be scoped to the caseload",
+  "owner": "Younis Al-Wabel",
+  "retest": [
+   "LP-1",
+   "LP-2"
+  ]
+ },
+ "egress": {
+  "decision": "accept",
+  "reason": "The rule removes both ways out and the template host still works",
+  "owner": "Younis Al-Wabel",
+  "retest": [
+   "EG-1",
+   "EG-2",
+   "EG-3"
+  ]
+ },
+ "isolation": {
+  "decision": "accept with conditions",
+  "reason": "Right design; until the case service exists the pilot stays at two case workers",
+  "owner": "Younis Al-Wabel",
+  "retest": [
+   "IS-1",
+   "IS-2"
+  ]
+ }
+}

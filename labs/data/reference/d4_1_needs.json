@@ -1,0 +1,22 @@
+[
+ {
+  "action": "case:read",
+  "resource": "case:own-caseload"
+ },
+ {
+  "action": "case:note",
+  "resource": "case:own-caseload"
+ },
+ {
+  "action": "mail:send",
+  "resource": "addr:registered"
+ },
+ {
+  "action": "net:fetch",
+  "resource": "host:templates.nrba.example"
+ },
+ {
+  "action": "rules:read",
+  "resource": "rules:*"
+ }
+]

@@ -1,0 +1,31 @@
+[
+ {
+  "criterion": "least_privilege",
+  "title": "The agent's account may read and search every case, not the caseload of the acting case worker",
+  "evidence": [
+   "LP-1",
+   "LP-2"
+  ],
+  "consequence": "One hijacked run reaches the cases of a whole town (R02)",
+  "severity": 3
+ },
+ {
+  "criterion": "egress",
+  "title": "The agent may email any address and request any host",
+  "evidence": [
+   "EG-1",
+   "EG-2"
+  ],
+  "consequence": "A record can leave by email or inside a web address (R01)",
+  "severity": 3
+ },
+ {
+  "criterion": "isolation",
+  "title": "The runtime sits in the case-database tier and has a route to the internet",
+  "evidence": [
+   "IS-1"
+  ],
+  "consequence": "Whatever the policy says, Restricted data and the internet meet in one process",
+  "severity": 3
+ }
+]

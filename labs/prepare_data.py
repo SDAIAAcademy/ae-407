@@ -442,7 +442,7 @@ FRAMEWORK = {
 }
 EVIDENCE = [
     {"id": "E01", "text": "Red-team test plan, approved by the head of AI assurance against the planning checklist", "by": "independent", "strength": "strong", "key": ["MEASURE 1.3", "MAP 1.1"], "claim": "C1"},
-    {"id": "E02", "text": "Campaign log of 540 model calls with success rates and intervals by technique and script", "by": "independent", "strength": "strong", "key": ["MEASURE 2.7"], "claim": "C1"},
+    {"id": "E02", "text": "Campaign log of 576 attempts with success rates and intervals by technique and script", "by": "independent", "strength": "strong", "key": ["MEASURE 2.7"], "claim": "C1"},
     {"id": "E03", "text": "Findings report: three findings, each with a regression test and a threshold", "by": "independent", "strength": "strong", "key": ["MEASURE 2.7", "MANAGE 1.3"], "claim": "C1"},
     {"id": "E04", "text": "Risk register with calibrated scores, treatments, residual scores and signatories", "by": "independent", "strength": "strong", "key": ["MANAGE 1.3", "MEASURE 2.6"], "claim": "C2"},
     {"id": "E05", "text": "Context and scope record: uses, data, parties, automation level and human decision points", "by": "independent", "strength": "strong", "key": ["MAP 1.1", "MAP 3.5"], "claim": "C2"},
