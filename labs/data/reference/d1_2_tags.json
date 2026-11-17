@@ -1,0 +1,12 @@
+{
+ "case_record": "private",
+ "all_cases": "private",
+ "statement": "untrusted",
+ "template": "untrusted",
+ "rules": "none",
+ "worker_chat": "none",
+ "send_letter": "exit",
+ "fetch_template": "exit",
+ "add_note": "none",
+ "draft_letter": "none"
+}

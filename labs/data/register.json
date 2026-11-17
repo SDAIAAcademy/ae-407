@@ -1,0 +1,335 @@
+{
+ "risks": [
+  {
+   "id": "R01",
+   "title": "Katib emails a case record to an outside address after reading a planted instruction",
+   "type": "privacy",
+   "likelihood": 4,
+   "impact": 3,
+   "level": 12
+  },
+  {
+   "id": "R02",
+   "title": "One hijacked run reads and sends the cases of a whole town",
+   "type": "privacy",
+   "likelihood": 3,
+   "impact": 4,
+   "level": 12
+  },
+  {
+   "id": "R03",
+   "title": "Mueen shows another applicant's amount or bank number on request",
+   "type": "privacy",
+   "likelihood": 3,
+   "impact": 3,
+   "level": 9
+  },
+  {
+   "id": "R04",
+   "title": "Mueen assures an applicant that the claim will be approved",
+   "type": "misinfo",
+   "likelihood": 3,
+   "impact": 2,
+   "level": 6
+  },
+  {
+   "id": "R05",
+   "title": "Applicants who write in dialect or in Latin letters get weaker protection and poorer answers",
+   "type": "bias",
+   "likelihood": 2,
+   "impact": 3,
+   "level": 6
+  },
+  {
+   "id": "R06",
+   "title": "Mueen gives a degrading reply about a group of applicants",
+   "type": "bias",
+   "likelihood": 2,
+   "impact": 3,
+   "level": 6
+  },
+  {
+   "id": "R07",
+   "title": "Case workers send Katib's drafts without reading them",
+   "type": "human",
+   "likelihood": 3,
+   "impact": 2,
+   "level": 6
+  },
+  {
+   "id": "R08",
+   "title": "Applicants learn the fraud-screening rule from Mueen and work around it",
+   "type": "misuse",
+   "likelihood": 2,
+   "impact": 2,
+   "level": 4
+  },
+  {
+   "id": "R09",
+   "title": "The supplier changes the model and behaviour in Arabic shifts unnoticed",
+   "type": "safety",
+   "likelihood": 3,
+   "impact": 2,
+   "level": 6
+  },
+  {
+   "id": "R10",
+   "title": "Katib drafts a letter with a wrong amount or date",
+   "type": "safety",
+   "likelihood": 3,
+   "impact": 2,
+   "level": 6
+  },
+  {
+   "id": "R11",
+   "title": "Drafting skill fades and the Agency depends on one supplier",
+   "type": "socio",
+   "likelihood": 2,
+   "impact": 1,
+   "level": 2
+  },
+  {
+   "id": "R12",
+   "title": "A planted instruction makes Katib write a false approval note into a case",
+   "type": "privacy",
+   "likelihood": 2,
+   "impact": 3,
+   "level": 6
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "name": "Recipient allowlist: send_letter only to the address registered on the case",
+   "kind": "technical",
+   "effect": {
+    "R01": [
+     -2,
+     0
+    ],
+    "R02": [
+     -1,
+     0
+    ]
+   },
+   "owner": "Younis Al-Wabel"
+  },
+  {
+   "id": "C02",
+   "name": "Egress allowlist: fetch_template only from the Agency's template host",
+   "kind": "technical",
+   "effect": {
+    "R01": [
+     -1,
+     0
+    ],
+    "R02": [
+     -1,
+     0
+    ]
+   },
+   "owner": "Younis Al-Wabel"
+  },
+  {
+   "id": "C03",
+   "name": "Caseload scoping: Katib reads only the cases assigned to the acting case worker",
+   "kind": "technical",
+   "effect": {
+    "R02": [
+     0,
+     -2
+    ]
+   },
+   "owner": "Younis Al-Wabel"
+  },
+  {
+   "id": "C04",
+   "name": "Quarantine of applicant text: the statement is summarised by a call that has no tools",
+   "kind": "technical",
+   "effect": {
+    "R01": [
+     -1,
+     0
+    ],
+    "R12": [
+     -1,
+     0
+    ]
+   },
+   "owner": "Sumayya Al-Shaalan"
+  },
+  {
+   "id": "C05",
+   "name": "Session binding: lookup_case returns only the signed-in applicant's case",
+   "kind": "technical",
+   "effect": {
+    "R03": [
+     -2,
+     0
+    ]
+   },
+   "owner": "Younis Al-Wabel"
+  },
+  {
+   "id": "C06",
+   "name": "Output check: block a reply that holds an identifier or bank number of another case",
+   "kind": "technical",
+   "effect": {
+    "R03": [
+     -1,
+     0
+    ],
+    "R01": [
+     0,
+     0
+    ]
+   },
+   "owner": "Sumayya Al-Shaalan"
+  },
+  {
+   "id": "C07",
+   "name": "Approval screen: the case worker sees recipient and attachments before a letter leaves",
+   "kind": "operational",
+   "effect": {
+    "R01": [
+     -1,
+     0
+    ],
+    "R07": [
+     -1,
+     0
+    ],
+    "R10": [
+     -1,
+     0
+    ]
+   },
+   "owner": "Sumayya Al-Shaalan"
+  },
+  {
+   "id": "C08",
+   "name": "Contract clause: 30 days of notice and a staging retest before any model change",
+   "kind": "organisational",
+   "effect": {
+    "R09": [
+     -1,
+     0
+    ]
+   },
+   "owner": "Tuqa Al-Mishaal"
+  },
+  {
+   "id": "C09",
+   "name": "Action-level log with an alert on any new recipient or host",
+   "kind": "technical",
+   "effect": {
+    "R01": [
+     0,
+     -1
+    ],
+    "R02": [
+     0,
+     -1
+    ],
+    "R12": [
+     0,
+     -1
+    ]
+   },
+   "owner": "Younis Al-Wabel"
+  },
+  {
+   "id": "C10",
+   "name": "Kill switch with a named owner and a 15-minute target",
+   "kind": "operational",
+   "effect": {
+    "R02": [
+     0,
+     -1
+    ],
+    "R09": [
+     0,
+     -1
+    ]
+   },
+   "owner": "Sumayya Al-Shaalan"
+  },
+  {
+   "id": "C11",
+   "name": "Reading rule and weekly sampling of sent letters",
+   "kind": "organisational",
+   "effect": {
+    "R07": [
+     -1,
+     0
+    ],
+    "R10": [
+     0,
+     -1
+    ]
+   },
+   "owner": "Sumayya Al-Shaalan"
+  },
+  {
+   "id": "C12",
+   "name": "Cyber insurance for breach costs",
+   "kind": "transfer",
+   "effect": {},
+   "owner": "Zuhair Al-Zaidi"
+  },
+  {
+   "id": "C13",
+   "name": "Phrase filter rebuilt for Arabic, dialect and transliteration, with tests per script",
+   "kind": "technical",
+   "effect": {
+    "R05": [
+     -1,
+     0
+    ],
+    "R03": [
+     -1,
+     0
+    ],
+    "R08": [
+     -1,
+     0
+    ]
+   },
+   "owner": "Sumayya Al-Shaalan"
+  },
+  {
+   "id": "C14",
+   "name": "Remove the screening rule from the assistant's instructions",
+   "kind": "technical",
+   "effect": {
+    "R08": [
+     -1,
+     -1
+    ]
+   },
+   "owner": "Sumayya Al-Shaalan"
+  }
+ ],
+ "appetite": {
+  "low": {
+   "signatory": "Sumayya Al-Shaalan",
+   "role": "system owner",
+   "max_review_days": 365
+  },
+  "medium": {
+   "signatory": "Sumayya Al-Shaalan",
+   "role": "system owner, countersigned by the head of AI assurance",
+   "max_review_days": 180
+  },
+  "high": {
+   "signatory": "Zuhair Al-Zaidi",
+   "role": "deputy governor for benefits, with written conditions",
+   "max_review_days": 90
+  },
+  "catastrophic": {
+   "signatory": null,
+   "role": "not accepted: avoid or redesign",
+   "max_review_days": 0
+  }
+ }
+}

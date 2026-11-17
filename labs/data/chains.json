@@ -1,0 +1,264 @@
+{
+ "note": "A hop is one call: a token is presented to a service. Hop 0 is the case worker's own sign-in. exp_min is minutes from the sign-in.",
+ "good": [
+  {
+   "hop": 0,
+   "presented_to": "katib-runtime",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-07",
+    "act": null,
+    "aud": "katib-runtime",
+    "scope": [
+     "case:read",
+     "letter:send"
+    ],
+    "exp_min": 60
+   }
+  },
+  {
+   "hop": 1,
+   "presented_to": "case-service",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-07",
+    "act": "svc-katib",
+    "aud": "case-service",
+    "scope": [
+     "case:read"
+    ],
+    "exp_min": 10
+   }
+  },
+  {
+   "hop": 2,
+   "presented_to": "letter-service",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-07",
+    "act": "svc-katib",
+    "aud": "letter-service",
+    "scope": [
+     "letter:send"
+    ],
+    "exp_min": 10
+   }
+  },
+  {
+   "hop": 3,
+   "presented_to": "mail-gateway",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-07",
+    "act": "svc-letter",
+    "aud": "mail-gateway",
+    "scope": [
+     "letter:send"
+    ],
+    "exp_min": 5
+   }
+  }
+ ],
+ "A": [
+  {
+   "hop": 0,
+   "presented_to": "katib-runtime",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-03",
+    "act": null,
+    "aud": "katib-runtime",
+    "scope": [
+     "case:read",
+     "letter:send"
+    ],
+    "exp_min": 60
+   }
+  },
+  {
+   "hop": 1,
+   "presented_to": "case-service",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-03",
+    "act": "svc-katib",
+    "aud": "case-service",
+    "scope": [
+     "case:read"
+    ],
+    "exp_min": 10
+   }
+  },
+  {
+   "hop": 2,
+   "presented_to": "letter-service",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-03",
+    "act": "svc-katib",
+    "aud": "case-service",
+    "scope": [
+     "case:read"
+    ],
+    "exp_min": 10
+   }
+  },
+  {
+   "hop": 3,
+   "presented_to": "mail-gateway",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-03",
+    "act": "svc-letter",
+    "aud": "mail-gateway",
+    "scope": [
+     "letter:send"
+    ],
+    "exp_min": 5
+   }
+  }
+ ],
+ "B": [
+  {
+   "hop": 0,
+   "presented_to": "katib-runtime",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-11",
+    "act": null,
+    "aud": "katib-runtime",
+    "scope": [
+     "case:read",
+     "letter:send"
+    ],
+    "exp_min": 60
+   }
+  },
+  {
+   "hop": 1,
+   "presented_to": "case-service",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-11",
+    "act": "svc-katib",
+    "aud": "case-service",
+    "scope": [
+     "case:read",
+     "case:search-all"
+    ],
+    "exp_min": 10
+   }
+  },
+  {
+   "hop": 2,
+   "presented_to": "letter-service",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-11",
+    "act": "svc-katib",
+    "aud": "letter-service",
+    "scope": [
+     "letter:send"
+    ],
+    "exp_min": 10
+   }
+  },
+  {
+   "hop": 3,
+   "presented_to": "mail-gateway",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-11",
+    "act": "svc-letter",
+    "aud": "mail-gateway",
+    "scope": [
+     "letter:send"
+    ],
+    "exp_min": 5
+   }
+  }
+ ],
+ "C": [
+  {
+   "hop": 0,
+   "presented_to": "katib-runtime",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-05",
+    "act": null,
+    "aud": "katib-runtime",
+    "scope": [
+     "case:read",
+     "letter:send"
+    ],
+    "exp_min": 60
+   }
+  },
+  {
+   "hop": 1,
+   "presented_to": "case-service",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "cw-05",
+    "act": "svc-katib",
+    "aud": "case-service",
+    "scope": [
+     "case:read"
+    ],
+    "exp_min": 10
+   }
+  },
+  {
+   "hop": 2,
+   "presented_to": "letter-service",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "svc-katib",
+    "act": null,
+    "aud": "letter-service",
+    "scope": [
+     "letter:send"
+    ],
+    "exp_min": 10
+   }
+  },
+  {
+   "hop": 3,
+   "presented_to": "mail-gateway",
+   "token": {
+    "iss": "idp.nrba.example",
+    "sub": "svc-katib",
+    "act": "svc-letter",
+    "aud": "mail-gateway",
+    "scope": [
+     "letter:send"
+    ],
+    "exp_min": 5
+   }
+  }
+ ],
+ "key": {
+  "A": {
+   "hop": 2,
+   "rule": "audience"
+  },
+  "B": {
+   "hop": 1,
+   "rule": "scope"
+  },
+  "C": {
+   "hop": 2,
+   "rule": "subject"
+  }
+ },
+ "consequences": {
+  "replay": "A token issued for one service is accepted by another, so whoever holds it can use it where it was never meant to go",
+  "escalation": "The agent gains a permission the case worker never delegated, so one hijacked run reaches every case",
+  "no_accountability": "The action is recorded as the agent's own, so nobody can say for which case worker it acted, and the worker's limits no longer apply"
+ },
+ "consequence_key": {
+  "A": "replay",
+  "B": "escalation",
+  "C": "no_accountability"
+ }
+}

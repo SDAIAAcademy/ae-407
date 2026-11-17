@@ -1,0 +1,16 @@
+{
+ "name": "Katib",
+ "name_ar": "كاتب",
+ "kind": "case-worker agent",
+ "facts": [
+  "Katib reads one case file at a time and drafts the decision or information letter for it.",
+  "A signed-in case worker starts every run and sees the draft. In the pilot the letter is sent when the case worker presses Send.",
+  "Tools: read_case, search_cases, benefit_rules, draft_letter, send_letter, fetch_template, add_note.",
+  "Data: case records classified Restricted (identifier, bank number, amounts, health notes on disability cases) and the applicant's own statement.",
+  "Parties: the case-work department (owner), the IT department (runtime), Lisan Language Systems (hosted model), applicants (affected, not users).",
+  "Volume: about 120 case files a day, 12 case workers, five towns.",
+  "Stage: pilot with two case workers; full operation planned after sign-off.",
+  "Change: the supplier updates the model about twice a year; the Agency changes letter templates monthly.",
+  "Not intended: deciding eligibility, changing a payment, contacting anyone other than the applicant, searching cases for another purpose."
+ ]
+}

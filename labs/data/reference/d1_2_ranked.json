@@ -1,0 +1,50 @@
+[
+ {
+  "untrusted": "statement",
+  "private": "all_cases",
+  "exit": "send_letter",
+  "score": 12
+ },
+ {
+  "untrusted": "statement",
+  "private": "all_cases",
+  "exit": "fetch_template",
+  "score": 12
+ },
+ {
+  "untrusted": "statement",
+  "private": "case_record",
+  "exit": "send_letter",
+  "score": 6
+ },
+ {
+  "untrusted": "statement",
+  "private": "case_record",
+  "exit": "fetch_template",
+  "score": 6
+ },
+ {
+  "untrusted": "template",
+  "private": "all_cases",
+  "exit": "send_letter",
+  "score": 4
+ },
+ {
+  "untrusted": "template",
+  "private": "all_cases",
+  "exit": "fetch_template",
+  "score": 4
+ },
+ {
+  "untrusted": "template",
+  "private": "case_record",
+  "exit": "send_letter",
+  "score": 2
+ },
+ {
+  "untrusted": "template",
+  "private": "case_record",
+  "exit": "fetch_template",
+  "score": 2
+ }
+]

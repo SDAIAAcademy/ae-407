@@ -1,0 +1,122 @@
+{
+ "system": "Katib",
+ "elements": [
+  {
+   "id": "case_record",
+   "what": "the fields of the case file being worked on (read_case)",
+   "kind": "store"
+  },
+  {
+   "id": "all_cases",
+   "what": "every case of every town (search_cases)",
+   "kind": "store"
+  },
+  {
+   "id": "statement",
+   "what": "the applicant's own statement inside the case file (read_case)",
+   "kind": "content"
+  },
+  {
+   "id": "template",
+   "what": "the letter template text returned by fetch_template",
+   "kind": "content"
+  },
+  {
+   "id": "rules",
+   "what": "the published benefit rules (benefit_rules)",
+   "kind": "content"
+  },
+  {
+   "id": "worker_chat",
+   "what": "the signed-in case worker's request",
+   "kind": "content"
+  },
+  {
+   "id": "send_letter",
+   "what": "sends an email to an address given in the call",
+   "kind": "tool"
+  },
+  {
+   "id": "fetch_template",
+   "what": "requests an address given in the call and returns its text",
+   "kind": "tool"
+  },
+  {
+   "id": "add_note",
+   "what": "writes a note into the case file",
+   "kind": "tool"
+  },
+  {
+   "id": "draft_letter",
+   "what": "returns a draft to the case worker's screen",
+   "kind": "tool"
+  }
+ ],
+ "provided_paths": [
+  {
+   "id": "P1",
+   "untrusted": "statement",
+   "private": "case_record",
+   "exit": "send_letter",
+   "text": "A line in the applicant statement makes Katib email this case's record to an outside address"
+  },
+  {
+   "id": "P2",
+   "untrusted": "statement",
+   "private": null,
+   "exit": null,
+   "text": "A line in the statement makes Katib add a false approval note (integrity, no exit)"
+  },
+  {
+   "id": "P3",
+   "untrusted": null,
+   "private": "case_record",
+   "exit": "send_letter",
+   "text": "A case worker types the wrong recipient (human error, no untrusted content)"
+  },
+  {
+   "id": "P4",
+   "untrusted": "worker_chat",
+   "private": "all_cases",
+   "exit": null,
+   "text": "A case worker searches cases outside their caseload (misuse by staff)"
+  },
+  {
+   "id": "P5",
+   "untrusted": null,
+   "private": null,
+   "exit": null,
+   "text": "The model drafts a letter with a wrong amount (accuracy)"
+  },
+  {
+   "id": "P6",
+   "untrusted": "statement",
+   "private": "case_record",
+   "exit": "fetch_template",
+   "text": "A line in the statement makes Katib request an outside address with this case's fields in it"
+  }
+ ],
+ "key": {
+  "tags": {
+   "case_record": "private",
+   "all_cases": "private",
+   "statement": "untrusted",
+   "template": "untrusted",
+   "rules": "none",
+   "worker_chat": "none",
+   "send_letter": "exit",
+   "fetch_template": "exit",
+   "add_note": "none",
+   "draft_letter": "none"
+  },
+  "harm": {
+   "case_record": 2,
+   "all_cases": 4
+  },
+  "ease": {
+   "statement": 3,
+   "template": 1
+  },
+  "note": "The template is both an exit (the request) and untrusted content (the reply). worker_chat is authenticated staff: misuse, not injection."
+ }
+}

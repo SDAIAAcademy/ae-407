@@ -1,0 +1,87 @@
+{
+ "systems": "Katib (case-worker agent) and Mueen (benefits assistant)",
+ "requested_decision": "Release Katib from pilot to all 12 case workers",
+ "accountable_executive": "Zuhair Al-Zaidi",
+ "residual": [
+  {
+   "risk": "R01",
+   "title": "Katib emails a case record to an outside address after reading a planted instruction",
+   "inherent": 12,
+   "residual": 4,
+   "depends_on": [
+    "C01",
+    "C04",
+    "C09"
+   ],
+   "status": "C01 live, C04 and C09 due"
+  },
+  {
+   "risk": "R02",
+   "title": "One hijacked run reads and sends the cases of a whole town",
+   "inherent": 12,
+   "residual": 4,
+   "depends_on": [
+    "C03",
+    "C01"
+   ],
+   "status": "C03 not built"
+  },
+  {
+   "risk": "R03",
+   "title": "Mueen shows another applicant's amount or bank number on request",
+   "inherent": 9,
+   "residual": 3,
+   "depends_on": [
+    "C05",
+    "C06"
+   ],
+   "status": "both live, retested"
+  },
+  {
+   "risk": "R05",
+   "title": "Applicants who write in dialect or in Latin letters get weaker protection",
+   "inherent": 6,
+   "residual": 6,
+   "depends_on": [],
+   "status": "untreated"
+  },
+  {
+   "risk": "R07",
+   "title": "Case workers send drafts without reading them",
+   "inherent": 6,
+   "residual": 6,
+   "depends_on": [],
+   "status": "untreated"
+  },
+  {
+   "risk": "R09",
+   "title": "The supplier changes the model and behaviour shifts unnoticed",
+   "inherent": 6,
+   "residual": 6,
+   "depends_on": [
+    "C08"
+   ],
+   "status": "update to Lisan-2.1 announced with 10 days of notice"
+  }
+ ],
+ "open_findings": [
+  "The agent runtime that reads Restricted data has a route to the internet (isolation)",
+  "No named person can stop the agent; tool actions are not logged per case worker"
+ ],
+ "gaps": [
+  "No evidence for a kill switch (MANAGE 2.4)",
+  "No incident process for the agent (MANAGE 4.3)",
+  "Fairness evaluated in one script only (MEASURE 2.11)"
+ ],
+ "not_tested": [
+  "Attachments other than text",
+  "Gulf dialect beyond 12 probes",
+  "The model version Lisan-2.1"
+ ],
+ "people": {
+  "Sumayya Al-Shaalan": "system owner",
+  "Younis Al-Wabel": "security architect",
+  "Tuqa Al-Mishaal": "data protection officer",
+  "Sulafa Al-Nashmi": "head of AI assurance"
+ }
+}

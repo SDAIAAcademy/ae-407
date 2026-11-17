@@ -5,7 +5,7 @@
 
 AI Engineering Track · SDAIA Academy · AE-407 · Level 400
 
-REPLACE: one line under the title: what participants can do after the course
+Plan and run a bilingual red-team exercise, assess the risk with the national framework, review the architecture and brief the accountable executive on what remains
 
 Participants lead the assurance of AI systems that act on an organisation's data. For the fictional Northern Region Benefits Agency (a bilingual benefits assistant and a case-worker agent that reads case files and drafts letters) they plan and run a red-team exercise in Arabic and English, manually and with automated probes, assess the risks with the National AI Risk Management Framework, review the security architecture for agent identity, least privilege, isolation and egress, and assemble an assurance case that ends in a residual-risk briefing. Targets run in a sandbox on synthetic case data. Hardening a single application is AE-308.
 
@@ -34,12 +34,14 @@ Participants lead the assurance of AI systems that act on an organisation's data
 | Day 2 | Run the red team | Manual probing in two languages; Indirect injection and goal hijack; Automated campaigns over repeated trials; Findings people can act on | [`slides/day2.html`](slides/day2.html) |
 | Day 3 | Assess the risk | The national framework as method; Scoring and calibration; Treatment and residual risk; Supplier and model-change risk | [`slides/day3.html`](slides/day3.html) |
 | Day 4 | Review and assemble the evidence | Security architecture review; Identity and delegated authority; Assurance evidence packs; Briefing the accountable executive | [`slides/day4.html`](slides/day4.html) |
-| Capstone | Capstone project presentations |  | [`slides/capstone.html`](slides/capstone.html) |
+| Capstone | Capstone: an assurance pack and its defence |  | [`slides/capstone.html`](slides/capstone.html) |
 <!-- /academy:units -->
 
 ## Case study
 
-**REPLACE: the name of the fictional organisation every lab works on.** REPLACE: two sentences on the case study and its synthetic data
+**Northern Region Benefits Agency.** A fictional regional agency that pays family, disability and housing benefits. Its assurance team, led by Sulafa Al-Nashmi, examines two systems before the deputy governor signs for them: Mueen, the bilingual benefits assistant, and Katib, the case-worker agent that reads case files and drafts letters. Both run in a sandbox on 300 synthetic case files written with a fixed seed; no real person, case or address is described.
+
+The people in the case: Zuhair Al-Zaidi, deputy governor for benefits and the accountable executive; Sulafa Al-Nashmi, head of AI assurance; Sumayya Al-Shaalan, case-work supervisor and owner of both systems; Younis Al-Wabel, security architect; Zakiya Al-Buraik, internal auditor; Tuqa Al-Mishaal, data protection officer. The hosted model comes from Lisan Language Systems, a fictional supplier. The models in the labs are a scripted stand-in, so that every rate can be reproduced; its rates are its own and say nothing about any real model.
 
 <!-- academy:labs -->
 ## Labs
@@ -48,29 +50,31 @@ Every lab is a notebook in `labs/`. Open it in Google Colab from the course page
 
 | | Session | Lab | File |
 |---|---|---|---|
-| 1.1 | Day 1 · Session 1 | Write the top claim for the benefits assistant and list evidence that would support or defeat it | [`D1_1_write_top_claim.ipynb`](labs/D1_1_write_top_claim.ipynb) |
-| 1.2 | Day 1 · Session 2 | Review the agent's provided threat model, add missing paths where private data, untrusted content and an exit path meet, and rank them for testing | [`D1_2_review_agent_s.ipynb`](labs/D1_2_review_agent_s.ipynb) |
-| 1.3 | Day 1 · Session 3 | Write a test plan with objectives tied to harms, stop conditions and handling of harmful outputs | [`D1_3_write_test_plan.ipynb`](labs/D1_3_write_test_plan.ipynb) |
-| 1.4 | Day 1 · Session 4 | Map ten planned attacks to OWASP and ATLAS entries and drop two that serve no objective | [`D1_4_map_ten_planned.ipynb`](labs/D1_4_map_ten_planned.ipynb) |
-| 2.1 | Day 2 · Session 1 | Attack the assistant in English, Arabic and transliterated Arabic and log every attempt | [`D2_1_attack_assistant_english.ipynb`](labs/D2_1_attack_assistant_english.ipynb) |
-| 2.2 | Day 2 · Session 2 | Plant an instruction in a case file and try to make the agent send data out of the sandbox | [`D2_2_plant_instruction_case.ipynb`](labs/D2_2_plant_instruction_case.ipynb) |
-| 2.3 | Day 2 · Session 3 | Run an automated probing campaign and report attack success with intervals | [`D2_3_run_automated_probing.ipynb`](labs/D2_3_run_automated_probing.ipynb) |
-| 2.4 | Day 2 · Session 4 | Rate three provided findings for severity, likelihood and reproducibility and turn one into a regression test | [`D2_4_rate_three_provided.ipynb`](labs/D2_4_rate_three_provided.ipynb) |
-| 3.1 | Day 3 · Session 1 | Set context, scope and stakeholders for the case-worker agent using the framework's phases | [`D3_1_set_context_scope.ipynb`](labs/D3_1_set_context_scope.ipynb) |
-| 3.2 | Day 3 · Session 2 | Score twelve risks alone on the 4 by 4 matrix, then calibrate with a partner | [`D3_2_score_twelve_risks.ipynb`](labs/D3_2_score_twelve_risks.ipynb) |
-| 3.3 | Day 3 · Session 3 | Choose controls for the three highest risks in a provided register and state residual scores and signatories | [`D3_3_choose_controls_three.ipynb`](labs/D3_3_choose_controls_three.ipynb) |
-| 3.4 | Day 3 · Session 4 | Assess a supplier's model update notice and decide what must be retested before it goes live | [`D3_4_assess_supplier_s.ipynb`](labs/D3_4_assess_supplier_s.ipynb) |
-| 4.1 | Day 4 · Session 1 | Review the agent design against least privilege, isolation and egress criteria and write three findings | [`D4_1_review_agent_design.ipynb`](labs/D4_1_review_agent_design.ipynb) |
-| 4.2 | Day 4 · Session 2 | Find the broken hop in three delegation chains where the agent acts for a case worker | [`D4_2_find_broken_hop.ipynb`](labs/D4_2_find_broken_hop.ipynb) |
-| 4.3 | Day 4 · Session 3 | Map a provided evidence set to a control framework and list the gaps an auditor would raise | [`D4_3_map_provided_evidence.ipynb`](labs/D4_3_map_provided_evidence.ipynb) |
-| 4.4 | Day 4 · Session 4 | Draft a one-page residual-risk statement with conditions, owners and dates from a provided assurance pack | [`D4_4_draft_one_page.ipynb`](labs/D4_4_draft_one_page.ipynb) |
+| 1.1 | Day 1 · Session 1 | A top claim and its defeaters | [`D1_1_top_claim.ipynb`](labs/D1_1_top_claim.ipynb) |
+| 1.2 | Day 1 · Session 2 | Missing paths in the threat model | [`D1_2_threat_paths.ipynb`](labs/D1_2_threat_paths.ipynb) |
+| 1.3 | Day 1 · Session 3 | A test plan a reviewer approves | [`D1_3_test_plan.ipynb`](labs/D1_3_test_plan.ipynb) |
+| 1.4 | Day 1 · Session 4 | Ten attacks, mapped and pruned | [`D1_4_technique_map.ipynb`](labs/D1_4_technique_map.ipynb) |
+| 2.1 | Day 2 · Session 1 | Three scripts, one log | [`D2_1_manual_probing.ipynb`](labs/D2_1_manual_probing.ipynb) |
+| 2.2 | Day 2 · Session 2 | A planted line in a case file | [`D2_2_indirect_injection.ipynb`](labs/D2_2_indirect_injection.ipynb) |
+| 2.3 | Day 2 · Session 3 | A campaign within a budget | [`D2_3_automated_campaign.ipynb`](labs/D2_3_automated_campaign.ipynb) |
+| 2.4 | Day 2 · Session 4 | Three findings, one regression test | [`D2_4_findings.ipynb`](labs/D2_4_findings.ipynb) |
+| 3.1 | Day 3 · Session 1 | Context and scope for Katib | [`D3_1_context_scope.ipynb`](labs/D3_1_context_scope.ipynb) |
+| 3.2 | Day 3 · Session 2 | Twelve risks, two scorers | [`D3_2_score_calibrate.ipynb`](labs/D3_2_score_calibrate.ipynb) |
+| 3.3 | Day 3 · Session 3 | Treat the top three | [`D3_3_treat_residual.ipynb`](labs/D3_3_treat_residual.ipynb) |
+| 3.4 | Day 3 · Session 4 | A model update notice | [`D3_4_supplier_change.ipynb`](labs/D3_4_supplier_change.ipynb) |
+| 4.1 | Day 4 · Session 1 | Three findings on the agent's design | [`D4_1_architecture_review.ipynb`](labs/D4_1_architecture_review.ipynb) |
+| 4.2 | Day 4 · Session 2 | The broken hop | [`D4_2_delegation_chains.ipynb`](labs/D4_2_delegation_chains.ipynb) |
+| 4.3 | Day 4 · Session 3 | Evidence, controls and gaps | [`D4_3_evidence_crosswalk.ipynb`](labs/D4_3_evidence_crosswalk.ipynb) |
+| 4.4 | Day 4 · Session 4 | A one-page residual-risk statement | [`D4_4_residual_statement.ipynb`](labs/D4_4_residual_statement.ipynb) |
 <!-- /academy:labs -->
 
 ## Capstone
 
 An assurance pack for an unseen synthetic system (test plan, attack logs, findings with regression tests, risk register, architecture review, assurance case) in a public repository, defended before a panel acting as accountable executive and auditor
 
-**Submission:** REPLACE: what participants submit and how: a public repository link, or a shared folder for a course without code
+**Submission:** A link to a public GitHub repository that holds the assurance pack for Insaf, the appeals agent: the test plan, the attack logs with timestamps, the findings with three regression tests, the risk register, the architecture review, the assurance case with its gap list and the one-page residual-risk statement
+
+The unseen system is Insaf, the appeals agent of the same Agency; its brief is in [`labs/capstone/README.md`](labs/capstone/README.md). The defence takes 10 minutes of presentation and 10 minutes of questions, in which the participant reproduces one finding the panel selects.
 
 ## Prerequisites
 
@@ -95,15 +99,61 @@ Each line is a capability; the examples are interchangeable.
 <!-- academy:sources -->
 ## Sources
 
-- REPLACE: every source the course cites, with its address, in course.json under "sources"; this list is written from there
+### National references
+
+- [National AI Risk Management Framework, full text in Arabic (SDAIA, April 2026)](https://sdaia.gov.sa/ar/MediaCenter/KnowledgeCenter/ResearchLibrary/ExecutiveSummaryAr.pdf)
+- [National AI Risk Management Framework, English executive summary (SDAIA, April 2026)](https://sdaia.gov.sa/en/MediaCenter/KnowledgeCenter/ResearchLibrary/ExecutiveSummaryEn.pdf)
+- [Principles of AI Ethics (SDAIA)](https://sdaia.gov.sa/en/SDAIA/about/Documents/ai-principles.pdf)
+- [Generative AI Guideline for Government (SDAIA)](https://sdaia.gov.sa/en/SDAIA/about/Files/GenAIGuidelinesForGovernmentENCompressed.pdf)
+- [Personal Data Protection Law (SDAIA)](https://sdaia.gov.sa/en/SDAIA/about/Documents/PersonalDataProtectionLaw.pdf)
+- [Implementing Regulation of the Personal Data Protection Law (SDAIA)](https://sdaia.gov.sa/en/SDAIA/about/Documents/ImplementingRegulationPersonalDataProtectionLaw.pdf)
+- [Data Classification Policy (National Data Management Office, SDAIA)](https://sdaia.gov.sa/en/SDAIA/about/Documents/DataClassificationPolicy.pdf)
+- [National Cybersecurity Authority: controls list (Essential Cybersecurity Controls; AI Cybersecurity Guidelines, consultation draft)](https://nca.gov.sa/en/regulatory-documents/controls-list/)
+- [Essential Cybersecurity Controls (National Cybersecurity Authority)](https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/)
+
+### Risk lists, technique catalogues and testing guides
+
+- [OWASP Top 10 for LLM Applications 2026 (OWASP GenAI Security Project)](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+- [OWASP Top 10 for Agentic Applications for 2026 (OWASP GenAI Security Project)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
+- [OWASP GenAI Red Teaming Guide (OWASP GenAI Security Project)](https://genai.owasp.org/resource/genai-red-teaming-guide/)
+- [OWASP AI Testing Guide](https://owasp.org/projects/ai-testing-guide)
+- [MITRE ATLAS](https://atlas.mitre.org/)
+- [MITRE ATLAS data, version 2026.10](https://github.com/mitre-atlas/atlas-data)
+- [Simon Willison: The lethal trifecta for AI agents (June 2025)](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)
+
+### Assurance cases
+
+- [Bloomfield and Rushby: Assurance 2.0, a manifesto (2020)](https://arxiv.org/abs/2004.10474)
+- [Goal Structuring Notation community standard (Safety-Critical Systems Club)](https://scsc.uk/gsn)
+- [AI Security Institute: Safety cases at AISI](https://www.aisi.gov.uk/blog/safety-cases-at-aisi)
+
+### Control frameworks
+
+- [NIST AI Risk Management Framework (AI RMF 1.0), NIST AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
+- [NIST AI RMF: Generative Artificial Intelligence Profile, NIST AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
+- [NIST AI Risk Management Framework: overview page](https://www.nist.gov/itl/ai-risk-management-framework)
+- [CSA AI Controls Matrix (Cloud Security Alliance)](https://cloudsecurityalliance.org/artifacts/ai-controls-matrix)
+
+### Identity and delegated authority
+
+- [RFC 8693: OAuth 2.0 Token Exchange](https://www.rfc-editor.org/rfc/rfc8693)
+
+### Tools named as examples
+
+- [garak, the LLM vulnerability scanner](https://github.com/NVIDIA/garak)
+- [PyRIT, the Python Risk Identification Tool for generative AI](https://github.com/Azure/PyRIT)
+- [promptfoo: red teaming guide](https://www.promptfoo.dev/docs/red-team/)
+- [Open Policy Agent: documentation](https://www.openpolicyagent.org/docs)
+- [Cedar policy language](https://www.cedarpolicy.com/)
+- [OpenRouter models list](https://openrouter.ai/models)
 <!-- /academy:sources -->
 
 ### National references
 
-- National AI Risk Management Framework (SDAIA, April 2026): REPLACE: the address of the official text
-- SDAIA AI Ethics Principles: REPLACE: the address of the official text
-- SDAIA Generative AI Guidelines: REPLACE: the address of the official text
-- Personal Data Protection Law and its implementing regulations: REPLACE: the address of the official text
-- NDMO Data Classification Policy: REPLACE: the address of the official text
-- NCA Essential Cybersecurity Controls: REPLACE: the address of the official text
-- NCA AI Cybersecurity Guidelines (consultation draft, 2026): REPLACE: the address of the official text
+- National AI Risk Management Framework (SDAIA, April 2026): https://sdaia.gov.sa/ar/MediaCenter/KnowledgeCenter/ResearchLibrary/ExecutiveSummaryAr.pdf (full text, Arabic) and https://sdaia.gov.sa/en/MediaCenter/KnowledgeCenter/ResearchLibrary/ExecutiveSummaryEn.pdf (executive summary, English)
+- SDAIA AI Ethics Principles: https://sdaia.gov.sa/en/SDAIA/about/Documents/ai-principles.pdf
+- SDAIA Generative AI Guidelines: https://sdaia.gov.sa/en/SDAIA/about/Files/GenAIGuidelinesForGovernmentENCompressed.pdf
+- Personal Data Protection Law and its implementing regulations: https://sdaia.gov.sa/en/SDAIA/about/Documents/PersonalDataProtectionLaw.pdf and https://sdaia.gov.sa/en/SDAIA/about/Documents/ImplementingRegulationPersonalDataProtectionLaw.pdf
+- NDMO Data Classification Policy: https://sdaia.gov.sa/en/SDAIA/about/Documents/DataClassificationPolicy.pdf
+- NCA Essential Cybersecurity Controls: https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/
+- NCA AI Cybersecurity Guidelines (consultation draft, 2026): listed by the National Cybersecurity Authority at https://nca.gov.sa/en/regulatory-documents/controls-list/ ; the course cites the draft by name and states nothing about its content
